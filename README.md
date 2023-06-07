@@ -21,6 +21,7 @@ Category | Description
 **Ethernet** | Intel I219-V
 **WiFi** | Intel AC-9560 160 Mhz
 **Bluetooth** |Intel Wireless Bluetooth. Not working yet ([**but it should**](https://openintelwireless.github.io/IntelBluetoothFirmware/Compat.html)) <br> **VID**: `0x8087`, **PID**: `0x0aaa`, **USB Port**: HS10
+**Trackpad** | I2C Device: `pci8086,9de8`
 
 ## BIOS Settings
 After powering on the machine, spam <kbd>Enter</kbd> until you hear a beep, then press <kbd>F1</kbd> to enter the BIOS. Change the following settings:
@@ -80,9 +81,6 @@ EFI
     │   ├── Lilu.kext
     │   ├── NVMeFix.kext
     │   ├── SMCBatteryManager.kext
-    │   ├── SMCLightSensor
-    │   ├── SMCProcessor
-    │   ├── SMCSuperIO
     │   ├── USBMap.kext
     │   ├── VirtualSMC.kext
     │   ├── VoodooPS2Controller.kext

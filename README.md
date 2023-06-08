@@ -11,12 +11,13 @@ Category | Description
 :---------:|------------
 **Model** | Lenovo ThinkPad T490 
 **Type** | [**20N3**](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t490-type-20n2-20n3/document-userguide)
-**Display** | Full HD (1080p) (Non-Touch)
 **CPU** | Intel [**Intel Core i5 8265U**](https://ark.intel.com/content/www/us/en/ark/products/149088/intel-core-i58265u-processor-6m-cache-up-to-3-90-ghz.html) (Quad Core)
 **RAM** | 16 GB: <ul> <li> 8 GB Samsung DDR 4 @2667 Mhz (soldered) <li> 8 GB Kingston DDR 4 @2400 Mhz (RAM Slot)
 **Storage** | ~~Samsung PM981 NVMe~~ ([**unusable**](https://dortania.github.io/Anti-Hackintosh-Buyers-Guide/Storage.html)) <br> 250 GB M.2 Crucial MX 500 SATA SSD
+**Display** | Full HD (1080p) (Non-Touch)
 **dGPU** | –
 **iGPU** | Intel UHD 620
+**Audio** | Realtek ALC257, `alcid=97` 
 **Thunderbolt** | Titan Ridge Thunderbolt 3 Connector (USB-C)<br> (Untested)
 **Ethernet** | Intel I219-V
 **WiFi** | Intel AC-9560 160 Mhz

@@ -1,35 +1,35 @@
 # Lenovo ThinkPad T490 Hackintosh OpenCore
-[![OpenCore](https://img.shields.io/badge/OpenCore-0.9.3-blue.svg)](https://github.com/acidanthera/OpenCorePkg/releases/latest) [![macOS Monterey](https://img.shields.io/badge/macOS-12.6.7-white.svg)](https://www.apple.com/newsroom/2021/10/macos-monterey-is-now-available/) [![macOS Ventura](https://img.shields.io/badge/macOS-13.5b2-white.svg)](https://www.apple.com/macos/ventura/)<br>
+[![OpenCore](https://img.shields.io/badge/OpenCore-0.9.3-blue.svg)](https://github.com/acidanthera/OpenCorePkg/releases/latest) [![macOS Monterey](https://img.shields.io/badge/macOS-12.6.7-white.svg)](https://www.apple.com/newsroom/2021/10/macos-monterey-is-now-available/) [![macOS Ventura](https://img.shields.io/badge/macOS-13.5b2-white.svg)](https://www.apple.com/macos/ventura/) [![macOS Sonoma](https://img.shields.io/badge/macOS-14.0b-white.svg)](https://www.apple.com/macos/sonoma-preview/)<br>
 ![09105737](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/assets/76865553/7dcbbc97-b817-4688-93a9-8fb6b56a374b)
 
 **TABLE of CONTENTS**
 
-- [About](#about)
-  - [Notable Features](#notable-features)
-  - [Future Developments](#future-developments)
-- [Issues](#issues)
-- [Specs](#specs)
-- [BIOS Settings](#bios-settings)
-- [EFI Folder Content](#efi-folder-content)
-- [Preperatios](#preperatios)
-  - [Config adjustments](#config-adjustments)
-- [Deployment](#deployment)
-  - [If macOS is installed already](#if-macos-is-installed-already)
-  - [If macOS is not installed](#if-macos-is-not-installed)
-- [Post-Install](#post-install)
-- [Credits and Thank Yous](#credits-and-thank-yous)
+- [**About**](#about)
+  - [**Notable Features**](#notable-features)
+  - [**Future Developments**](#future-developments)
+- [**Issues**](#issues)
+- [**Specs**](#specs)
+- [**BIOS Settings**](#bios-settings)
+- [**EFI Folder Content**](#efi-folder-content)
+- [**Preperatios**](#preperatios)
+  - [**Config adjustments**](#config-adjustments)
+- [**Deployment**](#deployment)
+  - [**If macOS is installed already**](#if-macos-is-installed-already)
+  - [**If macOS is not installed**](#if-macos-is-not-installed)
+- [**Post-Install**](#post-install)
+- [**Credits and Thank Yous**](#credits-and-thank-yous)
 
 ## About
-OpenCore EFI folder and config for running macOS Monterey and newer on the Lenovo Thinkpad T490. Read the documnettion carefully in order to boot your OS successfully.
+OpenCore EFI folder and config for running macOS Monterey and newer on the Lenovo Thinkpad T490. Read the documentation carefully in order to boot macOS successfully.
 
 ### Notable Features
 - Latest versions of OpenCore and Kexts
+- Can boot macOS Sonoma.
 - Lean EFI folder with slimmed kexts:
 	- **AppleALC** (87 kB instead of 2.2 mb). Only contains layout `97`.
 	- **AirportItlwm** (1.7 mb instead of 16 mb). Only Contains Firmware for Intel AC 9560.
 	- **itlwm** (1.6 mb instead of 16 mb). Only Contains Firmware for Intel AC 9560.
-- Kext loading for different versions of macOS managed via `MinKernel` and `MaxKernel` setting
-- YogaSMC support for addittional features like CPU fan control, performance balance, all <kbd>Fn</kbd> Key shortcuts working, additional OSD overlays, etc.
+- YogaSMC support for addittional features like CPU fan control, performance bias, all <kbd>Fn</kbd> Key shortcuts working, additional OSD overlays, etc.
 - No injection of PlatformInfo data into Windows.
 
 ### Future Developments
@@ -38,7 +38,6 @@ OpenCore EFI folder and config for running macOS Monterey and newer on the Lenov
 - Adding Clover support (maybe)
 
 ## Issues
-- Erratic Mouse Pointer behavior in BootPicker. Disabled `PointerSupport` for now. Since it works fine when using a USB mouse, I think the issue might be related to VoodooSMBus or VoodooRMI. Created an issue report.
 - Audio Jack creates an unpleasant buzz/noise during drivier initialization. So it's best to connect to it *after* booting.
 - When attaching to an external mintor via HDMI to DVI cable, both screens turn on and off a few times until the link is established. When connecting from HDMI to HDMI, this doesn't happen.
 
@@ -58,7 +57,7 @@ Category | Description
 **Thunderbolt** | Titan Ridge Thunderbolt 3 Connector (USB-C)<br> (Untested)
 **Ethernet** | Intel I219-V
 **WiFi** | Intel AC-9560 (**Model**: iwm-9000-46)
-**Bluetooth** |Intel Wireless Bluetooth. Not working in macOS 13.5b2 <br> **VID**: `0x8087`, **PID**: `0x0aaa`, **USB Port**: HS10
+**Bluetooth** |Intel Wireless Bluetooth <br> **VID**: `0x8087`, **PID**: `0x0aaa`, **USB Port**: HS10
 **Trackpad** | Synaptics (**Device-id**: `pci8086,9de8`). Controlled via SMBUS.
 **SD Card Reader** | Realtek MicroSD Card Reader
 
@@ -104,7 +103,6 @@ EFI
     │   ├── OpenRuntime.efi
     │   └── ResetNvramEntry.efi
     ├── Kexts (loaded based on Min Kernel/Max Kernel settings)
-    │   ├── AirportItlwm.kext
     │   ├── AppleALC.kext
     │   ├── BlueToolFixup.kext
     │   ├── BrightnessKeys.kext
@@ -142,13 +140,13 @@ EFI
 ```
 </details>
 
-## Preperatios
+## Preparations
 
 ### Config adjustments
-- Download the latest EFI folder from the "Releases" Section and unzip it
-- Open the config.plist with a plist editor of your choice (I am using OCAT)
-- Go to `PlatformInfo/Generic` and generate Serials for `MacBookPro15,4` with GenSMBIOS or OCAT. :warning: Don't change the SMBIOS or the USBMap.kext won't work anymore!
-- If you are using/installing a different OS than macOS Monterey, you need to replace [AirportItlwm.kext](https://github.com/OpenIntelWireless/itlwm/releases) by the version for the OS you are planning to use.
+- Download the latest EFI folder from the "Releases" section and unzip it
+- Open the config.plist with the plist editor of your choice (I am using OCAT)
+- Go to `PlatformInfo/Generic` and generate MLB, Serials and ROM for `MacBookPro15,4` with GenSMBIOS or OCAT. :warning: Don't change the SMBIOS or the `USBMap.kext` won't work anymore!
+- `UEFI/APFS`: change `MinVersion` and `MinDate` to `-1` for macOS Catalina and older.
 - Save your config.plist
 
 ## Deployment
@@ -160,19 +158,26 @@ EFI
 
 ### If macOS is not installed
 - Follow Dortania's [OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/#making-the-installer) to prepare a USB Installer
-- Once the USB  has been created, mount its EFI Parttion (you can use [MountEFI](https://github.com/corpnewt/MountEFI))
+- Once the USB  has been created, download the latest version of [**HeliPort**](https://github.com/OpenIntelWireless/HeliPort) and copy the .dmg to your USB Installer
+- Next, mount the EFI Parttion of the USB Installet (you can use [**MountEFI**](https://github.com/corpnewt/MountEFI) for this)
 - Put the EFI folder on the EFI partition of the USB installer
 - Reboot from the USB installer 
 - Install macOS
 - Once that is completed, continue with Post-Install
 
+**NOTE**: You will have to use Ethernet during the installation of macOS if your system requires access to the Internet.
+
 ## Post-Install
-- Enable **YogaSMC**:
-	- Download and install the [**YogaSMC App**](https://github.com/zhen-zen/YogaSMC/releases) and Preference Pane so YogaSMC can work
-- **Optional**: Switch WiFi kext form `AirportItlwm` to `itlwm`. 
-	- itlm uses Apple's IOEthernet rather than IO80211.
-	- itlm provides a stabler and faster performance than AirportItlwm. You also don't need different versions of the kext for different versions of macOS. 
-	- Only downside: it requires its own app called [HeliPort](https://github.com/OpenIntelWireless/HeliPort) to connect to hotspots which does not work during macOS install/recovery. More Info [here](https://openintelwireless.github.io/HeliPort/Installation.html)
+- Disable Gatekeeper: `sudo spctl --master-disable`
+- Mount **HeliPort.dmg**, drag the app into the "Programs" folder and run it.
+- Use it to connect to your WiFI Hotspot.
+- Add HeiPort to "Login Items", so it stars and connects to your FiWi Hotspot automatically.
+- Next, enable **YogaSMC**:
+	- Download and mount [**YogaSMC-App**](https://github.com/zhen-zen/YogaSMC/releases) 
+	- Drag the `YogaSMCNC` app into the "Programs" folder 
+	- Double-click the YogaSMC **prefPane** to install it
+	- Click on its icon (⌥) in the menu bar and select "Start at Login"
+	- Now you can control Fan Speeds and other settings
 
 ## Credits and Thank Yous
 - [**Acidanthera**](https://github.com/acidanthera) for OpenCore, Kexts and maciASL
@@ -180,6 +185,7 @@ EFI
 - Dreamwhite for [**slimmed versions of itlwm kext**](https://github.com/dreamwhite/Chonky-itlwm-Build/releases) kexts
 - [**ic005k**](https://github.com/ic005k/OCAuxiliaryTools) for OpenCore Auxiliary Tools
 - [**benbaker76**](https://github.com/benbaker76/Hackintool) for Hackintool
+- [**zxystd**](https://github.com/zxystd/BrcmPatchRAM) for Sonoma-compatible BrcmPatchRAM kext
 - **T490 OpenCore Repos** for referencing and ACPI fixes:
 	- [yusifsalam](https://github.com/yusifsalam/t490-macos)
 	- [Krissh-C ](https://github.com/Krissh-C)

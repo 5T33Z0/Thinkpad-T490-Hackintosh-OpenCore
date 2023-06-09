@@ -40,6 +40,7 @@ OpenCore EFI folder and config for running macOS Monterey and newer on the Lenov
 ## Issues
 - Erratic Mouse Pointer behavior in BootPicker. Disabled `PointerSupport` for now. Since it works fine when using a USB mouse, I think the issue might be related to VoodooSMBus or VoodooRMI. Created an issue report.
 - Audio Jack creates an unpleasant buzz/noise during drivier initialization. So it's best to connect to it *after* booting.
+- When attaching to an external mintor via HDMI to DVI cable, both screens turn on and off a few times until the link is established. When connecting from HDMI to HDMI, this doesn't happen.
 
 ## Specs
 Category | Description

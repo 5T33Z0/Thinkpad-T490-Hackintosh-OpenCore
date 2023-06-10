@@ -1,6 +1,6 @@
 # Lenovo ThinkPad T490 Hackintosh OpenCore
 [![OpenCore](https://img.shields.io/badge/OpenCore-0.9.3-blue.svg)](https://github.com/acidanthera/OpenCorePkg/releases/latest) [![macOS Monterey](https://img.shields.io/badge/macOS-12.6.7-white.svg)](https://www.apple.com/newsroom/2021/10/macos-monterey-is-now-available/) [![macOS Ventura](https://img.shields.io/badge/macOS-13.5b2-white.svg)](https://www.apple.com/macos/ventura/) [![macOS Sonoma](https://img.shields.io/badge/macOS-14.0b-white.svg)](https://www.apple.com/macos/sonoma-preview/)<br>
-![09105737](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/assets/76865553/7dcbbc97-b817-4688-93a9-8fb6b56a374b)
+![10053604](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/assets/76865553/ed932a1a-8205-4b81-a4e2-f68d7d8a7178)
 
 **TABLE of CONTENTS**
 

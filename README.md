@@ -25,7 +25,7 @@ OpenCore EFI folder and config for running macOS Monterey and newer on the Lenov
 ### Notable Features
 - Latest versions of OpenCore and Kexts
 - Can boot macOS Sonoma.
-- Lean EFI folder with slimmed kexts:
+- Lean EFI folder with slimmed kexts (currently postponed due to Sonoma release):
 	- **AppleALC** (87 kB instead of 2.2 mb). Only contains layout `97`.
 	- **AirportItlwm** (1.7 mb instead of 16 mb). Only Contains Firmware for Intel AC 9560.
 	- **itlwm** (1.6 mb instead of 16 mb). Only Contains Firmware for Intel AC 9560.
@@ -40,6 +40,7 @@ OpenCore EFI folder and config for running macOS Monterey and newer on the Lenov
 ## Issues
 - Audio Jack creates an unpleasant buzz/noise during drivier initialization. So it's best to connect to it *after* booting.
 - When attaching to an external mintor via HDMI to DVI cable, both screens turn on and off a few times until the link is established. When connecting from HDMI to HDMI, this doesn't happen.
+- Sometimes the display turns off after booting. I don't know if this is a UEFI issue or because I am using Quick boot.
 
 ## Specs
 Category | Description
@@ -149,6 +150,20 @@ EFI
 - `UEFI/APFS`: change `MinVersion` and `MinDate` to `-1` for macOS Catalina and older.
 - Save your config.plist
 
+#### AirportItlwm.kext vs. itlwm.kext
+Although the Intel AC-9560 Card is compatible with both kexts (use either one or the other) to connect to WiFi, there are Pro's and Cons to both of them.
+
+- **AirportItlw**:
+	- **Con**: requires the correct kext per macOS version, so using it accros various versions of macOS doesn't work (unless you rename them to AirportItlw_Monterey.kext, AirportItlw_Ventura.kext, etc, and assigne MinKernel/MaxKernel settings to them, I guess). Currently there's no Version for Sonoma.
+	- **Con**: it doesn't work as well as itlwm.kext
+	- **Pro**: can be used during macOS install which is not possible with itlwm.kext
+- **itlwm.kext**
+	- **Pro**: Only one kext which works in Sonoma already
+	- **Pro**: Connects much faster to WiFi hotspots and performs better
+	- **Con**: Requires an alternative App to 
+
+**Suggestion**: Use Ethernet during macOS insatallation. If you don't have access to Ethernet, add the correct AirportItlw.kext for the desired macOS version and disable itlwm.kext.
+
 ## Deployment
 ### If macOS is installed already
 - Put the EFI folder on a FAT32 formatted USB stick
@@ -178,6 +193,16 @@ EFI
 	- Double-click the YogaSMC **prefPane** to install it
 	- Click on its icon (⌥) in the menu bar and select "Start at Login"
 	- Now you can control Fan Speeds and other settings
+- Use [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend) to generate your own CPUFriendDataProvider.kext if your T490 uses a different CPU than mine to optimize CPU Power Management
+
+## For OCAT Users
+Add the following links to the "Kext URL Upgrade" list (accessible via "Settings" in the Sync window), so kext which are marked in grey in the Sync window will be downloaded when checking for updates:
+
+Kext | Link
+-----|-----
+**itlwm.kext** | https://github.com/OpenIntelWireless/itlwm 
+**BlueToolFixup.kext** | https://github.com/acidanthera/BrcmPatchRAM
+**IntelMausiEthernet.kext** | https://github.com/CloverHackyColor/IntelMausiEthernet
 
 ## Credits and Thank Yous
 - [**Acidanthera**](https://github.com/acidanthera) for OpenCore, Kexts and maciASL

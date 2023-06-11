@@ -4,62 +4,66 @@
 
 **TABLE of CONTENTS**
 
-- [**About**](#about)
-  - [**Notable Features**](#notable-features)
-  - [**Future Developments**](#future-developments)
-- [**Issues**](#issues)
-- [**Specs**](#specs)
-- [**BIOS Settings**](#bios-settings)
-- [**EFI Folder Content**](#efi-folder-content)
-- [**Preperatios**](#preperatios)
-  - [**Config adjustments**](#config-adjustments)
-- [**Deployment**](#deployment)
-  - [**If macOS is installed already**](#if-macos-is-installed-already)
-  - [**If macOS is not installed**](#if-macos-is-not-installed)
-- [**Post-Install**](#post-install)
-- [**Credits and Thank Yous**](#credits-and-thank-yous)
+- [About](#about)
+- [Specs](#specs)
+  - [Notable Features](#notable-features)
+  - [Future Developments](#future-developments)
+- [Issues](#issues)
+- [BIOS Settings](#bios-settings)
+- [EFI Folder Content](#efi-folder-content)
+- [Preparations](#preparations)
+  - [Config adjustments](#config-adjustments)
+    - [AirportItlwm.kext vs. itlwm.kext](#airportitlwmkext-vs-itlwmkext)
+- [Deployment](#deployment)
+  - [If macOS is installed already](#if-macos-is-installed-already)
+  - [If macOS is not installed](#if-macos-is-not-installed)
+- [Post-Install](#post-install)
+- [For OCAT Users](#for-ocat-users)
+- [Credits and Thank Yous](#credits-and-thank-yous)
 
 ## About
-OpenCore EFI folder and config for running macOS Monterey and newer on the Lenovo Thinkpad T490. Read the documentation carefully in order to boot macOS successfully.
+OpenCore EFI folder and config for running macOS Monterey and newer on the Lenovo ThinkPad T490. Read the documentation carefully in order to boot macOS successfully.
 
 ### Notable Features
-- Latest versions of OpenCore and Kexts
-- Can boot macOS Sonoma.
-- Lean EFI folder with slimmed kexts (currently postponed due to Sonoma release):
+- Compatible with macOS Sonoma
+- MicroSD Card Reader is working
+- Clamshell mode working (when connected to A/C and external display)
+- Lean EFI folder with slimmed kexts (20 mb instead of 70) :
 	- **AppleALC** (87 kB instead of 2.2 mb). Only contains layout `97`.
 	- **AirportItlwm** (1.7 mb instead of 16 mb). Only Contains Firmware for Intel AC 9560.
 	- **itlwm** (1.6 mb instead of 16 mb). Only Contains Firmware for Intel AC 9560.
-- YogaSMC support for addittional features like CPU fan control, performance bias, all <kbd>Fn</kbd> Key shortcuts working, additional OSD overlays, etc.
+- YogaSMC support for additional features like CPU fan control, performance bias, all <kbd>Fn</kbd> Key shortcuts working, additional OSD overlays, etc.
 - No injection of PlatformInfo data into Windows.
+- MicroSD Card Reader is working
 
 ### Future Developments
-- I am planning to get my hands on a Lenovo Thinkpad Thunderbolt 3 Dock (Gen 2) to see if it works
-- Since I've had this Notebook for a couple of days only, I am using a USBMap.kext for now. But I am looking into mapping the USB ports via ACPI instead so it works with any SMBIOS and any version of macOS so you never have to wworry about it
-- Adding Clover support (maybe)
+1. Implementing Clamshell Mode
+2. Mapping USB Ports via ACPI instead of using USBMap.kext
+3. I am planning to get my hands on a Lenovo ThinkPad Thunderbolt 3 Dock (Gen 2) to see if it works
+4. Trying to create a better Connector Patch for external DVI Monitor
+5. Adding Clover support (maybe)
 
 ## Issues
-- Audio Jack creates an unpleasant buzz/noise during drivier initialization. So it's best to connect to it *after* booting.
-- When attaching to an external mintor via HDMI to DVI cable, both screens turn on and off a few times until the link is established. When connecting from HDMI to HDMI, this doesn't happen.
-- Sometimes the display turns off after booting. I don't know if this is a UEFI issue or because I am using Quick boot.
+- Audio Jack creates an unpleasant buzz/noise during driver initialization. So it's best to connect to it *after* booting.
 
 ## Specs
 Category | Description
 :---------:|------------
 **Model** | Lenovo ThinkPad T490 
-**Type** | [**20N3**](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t490-type-20n2-20n3/document-userguide)
+**Variant** | [**20N3**](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t490-type-20n2-20n3/document-userguide)
 **BIOS** | **UEFI**: 1.79 (2023-01-16)<br> **Embedded Controller**: 1.26
 **CPU** | Intel [**Intel Core i5 8265U**](https://ark.intel.com/content/www/us/en/ark/products/149088/intel-core-i58265u-processor-6m-cache-up-to-3-90-ghz.html) (Quad Core)
 **RAM** | 16 GB: <ul> <li> 8 GB Samsung DDR 4 @2400 Mhz (soldered) <li> 8 GB Kingston DDR 4 @2400 Mhz (RAM Slot)
 **Storage** | ~~Samsung PM981 NVMe~~ ([**unusable**](https://dortania.github.io/Anti-Hackintosh-Buyers-Guide/Storage.html)) <br> 250 GB M.2 Crucial MX 500 SATA SSD
 **Display** | Full HD (1080p) (Non-Touch)
-**dGPU** | –
-**iGPU** | Intel UHD 620
-**Audio** | Realtek ALC257, `alcid=97` 
+**dGPU** | None
+**iGPU** | Intel UHD 620 (spoofed as UHD 630)
+**Audio** | [Realtek ALC257](https://github.com/dreamwhite/ChonkyAppleALC-Build/blob/master/Realtek/ALC257.md) (using Layout `97`)
 **Thunderbolt** | Titan Ridge Thunderbolt 3 Connector (USB-C)<br> (Untested)
 **Ethernet** | Intel I219-V
-**WiFi** | Intel AC-9560 (**Model**: iwm-9000-46)
-**Bluetooth** |Intel Wireless Bluetooth <br> **VID**: `0x8087`, **PID**: `0x0aaa`, **USB Port**: HS10
-**Trackpad** | Synaptics (**Device-id**: `pci8086,9de8`). Controlled via SMBUS.
+**WiFi** | Intel AC-9560 (**Model/Firmware**: iwm-9000-46)
+**Bluetooth** |Intel Wireless Bluetooth <br> **VID**: `0x8087`, **PID**: `0x0aaa`, **USB Port**: `HS10`
+**Trackpad** | Synaptics <br>**Device-id**: `pci8086,9de8`). Controlled via SMBus.
 **SD Card Reader** | Realtek MicroSD Card Reader
 
 ## BIOS Settings
@@ -154,7 +158,7 @@ EFI
 Although the Intel AC-9560 Card is compatible with both kexts (use either one or the other) to connect to WiFi, there are Pro's and Cons to both of them.
 
 - **AirportItlw**:
-	- **Con**: requires the correct kext per macOS version, so using it accros various versions of macOS doesn't work (unless you rename them to AirportItlw_Monterey.kext, AirportItlw_Ventura.kext, etc, and assigne MinKernel/MaxKernel settings to them, I guess). Currently there's no Version for Sonoma.
+	- **Con**: requires the correct kext per macOS version, so using it across various versions of macOS doesn't work (unless you rename them to AirportItlw_Monterey.kext, AirportItlw_Ventura.kext, etc, and assigne MinKernel/MaxKernel settings to them, I guess). Currently there's no Version for Sonoma.
 	- **Con**: it doesn't work as well as itlwm.kext
 	- **Pro**: can be used during macOS install which is not possible with itlwm.kext
 - **itlwm.kext**
@@ -162,19 +166,19 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 	- **Pro**: Connects much faster to WiFi hotspots and performs better
 	- **Con**: Requires an alternative App to 
 
-**Suggestion**: Use Ethernet during macOS insatallation. If you don't have access to Ethernet, add the correct AirportItlw.kext for the desired macOS version and disable itlwm.kext.
+**Suggestion**: Use Ethernet during macOS installation. If you don't have access to Ethernet, add the correct AirportItlw.kext for the desired macOS version and disable itlwm.kext.
 
 ## Deployment
 ### If macOS is installed already
 - Put the EFI folder on a FAT32 formatted USB stick
 - Reboot from said USB flash drive for testing
-- If it works, place the EFI forder on the SSD of your Laptop
+- If it works, place the EFI folder on the SSD of your Laptop
 - Continue with Post-Install 
 
 ### If macOS is not installed
 - Follow Dortania's [OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/#making-the-installer) to prepare a USB Installer
 - Once the USB  has been created, download the latest version of [**HeliPort**](https://github.com/OpenIntelWireless/HeliPort) and copy the .dmg to your USB Installer
-- Next, mount the EFI Parttion of the USB Installet (you can use [**MountEFI**](https://github.com/corpnewt/MountEFI) for this)
+- Next, mount the ESP of the USB Installer (you can use [**MountEFI**](https://github.com/corpnewt/MountEFI) for this)
 - Put the EFI folder on the EFI partition of the USB installer
 - Reboot from the USB installer 
 - Install macOS
@@ -186,7 +190,7 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 - Disable Gatekeeper: `sudo spctl --master-disable`
 - Mount **HeliPort.dmg**, drag the app into the "Programs" folder and run it.
 - Use it to connect to your WiFI Hotspot.
-- Add HeiPort to "Login Items", so it stars and connects to your FiWi Hotspot automatically.
+- Add HeiPort to "Login Items", so it stars and connects to your WiFi Hotspot automatically.
 - Next, enable **YogaSMC**:
 	- Download and mount [**YogaSMC-App**](https://github.com/zhen-zen/YogaSMC/releases) 
 	- Drag the `YogaSMCNC` app into the "Programs" folder 
@@ -211,7 +215,7 @@ Kext | Link
 - [**ic005k**](https://github.com/ic005k/OCAuxiliaryTools) for OpenCore Auxiliary Tools
 - [**benbaker76**](https://github.com/benbaker76/Hackintool) for Hackintool
 - [**zxystd**](https://github.com/zxystd/BrcmPatchRAM) for Sonoma-compatible BrcmPatchRAM kext
-- **T490 OpenCore Repos** for referencing and ACPI fixes:
+- **T490 OpenCore Repos** used for referencing and ACPI hotfixes:
 	- [yusifsalam](https://github.com/yusifsalam/t490-macos)
 	- [Krissh-C ](https://github.com/Krissh-C)
 	- [ganyuanzhen](https://github.com/ganyuanzhen/T490-Hackintosh-Opencore)

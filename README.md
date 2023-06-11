@@ -5,10 +5,10 @@
 **TABLE of CONTENTS**
 
 - [About](#about)
-- [Specs](#specs)
   - [Notable Features](#notable-features)
   - [Future Developments](#future-developments)
 - [Issues](#issues)
+- [Specs](#specs)
 - [BIOS Settings](#bios-settings)
 - [EFI Folder Content](#efi-folder-content)
 - [Preparations](#preparations)

@@ -36,10 +36,10 @@ OpenCore EFI folder and config for running macOS Monterey and newer on the Lenov
 - No injection of PlatformInfo data into Windows.
 
 ### Future Developments
-1. Implementing Clamshell Mode
+1. ~~Implementing Clamshell Mode:~~ Done!
 2. Mapping USB Ports via ACPI instead of using USBMap.kext
 3. I am planning to get my hands on a Lenovo ThinkPad Thunderbolt 3 Dock (Gen 2) to see if it works
-4. Trying to create a better Connector Patch for external DVI Monitor
+4. ~~Trying to create a better Connector Patch for external DVI Monitor~~ Done!
 5. Adding Clover support (maybe)
 
 ## Issues

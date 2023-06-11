@@ -34,7 +34,6 @@ OpenCore EFI folder and config for running macOS Monterey and newer on the Lenov
 	- **itlwm** (1.6 mb instead of 16 mb). Only Contains Firmware for Intel AC 9560.
 - YogaSMC support for additional features like CPU fan control, performance bias, all <kbd>Fn</kbd> Key shortcuts working, additional OSD overlays, etc.
 - No injection of PlatformInfo data into Windows.
-- MicroSD Card Reader is working
 
 ### Future Developments
 1. Implementing Clamshell Mode

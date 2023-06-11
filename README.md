@@ -157,14 +157,14 @@ EFI
 #### AirportItlwm.kext vs. itlwm.kext
 Although the Intel AC-9560 Card is compatible with both kexts (use either one or the other) to connect to WiFi, there are Pro's and Cons to both of them.
 
-- **AirportItlw**:
-	- **Con**: requires the correct kext per macOS version, so using it across various versions of macOS doesn't work (unless you rename them to AirportItlw_Monterey.kext, AirportItlw_Ventura.kext, etc, and assigne MinKernel/MaxKernel settings to them, I guess). Currently there's no Version for Sonoma.
+- **AirportItlwm**:
+	- **Con**: requires the correct kext per macOS version, so using it across various versions of macOS doesn't work (unless you rename them to AirportItlw_Monterey.kext, AirportItlw_Ventura.kext, etc, and assign MinKernel/MaxKernel settings to them, I guess). Currently it's not available for Sonoma.
 	- **Con**: it doesn't work as well as itlwm.kext
 	- **Pro**: can be used during macOS install which is not possible with itlwm.kext
 - **itlwm.kext**
 	- **Pro**: Only one kext which works in Sonoma already
 	- **Pro**: Connects much faster to WiFi hotspots and performs better
-	- **Con**: Requires an alternative App to 
+	- **Con**: Requires an alternative App to connect to WiFi Hotspots
 
 **Suggestion**: Use Ethernet during macOS installation. If you don't have access to Ethernet, add the correct AirportItlw.kext for the desired macOS version and disable itlwm.kext.
 

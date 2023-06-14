@@ -164,7 +164,7 @@ Although the Intel AC-9560 Card is compatible with both kexts to connect to WiFi
 	- **Pro**: can be used during macOS installation which is not possible with `itlwm.kext`.
 - **itlwm.kext**
 	- **Pro**: Only one kext which works accross multiple versions of macOS
-	- **Pro**: Supplies Sonoma already (easier to maintain since OpenSource)
+	- **Pro**: Supplies Sonoma already (easier to maintain since Open Source)
 	- **Pro**: Connects much faster to WiFi hotspots and performs better
 	- **Con**: Requires [HeliPort](https://github.com/OpenIntelWireless/HeliPort) app to connect to WiFi Hotspots so it can't be used during macOS installation
 

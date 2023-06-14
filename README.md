@@ -43,7 +43,7 @@ OpenCore EFI folder and config for running macOS Monterey and newer on the Lenov
 5. Adding Clover support (maybe)
 
 ## Issues
-- Audio Jack creates an unpleasant buzz/noise during driver initialization. So it's best to connect to it *after* booting.
+- Audio Jack creates an unpleasant buzz/noise during driver initialization. So it's best to connect Headphones to it *after* booting.
 
 ## Specs
 Category | Description
@@ -146,10 +146,11 @@ EFI
 
 ## Preparations
 
-### Config adjustments
+### Config Adjustments
 - Download the latest EFI folder from the "Releases" section and unzip it
-- Open the config.plist with the plist editor of your choice (I am using OCAT)
+- Open the config.plist with the plist editor of your choice (ProperTree or OCAT)
 - Go to `PlatformInfo/Generic` and generate MLB, Serials and ROM for `MacBookPro15,4` with GenSMBIOS or OCAT. :warning: Don't change the SMBIOS or the `USBMap.kext` won't work anymore!
+- Add `boot-args` for debugging if you have installation issues: `-v`, `debug=0x100` and `keepsyms=1`
 - `UEFI/APFS`: change `MinVersion` and `MinDate` to `-1` for macOS Catalina and older.
 - Save your config.plist
 

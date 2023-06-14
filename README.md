@@ -33,14 +33,14 @@ OpenCore EFI folder and config for running macOS Monterey and newer on the Lenov
 	- **AirportItlwm** (1.7 mb instead of 16 mb). Only Contains Firmware for Intel AC 9560.
 	- **itlwm** (1.6 mb instead of 16 mb). Only Contains Firmware for Intel AC 9560.
 - YogaSMC support for additional features like CPU fan control, performance bias, all <kbd>Fn</kbd> Key shortcuts working, additional OSD overlays, etc.
-- No injection of PlatformInfo data into Windows.
+- No injection of `PlatformInfo` data into Windows.
 
 ### Future Developments
 1. ~~Implementing Clamshell Mode:~~ Done!
 2. Mapping USB Ports via ACPI instead of using USBMap.kext
 3. I am planning to get my hands on a Lenovo ThinkPad Thunderbolt 3 Dock (Gen 2) to see if it works
 4. ~~Trying to create a better Connector Patch for external DVI Monitor~~ Done!
-5. Adding Clover support (maybe)
+5. ~~Adding Clover support~~ Send a 
 
 ## Issues
 - Audio Jack creates an unpleasant buzz/noise during driver initialization. So it's best to connect Headphones to it *after* booting.
@@ -147,26 +147,28 @@ EFI
 ## Preparations
 
 ### Config Adjustments
-- Download the latest EFI folder from the "Releases" section and unzip it
-- Open the config.plist with the plist editor of your choice (ProperTree or OCAT)
-- Go to `PlatformInfo/Generic` and generate MLB, Serials and ROM for `MacBookPro15,4` with GenSMBIOS or OCAT. :warning: Don't change the SMBIOS or the `USBMap.kext` won't work anymore!
+- Download the [latest Release](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/releases/latest) of my EFI folder and unzip it
+- Open the config.plist with the plist editor of your choice (ProperTree or OCAT for example)
+- `Kexts/Add` Section: decide, which Wifi kext you want to use (&rarr; see [AirportItlwm vs itlwm](#airportitlwmkext-vs-itlwmkext))
+- Go to `PlatformInfo/Generic` and generate MLB, Serial and ROM for `MacBookPro15,4` with GenSMBIOS or OCAT. :warning: Don't change the SMBIOS or the `USBMap.kext` won't work anymore!
 - Add `boot-args` for debugging if you have installation issues: `-v`, `debug=0x100` and `keepsyms=1`
 - `UEFI/APFS`: change `MinVersion` and `MinDate` to `-1` for macOS Catalina and older.
 - Save your config.plist
 
 #### AirportItlwm.kext vs. itlwm.kext
-Although the Intel AC-9560 Card is compatible with both kexts (use either one or the other) to connect to WiFi, there are Pro's and Cons to both of them.
+Although the Intel AC-9560 Card is compatible with both kexts to connect to WiFi (use either one or the other), there are Pros and Cons to both of them:
 
 - **AirportItlwm**:
-	- **Con**: requires the correct kext per macOS version, so using it across various versions of macOS doesn't work (unless you rename them to AirportItlw_Monterey.kext, AirportItlw_Ventura.kext, etc, and assign MinKernel/MaxKernel settings to them, I guess). Currently it's not available for Sonoma.
-	- **Con**: it doesn't work as well as itlwm.kext
-	- **Pro**: can be used during macOS install which is not possible with itlwm.kext
+	- **Con**: requires the correct kext per macOS version, so using it across multiple versions of macOS doesn't work. And it's not available for macOS Sonoma yet.
+	- **Con**: doesn't work as well as itlwm.kext
+	- **Pro**: can be used during macOS installation which is not possible with `itlwm.kext`.
 - **itlwm.kext**
-	- **Pro**: Only one kext which works in Sonoma already
+	- **Pro**: Only one kext which works accross multiple versions of macOS
+	- **Pro**: Supplies Sonoma already (easier to maintain since OpenSource)
 	- **Pro**: Connects much faster to WiFi hotspots and performs better
-	- **Con**: Requires an alternative App to connect to WiFi Hotspots
+	- **Con**: Requires [HeliPort](https://github.com/OpenIntelWireless/HeliPort) app to connect to WiFi Hotspots so it can't be used during macOS installation
 
-**Suggestion**: Use Ethernet during macOS installation. If you don't have access to Ethernet, add the correct AirportItlw.kext for the desired macOS version and disable itlwm.kext.
+**Suggestion**: Use Ethernet during macOS installation. If you don't have access to Ethernet, add the correct [`AirportItlw.kext`](https://github.com/OpenIntelWireless/itlwm/releases) for the desired macOS version you want to install and disable `itlwm.kext`.
 
 ## Deployment
 ### If macOS is installed already

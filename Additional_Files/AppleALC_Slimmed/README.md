@@ -6,7 +6,7 @@
 **AppleALC Version**: 1.8.4 (86 kb) </br>
 
 ## Codec Structure
-
+![](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/blob/main/Additional_Files/SysReport/Audio/Codec-Dump.png?raw=true)
 ## PinConfig
 
 ## How to

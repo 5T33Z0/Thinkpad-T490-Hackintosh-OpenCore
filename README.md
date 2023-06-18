@@ -56,13 +56,13 @@ Category | Description
 **Storage** | ~~Samsung PM981 NVMe~~ ([**unusable**](https://dortania.github.io/Anti-Hackintosh-Buyers-Guide/Storage.html)) <br> 250 GB M.2 Crucial MX 500 SATA SSD
 **Display** | Full HD (1080p) (Non-Touch)
 **dGPU** | None
-**iGPU** | Intel UHD 620 (spoofed as UHD 630)
-**Audio** | [Realtek ALC257](https://github.com/dreamwhite/ChonkyAppleALC-Build/blob/master/Realtek/ALC257.md) (using Layout `97`)
-**Thunderbolt** | Titan Ridge Thunderbolt 3 Connector (USB-C)<br> (Untested)
+**iGPU** | Intel(R) Grpahics UHD 620 (spoofed as Iris 655, BusID: `2`)
+**Audio** | [**Realtek ALC257**](https://github.com/dreamwhite/ChonkyAppleALC-Build/blob/master/Realtek/ALC257.md) (using Layout `97`)
+**Thunderbolt** | Titan Ridge Thunderbolt 3 Connector (USB-C)<br> (Reported working but I don't have any gear to test it)
 **Ethernet** | Intel I219-V
-**WiFi** | Intel AC-9560 (**Model/Firmware**: iwm-9000-46)
+**WiFi** | Intel AC-9560 (**Model/Firmware**: `iwm-9000-46`)
 **Bluetooth** |Intel Wireless Bluetooth <br> **VID**: `0x8087`, **PID**: `0x0aaa`, **USB Port**: `HS10`
-**Trackpad** | Synaptics <br>**Device-id**: `pci8086,9de8`). Controlled via SMBus.
+**Trackpad** | Synaptics <br>**Device-id**: `pci8086,9de8`. Controlled via SMBus.
 **SD Card Reader** | Realtek MicroSD Card Reader
 
 ## BIOS Settings

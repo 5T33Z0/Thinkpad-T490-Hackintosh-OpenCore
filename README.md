@@ -220,6 +220,7 @@ Kext | Link
 - [**ic005k**](https://github.com/ic005k/OCAuxiliaryTools) for OpenCore Auxiliary Tools
 - [**benbaker76**](https://github.com/benbaker76/Hackintool) for Hackintool
 - [**zxystd**](https://github.com/zxystd/BrcmPatchRAM) for Sonoma-compatible BrcmPatchRAM kext
+- Special Thx to deeveedee for advice when trying to modify the framebuffer patch to work my external monitor. 
 - **T490 OpenCore Repos** used for referencing and ACPI hotfixes:
 	- [yusifsalam](https://github.com/yusifsalam/t490-macos)
 	- [Krissh-C ](https://github.com/Krissh-C)

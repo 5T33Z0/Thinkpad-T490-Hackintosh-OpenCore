@@ -36,11 +36,11 @@ OpenCore EFI folder and config for running macOS Monterey and newer on the Lenov
 - No injection of `PlatformInfo` data into Windows.
 
 ### Future Developments
-1. ~~Implementing Clamshell Mode:~~ Done!
-2. Mapping USB Ports via ACPI instead of using USBMap.kext
-3. I am planning to get my hands on a Lenovo ThinkPad Thunderbolt 3 Dock (Gen 2) to see if it works
-4. ~~Trying to create a better Connector Patch for external DVI Monitor~~ Done!
-5. ~~Adding Clover support~~ Send a 
+- Mapping USB Ports via ACPI instead of using USBMap.kext
+- ~~Implementing Clamshell Mode:~~ Done!
+- I am planning to get my hands on a Lenovo ThinkPad Thunderbolt 3 Dock (Gen 2) to see if it works
+- ~~Trying to create a better Connector Patch for external DVI Monitor~~ Done!
+- ~~Clover support~~  
 
 ## Issues
 - Audio Jack creates an unpleasant buzz/noise during driver initialization. So it's best to connect Headphones to it *after* booting.
@@ -215,12 +215,13 @@ Kext | Link
 ## Credits and Thank Yous
 - [**Acidanthera**](https://github.com/acidanthera) for OpenCore, Kexts and maciASL
 - [**CorpNewt**](https://github.com/corpnewt) for ProperTree, CPUFriendFriend and SSDTTime
-- [1Revenger1](https://github.com/1Revenger1/) for VoodooRMI and fixing issues with the TrackPad
 - Dreamwhite for [**slimmed versions of itlwm kext**](https://github.com/dreamwhite/Chonky-itlwm-Build/releases) kexts
 - [**ic005k**](https://github.com/ic005k/OCAuxiliaryTools) for OpenCore Auxiliary Tools
 - [**benbaker76**](https://github.com/benbaker76/Hackintool) for Hackintool
 - [**zxystd**](https://github.com/zxystd/BrcmPatchRAM) for Sonoma-compatible BrcmPatchRAM kext
-- Special Thx to deeveedee for advice when trying to modify the framebuffer patch to work my external monitor. 
+- **Special Thx to**:
+	- [1Revenger1](https://github.com/1Revenger1/) for VoodooRMI and fixing issues with the TrackPad
+	-  deeveedee for advice when trying to modify the framebuffer patch to work my external monitor. 
 - **T490 OpenCore Repos** used for referencing and ACPI hotfixes:
 	- [yusifsalam](https://github.com/yusifsalam/t490-macos)
 	- [Krissh-C ](https://github.com/Krissh-C)

@@ -43,6 +43,45 @@
 				<key>#rps-control</key>
 				<data>AQAAAA==</data>
 			</dict>
+			<key>#PciRoot(0x0)/Pci(0x2,0x0)  UHD 620 as Iris 655 2 - Working</key>
+			<dict>
+				<key>AAPL,ig-platform-id</key>
+				<data>CQClPg==</data>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,2,0</string>
+				<key>device-id</key>
+				<data>pT4AAA==</data>
+				<key>device_type</key>
+				<string>VGA compatible controller</string>
+				<key>disable-external-gpu</key>
+				<data>AQAAAA==</data>
+				<key>enable-backlight-registers-fix</key>
+				<data>AQAAAA==</data>
+				<key>enable-hdmi20</key>
+				<data>AQAAAA==</data>
+				<key>framebuffer-con1-enable</key>
+				<data>AQAAAA==</data>
+				<key>framebuffer-con1-index</key>
+				<data>/////w==</data>
+				<key>framebuffer-con2-busid</key>
+				<data>AgAAAA==</data>
+				<key>framebuffer-con2-enable</key>
+				<data>AQAAAA==</data>
+				<key>framebuffer-con2-pipe</key>
+				<data>CgAAAA==</data>
+				<key>framebuffer-con2-type</key>
+				<data>AAgAAA==</data>
+				<key>framebuffer-flags</key>
+				<data>CgvjAA==</data>
+				<key>framebuffer-patch-enable</key>
+				<data>AQAAAA==</data>
+				<key>model</key>
+				<string>Intel UHD Graphics 620</string>
+				<key>#igfxfw</key>
+				<data>AgAAAA==</data>
+				<key>rps-control</key>
+				<data>AQAAAA==</data>
+			</dict>
 			<key>#PciRoot(0x0)/Pci(0x2,0x0) UHD 620 as UHD 630 - Working</key>
 			<dict>
 				<key>AAPL,ig-platform-id</key>

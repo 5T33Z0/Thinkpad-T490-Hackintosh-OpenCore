@@ -25,4 +25,4 @@ Flags | YogaSMC <br> Profile | CPU <br>Friend | OpenCL Score | Metal Score
 :----------------:|:--------------------:|:--------------:|:------------:|:---------:
 none|Balance|ON||[5648](https://browser.geekbench.com/v6/compute/572838)
 `igfxfw=2` | Balance | ON ||[5829](https://browser.geekbench.com/v6/compute/572751)
-`rps-control`|Balance|ON||[**5890**](https://browser.geekbench.com/v6/compute/572814)
+`rps-control`|Balance|ON|[**4229**](https://browser.geekbench.com/v6/compute/574487)|[**5895**](https://browser.geekbench.com/v6/compute/574463)

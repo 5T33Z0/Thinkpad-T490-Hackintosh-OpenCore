@@ -160,17 +160,22 @@ EFI
 > **Note**: If your T490 model uses a different WiFi/BT card than Intel AC-9560, then use the official itlwm.kext because mine onle contains the firmware for the 9560 so it won't work with other cards.
 
 #### AirportItlwm.kext vs. itlwm.kext
-Although the Intel AC-9560 Card is compatible with both kexts to connect to WiFi (use either one or the other), there are Pros and Cons to both of them:
+Although the Intel AC-9560 Card is compatible with both kexts (use either one or the other), there are Pros and Cons to both of them (check the [**FAQs**](https://openintelwireless.github.io/itlwm/FAQ.html#features) for other differences):
 
 - **AirportItlwm**:
-	- **Con**: requires the correct kext per macOS version, so using it across multiple versions of macOS doesn't work. And it's not available for macOS Sonoma yet.
-	- **Con**: doesn't work as well as itlwm.kext
-	- **Pro**: can be used during macOS installation which is not possible with `itlwm.kext`.
+	- **Pro**: Can be used during macOS installation which is not possible with `itlwm.kext`
+	- **Pro**: Supports Location Services and Find My Mac
+	- **Con**: Doesn't perform as well as itlwm.kext
+	- **Con**: Can't connect to hidden WiFi Networks
+	- **Con**: Not compatible with macOS Sonoma yet
+	- **Con**: Requires using the correct kext per macOS version, so running multiple version of macOS with this kext is not possible without workarounds
 - **itlwm.kext**
-	- **Pro**: Only one kext which works accross multiple versions of macOS
-	- **Pro**: Supplies Sonoma already (easier to maintain since Open Source)
-	- **Pro**: Connects much faster to WiFi hotspots and performs better
+	- **Pro**: Connects much faster to WiFi hotspots and performs better than `AirportItlwm`
+	- **Pro**: Supports macOS Sonoma already
+	- **Pro**: Can connect to hidden WiFi Networks
+	- **Pro**: Works across multiple versions of macOS
 	- **Con**: Requires [HeliPort](https://github.com/OpenIntelWireless/HeliPort) app to connect to WiFi Hotspots so it can't be used during macOS installation
+	- **Con**: Doesn't support Location Services
 
 **Suggestion**: Use Ethernet during macOS installation. If you don't have access to Ethernet, add the correct [`AirportItlw.kext`](https://github.com/OpenIntelWireless/itlwm/releases) for the desired macOS version you want to install and disable `itlwm.kext`.
 

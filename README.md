@@ -149,10 +149,10 @@ EFI
 ## Preparations
 
 ### Config Adjustments
-- Download the [latest Release](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/releases/latest) of my EFI folder and unzip it
+- Download the [**latest Release**](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/releases/latest) of my EFI folder and unzip it
 - Open the config.plist with the plist editor of your choice (ProperTree or OCAT for example)
-- `Kexts/Add` Section: decide, which Wifi kext you want to use (&rarr; see [AirportItlwm vs itlwm](#airportitlwmkext-vs-itlwmkext))
-- Go to `PlatformInfo/Generic` and generate MLB, Serial and ROM for `MacBookPro15,4` with GenSMBIOS or OCAT. :warning: Don't change the SMBIOS or the `USBMap.kext` won't work anymore!
+- `Kexts/Add` Section: decide, which Wifi kext you want to use (&rarr; see [**AirportItlwm vs itlwm**](#airportitlwmkext-vs-itlwmkext))
+- Go to `PlatformInfo/Generic` and generate MLB, Serial and ROM for `MacBookPro15,2` with GenSMBIOS or OCAT. :warning: Don't change the SMBIOS or the `USBMap.kext` won't work anymore!
 - Add `boot-args` for debugging if you have installation issues: `-v`, `debug=0x100` and `keepsyms=1`
 - `UEFI/APFS`: change `MinVersion` and `MinDate` to `-1` for macOS Catalina and older.
 - Save your config.plist
@@ -179,6 +179,14 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 
 **Suggestion**: Use Ethernet during macOS installation. If you don't have access to Ethernet, add the correct [`AirportItlw.kext`](https://github.com/OpenIntelWireless/itlwm/releases) for the desired macOS version you want to install and disable `itlwm.kext`.
 
+#### Enabling Hibernation
+- In config.plist:
+	- Change `HibernateMode` to `Auto`
+- In System:
+	- Preferences: Disable Power Nap 
+	- In Terminal: `sudo pmset -a hibernatemode 25` 
+	- In Terminal: `sudo pmset -a standby 1` 
+
 ## Deployment
 ### If macOS is installed already
 - Put the EFI folder on a FAT32 formatted USB stick
@@ -187,7 +195,7 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 - Continue with Post-Install 
 
 ### If macOS is not installed
-- Follow Dortania's [OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/#making-the-installer) to prepare a USB Installer
+- Follow Dortania's [**OpenCore Install Guide**](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/#making-the-installer) to prepare a USB Installer
 - Once the USB  has been created, download the latest version of [**HeliPort**](https://github.com/OpenIntelWireless/HeliPort) and copy the .dmg to your USB Installer
 - Next, mount the ESP of the USB Installer (you can use [**MountEFI**](https://github.com/corpnewt/MountEFI) for this)
 - Put the EFI folder on the EFI partition of the USB installer
@@ -208,7 +216,7 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 	- Double-click the YogaSMC **prefPane** to install it
 	- Click on its icon (⌥) in the menu bar and select "Start at Login"
 	- Now you can control Fan Speeds and other settings
-- Use [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend) to generate your own CPUFriendDataProvider.kext if your T490 uses a different CPU than mine to optimize CPU Power Management
+- Use [**CPUFriendFriend**](https://github.com/corpnewt/CPUFriendFriend) to generate your own CPUFriendDataProvider.kext if your T490 uses a different CPU than mine to optimize CPU Power Management
 
 ## For OCAT Users
 Add the following links to the "Kext URL Upgrade" list (accessible via "Settings" in the Sync window), so kext which are marked in grey in the Sync window will be downloaded when checking for updates:
@@ -228,7 +236,7 @@ Kext | Link
 - [**zxystd**](https://github.com/zxystd/BrcmPatchRAM) for Sonoma-compatible BrcmPatchRAM kext
 - **Special Thx to**:
 	- [1Revenger1](https://github.com/1Revenger1/) for VoodooRMI and fixing issues with the TrackPad
-	-  deeveedee for advice when trying to modify the framebuffer patch to work my external monitor. 
+	-  deeveedee for advice when trying to optimize the framebuffer patch for connecting to my external display. 
 - **T490 OpenCore Repos** used for referencing and ACPI hotfixes:
 	- [yusifsalam](https://github.com/yusifsalam/t490-macos)
 	- [Krissh-C ](https://github.com/Krissh-C)

@@ -89,7 +89,6 @@ EFI
     ├── ACPI
     │   ├── SSDT-ALS0.aml
     │   ├── SSDT-AWAC.aml
-    │   ├── SSDT-BAT.aml
     │   ├── SSDTT-ECRW.aml
     │   ├── SSDT-EXT1-FixShutdown.aml
     │   ├── SSDT-EXT3-LedReset-TP.aml
@@ -109,6 +108,8 @@ EFI
     │   ├── OpenRuntime.efi
     │   └── ResetNvramEntry.efi
     ├── Kexts (loaded based on Min Kernel/Max Kernel settings)
+    │   ├── AirportItlwm_Sonoma.kext
+    │   ├── AirportItlwm_Ventura.kext
     │   ├── AppleALC.kext
     │   ├── BlueToolFixup.kext
     │   ├── BrightnessKeys.kext
@@ -124,7 +125,7 @@ EFI
     │   ├── RealtekCardReader.kext
     │   ├── RealtekCardReaderFriend.kext
     │   ├── SMCBatteryManager.kext
-    │   ├── USBMap.kext
+    │   ├── USBMap_MBP152.kext
     │   ├── VirtualSMC.kext
     │   ├── VoodooPS2Controller.kext
     │   ├── VoodooRMI.kext
@@ -165,19 +166,20 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 - **AirportItlwm**:
 	- **Pro**: Can be used during macOS installation which is not possible with `itlwm.kext`
 	- **Pro**: Supports Location Services and Find My Mac
-	- **Con**: Doesn't perform as well as itlwm.kext
+	- **Con**: Doesn't perform as well as itlwm.kext and takes much longer to connect
 	- **Con**: Can't connect to hidden WiFi Networks
-	- **Con**: Not compatible with macOS Sonoma [**yet**](https://github.com/OpenIntelWireless/itlwm/issues/883)
-	- **Con**: Requires using the correct kext per macOS version, so running multiple version of macOS with this kext is not possible without workarounds
+	- **Con**: Requires using the correct kext per macOS version, so running multiple version of macOS with this kext is not possible without renaming kexts
+	- ~~**Con**: Not compatible with macOS Sonoma [**yet**](https://github.com/OpenIntelWireless/itlwm/issues/883)~~
+
 - **itlwm.kext**
 	- **Pro**: Connects much faster to WiFi hotspots and performs better than `AirportItlwm`
 	- **Pro**: Supports macOS Sonoma already
 	- **Pro**: Can connect to hidden WiFi Networks
-	- **Pro**: Works across multiple versions of macOS
+	- **Pro**: Only one kext to cover WiFi across multiple versions of macOS
 	- **Con**: Requires [**HeliPort**](https://github.com/OpenIntelWireless/HeliPort) app to connect to WiFi Hotspots so it can't be used during macOS installation
 	- **Con**: Doesn't support Location Services
 
-**Suggestion**: Use Ethernet during macOS installation. If you don't have access to Ethernet, add the correct [`AirportItlw.kext`](https://github.com/OpenIntelWireless/itlwm/releases) for the desired macOS version you want to install and disable `itlwm.kext`.
+**Suggestion**: Use Ethernet during macOS installation. If you don't have access to Ethernet, disable `itlwm.kext` and enable `AirportItlw.kext` for the desired macOS version you want to install/use instead. Currently, AirportItlwm kexts for macOS and Ventura and Sonoma (test version) are included.
 
 #### Enabling Hibernation
 - In config.plist:

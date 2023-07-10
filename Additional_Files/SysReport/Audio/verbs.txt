@@ -1,0 +1,34 @@
+
+Verbs from ConfigData
+
+Codec: Realtek ALC257   Address: 0   DevID: 283902551 (0x10EC0257)
+
+NID       PinDefault     Device             Connector           Port            Location                    Color     G  P  EAPD  Original Verbs
+------------------------------------------------------------------------------------------------------------------------------------------------
+18 (0x12) 90A00160   In  Mic In             Unknown             Fixed           Internal N/A                Unknown   6  0  -     01271C60 01271D01 01271EA0 01271F90
+20 (0x14) 90100110   Out Speaker            Unknown             Fixed           Internal N/A                Unknown   1  0  0x2   01471C10 01471D01 01471E10 01471F90 01470C02
+25 (0x19) 04811080   In  Line In            1/8" Stereo/Mono    Jack            External Right              Black     8  0  -     01971C80 01971D10 01971E81 01971F04
+33 (0x21) 01217040   Out HP Out             1/8" Stereo/Mono    Jack            External Rear               Yellow    4  0  0x2   02171C40 02171D70 02171E21 02171F01 02170C02
+19 (0x13) 400000F0   Out Line Out           Unknown             No Connection   External N/A                Unknown   15 0  -     01371CF0 01371D00 01371E00 01371F40
+24 (0x18) 400000F0   Out Line Out           Unknown             No Connection   External N/A                Unknown   15 0  -     01871CF0 01871D00 01871E00 01871F40
+26 (0x1A) 400000F0   Out Line Out           Unknown             No Connection   External N/A                Unknown   15 0  -     01A71CF0 01A71D00 01A71E00 01A71F40
+27 (0x1B) 400000F0   Out Line Out           Unknown             No Connection   External N/A                Unknown   15 0  0x2   01B71CF0 01B71D00 01B71E00 01B71F40 01B70C02
+29 (0x1D) 400000F0   Out Line Out           Unknown             No Connection   External N/A                Unknown   15 0  -     01D71CF0 01D71D00 01D71E00 01D71F40
+30 (0x1E) 400000F0   Out Line Out           Unknown             No Connection   External N/A                Unknown   15 0  -     01E71CF0 01E71D00 01E71E00 01E71F40
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+NID       PinDefault     Device             Connector           Port            Location                    Color     G  P  EAPD  Modified Verbs
+------------------------------------------------------------------------------------------------------------------------------------------------
+20 (0x14) 90100110   Out Speaker            Unknown             Fixed           Internal N/A                Unknown   1  0  0x2   01471C10 01471D01 01471E10 01471F90 01470C02
+33 (0x21) 01217040   Out HP Out             1/8" Stereo/Mono    Jack            External Rear               Yellow    4  0  0x2   02171C40 02171D70 02171E21 02171F01 02170C02
+18 (0x12) 90A00160   In  Mic In             Unknown             Fixed           Internal N/A                Unknown   6  0  -     01271C60 01271D01 01271EA0 01271F90
+25 (0x19) 04811080   In  Line In            1/8" Stereo/Mono    Jack            External Right              Black     8  0  -     01971C80 01971D10 01971E81 01971F04
+19 (0x13) 400000F0   Out Line Out           Unknown             No Connection   External N/A                Unknown   15 0  -     01371CF0 01371D00 01371E00 01371F40
+24 (0x18) 400000F0   Out Line Out           Unknown             No Connection   External N/A                Unknown   15 0  -     01871CF0 01871D00 01871E00 01871F40
+26 (0x1A) 400000F0   Out Line Out           Unknown             No Connection   External N/A                Unknown   15 0  -     01A71CF0 01A71D00 01A71E00 01A71F40
+27 (0x1B) 400000F0   Out Line Out           Unknown             No Connection   External N/A                Unknown   15 0  0x2   01B71CF0 01B71D00 01B71E00 01B71F40 01B70C02
+29 (0x1D) 400000F0   Out Line Out           Unknown             No Connection   External N/A                Unknown   15 0  -     01D71CF0 01D71D00 01D71E00 01D71F40
+30 (0x1E) 400000F0   Out Line Out           Unknown             No Connection   External N/A                Unknown   15 0  -     01E71CF0 01E71D00 01E71E00 01E71F40
+------------------------------------------------------------------------------------------------------------------------------------------------
+

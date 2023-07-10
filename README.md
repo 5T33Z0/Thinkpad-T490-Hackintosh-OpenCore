@@ -37,10 +37,7 @@ OpenCore EFI folder and config for running macOS Monterey and newer on the Lenov
 
 ### Future Developments
 - Mapping USB Ports via ACPI instead of using USBMap.kext
-- ~~Implementing Clamshell Mode:~~ Done!
-- I am planning to get my hands on a Lenovo ThinkPad Thunderbolt 3 Dock (Gen 2) to see if it works
-- ~~Trying to create a better Connector Patch for external DVI Monitor~~ Done!
-- ~~Clover support~~  
+- Creating AppleALC Layout for Docking Station
 
 ## Issues
 - Audio Jack creates an unpleasant buzz/noise during driver initialization. So it's best to connect Headphones to it *after* booting.
@@ -64,6 +61,7 @@ Category | Description
 **Bluetooth** |**Device**: Intel Wireless Bluetooth <br> **VID**: `0x8087`, **PID**: `0x0aaa` <br> **Firmware** `ibt-17-16-1.sfi`, `ibt17-16-1.ddc` <br>**USB Port**: `HS10`
 **Trackpad** | Synaptics <br>**Device-id**: `pci8086,9de8`. Controlled via SMBus.
 **SD Card Reader** | Realtek MicroSD Card Reader
+**Dock** | [**ThinkPad Ultra Docking Station**](https://support.lenovo.com/us/en/solutions/pd500173-thinkpad-ultra-docking-station-overview-and-service-parts)
 
 ## BIOS Settings
 After powering on the machine, spam <kbd>F1</kbd> until you hear a beep to enter the BIOS. Change the following settings:

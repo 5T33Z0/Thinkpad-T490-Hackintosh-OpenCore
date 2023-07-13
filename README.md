@@ -221,11 +221,12 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 ## For OCAT Users
 Add the following links to the "Kext URL Upgrade" list (accessible via "Settings" in the Sync window), so kext which are marked in grey in the Sync window will be downloaded when checking for updates:
 
-Kext | Link
+Kext | URL
 -----|-----
-**itlwm.kext** | https://github.com/OpenIntelWireless/itlwm 
-**BlueToolFixup.kext** | https://github.com/acidanthera/BrcmPatchRAM
+**BlueToolFixup.kext** | https://github.com/zxystd/BrcmPatchRAM
+**IntelBluetoothFirmware.ketx** | https://github.com/OpenIntelWireless/IntelBluetoothFirmware
 **IntelMausiEthernet.kext** | https://github.com/CloverHackyColor/IntelMausiEthernet
+**itlwm.kext** | https://github.com/OpenIntelWireless/itlwm 
 
 ## Credits and Thank Yous
 - [**Acidanthera**](https://github.com/acidanthera) for OpenCore, Kexts and maciASL

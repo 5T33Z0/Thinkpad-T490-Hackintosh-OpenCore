@@ -15,10 +15,7 @@
 - Save and Reboot
 
 ## Compile your own
-- Download the [**AppleALC**](https://github.com/acidanthera/AppleALC) Source Code and unzip it
-- Download the "Resources_ALC257" folder from my repo and unzip it
-- Replace the "Resources" folder in the "AppleALC-Master" folder with mine
-- [**Compile the kext**](https://github.com/5T33Z0/AppleALC-Guides/tree/main/Slimming_AppleALC) (requires Xcode)
+- [**Follow my guide**](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/blob/main/Additional_Files/Slimmed_Kexts/AppleALC/Compiling_AppleALC.md)
 
 ## Notes
 - When using OCAT to update your kexts, exclude AppleALC. Otherwise this kext will be replaced by the stock version

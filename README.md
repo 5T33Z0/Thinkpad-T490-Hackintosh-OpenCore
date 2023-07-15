@@ -57,7 +57,7 @@ Category | Description
 **Audio** | [**Realtek ALC257**](https://github.com/dreamwhite/ChonkyAppleALC-Build/blob/master/Realtek/ALC257.md) (using Layout `97`)
 **Thunderbolt** | Titan Ridge Thunderbolt 3 Connector (USB-C)<br> (Reported working but I don't have any gear to test it)
 **Ethernet** | Intel I219-V
-**WiFi** | Intel AC-9560 (**Model/Firmware**: `iwm-9000-46`)
+**WiFi** | Intel AC-9560 (**Firmware**: `iwm-9000-46`)
 **Bluetooth** |**Device**: Intel Wireless Bluetooth <br> **VID**: `0x8087`, **PID**: `0x0aaa` <br> **Firmware** `ibt-17-16-1.sfi`, `ibt17-16-1.ddc` <br>**USB Port**: `HS10`
 **Trackpad** | Synaptics <br>**Device-id**: `pci8086,9de8`. Controlled via SMBus.
 **SD Card Reader** | Realtek MicroSD Card Reader

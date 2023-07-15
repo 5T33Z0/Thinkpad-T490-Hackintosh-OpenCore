@@ -15,7 +15,7 @@
 - Save and Reboot
 
 ## Compile your own
-- [**Follow my guide**](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/blob/main/Additional_Files/Slimmed_Kexts/AppleALC/Compiling_AppleALC.md)
+- [**Follow my guide**](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/blob/main/Additional_Files/Slimmed_Kexts/AppleALC/For_Compiling/)
 
 ## Notes
 - When using OCAT to update your kexts, exclude AppleALC. Otherwise this kext will be replaced by the stock version

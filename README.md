@@ -156,7 +156,7 @@ EFI
 - `UEFI/APFS`: change `MinVersion` and `MinDate` to `-1` for macOS Catalina and older.
 - Save your config.plist
 
-> **Note**: If your T490 model uses a different WiFi/BT card than Intel AC-9560, then use the official itlwm.kext because mine onle contains the firmware for the 9560 so it won't work with other cards.
+> **Note**: If your T490 model uses a different WiFi/BT card than Intel AC-9560, then use the official itlwm.kext because mine only contains the firmware for the 9560 so it won't work with other cards.
 
 #### AirportItlwm.kext vs. itlwm.kext
 Although the Intel AC-9560 Card is compatible with both kexts (use either one or the other), there are Pros and Cons to both of them (check the [**FAQs**](https://openintelwireless.github.io/itlwm/FAQ.html#features) for other differences):

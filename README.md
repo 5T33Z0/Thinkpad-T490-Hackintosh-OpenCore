@@ -1,5 +1,5 @@
 # Lenovo ThinkPad T490 Hackintosh OpenCore
-[![OpenCore](https://img.shields.io/badge/OpenCore-0.9.4-blue.svg)](https://github.com/acidanthera/OpenCorePkg/releases/latest) [![macOS Monterey](https://img.shields.io/badge/macOS-12.6.7-white.svg)](https://www.apple.com/newsroom/2021/10/macos-monterey-is-now-available/) [![macOS Ventura](https://img.shields.io/badge/macOS-13.5b-white.svg)](https://www.apple.com/macos/ventura/) [![macOS Sonoma](https://img.shields.io/badge/macOS-14.0b-white.svg)](https://www.apple.com/macos/sonoma-preview/)<br>
+[![OpenCore](https://img.shields.io/badge/OpenCore-0.9.5-blue.svg)](https://github.com/acidanthera/OpenCorePkg/releases/latest) [![macOS Monterey](https://img.shields.io/badge/macOS-12.7-white.svg)](https://www.apple.com/newsroom/2021/10/macos-monterey-is-now-available/) [![macOS Ventura](https://img.shields.io/badge/macOS-13.6-white.svg)](https://www.apple.com/macos/ventura/) [![macOS Sonoma](https://img.shields.io/badge/macOS-14.1-white.svg)](https://www.apple.com/macos/sonoma-preview/)<br>
 ![10053604](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/assets/76865553/ed932a1a-8205-4b81-a4e2-f68d7d8a7178)
 
 **TABLE of CONTENTS**
@@ -106,6 +106,8 @@ EFI
     │   ├── OpenRuntime.efi
     │   └── ResetNvramEntry.efi
     ├── Kexts (loaded based on Min Kernel/Max Kernel settings)
+    │   ├── AdvancedMap.kext 
+    │   ├── AirportItlwm_Monterey.kext
     │   ├── AirportItlwm_Sonoma.kext
     │   ├── AirportItlwm_Ventura.kext
     │   ├── AppleALC.kext
@@ -122,6 +124,7 @@ EFI
     │   ├── NVMeFix.kext
     │   ├── RealtekCardReader.kext
     │   ├── RealtekCardReaderFriend.kext
+    │   ├── RestrictEvents.kext
     │   ├── SMCBatteryManager.kext
     │   ├── USBMap_MBP152.kext
     │   ├── VirtualSMC.kext
@@ -149,12 +152,13 @@ EFI
 
 ### Config Adjustments
 - Download the [**latest Release**](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/releases/latest) of my EFI folder and unzip it
-- Open the config.plist with the plist editor of your choice (ProperTree or OCAT for example)
-- `Kexts/Add` Section: decide, which Wifi kext you want to use (&rarr; see [**AirportItlwm vs itlwm**](#airportitlwmkext-vs-itlwmkext))
-- Go to `PlatformInfo/Generic` and generate MLB, Serial and ROM for `MacBookPro15,2` with GenSMBIOS or OCAT. :warning: Don't change the SMBIOS or the `USBMap.kext` won't work anymore!
-- Add `boot-args` for debugging if you have installation issues: `-v`, `debug=0x100` and `keepsyms=1`
-- `UEFI/APFS`: change `MinVersion` and `MinDate` to `-1` for macOS Catalina and older.
-- Save your config.plist
+- Open the config.plist with the plist editor of your choice (ProperTree or OCAT for example) and adjust the following settings based on the used version of macOS and personal preferences:
+	- `Devices/Properties/Add/PciRoot(0x0)/Pci(0x2,0x0)`: When running macOS 13.3 or older, disable/delete `enable-backlight-registers-alternative-fix` and use `enable-backlight-registers-fix` instead to fix backlight issues.
+	- `Kexts/Add` Section: decide, which Wi-Fi kext you want to use (&rarr; see [**AirportItlwm vs itlwm**](#airportitlwmkext-vs-itlwmkext))
+	- Go to `PlatformInfo/Generic` and generate MLB, Serial and ROM for `MacBookPro15,2` with GenSMBIOS or OCAT. :warning: Don't change the SMBIOS or the `USBMap.kext` won't work anymore!
+	- Add `boot-args` for debugging if you have installation issues: `-v`, `debug=0x100` and `keepsyms=1`
+	- `UEFI/APFS`: change `MinVersion` and `MinDate` to `-1` for macOS Catalina and older.
+- Save the changes
 
 > **Note**: If your T490 model uses a different WiFi/BT card than Intel AC-9560, then use the official itlwm.kext because mine only contains the firmware for the 9560 so it won't work with other cards.
 

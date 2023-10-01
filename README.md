@@ -28,6 +28,7 @@ OpenCore EFI folder and config for running macOS Monterey and newer on the Lenov
 - Compatible with macOS Sonoma
 - MicroSD Card Reader is working
 - Clamshell mode working (when connected to A/C and external display)
+- Optimized Framebuffer Patch for smoother handshake with external display
 - Lean EFI folder with slimmed kexts (20 mb instead of 70) :
 	- **AppleALC** (87 kB instead of 2.2 mb). Only contains layout `97`.
 	- **AirportItlwm** (1.7 mb instead of 16 mb). Only Contains Firmware for Intel AC 9560.

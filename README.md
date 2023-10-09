@@ -1,5 +1,5 @@
 # Lenovo ThinkPad T490 Hackintosh OpenCore
-[![OpenCore](https://img.shields.io/badge/OpenCore-0.9.5-blue.svg)](https://github.com/acidanthera/OpenCorePkg/releases/latest) [![macOS Monterey](https://img.shields.io/badge/macOS-12.7-white.svg)](https://www.apple.com/newsroom/2021/10/macos-monterey-is-now-available/) [![macOS Ventura](https://img.shields.io/badge/macOS-13.6-white.svg)](https://www.apple.com/macos/ventura/) [![macOS Sonoma](https://img.shields.io/badge/macOS-14.1-white.svg)](https://www.apple.com/macos/sonoma-preview/)<br>
+[![OpenCore](https://img.shields.io/badge/OpenCore-0.9.6-blue.svg)](https://github.com/acidanthera/OpenCorePkg/releases/latest) [![macOS Monterey](https://img.shields.io/badge/macOS-12.7-white.svg)](https://www.apple.com/newsroom/2021/10/macos-monterey-is-now-available/) [![macOS Ventura](https://img.shields.io/badge/macOS-13.6-white.svg)](https://www.apple.com/macos/ventura/) [![macOS Sonoma](https://img.shields.io/badge/macOS-14.1-white.svg)](https://www.apple.com/macos/sonoma-preview/)<br>
 ![10053604](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/assets/76865553/ed932a1a-8205-4b81-a4e2-f68d7d8a7178)
 
 **TABLE of CONTENTS**
@@ -48,7 +48,7 @@ Category | Description
 :---------:|------------
 **Model** | Lenovo ThinkPad T490 
 **Variant** | [**20N3**](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t490-type-20n2-20n3/document-userguide)
-**BIOS** | **UEFI**: 1.80 <br> **Embedded Controller**: 1.27
+**BIOS** | **UEFI**: v1.80 (2023-06-21) <br> **Embedded Controller**: v1.27
 **CPU** | Intel [**Intel Core i5 8265U**](https://ark.intel.com/content/www/us/en/ark/products/149088/intel-core-i58265u-processor-6m-cache-up-to-3-90-ghz.html) (Quad Core)
 **RAM** | 16 GB: <ul> <li> 8 GB Samsung DDR 4 @2666 Mhz (soldered) <li> 8 GB Samsung DDR 4 @2666 Mhz (RAM Slot)
 **Storage** | ~~Samsung PM981 NVMe~~ ([**unusable**](https://dortania.github.io/Anti-Hackintosh-Buyers-Guide/Storage.html)) <br> 250 GB M.2 Crucial MX 500 SATA SSD

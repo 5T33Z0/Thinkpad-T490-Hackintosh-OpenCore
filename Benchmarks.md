@@ -15,6 +15,15 @@ SMBIOS | YogaSMC <br> Profile | CPU <br>Friend | Score <br> Single-/ (Multi-Core
 
 [^1]: It seems that YogaSMC didn't work correctly during tests with this setting. Because when I looked into the preferences afterwards, the performance slider was unavailable and `DYTCRevision` said `Unsupported` whereas in previous tests using MBP15,2 it said `LAP` (for Laptop, I guess). After a restart with MBP15,4 it said `Standard`. So `MBO15,2` is the SMBIOS of choice.
 
+- **OpenCore**: 0.9.6
+- **Geekbench**: 6.2.1
+- **OS**: macOS Sonoma 14.1 b3 (23B5067a)
+- **SecureBootModel**: `j132` (MBP 15,2)
+
+SMBIOS | YogaSMC <br> Profile | CPU <br>Friend | Score <br> Single-/ (Multi-Core)
+-------|:--------------------:|:--------------:|:-----------:
+**MBP15,2**| Balance | ON | [**1317 (3334)**](https://browser.geekbench.com/v6/cpu/3081247)
+
 ## iGPU
 
 - **iGPU**: Intel Graphics UHD 620 (spoofed as Intel Iris Plus 655)

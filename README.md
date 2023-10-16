@@ -35,6 +35,7 @@ OpenCore EFI folder and config for running macOS Monterey and newer on the Lenov
 	- **itlwm** (1.6 mb instead of 16 mb). Only Contains Firmware for Intel AC 9560.
 - YogaSMC support for additional features like CPU fan control, performance bias, all <kbd>Fn</kbd> Key shortcuts working, additional OSD overlays, etc.
 - No injection of `PlatformInfo` data into Windows.
+- 3D globe view in Maps (macOS 12+)
 
 ### Future Developments
 - Mapping USB Ports via ACPI instead of using USBMap.kext
@@ -45,7 +46,7 @@ OpenCore EFI folder and config for running macOS Monterey and newer on the Lenov
 
 ## Specs
 Category | Description
-:---------:|------------
+:-------:|------------
 **Model** | Lenovo ThinkPad T490 
 **Variant** | [**20N3**](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t490-type-20n2-20n3/document-userguide)
 **BIOS** | **UEFI**: v1.80 (2023-06-21) <br> **Embedded Controller**: v1.27
@@ -153,12 +154,14 @@ EFI
 
 ### Config Adjustments
 - Download the [**latest Release**](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/releases/latest) of my EFI folder and unzip it
-- Open the config.plist with the plist editor of your choice (ProperTree or OCAT for example) and adjust the following settings based on the used version of macOS and personal preferences:
-	- `Devices/Properties/Add/PciRoot(0x0)/Pci(0x2,0x0)`: When running macOS 13.3 or older, disable/delete `enable-backlight-registers-alternative-fix` and use `enable-backlight-registers-fix` instead to fix backlight issues.
-	- `Kexts/Add` Section: decide, which Wi-Fi kext you want to use (&rarr; see [**AirportItlwm vs itlwm**](#airportitlwmkext-vs-itlwmkext))
-	- Go to `PlatformInfo/Generic` and generate MLB, Serial and ROM for `MacBookPro15,2` with GenSMBIOS or OCAT. :warning: Don't change the SMBIOS or the `USBMap.kext` won't work anymore!
+- Open the config.plist with a plist editor (e.g. ProperTree or OCAT) and adjust the following settings based on the used version of macOS and personal preferences:
+	- **Graphics**
+		- `Devices/Properties/Add/PciRoot(0x0)/Pci(0x2,0x0)`: For macOS 13.3 and older, disable/delete `enable-backlight-registers-alternative-fix` and use `enable-backlight-registers-fix` instead to fix backlight issues.
+		- If other issues occur, try a different [Framebuffer Patch ](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/blob/main/Additional_Files/Framebuffer_Patches/UHD620_Framebuffer_Patches.plist)
+	- **Wi-Fi**: Decide, which Wi-Fi kext you want to use (&rarr; see [**AirportItlwm vs itlwm**](#airportitlwmkext-vs-itlwmkext))
+	- `Platforminfo/Generic`: Generate an MLB, Serial and ROM for `MacBookPro15,2` with GenSMBIOS or OCAT. :warning: Don't change the SMBIOS or the `USBMap.kext` won't work anymore!
 	- Add `boot-args` for debugging if you have installation issues: `-v`, `debug=0x100` and `keepsyms=1`
-	- `UEFI/APFS`: change `MinVersion` and `MinDate` to `-1` for macOS Catalina and older.
+	- `UEFI/APFS` section: change `MinVersion` and `MinDate` to `-1` for macOS Catalina and older.
 - Save the changes
 
 > **Note**: If your T490 model uses a different WiFi/BT card than Intel AC-9560, then use the official itlwm.kext because mine only contains the firmware for the 9560 so it won't work with other cards.

@@ -44,7 +44,7 @@ OpenCore EFI folder and config for running macOS Monterey and newer on the Lenov
 ## Issues
 - Audio Jack creates an unpleasant buzz/noise during driver initialization. So it's best to connect Headphones to it *after* booting.
 
-💡:**NOTE**: Before reporting any issues, ensure that your system uses the latest UEFI and EC Firmware as I do. I have no time trying to fix issues which are not caused by my EFI but rather by running the system on outdated system firmware! 
+💡**NOTE**: Before reporting any issues, ensure that your system uses the latest UEFI and EC Firmware as I do. I have no time trying to fix issues which are not caused by my EFI but rather by running the system on outdated system firmware! 
 
 ## Specs
 Category | Description

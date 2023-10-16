@@ -201,7 +201,7 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 
 ### If macOS is not installed
 - Follow Dortania's [**OpenCore Install Guide**](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/#making-the-installer) to prepare a USB Installer
-- Once the USB  has been created, download the latest version of [**HeliPort**](https://github.com/OpenIntelWireless/HeliPort) and copy the .dmg to your USB Installer
+- Once the USB  has been created, download the latest version of [**HeliPort**](https://github.com/OpenIntelWireless/HeliPort) and copy the .dmg to your USB Installer (only required when `itlwm.kext` is used for Wi-Fi)
 - Next, mount the ESP of the USB Installer (you can use [**MountEFI**](https://github.com/corpnewt/MountEFI) for this)
 - Put the EFI folder on the EFI partition of the USB installer
 - Reboot from the USB installer 

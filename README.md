@@ -216,26 +216,32 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 
 ## Post-Install
 - Disable Gatekeeper: `sudo spctl --master-disable`
-- Mount **HeliPort.dmg**, drag the app into the "Programs" folder and run it.
-- Use it to connect to your WiFI Hotspot.
-- Add HeiPort to "Login Items", so it stars and connects to your WiFi Hotspot automatically.
-- Next, enable **YogaSMC**:
+- When using `itlwm.kext` for Wi-Fi (Aiprtitlwm users can skip this):
+	- Mount **HeliPort.dmg**, drag the app into the "Programs" folder and run it.
+	- Use it to connect to your WiFI Hotspot.
+	- Add HeiPort to "Login Items", so it stars and connects to your WiFi Hotspot automatically.
+- Enable **YogaSMC**:
 	- Download and mount [**YogaSMC-App**](https://github.com/zhen-zen/YogaSMC/releases) 
 	- Drag the `YogaSMCNC` app into the "Programs" folder 
 	- Double-click the YogaSMC **prefPane** to install it
 	- Click on its icon (⌥) in the menu bar and select "Start at Login"
-	- Now you can control Fan Speeds and other settings
-- Use [**CPUFriendFriend**](https://github.com/corpnewt/CPUFriendFriend) to generate your own CPUFriendDataProvider.kext if your T490 uses a different CPU than mine to optimize CPU Power Management
+	- Now you can control fan speed and other settings
+- Use [**CPUFriendFriend**](https://github.com/corpnewt/CPUFriendFriend) to generate your own `CPUFriendDataProvider.kext` to optimize CPU Power Management if your T490 uses a different CPU than mine.
 
 ## For OCAT Users
-Add the following links to the "Kext URL Upgrade" list (accessible via "Settings" in the Sync window), so kext which are marked in grey in the Sync window will be downloaded when checking for updates:
+Add the following entries (if not present already) to the "Kext URL Upgrade" list accessible via "Settings" from the "Sync" window, so kext which are marked in grey in the Sync window will be downloaded when checking for updates:
 
-Kext | URL
------|-----
-**BlueToolFixup.kext** | https://github.com/zxystd/BrcmPatchRAM
+Kext Name | Source URL
+----------|-----------
+**AdvancedMap.kext** | https://github.com/notjosh/AdvancedMap
 **IntelBluetoothFirmware.ketx** | https://github.com/OpenIntelWireless/IntelBluetoothFirmware
 **IntelMausiEthernet.kext** | https://github.com/CloverHackyColor/IntelMausiEthernet
 **itlwm.kext** | https://github.com/OpenIntelWireless/itlwm 
+**RealtekCardReader.kext** | https://github.com/0xFireWolf/RealtekCardReader
+**RealtekCardReaderFriend.kext** | https://github.com/0xFireWolf/RealtekCardReaderFriend
+
+> [!IMPORTANT]
+> Don't update `AppleALC.kext` and `itlwm.kext` via OCAT because then you lose the slimmed versions of these kexts!
 
 ## Credits and Thank Yous
 - [**Acidanthera**](https://github.com/acidanthera) for OpenCore, Kexts and maciASL

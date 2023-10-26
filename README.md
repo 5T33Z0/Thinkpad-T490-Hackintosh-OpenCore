@@ -1,5 +1,5 @@
 # Lenovo ThinkPad T490 Hackintosh OpenCore
-[![OpenCore](https://img.shields.io/badge/OpenCore-0.9.6-blue.svg)](https://github.com/acidanthera/OpenCorePkg/releases/latest) [![macOS Sonoma](https://img.shields.io/badge/macOS-14.1-white.svg)](https://www.apple.com/macos/sonoma-preview/)<br>
+[![OpenCore](https://img.shields.io/badge/OpenCore-0.9.6-blue.svg)](https://github.com/acidanthera/OpenCorePkg/releases/latest) [![macOS Sonoma](https://img.shields.io/badge/macOS-14.1-white.svg)](https://www.apple.com/macos/sonoma/) [![release](https://img.shields.io/badge/Download-latest-success.svg)]([https://github.com/5T33Z0/Lenovo-T530-Hackinosh-OpenCore/releases/latest](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/releases/latest))<br>
 ![10053604](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/assets/76865553/ed932a1a-8205-4b81-a4e2-f68d7d8a7178)
 
 **TABLE of CONTENTS**
@@ -32,7 +32,7 @@ OpenCore EFI folder and config for running macOS Monterey and newer on the Lenov
 - Lean EFI folder with slimmed kexts (20 mb instead of 70) :
 	- **AppleALC** (87 kB instead of 2.2 mb). Only contains layout `97`.
 	- **AirportItlwm** (1.7 mb instead of 16 mb). Only Contains Firmware for Intel AC 9560.
-	- **itlwm** (1.6 mb instead of 16 mb). Only Contains Firmware for Intel AC 9560.
+	- **itlwm** (1.5 mb instead of 16 mb). Only Contains Firmware for Intel AC 9560.
 - YogaSMC support for additional features like CPU fan control, performance bias, all <kbd>Fn</kbd> Key shortcuts working, additional OSD overlays, etc.
 - No injection of `PlatformInfo` data into Windows.
 - 3D globe view in Maps (macOS 12+)
@@ -44,7 +44,8 @@ OpenCore EFI folder and config for running macOS Monterey and newer on the Lenov
 ## Issues
 - Audio Jack creates an unpleasant buzz/noise during driver initialization. So it's best to connect Headphones to it *after* booting.
 
-💡**NOTE**: Before reporting any issues, ensure that your system uses the latest UEFI and EC Firmware as I do. I have no time trying to fix issues which are not caused by my EFI but rather by running the system on outdated system firmware! 
+> [!IMPORTANT]
+> Before reporting any issues, ensure that your system uses the latest UEFI and EC Firmware as I do. I have no time trying to fix issues which are not caused by my EFI but rather by running the system on outdated firmware! 
 
 ## Specs
 Category | Description
@@ -163,23 +164,24 @@ EFI
 	- **Wi-Fi**: Decide, which Wi-Fi kext you want to use (&rarr; see [**AirportItlwm vs itlwm**](#airportitlwmkext-vs-itlwmkext))
 	- `Platforminfo/Generic`: Generate an MLB, Serial and ROM for `MacBookPro15,2` with GenSMBIOS or OCAT. :warning: Don't change the SMBIOS or the `USBMap.kext` won't work anymore!
 	- Add `boot-args` for debugging if you have installation issues: `-v`, `debug=0x100` and `keepsyms=1`
-	- `UEFI/APFS` section: change `MinVersion` and `MinDate` to `-1` for macOS Catalina and older.
+	- `UEFI/APFS` section: change `MinVersion` and `MinDate` to `-1` if you want to use macOS Catalina or older.
 - Save the changes
 
-> **Note**: If your T490 model uses a different WiFi/BT card than Intel AC-9560, then use the official itlwm.kext because mine only contains the firmware for the 9560 so it won't work with other cards.
+> [!NOTE]
+> If your T490 model uses a different WiFi/BT card than Intel AC-9560, then use the official itlwm.kext because mine only contains the firmware for the 9560 so it won't work with other cards.
 
 #### AirportItlwm.kext vs. itlwm.kext
 Although the Intel AC-9560 Card is compatible with both kexts (use either one or the other), there are Pros and Cons to both of them (check the [**FAQs**](https://openintelwireless.github.io/itlwm/FAQ.html#features) for other differences):
 
-- **AirportItlwm**:
+- **AirportItlwm**: (default)
 	- **Pro**: Can be used during macOS installation which is not possible with `itlwm.kext`
 	- **Pro**: Supports Location Services and Find My Mac
-	- **Con**: Doesn't perform as well as itlwm.kext and takes much longer to connect
+	- **Con**: Doesn't perform as well as itlwm.kext and takes a bit longer to connect to access points
 	- **Con**: Can't connect to hidden WiFi Networks
-	- **Con**: Requires using the correct kext per macOS version, so running multiple version of macOS with this kext is not possible without renaming kexts
+	- **Con**: Requires using the correct kext per macOS version, so running multiple version of macOS requires multiple versions of this kext controlled via `MinKernel` and `MaxKernel` settings
 	- ~~**Con**: Not compatible with macOS Sonoma [**yet**](https://github.com/OpenIntelWireless/itlwm/issues/883)~~
 
-- **itlwm.kext**
+- **itlwm.kext** (disabled)
 	- **Pro**: Connects much faster to WiFi hotspots and performs better than `AirportItlwm`
 	- **Pro**: Supports macOS Sonoma already
 	- **Pro**: Can connect to hidden WiFi Networks
@@ -187,21 +189,22 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 	- **Con**: Requires [**HeliPort**](https://github.com/OpenIntelWireless/HeliPort) app to connect to WiFi Hotspots so it can't be used during macOS installation
 	- **Con**: Doesn't support Location Services
 
-**Suggestion**: Use Ethernet during macOS installation. If you don't have access to Ethernet, disable `itlwm.kext` and enable `AirportItlw.kext` for the desired macOS version you want to install/use instead. Currently, AirportItlwm kexts for macOS and Ventura and Sonoma (test version) are included.
+> [!NOTE]
+> By default, `AirportItlw.kext` is used since it allows accessing the internet during macOS installation (unlike `itlwm.kext` which requires an additional app to do so). Currently, AirportItlwm kexts for macOS Monterey, Ventura and Sonoma are included. My `itlwm.kext` is a slimmed-down version only containing the firmware for the Intel AC 9560 (1,5 MB instead of 16,1 MB). If you want to use itlwm, disable AirportItlwm (all variants) and enable itlwm in the config.plist instead. Next, download the Helipad app, run it and add it to "Login Items" (in System Settings) so that it starts automatically with macOS.
 
 #### Enabling Hibernation
 - In config.plist:
 	- Change `HibernateMode` to `Auto`
-- In System:
-	- Preferences: Disable Power Nap 
+- On the System:
+	- Disable Power Nap (in System Settings)
 	- In Terminal: `sudo pmset -a hibernatemode 25` 
 	- In Terminal: `sudo pmset -a standby 1` 
 
 ## Deployment
 ### If macOS is installed already
-- Put the EFI folder on a FAT32 formatted USB stick
+- Put the EFI folder on a FAT32 formatted USB flash drive
 - Reboot from said USB flash drive for testing
-- If it works, place the EFI folder on the SSD of your Laptop
+- If it works, mount your system's ESP, replace the BOOT and OC folders in the EFI folder
 - Continue with Post-Install 
 
 ### If macOS is not installed
@@ -212,8 +215,6 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 - Reboot from the USB installer 
 - Install macOS
 - Once that is completed, continue with Post-Install
-
-**NOTE**: You will have to use Ethernet during the installation of macOS if your system requires access to the Internet.
 
 ## Post-Install
 - Disable Gatekeeper: `sudo spctl --master-disable`

@@ -229,7 +229,7 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 - Use [**CPUFriendFriend**](https://github.com/corpnewt/CPUFriendFriend) to generate your own `CPUFriendDataProvider.kext` to optimize CPU Power Management if your T490 uses a different CPU than mine.
 
 ## For OCAT Users
-Add the following entries (if not present already) to the "Kext URL Upgrade" list accessible via "Settings" from the "Sync" window, so kext which are marked in grey in the Sync window will be downloaded when checking for updates:
+Add the following entries to the "Kext URL Upgrade" list accessible via "Settings" from the "Sync" window (if not present already), so kext which are marked in grey in the Sync window will be downloaded when checking for updates:
 
 Kext Name | Source URL
 ----------|-----------

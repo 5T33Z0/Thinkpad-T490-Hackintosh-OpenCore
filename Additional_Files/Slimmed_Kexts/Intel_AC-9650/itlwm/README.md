@@ -1,5 +1,7 @@
 # How to compile a slimmed version of `itlwm.kext`
 
+The size of the Intel Wireless kext can be reduced drastically by about factor 10 (1.6 MB instead of 16) by deleting all the unnecessary firmwares for other Wi-Fi cards except the one for the Intel AC-9560 that comes stock with the Lenovo T490.
+
 ## Preparations
 
 ### Install Xcode
@@ -28,6 +30,7 @@
 - Reboot.
 - Done.
 
-> [!NOTE]
+> [!IMPORTANT]
 > 
-> If you are having issues with the slimmed kext, use the pre-cpmpiled version from the OpenIntelWireless repo.
+> - itlw.kext requires the [Heliport](https://github.com/OpenIntelWireless/HeliPort) app to connect to Wi-Fi Hotspots
+> - If you are having issues with the slimmed itlwm.kext, use the pre-cpmpiled version from the OpenIntelWireless repo!

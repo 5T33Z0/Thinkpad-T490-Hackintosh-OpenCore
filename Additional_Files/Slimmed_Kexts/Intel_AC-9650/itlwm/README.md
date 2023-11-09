@@ -1,14 +1,12 @@
-# Compile a slimmed `itlwm.kext`
-
+# How to compile a slimmed version of `itlwm.kext`
 
 ## Preparations
 
 ### Install Xcode
-- Download the [correct version](https://developer.apple.com/support/xcode/) of [**Xcode**](https://developer.apple.com/download/all/?q=xcode) supported by your version of macOS. The download is about 10 GB and the installed application is about 30 GB in total, so make sure you have enough disk space.
-- Move the Xcode app to the "Programs" folder – otherwise compiling fails.
+- Download the correct version of [**Xcode**](https://xcodereleases.com/?scope=release) for your system. 
+- Move the Xcode app to the "Programs" folder – otherwise compiling might fail.
 
-### Prepare itlwm
-
+### Prepare the `itlwm` source code
 - Download [**itlwm**](https://github.com/OpenIntelWireless/itlwm) source code (click on "Code" and select "Download zip")
 - Unzip the file – "itlwm-master" folder will be created
 - Run Terminal
@@ -18,13 +16,18 @@
 - In Finder, navigate to `~/Downloads/itlwm-master/itlwm/firmware`
 - Delete every file except `iwm-9000-46`
 
-## Compilig slimmed itlwm
-
+## Compiling the kext
 - Double-click `itlwm.xcodeproj`
 - Click on the Play button to run the process
 - Ignore all the warnings
 - Return to the terminal window 
 - Type `xcodebuild` and hit Enter to comple the `itlwm.kext`
-- It will be stored under `~/Downloads/itlwm-master/build/Release`
+- Once compiling is done, the kext will be located under `~/Downloads/itlwm-master/build/Release`
+- Mount your EFI folder
+- Copy the kext to `EFI/OC/Kexts`, replacing the existing one 
+- Reboot.
+- Done.
 
-Done. Copy the kext to your EFI/OC/Kext folder, replacing the existing one and reboot.
+> [!NOTE]
+> 
+> If you are having issues with the slimmed kext, use the pre-cpmpiled version from the OpenIntelWireless repo.

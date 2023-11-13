@@ -133,14 +133,14 @@ EFI
     │   ├── USBMap_MBP152.kext
     │   ├── VirtualSMC.kext
     │   ├── VoodooPS2Controller.kext
-    │   │	├── VoodooInput.kext
-    │   │	├── VoodooPS2Keyboard.kext
-    │   │	├── VoodooPS2Mouse.kext (Disabled)
-    │   │	└── VoodooInput.kext (Disabled)
+    │   │   ├── VoodooInput.kext
+    │   │   ├── VoodooPS2Keyboard.kext
+    │   │   ├── VoodooPS2Mouse.kext (Disabled)
+    │   │   └── VoodooInput.kext (Disabled)
     │   ├── VoodooRMI.kext
-    │   │	├── RMII2C.kext (Disabled)
-    │   │	├── RMISMBus.kext
-    │   │	└── VoodooInput.kext
+    │   │   ├── RMII2C.kext (Disabled)
+    │   │   ├── RMISMBus.kext
+    │   │   └── VoodooInput.kext
     │   ├── VoodooSMBus.kext
     │   ├── WhateverGreen.kext
     │   └── YogaSMC.kext

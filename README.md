@@ -165,8 +165,9 @@ EFI
 	- `UEFI/APFS` section: change `MinVersion` and `MinDate` to `-1` if you want to use macOS Catalina or older.
 - Save the changes
 
-> [!NOTE]
-> If your T490 model uses a different WiFi/BT card than Intel AC-9560, then use the official itlwm.kext because mine only contains the firmware for the 9560 so it won't work with other cards.
+> [!IMPORTANT]
+> 
+> If your T490 model has a different WiFi/BT card than Intel AC-9560, use the official itlwm.kext because mine only contains the firmware for the 9560 so it won't work with other cards.
 
 #### AirportItlwm.kext vs. itlwm.kext
 Although the Intel AC-9560 Card is compatible with both kexts (use either one or the other), there are Pros and Cons to both of them (check the [**FAQs**](https://openintelwireless.github.io/itlwm/FAQ.html#features) for other differences):
@@ -188,7 +189,8 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 	- **Con**: Doesn't support Location Services
 
 > [!NOTE]
-> By default, `AirportItlw.kext` is used since it allows accessing the internet during macOS installation (unlike `itlwm.kext` which requires an additional app to do so). Currently, AirportItlwm kexts for macOS Monterey, Ventura and Sonoma are included. My `itlwm.kext` is a slimmed-down version only containing the firmware for the Intel AC 9560 (1,5 MB instead of 16,1 MB). If you want to use itlwm, disable AirportItlwm (all variants) and enable itlwm in the config.plist instead. Next, download the Helipad app, run it and add it to "Login Items" (in System Settings) so that it starts automatically with macOS.
+> 
+> My config uses `AirportItlw.kext` by default since it allows accessing the internet during macOS installation (unlike `itlwm.kext` which requires an additional app to do so). Currently, AirportItlwm kexts for macOS Monterey, Ventura and Sonoma are included. My `itlwm.kext` is a slimmed-down version only containing the firmware for the Intel AC-9560 (1,5 MB instead of 16,1 MB). If you want to use itlwm, disable AirportItlwm (all variants) and enable itlwm in the config.plist instead. Next, download the Helipad app, run it and add it to "Login Items" (in System Settings) so that it starts automatically with macOS.
 
 #### Enabling Hibernation
 - In config.plist:
@@ -215,17 +217,17 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 - Once that is completed, continue with Post-Install
 
 ## Post-Install
-- Disable Gatekeeper: `sudo spctl --master-disable`
-- When using `itlwm.kext` for Wi-Fi (Aiprtitlwm users can skip this):
+- **Disable Gatekeeper**: `sudo spctl --master-disable` because it is annoying and wants to stop you from running scripts from github etc.
+- **Wi-Fi** (`itlwm.kext` users only): 
 	- Mount **HeliPort.dmg**, drag the app into the "Programs" folder and run it.
 	- Use it to connect to your WiFI Hotspot.
-	- Add HeiPort to "Login Items", so it stars and connects to your WiFi Hotspot automatically.
-- Enable **YogaSMC**:
-	- Download and mount [**YogaSMC-App**](https://github.com/zhen-zen/YogaSMC/releases) 
-	- Drag the `YogaSMCNC` app into the "Programs" folder 
+	- Add HeliPort to "Login Items", so it stars with macOS and connects to your WiFi Hotspot automatically.
+- **YogaSMC**:
+	- Download [**YogaSMC-App**](https://github.com/zhen-zen/YogaSMC/releases) and mount it
 	- Double-click the YogaSMC **prefPane** to install it
-	- Click on its icon (⌥) in the menu bar and select "Start at Login"
-	- Now you can control fan speed and other settings
+	- Drag the `YogaSMC` app into the "Programs" folder and run it
+	- Click on the incon (⌥) in the menu bar and select "Start at Login"
+	- Now you can control performance profiles, fan speed and other settings
 - Use [**CPUFriendFriend**](https://github.com/corpnewt/CPUFriendFriend) to generate your own `CPUFriendDataProvider.kext` to optimize CPU Power Management if your T490 uses a different CPU than mine.
 
 ## For OCAT Users
@@ -241,6 +243,7 @@ Kext Name | Source URL
 **RealtekCardReaderFriend.kext** | https://github.com/0xFireWolf/RealtekCardReaderFriend
 
 > [!IMPORTANT]
+> 
 > Don't update `AppleALC.kext` and `itlwm.kext` via OCAT because then you lose the slimmed versions of these kexts!
 
 ## Credits and Thank Yous

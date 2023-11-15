@@ -238,6 +238,15 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 	- Now you can control performance profiles, fan speed and other settings
 - Use [**CPUFriendFriend**](https://github.com/corpnewt/CPUFriendFriend) to generate your own `CPUFriendDataProvider.kext` to optimize CPU Power Management if your T490 uses a different CPU than mine.
 
+## Understanding YogaSMC Settings
+
+- Enable the checkbox `PSC` Support in the YogaSMC preference pane. I think it refers to `Power State Current` in the `DSDT` and is used to control different levels of performance via the slider.
+- `DYTC` controls the DYTC Performance mode. 3 profiles are available: "Quiet", "Balanced", and "Performance"
+
+> [!NOTE]
+>
+> I've disabled YogaSMC in my latest EFI. Because after some time, CPU Power Management starts acting really weird. I was watching a YT video and suddenly the video playback stopped, but audio continued and the system felt super sluggish. The read-outs in Intel Powwer Gadget reflected this: the "Core Max" and "Core Avg" values were really low, while "Core Req" was through the roof. The performance slider doesn't seem to do anything either and after rebooting, it's resets again. I have to digg into it.
+
 ## For OCAT Users
 Add the following entries to the "Kext URL Upgrade" list accessible via "Settings" from the "Sync" window (if not present already), so kext which are marked in grey in the Sync window will be downloaded when checking for updates:
 

@@ -108,7 +108,7 @@ EFI
 │   │   ├── OpenCanopy.efi
 │   │   ├── OpenRuntime.efi
 │   │   └── ResetNvramEntry.efi
-│   ├── Kexts
+│   ├── Kexts (Loading managed by MinKernel/MaxKernel settings)
 │   │   ├── AMFIPass.kext
 │   │   ├── AdvancedMap.kext
 │   │   ├── AirportItlwm_Monterey.kext
@@ -124,6 +124,7 @@ EFI
 │   │   ├── IntelBluetoothFirmware.kext
 │   │   ├── IntelBluetoothInjector.kext
 │   │   ├── IntelMausiEthernet.kext
+│   │   ├── itlwm.kext (disabled)
 │   │   ├── Lilu.kext
 │   │   ├── NVMeFix.kext
 │   │   ├── RealtekCardReader.kext
@@ -148,7 +149,7 @@ EFI
 │   │   │           └── VoodooInput.kext
 │   │   ├── VoodooSMBus.kext
 │   │   ├── WhateverGreen.kext
-│   │   └──YogaSMC.kext
+│   │   └── YogaSMC.kext
 │   ├── OpenCore.efi
 │   ├── Resources
 │   │   ├── Audio

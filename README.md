@@ -23,6 +23,10 @@
 ## About
 OpenCore EFI folder and config for running macOS Monterey and newer on the Lenovo ThinkPad T490. Read the documentation carefully in order to boot macOS successfully.
 
+| :warning: Important Updates |
+|:----------------------------|
+| Uninstall Intel Power Gadget before upgrading to macOS Sonoma – use the Uninstaller included in the app's folder. The `EnergyDriver.kext` that comes with Intel Power Gadget causes all CPU cores to run at 100% in macOS Sonoma 14.2 beta 3!
+
 ### Notable Features
 - Compatible with macOS Sonoma
 - MicroSD Card Reader is working
@@ -202,7 +206,7 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 	- ~~**Con**: Not compatible with macOS Sonoma [**yet**](https://github.com/OpenIntelWireless/itlwm/issues/883)~~
 
 - **itlwm.kext** (disabled)
-	- **Pro**: Connects much faster to WiFi hotspots and performs better than `AirportItlwm`
+	- **Pro**: Connects much faster to WiFi hotspots and loading times feel slightly better than with `AirportItlwm` 
 	- **Pro**: Supports macOS Sonoma already
 	- **Pro**: Can connect to hidden WiFi Networks
 	- **Pro**: Only one kext to cover WiFi across multiple versions of macOS

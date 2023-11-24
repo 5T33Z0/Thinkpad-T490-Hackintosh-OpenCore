@@ -292,7 +292,7 @@ Kext Name | Source URL
 	-  deeveedee for advice when trying to optimize the framebuffer patch for connecting to my external display. 
 - **T490 OpenCore Repos** used for referencing and ACPI hotfixes:
 	- [yusifsalam](https://github.com/yusifsalam/t490-macos)
-	- [Krissh-C ](https://github.com/Krissh-C)
+	- [Krissh-C ](https://github.com/Krissh-C/T490-macOS)
 	- [ganyuanzhen](https://github.com/ganyuanzhen/T490-Hackintosh-Opencore)
 	- [laserdyke](https://github.com/laserdyke/t490-opencore)
 	- [ZoR3oL](https://github.com/ZoR3oL/t490-hackintosh)

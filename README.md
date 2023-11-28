@@ -1,5 +1,5 @@
 # Lenovo ThinkPad T490 Hackintosh OpenCore
-[![OpenCore](https://img.shields.io/badge/OpenCore-0.9.7-cyan.svg)](https://github.com/acidanthera/OpenCorePkg/releases/latest) [![Clover Version](https://img.shields.io/badge/Clover-r5155-apple.svg)](https://github.com/CloverHackyColor/CloverBootloader/releases/latest) [![macOS Sonoma](https://img.shields.io/badge/macOS-14.2b-white.svg)](https://www.apple.com/macos/sonoma/) [![release](https://img.shields.io/badge/Download-latest-success.svg)](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/releases/latest)<br>![10053604](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/assets/76865553/ed932a1a-8205-4b81-a4e2-f68d7d8a7178)
+[![OpenCore](https://img.shields.io/badge/OpenCore-0.9.7-cyan.svg)](https://github.com/acidanthera/OpenCorePkg/releases/latest) [![Clover Version](https://img.shields.io/badge/Clover-r5155-apple.svg)](https://github.com/CloverHackyColor/CloverBootloader/releases/latest) [![macOS Sonoma](https://img.shields.io/badge/macOS-14.2b4-white.svg)](https://www.apple.com/macos/sonoma/) [![release](https://img.shields.io/badge/Download-latest-success.svg)](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/releases/latest)<br>![10053604](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/assets/76865553/ed932a1a-8205-4b81-a4e2-f68d7d8a7178)
 
 **TABLE of CONTENTS**
 
@@ -22,10 +22,6 @@
 
 ## About
 OpenCore EFI folder and config for running macOS Monterey and newer on the Lenovo ThinkPad T490. Read the documentation carefully in order to boot macOS successfully.
-
-| :warning: Important Updates |
-|:----------------------------|
-| Uninstall Intel Power Gadget before upgrading to macOS Sonoma – use the Uninstaller included in the app's folder. The `EnergyDriver.kext` that comes with Intel Power Gadget causes all CPU cores to run at 100% in macOS Sonoma 14.2 beta 3!
 
 ### Notable Features
 - Compatible with macOS Sonoma

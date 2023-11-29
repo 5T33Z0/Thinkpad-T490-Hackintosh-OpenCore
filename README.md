@@ -230,7 +230,7 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 
 ### If macOS is not installed
 - Follow Dortania's [**OpenCore Install Guide**](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/#making-the-installer) to prepare a USB Installer
-- Once the USB  has been created, download the latest version of [**HeliPort**](https://github.com/OpenIntelWireless/HeliPort) and copy the .dmg to your USB Installer (only required when `itlwm.kext` is used for Wi-Fi)
+- **Optional**: Once the USB has been created, download the latest version of [**HeliPort**](https://github.com/diepeterpan/HeliPort/releases) and copy the .dmg to your USB Installer (only required when `itlwm.kext` is used for Wi-Fi)
 - Next, mount the ESP of the USB Installer (you can use [**MountEFI**](https://github.com/corpnewt/MountEFI) for this)
 - Put the EFI folder on the EFI partition of the USB installer
 - Reboot from the USB installer 
@@ -252,13 +252,10 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 - Use [**CPUFriendFriend**](https://github.com/corpnewt/CPUFriendFriend) to generate your own `CPUFriendDataProvider.kext` to optimize CPU Power Management if your T490 uses a different CPU than mine.
 
 ## Understanding YogaSMC Settings
+Open the YogaSMC preference pance. You will find the following options (among others):
 
-- Enable the checkbox `PSC` Support in the YogaSMC preference pane. I think it refers to `Power State Current` in the `DSDT` and is used to control different levels of performance via the slider.
-- `DYTC` controls the DYTC Performance mode. 3 profiles are available: "Quiet", "Balanced", and "Performance"
-
-> [!NOTE]
->
-> I've disabled YogaSMC in my latest EFI. Because after some time, CPU Power Management starts acting really weird. I was watching a YT video and suddenly the video playback stopped, but audio continued and the system felt super sluggish. The read-outs in Intel Powwer Gadget reflected this: the "Core Max" and "Core Avg" values were really low, while "Core Req" was through the roof. The performance slider doesn't seem to do anything either and after rebooting, it's resets again. I have to digg into it.
+- `DYTC`: DYTC stands for `Dynamic Thermal Control`. It allows the OS or firmware to manage the thermal characteristics of a device or component dynamically, adjusting power and performance to maintain safe operating temperatures. 3 profiles are available: "Quiet", "Balanced", and "Performance"
+- If you tick the `PSC support`, the control for the slider becomes more nuanced. Instead of 3 positions it now has more a lot more increments. I think `PSC` refers to `Power State Current` in the `DSDT` and is used to control different levels of performance via the slider.
 
 ## For OCAT Users
 Add the following entries to the "Kext URL Upgrade" list accessible via "Settings" from the "Sync" window (if not present already), so kext which are marked in grey in the Sync window will be downloaded when checking for updates:

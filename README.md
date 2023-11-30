@@ -206,7 +206,7 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 	- **Pro**: Supports macOS Sonoma already
 	- **Pro**: Can connect to hidden WiFi Networks
 	- **Pro**: Only one kext to cover WiFi across multiple versions of macOS
-	- **Con**: Requires [**HeliPort**](https://github.com/OpenIntelWireless/HeliPort) app to connect to WiFi Hotspots so it can't be used during macOS installation
+	- **Con**: Requires [**HeliPort**](https://github.com/diepeterpan/HeliPort/releases) app to connect to WiFi Hotspots so it can't be used during macOS installation
 	- **Con**: Doesn't support Location Services
 
 > [!NOTE]

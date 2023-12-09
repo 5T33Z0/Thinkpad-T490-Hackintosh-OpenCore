@@ -181,6 +181,7 @@ EFI
 		- `Devices/Properties/Add/PciRoot(0x0)/Pci(0x2,0x0)`: For macOS 13.3 and older, disable/delete `enable-backlight-registers-alternative-fix` and use `enable-backlight-registers-fix` instead to fix backlight issues.
 		- If other issues occur, try a different [Framebuffer Patch ](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/blob/main/Additional_Files/Framebuffer_Patches/UHD620_Framebuffer_Patches.plist)
 	- **Wi-Fi**: Decide, which Wi-Fi kext you want to use (&rarr; see [**AirportItlwm vs itlwm**](#airportitlwmkext-vs-itlwmkext))
+	- `Kernel/Quirks`: `AppleXcpmCfgLock` is not required on my system. Try for yourself if your T490 can boot without it.
 	- `Platforminfo/Generic`: Generate an MLB, Serial and ROM for `MacBookPro15,2` with GenSMBIOS or OCAT. :warning: Don't change the SMBIOS or the `USBMap.kext` won't work anymore!
 	- Add `boot-args` for debugging if you have installation issues: `-v`, `debug=0x100` and `keepsyms=1`
 	- `UEFI/APFS` section: change `MinVersion` and `MinDate` to `-1` if you want to use macOS Catalina or older.
@@ -213,14 +214,6 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 > 
 > My config uses `AirportItlw.kext` by default since it allows accessing the internet during macOS installation (unlike `itlwm.kext` which requires an additional app to do so). Currently, AirportItlwm kexts for macOS Monterey, Ventura and Sonoma are included. My `itlwm.kext` is a slimmed-down version only containing the firmware for the Intel AC-9560 (1,5 MB instead of 16,1 MB). If you want to use itlwm, disable AirportItlwm (all variants) and enable itlwm in the config.plist instead. Next, download the Helipad app, run it and add it to "Login Items" (in System Settings) so that it starts automatically with macOS.
 
-#### Enabling Hibernation
-- In config.plist:
-	- Change `HibernateMode` to `Auto`
-- On the System:
-	- Disable Power Nap (in System Settings)
-	- In Terminal: `sudo pmset -a hibernatemode 25` 
-	- In Terminal: `sudo pmset -a standby 1` 
-
 ## Deployment
 ### If macOS is installed already
 - Put the EFI folder on a FAT32 formatted USB flash drive
@@ -250,6 +243,9 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 	- Click on the incon (⌥) in the menu bar and select "Start at Login"
 	- Now you can control performance profiles, fan speed and other settings
 - Use [**CPUFriendFriend**](https://github.com/corpnewt/CPUFriendFriend) to generate your own `CPUFriendDataProvider.kext` to optimize CPU Power Management if your T490 uses a different CPU than mine.
+- **Enabling Hibernation**: Use Terminal or change in Hackintool
+	- Disable PowerNap: `sudo pmset -a powernap 0`
+	- Change Hibernatemode to 25: `sudo pmset -a hibernatemode 25` 
 
 ## Understanding YogaSMC Settings
 Open the YogaSMC preference pance. You will find the following options (among others):

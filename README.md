@@ -4,19 +4,20 @@
 **TABLE of CONTENTS**
 
 - [About](#about)
-  - [Notable Features](#notable-features)
-  - [Future Developments](#future-developments)
+	- [Notable Features](#notable-features)
+	- [Future Developments](#future-developments)
 - [Issues](#issues)
 - [Specs](#specs)
 - [BIOS Settings](#bios-settings)
 - [EFI Folder Content](#efi-folder-content)
 - [Preparations](#preparations)
-  - [Config adjustments](#config-adjustments)
-    - [AirportItlwm.kext vs. itlwm.kext](#airportitlwmkext-vs-itlwmkext)
+	- [Config Adjustments](#config-adjustments)
+		- [AirportItlwm.kext vs. itlwm.kext](#airportitlwmkext-vs-itlwmkext)
 - [Deployment](#deployment)
-  - [If macOS is installed already](#if-macos-is-installed-already)
-  - [If macOS is not installed](#if-macos-is-not-installed)
+	- [If macOS is installed already](#if-macos-is-installed-already)
+	- [If macOS is not installed](#if-macos-is-not-installed)
 - [Post-Install](#post-install)
+- [Understanding YogaSMC Settings](#understanding-yogasmc-settings)
 - [For OCAT Users](#for-ocat-users)
 - [Credits and Thank Yous](#credits-and-thank-yous)
 
@@ -178,18 +179,25 @@ EFI
 - Download the [**latest Release**](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/releases/latest) of my EFI folder and unzip it
 - Open the config.plist with a plist editor (e.g. ProperTree or OCAT) and adjust the following settings based on the used version of macOS and personal preferences:
 	- **Graphics**
-		- `Devices/Properties/Add/PciRoot(0x0)/Pci(0x2,0x0)`: For macOS 13.3 and older, disable/delete `enable-backlight-registers-alternative-fix` and use `enable-backlight-registers-fix` instead to fix backlight issues.
-		- If other issues occur, try a different [Framebuffer Patch ](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/blob/main/Additional_Files/Framebuffer_Patches/UHD620_Framebuffer_Patches.plist)
-	- **Wi-Fi**: Decide, which Wi-Fi kext you want to use (&rarr; see [**AirportItlwm vs itlwm**](#airportitlwmkext-vs-itlwmkext))
-	- `Kernel/Quirks`: `AppleXcpmCfgLock` is not required on my system. Try for yourself if your T490 can boot without it.
-	- `Platforminfo/Generic`: Generate an MLB, Serial and ROM for `MacBookPro15,2` with GenSMBIOS or OCAT. :warning: Don't change the SMBIOS or the `USBMap.kext` won't work anymore!
-	- Add `boot-args` for debugging if you have installation issues: `-v`, `debug=0x100` and `keepsyms=1`
-	- `UEFI/APFS` section: change `MinVersion` and `MinDate` to `-1` if you want to use macOS Catalina or older.
+		- `Devices/Properties/Add/PciRoot(0x0)/Pci(0x2,0x0)`
+			- If you plan to install macOS 13.3 or older, disable/delete `enable-backlight-registers-alternative-fix` and use `enable-backlight-registers-fix` instead to fix black screen issues.
+			- If other issues occur, try the other framebuffer patch in the config (the one that's disable by `#`)!
+			- An additional list of Framebuffer Patches can be found [here](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/blob/main/Additional_Files/Framebuffer_Patches/UHD620_Framebuffer_Patches.plist)
+	- **Wi-Fi**: Decide, which Wi-Fi kext you want to use (&rarr; see [**AirportItlwm vs itlwm**](#airportitlwmkext-vs-itlwmkext)). **AirportItlwm** is enabled by default.
+	- **Kernel/Quirks**: 
+		- `AppleXcpmCfgLock` is not required on my system. Try for yourself if your T490 can boot without it.
+	- **NVRAM/Add/7C436110-AB2A-4BBB-A880-FE41995C9F82**
+		- Optional: add `boot-args` `-v`, `debug=0x100` and `keepsyms=1` for debugging if you face issues.
+	- **UEFI/APFS** 
+    	- Change `MinVersion` and `MinDate` to `-1` if you want to run macOS Catalina or older.
+	- **Platforminfo/Generic**: SMBIOS
+		- Generate `MLB`, `Serial` and `ROM` for `MacBookPro15,2` using GenSMBIOS or OCAT.
 - Save the changes
 
-> [!IMPORTANT]
+> [!CAUTION]
 > 
-> If your T490 model has a different WiFi/BT card than Intel AC-9560, use the official itlwm.kext because mine only contains the firmware for the 9560 so it won't work with other cards.
+> - Don't change the SMBIOS or the USB port mapping stored in `USBMap_MBP152.kext` won't be applied and Bluetooth won't work either! If you must change the SMBIOS then you also need to change the `model` property inside the `info.plist` of the kext to match the selected SMBIOS as well ([instructions](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/issues/13#issuecomment-1858917249)).
+> - If your T490 model uses a different WiFi/BT card thn the stock Intel AC-9560 card, use the official itlwm.kext instead because mine only contains the firmware for the 9560 so it won't work with other cards.
 
 #### AirportItlwm.kext vs. itlwm.kext
 Although the Intel AC-9560 Card is compatible with both kexts (use either one or the other), there are Pros and Cons to both of them (check the [**FAQs**](https://openintelwireless.github.io/itlwm/FAQ.html#features) for other differences):
@@ -207,7 +215,7 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 	- **Pro**: Supports macOS Sonoma already
 	- **Pro**: Can connect to hidden WiFi Networks
 	- **Pro**: Only one kext to cover WiFi across multiple versions of macOS
-	- **Con**: Requires [**HeliPort**](https://github.com/diepeterpan/HeliPort/releases) app to connect to WiFi Hotspots so it can't be used during macOS installation
+	- **Con**: Requires [**HeliPort**](https://github.com/diepeterpan/HeliPort/releases) app to connect to WiFi hotspots so it can't be used during macOS installation
 	- **Con**: Doesn't support Location Services
 
 > [!NOTE]
@@ -234,13 +242,13 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 - **Disable Gatekeeper**: `sudo spctl --master-disable` because it is annoying and wants to stop you from running scripts from github etc.
 - **Wi-Fi** (`itlwm.kext` users only): 
 	- Mount **HeliPort.dmg**, drag the app into the "Programs" folder and run it.
-	- Use it to connect to your WiFI Hotspot.
-	- Add HeliPort to "Login Items", so it stars with macOS and connects to your WiFi Hotspot automatically.
+	- Use it to connect to your WiFI hotspot.
+	- Add HeliPort to "Login Items", so it stars with macOS and connects to your WiFi network automatically.
 - **YogaSMC**:
 	- Download [**YogaSMC-App**](https://github.com/zhen-zen/YogaSMC/releases) and mount it
 	- Double-click the YogaSMC **prefPane** to install it
 	- Drag the `YogaSMC` app into the "Programs" folder and run it
-	- Click on the incon (⌥) in the menu bar and select "Start at Login"
+	- Click on the icon (⌥) in the menu bar and select "Start at Login"
 	- Now you can control performance profiles, fan speed and other settings
 - Use [**CPUFriendFriend**](https://github.com/corpnewt/CPUFriendFriend) to generate your own `CPUFriendDataProvider.kext` to optimize CPU Power Management if your T490 uses a different CPU than mine.
 - **Enabling Hibernation**: Use Terminal or change in Hackintool
@@ -248,7 +256,7 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 	- Change Hibernatemode to 25: `sudo pmset -a hibernatemode 25` 
 
 ## Understanding YogaSMC Settings
-Open the YogaSMC preference pance. You will find the following options (among others):
+Open the YogaSMC preference pane. You will find the following options (among others):
 
 - `DYTC`: DYTC stands for `Dynamic Thermal Control`. It allows the OS or firmware to manage the thermal characteristics of a device or component dynamically, adjusting power and performance to maintain safe operating temperatures. 3 profiles are available: "Quiet", "Balanced", and "Performance"
 - If you tick the `PSC support`, the control for the slider becomes more nuanced. Instead of 3 positions it now has more a lot more increments. I think `PSC` refers to `Power State Current` in the `DSDT` and is used to control different levels of performance via the slider.

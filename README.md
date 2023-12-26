@@ -208,12 +208,13 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 	- **Con**: Doesn't perform as well as itlwm.kext and takes a bit longer to connect to access points
 	- **Con**: Can't connect to hidden WiFi Networks
 	- **Con**: Requires using the correct kext per macOS version, so running multiple version of macOS requires multiple versions of this kext controlled via `MinKernel` and `MaxKernel` settings
-	- ~~**Con**: Not compatible with macOS Sonoma [**yet**](https://github.com/OpenIntelWireless/itlwm/issues/883)~~
+	- **Con**: iMessage and FeceTime don't work when using AirportItlwm (&rarr; See [Issue 14](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/issues/14))
 
 - **itlwm.kext** (disabled)
 	- **Pro**: Connects much faster to WiFi hotspots and loading times feel slightly better than with `AirportItlwm` 
 	- **Pro**: Supports macOS Sonoma already
 	- **Pro**: Can connect to hidden WiFi Networks
+ 	- **Pro**: Does work with iMessage and FaceTime 	
 	- **Pro**: Only one kext to cover WiFi across multiple versions of macOS
 	- **Con**: Requires [**HeliPort**](https://github.com/diepeterpan/HeliPort/releases) app to connect to WiFi hotspots so it can't be used during macOS installation
 	- **Con**: Doesn't support Location Services

@@ -204,7 +204,7 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 
 - **AirportItlwm**: (default)
 	- **Pro**: Can be used during macOS installation which is not possible with `itlwm.kext`
-	- **Pro**: Supports Location Services and Find My Mac
+	- **Pro**: Supports Location Services and "Find My Mac"
 	- **Con**: Doesn't perform as well as itlwm.kext and takes a bit longer to connect to access points
 	- **Con**: Can't connect to hidden WiFi Networks
 	- **Con**: Requires using the correct kext per macOS version, so running multiple version of macOS requires multiple versions of this kext controlled via `MinKernel` and `MaxKernel` settings
@@ -212,11 +212,10 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 
 - **itlwm.kext** (disabled)
 	- **Pro**: Connects much faster to WiFi hotspots and loading times feel slightly better than with `AirportItlwm` 
-	- **Pro**: Supports macOS Sonoma already
 	- **Pro**: Can connect to hidden WiFi Networks
  	- **Pro**: Does work with iMessage and FaceTime 	
 	- **Pro**: Only one kext to cover WiFi across multiple versions of macOS
-	- **Con**: Requires [**HeliPort**](https://github.com/diepeterpan/HeliPort/releases) app to connect to WiFi hotspots so it can't be used during macOS installation
+	- **Con**: Requires [**HeliPort**](https://github.com/diepeterpan/HeliPort/releases) app to connect to Wi-Fi hotspots, so it can't be used during macOS installation
 	- **Con**: Doesn't support Location Services
 
 > [!NOTE]

@@ -26,6 +26,7 @@ OpenCore EFI folder and config for running macOS Monterey and newer on the Lenov
 
 ### Notable Features
 - Compatible with macOS Sonoma
+- Os-independant USB port mapping via ACPI!
 - MicroSD Card Reader is working
 - Clamshell mode working (when connected to A/C and external display)
 - Optimized Framebuffer Patch for smoother handshake with external display
@@ -38,7 +39,6 @@ OpenCore EFI folder and config for running macOS Monterey and newer on the Lenov
 - 3D globe view in Maps (macOS 12+)
 
 ### Future Developments
-- Mapping USB Ports via ACPI instead of using USBMap.kext
 - Creating AppleALC Layout for Docking Station
 
 ## Issues

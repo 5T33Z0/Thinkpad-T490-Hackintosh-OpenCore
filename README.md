@@ -26,9 +26,9 @@ OpenCore EFI folder and config for running macOS Monterey and newer on the Lenov
 
 ### Notable Features
 - Compatible with macOS Sonoma
-- Os-independant USB port mapping via ACPI!
-- MicroSD Card Reader is working
-- Clamshell mode working (when connected to A/C and external display)
+- OS-independent [USB port mapping via ACPI](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/blob/main/USB_Port_Mapping.md)!
+- Working MicroSD Card Reader
+- Working Clamshell mode (when connected to A/C and external display)
 - Optimized Framebuffer Patch for smoother handshake with external display
 - Lean EFI folder with slimmed kexts (20 mb instead of 70) :
 	- **AppleALC** (87 kB instead of 2.2 mb). Only contains layout `97`.
@@ -100,6 +100,7 @@ EFI
 │   │   ├── SSDT-MCHC.aml
 │   │   ├── SSDT-PLUG.aml
 │   │   ├── SSDT-PNLF.aml
+│   │   ├── SSDT-PORTS.aml
 │   │   ├── SSDT-PTSWAK.aml
 │   │   ├── SSDT-THINK.aml
 │   │   └── SSDT-USBX.aml
@@ -134,7 +135,6 @@ EFI
 │   │   ├── SMCBatteryManager.kext
 │   │   ├── SMCProcessor.kext
 │   │   ├── SMCSuperIO.kext
-│   │   ├── USBMap_MBP152.kext
 │   │   ├── VirtualSMC.kext
 │   │   ├── VoodooPS2Controller.kext
 │   │   │   └── Contents

@@ -267,7 +267,8 @@ Add the following entries to the "Kext URL Upgrade" list accessible via "Setting
 Kext Name | Source URL
 ----------|-----------
 **AdvancedMap.kext** | https://github.com/notjosh/AdvancedMap
-**IntelBluetoothFirmware.ketx** | https://github.com/OpenIntelWireless/IntelBluetoothFirmware
+**AirportItlwm.kext** | https://github.com/OpenIntelWireless/itlwm 
+**IntelBluetoothFirmware.kext** | https://github.com/OpenIntelWireless/IntelBluetoothFirmware
 **IntelMausiEthernet.kext** | https://github.com/CloverHackyColor/IntelMausiEthernet
 **itlwm.kext** | https://github.com/OpenIntelWireless/itlwm 
 **RealtekCardReader.kext** | https://github.com/0xFireWolf/RealtekCardReader
@@ -275,10 +276,19 @@ Kext Name | Source URL
 
 > [!IMPORTANT]
 > 
-> Don't update `AppleALC.kext` and `itlwm.kext` via OCAT because then you lose the slimmed versions of these kexts!
+> Don't update `AirportItlwm.kext`, `AppleALC.kext`, `IntelBluetoothFirmware.kext` and `itlwm.kext` via OCAT because then you lose the slimmed versions of these kexts!
+
+## Compile Intel Wi-Fi and Bluetooth Firmware kexts easily
+
+Chris1111 has created a helpful little app called [**Wifi-Intel-KextsBuilder**](https://github.com/chris1111/Wifi-Intel-KextsBuilder) which automates the process of compiling Intel Wi-Fi and Bluetooth Firmware kexts. It only requires you to have Xcode installed and will handle the rest on its own once you run it.
+
+Wifi-Intel-KextsBuilder downloads the source code of itlwm, IntelBluetoothFirmware, MacKernelSDK and Lilu and then compiles itlwm, AirportItlwm and Intel Bluetooth Firmware kexts. They will be located under "Users/YOUR_USERNAME/Developer/Wifi-Intel-KextsBuilder/ in the "build/Release" folder of each repo.
+
+These kexts won't be slimmed like the ones present in my EFI folders but at least you now have a simple option to compile these kexts on your own in the future.
 
 ## Credits and Thank Yous
 - [**Acidanthera**](https://github.com/acidanthera) for OpenCore, Kexts and maciASL
+- Chris1111 for [**Wifi-Intel-KextsBuilder**](https://github.com/chris1111/Wifi-Intel-KextsBuilder)
 - [**CorpNewt**](https://github.com/corpnewt) for ProperTree, CPUFriendFriend and SSDTTime
 - Dreamwhite for slimmed versions of [**itlwm.kext**](https://github.com/dreamwhite/Chonky-itlwm-Build/releases)
 - [**ic005k**](https://github.com/ic005k/OCAuxiliaryTools) for OpenCore Auxiliary Tools

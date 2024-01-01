@@ -208,7 +208,7 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 	- **Con**: Doesn't perform as well as itlwm.kext and takes a bit longer to connect to access points
 	- **Con**: Can't connect to hidden WiFi Networks
 	- **Con**: Requires using the correct kext per macOS version, so running multiple version of macOS requires multiple versions of this kext controlled via `MinKernel` and `MaxKernel` settings
-	- **Con**: iMessage and FeceTime don't work when using AirportItlwm (&rarr; See [Issue 14](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/issues/14))
+	- **Con**: iMessage and FaceTime don't work when using AirportItlwm (&rarr; See [Issue 14](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/issues/14))
 
 - **itlwm.kext** (disabled)
 	- **Pro**: Connects much faster to WiFi hotspots and loading times feel slightly better than with `AirportItlwm` 

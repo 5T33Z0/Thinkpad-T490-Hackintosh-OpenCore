@@ -16,7 +16,7 @@ HS 07 | USB 2.0| **On**
 HS 08 | Webcam <br> USB 2.0, internal| **On**
 HS 09 | USB 2.0| Off
 HS 10 | Bluetooth <br> USB 2.0, internal| **On**
-SS 01 | USB 3.0| **On**
+SS 01 | USB TypeC+Sw | **On**
 SS 02 | USB 3.0| **On**
 SS 03 | USB 3.0 <br> right port| **On**
 SS 04 | USB 3.0 <br> left port| **On**
@@ -65,3 +65,4 @@ The most commonly used connector types nowadays are:
 > [!NOTE]
 > 
 > Refer to [ACPI Specs](https://uefi.org/specifications), chapter 9.12 "_UPC (USB Port Capabilities)" for more details
+	

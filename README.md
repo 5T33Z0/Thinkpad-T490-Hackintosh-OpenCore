@@ -25,6 +25,7 @@
 OpenCore EFI folder and config for running macOS Monterey and newer on the Lenovo ThinkPad T490. Read the documentation carefully in order to boot macOS successfully.
 
 > [!WARNING]
+> 
 > Don't update to macOS 14.4 beta 1! It causes a Kernel Panic. 
 
 ### Notable Features

@@ -26,7 +26,7 @@ OpenCore EFI folder and config for running macOS Monterey and newer on the Lenov
 
 > [!WARNING]
 > 
-> Don't update to macOS 14.4 beta 1! It causes a Kernel Panic. If you still do, you need an updated version of AirportItlm.kext: https://github.com/OpenIntelWireless/itlwm/issues/953
+> Don't update to macOS 14.4 beta 1! It causes a Kernel Panic. If you still do, you need an updated version of AirportItlm.kext: [https://github.com/OpenIntelWireless/itlwm/issues/953](https://github.com/OpenIntelWireless/itlwm/issues/953#issuecomment-1920413379)
 
 ### Notable Features
 - Compatible with macOS Sonoma

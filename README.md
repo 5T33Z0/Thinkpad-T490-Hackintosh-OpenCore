@@ -249,7 +249,7 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 	- Use it to connect to your WiFI hotspot.
 	- Add HeliPort to "Login Items", so it stars with macOS and connects to your WiFi network automatically.
 - **YogaSMC**:
-	- Download [**YogaSMC-App**](https://github.com/zhen-zen/YogaSMC/releases) and mount it
+	- Download [**YogaSMC-App**](https://github.com/zhen-zen/YogaSMC/files/14324664/Builds.zip) and mount it. This is a custom build which fixes the "Failed to open Preferences" [issue](https://github.com/zhen-zen/YogaSMC/issues/189) in Ventura and nwer  
 	- Double-click the YogaSMC **prefPane** to install it
 	- Drag the `YogaSMC` app into the "Programs" folder and run it
 	- Click on the icon (⌥) in the menu bar and select "Start at Login"

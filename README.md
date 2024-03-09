@@ -26,7 +26,7 @@ OpenCore EFI folder and config for running macOS Monterey and newer on the Lenov
 
 > [!CAUTION]
 > 
-> Upgrading from to macOS 14.3.1 to 14.4 via `System Update`causes a Kernel Panic during install! The workaround is to create a USB Installer (with OCLP for example) and install macOS 14.4 on a new Volume. Wait for the next EFI folder release dropping later tody (March 8th, 2024)!
+> Upgrading from to macOS 14.3.1 to 14.4 via `System Update` causes a Kernel Panic during install! The workaround is to create a USB Installer (with OCLP for example) and install macOS 14.4 on a new APFS volume. Use Migration Manager afterwards to get your data onto the new volume!
 
 ### Notable Features
 - Compatible with macOS Sonoma

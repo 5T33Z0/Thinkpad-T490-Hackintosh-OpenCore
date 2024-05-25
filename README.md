@@ -264,7 +264,22 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 Open the YogaSMC preference pane. You will find the following options (among others):
 
 - `DYTC`: DYTC stands for `Dynamic Thermal Control`. It allows the OS or firmware to manage the thermal characteristics of a device or component dynamically, adjusting power and performance to maintain safe operating temperatures. 3 profiles are available: "Quiet", "Balanced", and "Performance"
-- If you tick the `PSC support`, the control for the slider becomes more nuanced. Instead of 3 positions it now has more a lot more increments. I think `PSC` refers to `Power State Current` in the `DSDT` and is used to control different levels of performance via the slider.
+- If you tick the `PSC support`, the control for the slider becomes more nuanced. Instead of 3 positions it gets more increments. I think `PSC` refers to `Power State Current` in the `DSDT` and is used to control different levels of performance via the slider.
+
+### Disabling YogaSMC
+If you don't want to use YogaSMC, do the following:
+
+- macOS:
+	- Open System Preferences
+	- Right-Click on `YogaSMCPane` and remove it
+	- Under "Login items" (or similar) remove the YogaSMC App from the list
+- Config.plist: 
+	- Under `ACPI`, disable `SSDT-THINK.aml` and `SSDT-ECRW.aml`
+	- Under `Kernel`, disable `YogaSMC.kext`
+
+> [!NOTE]
+> 
+> After disabling YogaSMC, fan and performance controls are no longer available. F-keys besides Volume and Brightness will no longer work either.
 
 ## For OCAT Users
 Add the following entries to the "Kext URL Upgrade" list accessible via "Settings" from the "Sync" window (if not present already), so kext which are marked in grey in the Sync window will be downloaded when checking for updates:

@@ -202,7 +202,7 @@ EFI
 > [!CAUTION]
 > 
 > - Don't change the SMBIOS or the USB port mapping stored in `USBMap_MBP152.kext` won't be applied and Bluetooth won't work either! If you must change the SMBIOS then you also need to change the `model` property inside the `info.plist` of the kext to match the selected SMBIOS as well ([instructions](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/issues/13#issuecomment-1858917249)).
-> - If your T490 model uses a different WiFi/BT card thn the stock Intel AC-9560 card, use the official itlwm.kext instead because mine only contains the firmware for the 9560 so it won't work with other cards.
+> - If your T490 model uses a different WiFi/BT card than the stock Intel AC-9560 card, use the official `itlwm.kext` instead because mine only contains the firmware for the 9560 so it won't work with other cards.
 
 #### AirportItlwm.kext vs. itlwm.kext
 Although the Intel AC-9560 Card is compatible with both kexts (use either one or the other), there are Pros and Cons to both of them (check the [**FAQs**](https://openintelwireless.github.io/itlwm/FAQ.html#features) for other differences):

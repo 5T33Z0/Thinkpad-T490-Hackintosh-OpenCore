@@ -22,7 +22,7 @@
 - [Credits and Thank Yous](#credits-and-thank-yous)
 
 ## About
-OpenCore EFI folder and config for running macOS Monterey and newer on the Lenovo ThinkPad T490. Read the documentation carefully in order to boot macOS successfully.
+OpenCore EFI folder and config for running macOS Monterey and newer on the Lenovo ThinkPad T490. Read the following documentation carefully in order to install/boot macOS successfully!
 
 > [!CAUTION]
 > 

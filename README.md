@@ -29,21 +29,22 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 > Upgrading from to macOS 14.3.1 to 14.4 and newer via `System Update` causes a Kernel Panic during install! Disable `AiportItlwm` and enable `itlwm.kext` insteaed. Set `SecureBootModel` to `Disabled`, Reset NVRAM and run the update again. If this does not work, follow this [workaround](https://github.com/5T33Z0/OC-Little-Translated/blob/main/W_Workarounds/macOS14.4.md) to install macOS 14.4 on a new APFS volume. Use Migration Manager afterwards to get your data onto the new volume!
 
 ### Notable Features
-- Compatible with macOS Sequoia
+- Compatible with macOS Sonoma and Sequoia
 - OS-independent [USB port mapping via ACPI](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/blob/main/USB_Port_Mapping.md)!
 - Working MicroSD Card Reader
-- Working Clamshell mode (when connected to A/C and external display)
+- Working clamshell mode (when connected to A/C and external display)
 - Optimized Framebuffer Patch for smoother handshake with external display
-- Lean EFI folder with slimmed kexts (20 mb instead of 70) :
+- Lean EFI folder with slimmed kexts (20 mb instead of 70):
 	- **AppleALC** (87 kB instead of 2.2 mb). Only contains layout `97`.
 	- **AirportItlwm** (1.7 mb instead of 16 mb). Only Contains Firmware for Intel AC 9560.
 	- **itlwm** (1.5 mb instead of 16 mb). Only Contains Firmware for Intel AC 9560.
 - YogaSMC support for additional features like CPU fan control, performance bias, all <kbd>Fn</kbd> Key shortcuts working, additional OSD overlays, etc.
 - No injection of `PlatformInfo` data into Windows.
-- 3D globe view in Maps (macOS 12+)
+- Working 3D globe view in Maps (macOS 12+)
 
 ### Future Developments
 - Creating AppleALC Layout for Docking Station
+- Enabling HDMI/DP Ports on Docking Station
 
 ## Issues
 - Audio Jack creates an unpleasant buzz/noise during driver initialization. So it's best to connect Headphones to it *after* booting.

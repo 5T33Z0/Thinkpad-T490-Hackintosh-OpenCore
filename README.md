@@ -26,7 +26,7 @@ OpenCore EFI folder and config for running macOS Monterey and newer on the Lenov
 
 > [!CAUTION]
 > 
-> Upgrading from to macOS 14.3.1 to 14.4 via `System Update` causes a Kernel Panic during install! Disable `AiportItlwm` and enable `itlwm.kext` insteaed. Set `SecureBootModel` to `Disabled`, Reset NVRAM and run the update again. If this does not work, follow this [workaround](https://github.com/5T33Z0/OC-Little-Translated/blob/main/W_Workarounds/macOS14.4.md) to install macOS 14.4 on a new APFS volume. Use Migration Manager afterwards to get your data onto the new volume!
+> Upgrading from to macOS 14.3.1 to 14.4 and newer via `System Update` causes a Kernel Panic during install! Disable `AiportItlwm` and enable `itlwm.kext` insteaed. Set `SecureBootModel` to `Disabled`, Reset NVRAM and run the update again. If this does not work, follow this [workaround](https://github.com/5T33Z0/OC-Little-Translated/blob/main/W_Workarounds/macOS14.4.md) to install macOS 14.4 on a new APFS volume. Use Migration Manager afterwards to get your data onto the new volume!
 
 ### Notable Features
 - Compatible with macOS Sonoma

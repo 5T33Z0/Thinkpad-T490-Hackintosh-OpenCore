@@ -1,5 +1,5 @@
 # Lenovo ThinkPad T490 Hackintosh OpenCore
-[![OpenCore](https://img.shields.io/badge/OpenCore-1.0.1-cyan.svg)](https://github.com/acidanthera/OpenCorePkg/releases/latest) [![macOS Sequoia](https://img.shields.io/badge/macOS-15.0-white.svg)](https://www.apple.com/macos/sonoma/) [![release](https://img.shields.io/badge/Download-latest-success.svg)](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/releases/latest)<br>![10053604](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/assets/76865553/ed932a1a-8205-4b81-a4e2-f68d7d8a7178)
+[![OpenCore](https://img.shields.io/badge/OpenCore-1.0.1-cyan.svg)](https://github.com/acidanthera/OpenCorePkg/releases/latest) [![macOS Sequoia](https://img.shields.io/badge/macOS-15.0-white.svg)](https://www.apple.com/macos/macos-sequoia-preview/) [![release](https://img.shields.io/badge/Download-latest-success.svg)](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/releases/latest)<br>![10053604](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/assets/76865553/ed932a1a-8205-4b81-a4e2-f68d7d8a7178)
 
 **TABLE of CONTENTS**
 
@@ -29,7 +29,7 @@ OpenCore EFI folder and config for running macOS Monterey and newer on the Lenov
 > Upgrading from to macOS 14.3.1 to 14.4 and newer via `System Update` causes a Kernel Panic during install! Disable `AiportItlwm` and enable `itlwm.kext` insteaed. Set `SecureBootModel` to `Disabled`, Reset NVRAM and run the update again. If this does not work, follow this [workaround](https://github.com/5T33Z0/OC-Little-Translated/blob/main/W_Workarounds/macOS14.4.md) to install macOS 14.4 on a new APFS volume. Use Migration Manager afterwards to get your data onto the new volume!
 
 ### Notable Features
-- Compatible with macOS Sonoma
+- Compatible with macOS Sequoia
 - OS-independent [USB port mapping via ACPI](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/blob/main/USB_Port_Mapping.md)!
 - Working MicroSD Card Reader
 - Working Clamshell mode (when connected to A/C and external display)
@@ -118,9 +118,7 @@ EFI
 │   ├── Kexts (Loading managed by MinKernel/MaxKernel settings)
 │   │   ├── AMFIPass.kext
 │   │   ├── AdvancedMap.kext
-│   │   ├── AirportItlwm_Monterey.kext
 │   │   ├── AirportItlwm_Sonoma.kext
-│   │   ├── AirportItlwm_Ventura.kext
 │   │   ├── AppleALC.kext
 │   │   ├── BlueToolFixup.kext
 │   │   ├── BrightnessKeys.kext
@@ -225,7 +223,7 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 
 > [!NOTE]
 > 
-> My config uses `AirportItlw.kext` by default since it allows accessing the internet during macOS installation (unlike `itlwm.kext` which requires an additional app to do so). Currently, AirportItlwm kexts for macOS Monterey, Ventura and Sonoma are included. My `itlwm.kext` is a slimmed-down version only containing the firmware for the Intel AC-9560 (1,5 MB instead of 16,1 MB). If you want to use itlwm, disable AirportItlwm (all variants) and enable itlwm in the config.plist instead. Next, download the Helipad app, run it and add it to "Login Items" (in System Settings) so that it starts automatically with macOS.
+> My config uses `AirportItlw.kext` by default since it allows accessing the internet during macOS installation (unlike `itlwm.kext` which requires an additional app to do so). Currently, AirportItlwm kexts for macOS Sonoma is included. My `itlwm.kext` is a slimmed-down version only containing the firmware for the Intel AC-9560 (1,5 MB instead of 16,1 MB). If you want to use itlwm, disable AirportItlwm (all variants) and enable itlwm in the config.plist instead. Next, download the Helipad app, run it and add it to "Login Items" (in System Settings) so that it starts automatically with macOS.
 
 ## Deployment
 ### If macOS is installed already

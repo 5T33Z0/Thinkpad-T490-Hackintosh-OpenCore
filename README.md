@@ -207,19 +207,20 @@ EFI
 Although the Intel AC-9560 Card is compatible with both kexts (use either one or the other), there are Pros and Cons to both of them (check the [**FAQs**](https://openintelwireless.github.io/itlwm/FAQ.html#features) for other differences):
 
 - **AirportItlwm**: (default)
-	- **Pro**: Can be used during macOS installation which is not possible with `itlwm.kext`
+	- **Pro**: Can be used during macOS Setup/Recoveery which is not possible with `itlwm.kext`
 	- **Pro**: Supports Location Services and "Find My Mac"
-	- **Con**: Doesn't perform as well as itlwm.kext and takes a bit longer to connect to access points
+ 	- **Pro**: Connects faster to Wi-Fi Hotspots than `itlwm.kext`
+	- **Con**: Doesn't perform as well as `itlwm.kext`
 	- **Con**: Can't connect to hidden WiFi Networks
-	- **Con**: Requires using the correct kext per macOS version, so running multiple version of macOS requires multiple versions of this kext controlled via `MinKernel` and `MaxKernel` settings
+	- **Con**: Requires the correct kext per macOS version, so running multiple version of macOS requires multiple versions of this kext controlled via `MinKernel` and `MaxKernel` settings
 	- **Con**: iMessage and FaceTime don't work when using AirportItlwm (&rarr; See [Issue 14](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/issues/14))
 
 - **itlwm.kext** (disabled)
-	- **Pro**: Connects much faster to WiFi hotspots and loading times feel slightly better than with `AirportItlwm` 
+	- **Pro**: `itlwm.kext` works across _multiple_ versions of macOS
+	- **Pro**: Loading webpages feels a lot quicker than with `AirportItlwm` 
 	- **Pro**: Can connect to hidden WiFi Networks
  	- **Pro**: Does work with iMessage and FaceTime 	
-	- **Pro**: Only one kext to cover WiFi across multiple versions of macOS
-	- **Con**: Requires [**HeliPort**](https://github.com/diepeterpan/HeliPort/releases) app to connect to Wi-Fi hotspots, so it can't be used during macOS installation
+	- **Con**: Requires [**HeliPort**](https://github.com/diepeterpan/HeliPort/releases) app to connect to Wi-Fi hotspots, so it can't be used during macOS Setup/Recovery
 	- **Con**: Doesn't support Location Services
 
 > [!NOTE]

@@ -15,6 +15,7 @@ The size of the Intel Wireless kext can be reduced drastically by about factor 1
 - Enter `cd ~/Downloads/itlwm-master`
 - Next, enter `git clone https://github.com/acidanthera/MacKernelSDK` to download MacKernelSDK into the "itlwm-master" folder
 - Leave the Terminal window open for later use
+- Download the DEBUG version of Lilu, extract it and place the kext in the itlwm-master folder
 - In Finder, navigate to `~/Downloads/itlwm-master/itlwm/firmware`
 - Delete every file except `iwm-9000-46`
 

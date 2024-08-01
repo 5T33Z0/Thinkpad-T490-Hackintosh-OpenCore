@@ -20,16 +20,18 @@ The size of the Intel Wireless kext can be reduced drastically by about factor 1
 - Delete every file except `iwm-9000-46`
 
 ## Compiling the kext
-- Double-click `itlwm.xcodeproj`
-- Click on the Play button to run the process
-- Ignore all the warnings
-- Return to the terminal window 
-- Type `xcodebuild` and hit Enter to comple the `itlwm.kext`
-- Once compiling is done, the kext will be located under `~/Downloads/itlwm-master/build/Release`
-- Mount your EFI folder
+Enter the following lines in Terminal, one by one:
+```
+rm include/FwBinary.cpp
+xcodebuild -project itlwm.xcodeproj -target fw_gen -configuration Release -sdk macosx
+xcodebuild -project itlwm.xcodeproj -target itlwm -configuration Release -sdk macosx
+```
+Once compiling is completed the `itlwm.kext` will be located at `~/Downloads/itlwm-master/itlwm/build/release` 
+
+## Testing
 - Copy the kext to `EFI/OC/Kexts`, replacing the existing one 
-- Reboot.
-- Done.
+- Reboot
+- Check if the kext works. 
 
 > [!IMPORTANT]
 > 

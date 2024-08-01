@@ -19,8 +19,8 @@ The size of the Intel Wireless kext can be reduced drastically by about factor 1
 - In Finder, navigate to `~/Downloads/itlwm-master/itlwm/firmware`
 - Delete every file except `iwm-9000-46`
 
-## Compiling the kext
-Enter the following commands (the lines without `#`) in Terminal and execute them one by one:
+## Compiling the kexts
+Enter the following commands (the lines without `#`) in Terminal and execute them one by one to build itlwm as well as AirportItlwm kexts for all versions of macOS:
 ```
 # remove generated firmware
 rm include/FwBinary.cpp
@@ -28,10 +28,10 @@ rm include/FwBinary.cpp
 # generate firmware
 xcodebuild -project itlwm.xcodeproj -target fw_gen -configuration Release -sdk macosx
 
-# build itlwm kext
-xcodebuild -project itlwm.xcodeproj -target itlwm -configuration Release -sdk macosx
+# building the kexts
+ xcodebuild -alltargets -configuration Release
 ```
-Once compiling is completed the `itlwm.kext` will be located at `~/Downloads/itlwm-master/itlwm/build/release` 
+Once compiling is completed the kexts will be located at `~/Downloads/itlwm-master/itlwm/build/release`:<br>![kexts](https://github.com/user-attachments/assets/719630a7-54db-4c3e-b214-770dd24302a3)
 
 ## Testing
 - Copy the kext to `EFI/OC/Kexts`, replacing the existing one 

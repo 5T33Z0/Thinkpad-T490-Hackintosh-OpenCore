@@ -26,22 +26,22 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 
 > [!CAUTION]
 > 
-> Upgrading from to macOS 14.3.1 to 14.4 and newer via `System Update` causes a Kernel Panic during install! Disable `AiportItlwm` and enable `itlwm.kext` insteaed. Set `SecureBootModel` to `Disabled`, Reset NVRAM and run the update again. If this does not work, follow this [workaround](https://github.com/5T33Z0/OC-Little-Translated/blob/main/W_Workarounds/macOS14.4.md) to install macOS 14.4 on a new APFS volume. Use Migration Manager afterwards to get your data onto the new volume!
+> Upgrading from to macOS 14.3.1 to 14.4 and newer via `System Update` causes a Kernel Panic during install! Disable `AiportItlwm` and enable `itlwm.kext` instead. Set `SecureBootModel` to `Disabled`, reset NVRAM and run the update again. If this does not work, follow this [workaround](https://github.com/5T33Z0/OC-Little-Translated/blob/main/W_Workarounds/macOS14.4.md) to install macOS 14.4 on a new APFS volume. Use Migration Manager afterwards to get your data onto the new volume!
 
 ### Notable Features
 - Compatible with macOS Sonoma and Sequoia
-- OS-independent [USB port mapping via ACPI](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/blob/main/USB_Port_Mapping.md)!
+- New USB Port Mapping (includes ports of Docking Station) 
 - Working MicroSD Card Reader
 - Working clamshell mode (when connected to A/C and external display)
-- Optimized Framebuffer Patch for smoother handshake with external display
+- Optimized Framebuffer Patch for smoother handshake with external displays
 - Lean EFI folder with slimmed kexts (20 instead of 62 MB):
  	- **AirportItlwm_Sonoma**: 1,8 instead of 16 MB. Only Contains Firmware for Intel AC 9560.
 	- **AppleALC**: 86 Kb instead of 2,3 MB. Only contains layout `97`.
 	- **IntelBluetoothFirmware**: 560 KB instead of 11,5 MB.
 	- **itlwm** (1.5 mb instead of 16 mb). Only Contains Firmware for Intel AC 9560.
-- YogaSMC support for additional features like CPU fan control, performance bias, all <kbd>Fn</kbd> Key shortcuts working, additional OSD overlays, etc.
+- YogaSMC support for additional features like CPU fan control, performance bias, all <kbd>Fn</kbd> Keyboard shortcuts working, additional OSD overlays, etc.
 - No injection of `PlatformInfo` data into Windows.
-- Working 3D globe view in Maps (macOS 12+)
+- Working 3D Globe in Maps (macOS 12+)
 
 ### Future Developments
 - Creating AppleALC Layout for Docking Station
@@ -188,7 +188,9 @@ EFI
 			- If you plan to install macOS 13.3 or older, disable/delete `enable-backlight-registers-alternative-fix` and use `enable-backlight-registers-fix` instead to fix black screen issues.
 			- If other issues occur, try the other framebuffer patch in the config (the one that's disable by `#`)!
 			- An additional list of Framebuffer Patches can be found [here](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/blob/main/Additional_Files/Framebuffer_Patches/UHD620_Framebuffer_Patches.plist)
-	- **Wi-Fi**: Decide, which Wi-Fi kext you want to use (&rarr; see [**AirportItlwm vs itlwm**](#airportitlwmkext-vs-itlwmkext)). **AirportItlwm** is enabled by default (except for latest Sequoia build)
+	- **Wi-Fi**: Decide, which Wi-Fi kext you want to use (&rarr; see [**AirportItlwm vs. itlwm**](#airportitlwmkext-vs-itlwmkext)):
+    	- Sonoma uses **AirportItlwm_Sonoma** 
+    	- Sequoia uses **Itlwm** because there's no AirportItlwm variant for Sequoia yet 
 	- **Kernel/Quirks**: 
 		- `AppleXcpmCfgLock` is not required on my system. Try for yourself if your T490 can boot without it.
 	- **NVRAM/Add/7C436110-AB2A-4BBB-A880-FE41995C9F82**
@@ -224,6 +226,8 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 	- **Con**: Requires [**HeliPort**](https://github.com/diepeterpan/HeliPort/releases) app to connect to Wi-Fi hotspots, so it can't be used during macOS Setup/Recovery
 	- **Con**: Doesn't support Location Services
 
+- Pre-compiled WiFi kexts for other versions of macOS can be found in the [Additional Files](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/tree/main/Additional_Files/Slimmed_Kexts/Intel_AC-9650/itlwm) section!
+
 > [!NOTE]
 > 
 > My config uses `AirportItlw.kext` by default since it allows accessing the internet during macOS installation (unlike `itlwm.kext` which requires an additional app to do so). Currently, AirportItlwm kexts for macOS Sonoma is included. My `itlwm.kext` is a slimmed-down version only containing the firmware for the Intel AC-9560 (1,5 MB instead of 16,1 MB). If you want to use itlwm, disable AirportItlwm (all variants) and enable itlwm in the config.plist instead. Next, download the Helipad app, run it and add it to "Login Items" (in System Settings) so that it starts automatically with macOS.
@@ -251,7 +255,7 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 	- Use it to connect to your WiFI hotspot.
 	- Add HeliPort to "Login Items", so it stars with macOS and connects to your WiFi network automatically.
 - **YogaSMC**:
-	- Download [**YogaSMC-App**](https://github.com/zhen-zen/YogaSMC/files/14324664/Builds.zip) and mount it. This is a custom build which fixes the "Failed to open Preferences" [issue](https://github.com/zhen-zen/YogaSMC/issues/189) in Ventura and nwer  
+	- Download [**YogaSMC-App**](https://github.com/zhen-zen/YogaSMC/files/14324664/Builds.zip) and mount it. This is a custom build which fixes the "Failed to open Preferences" [issue](https://github.com/zhen-zen/YogaSMC/issues/189) in Ventura and newer  
 	- Double-click the YogaSMC **prefPane** to install it
 	- Drag the `YogaSMC` app into the "Programs" folder and run it
 	- Click on the icon (⌥) in the menu bar and select "Start at Login"

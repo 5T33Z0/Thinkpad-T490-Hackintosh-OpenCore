@@ -22,8 +22,13 @@ The size of the Intel Wireless kext can be reduced drastically by about factor 1
 ## Compiling the kext
 Enter the following lines in Terminal, one by one:
 ```
+# remove generated firmware
 rm include/FwBinary.cpp
+
+# generate firmware
 xcodebuild -project itlwm.xcodeproj -target fw_gen -configuration Release -sdk macosx
+
+# build itlwm kext
 xcodebuild -project itlwm.xcodeproj -target itlwm -configuration Release -sdk macosx
 ```
 Once compiling is completed the `itlwm.kext` will be located at `~/Downloads/itlwm-master/itlwm/build/release` 

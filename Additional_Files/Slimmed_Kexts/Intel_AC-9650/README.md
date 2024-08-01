@@ -20,7 +20,7 @@ The size of the Intel Wireless kext can be reduced drastically by about factor 1
 - Delete every file except `iwm-9000-46`
 
 ## Compiling the kext
-Enter the following lines in Terminal, one by one:
+Enter the following commands (the lines without `#`) in Terminal and execute them one by one:
 ```
 # remove generated firmware
 rm include/FwBinary.cpp

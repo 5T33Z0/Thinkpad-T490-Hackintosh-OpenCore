@@ -34,9 +34,10 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 - Working MicroSD Card Reader
 - Working clamshell mode (when connected to A/C and external display)
 - Optimized Framebuffer Patch for smoother handshake with external display
-- Lean EFI folder with slimmed kexts (20 mb instead of 70):
-	- **AppleALC** (87 kB instead of 2.2 mb). Only contains layout `97`.
-	- **AirportItlwm** (1.7 mb instead of 16 mb). Only Contains Firmware for Intel AC 9560.
+- Lean EFI folder with slimmed kexts (20 instead of 62 MB):
+ 	- **AirportItlwm_Sonoma**: 1,8 instead of 16 MB. Only Contains Firmware for Intel AC 9560.
+	- **AppleALC**: 86 Kb instead of 2,3 MB. Only contains layout `97`.
+	- **IntelBluetoothFirmware**: 560 KB instead of 11,5 MB.
 	- **itlwm** (1.5 mb instead of 16 mb). Only Contains Firmware for Intel AC 9560.
 - YogaSMC support for additional features like CPU fan control, performance bias, all <kbd>Fn</kbd> Key shortcuts working, additional OSD overlays, etc.
 - No injection of `PlatformInfo` data into Windows.

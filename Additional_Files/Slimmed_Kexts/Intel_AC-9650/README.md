@@ -54,7 +54,7 @@ Once compiling is completed the kexts will be located at `~/Downloads/itlwm-mast
 - Run Terminal 
 - Enter: `cd ~/Downloads/IntelBluetoothFirmware-master`
 - Next, enter ` xcodebuild -alltargets -configuration Release`to compile the kexts
-- The finished kexts will be located under `~/Downloads/IntelBluetoothFirmwar-master/build/Release`:<br>![](/Users/5t33y0/Desktop/itlbtfw.png)
+- The finished kexts will be located under `~/Downloads/IntelBluetoothFirmwar-master/build/Release`:<br>![itlbtfw](https://github.com/user-attachments/assets/c9be468e-11fa-475e-9fb8-c7d7b3a348e2)
 
 ## Testing
 - Copy the kext to `EFI/OC/Kexts`, replacing the existing one 

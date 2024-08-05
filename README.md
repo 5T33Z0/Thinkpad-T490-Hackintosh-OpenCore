@@ -249,7 +249,7 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 - Once that is completed, continue with Post-Install
 
 ## Post-Install
-- **Disable Gatekeeper**: `sudo spctl --master-disable` because it is annoying and wants to stop you from running scripts from github etc.
+- **Disable Gatekeeper**: `sudo spctl --master-disable` because it is annoying and wants to stop you from running scripts from github etc. This command no longer works in macOS Sequoia – it requires a [different method](https://github.com/5T33Z0/OC-Little-Translated/blob/main/14_OCLP_Wintel/Guides/Disable_Gatekeeper.md) to disable Gatekeeper.
 - **Wi-Fi** (`itlwm.kext` users only): 
 	- Mount **HeliPort.dmg**, drag the app into the "Programs" folder and run it.
 	- Use it to connect to your WiFI hotspot.

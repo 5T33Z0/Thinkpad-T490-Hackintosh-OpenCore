@@ -5,6 +5,10 @@ This section contains slimmed kexts for the Lenovo T490 that only contain code/f
 ## Included Kexts
 
 - **AppleALC**: 86 kb, instead of 2.2 mb ([**DL**](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/tree/main/Additional_Files/Slimmed_Kexts/AppleALC))
-- **Airpritlwm** and **itlwm**: each 1.5 mb, instead of 16 mb ([**DL**](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/tree/main/Additional_Files/Slimmed_Kexts/Intel_AC-9650/itlwm))
+- **Airportitlwm** and **itlwm**: each 1.5 mb, instead of 16 mb ([**DL**](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/tree/main/Additional_Files/Slimmed_Kexts/Intel_AC-9650/itlwm))
 - **IntelBluetoothFirmware**: 558, kb instead of 7 mb ([**DL**](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/tree/main/Additional_Files/Slimmed_Kexts/Intel_AC-9650/IntelBluetoothfirmware))
 
+## Guides
+
+- C[ompiling slimmed AppleALC kext](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/tree/main/Additional_Files/Slimmed_Kexts/AppleALC/For_Compiling#README)
+- [Compiling slimmed Airportitlm/itlwm kexts](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/tree/main/Additional_Files/Slimmed_Kexts/Intel_AC-9650#README)

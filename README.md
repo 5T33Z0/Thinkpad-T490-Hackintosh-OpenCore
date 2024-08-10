@@ -17,8 +17,11 @@
 	- [If macOS is installed already](#if-macos-is-installed-already)
 	- [If macOS is not installed](#if-macos-is-not-installed)
 - [Post-Install](#post-install)
+- [Mounting the EFI partition in macOS 15 beta 5+](#mounting-the-efi-partition-in-macos-15-beta-5)
 - [Understanding YogaSMC Settings](#understanding-yogasmc-settings)
+	- [Disabling YogaSMC](#disabling-yogasmc)
 - [For OCAT Users](#for-ocat-users)
+- [Compile Intel Wi-Fi and Bluetooth Firmware kexts easily](#compile-intel-wi-fi-and-bluetooth-firmware-kexts-easily)
 - [Credits and Thank Yous](#credits-and-thank-yous)
 
 ## About
@@ -264,6 +267,10 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 - **Enabling Hibernation**: Use Terminal or change in Hackintool
 	- Disable PowerNap: `sudo pmset -a powernap 0`
 	- Change Hibernatemode to 25: `sudo pmset -a hibernatemode 25` 
+
+## Mounting the EFI partition in macOS 15 beta 5+
+
+Apple changed how FAT32 partitions are handled, so mounting the EFI partition does no longer work. For now, use  [this tool](https://github.com/chris1111/Mount-MS-DOS-Partition) to mount the EFI partition
 
 ## Understanding YogaSMC Settings
 Open the YogaSMC preference pane. You will find the following options (among others):

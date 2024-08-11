@@ -122,7 +122,8 @@ EFI
 │   │   └── ResetNvramEntry.efi
 │   ├── Kexts (Loading managed by MinKernel/MaxKernel settings)
 │   │   ├── AMFIPass.kext
-│   │   ├── AdvancedMap.kext
+│   │   ├── AdvancedMap_Sequoia.kext
+│   │   ├── AdvancedMap_Sonoma.kext
 │   │   ├── AirportItlwm_Sonoma.kext
 │   │   ├── AppleALC.kext
 │   │   ├── BlueToolFixup.kext
@@ -134,7 +135,7 @@ EFI
 │   │   ├── IntelBluetoothFirmware.kext
 │   │   ├── IntelBluetoothInjector.kext
 │   │   ├── IntelMausiEthernet.kext
-│   │   ├── itlwm.kext (disabled)
+│   │   ├── itlwm.kext
 │   │   ├── Lilu.kext
 │   │   ├── NVMeFix.kext
 │   │   ├── RealtekCardReader.kext

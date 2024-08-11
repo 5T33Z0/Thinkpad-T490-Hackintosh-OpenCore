@@ -190,7 +190,7 @@ EFI
 	- **Graphics**
 		- `Devices/Properties/Add/PciRoot(0x0)/Pci(0x2,0x0)`
 			- If you plan to install macOS 13.3 or older, disable/delete `enable-backlight-registers-alternative-fix` and use `enable-backlight-registers-fix` instead to fix black screen issues.
-			- If other issues occur, try the other framebuffer patch in the config (the one that's disable by `#`)!
+			- If other issues occur, try the other framebuffer patch in the config (the one that's disabled by `#`)!
 			- An additional list of Framebuffer Patches can be found [here](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/blob/main/Additional_Files/Framebuffer_Patches/UHD620_Framebuffer_Patches.plist)
 	- **Wi-Fi**: Decide, which Wi-Fi kext you want to use (&rarr; see [**AirportItlwm vs. itlwm**](#airportitlwmkext-vs-itlwmkext)):
     	- Sonoma uses **AirportItlwm_Sonoma** 

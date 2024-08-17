@@ -14,10 +14,8 @@ The size of the Intel Wireless kext can be reduced drastically by about factor 1
 - Run Terminal
 - Enter `cd ~/Downloads/itlwm-master`
 - Next, enter `git clone https://github.com/acidanthera/MacKernelSDK` to download MacKernelSDK into the "itlwm-master" folder
+- Delete the unnecessary firmware files by entering: `find itlwm/firmware/ -type f ! -name 'iwm-9000-*' -delete`
 - Leave the Terminal window open for later use
-- Download the DEBUG version of Lilu, extract it and place the kext in the itlwm-master folder
-- In Finder, navigate to `~/Downloads/itlwm-master/itlwm/firmware`
-- Delete every file except `iwm-9000-46`
 
 ### Prepare the `IntelBluetoothFirmware` source code
 - Download [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware) source code (click on "Code" and select "Download zip")

@@ -1,4 +1,4 @@
-# How to compile a slimmed version of `itlwm.kext` and `IntelBluetoothFirmware`
+# How to compile a slimmed `itlwm` and `IntelBluetoothFirmware` kexts
 
 The size of the Intel Wireless kext can be reduced drastically by about factor 10 (1.6 MB instead of 16) by deleting all the unnecessary firmwares for other Wi-Fi cards except the one for the Intel AC-9560 that comes stock with the Lenovo T490. Same applies to `IntelBluetoothfirmware`
 
@@ -13,7 +13,7 @@ The size of the Intel Wireless kext can be reduced drastically by about factor 1
 - Unzip the file – "itlwm-master" folder will be created
 - Run Terminal
 - Enter `cd ~/Downloads/itlwm-master`
-- Next, enter `git clone https://github.com/acidanthera/MacKernelSDK` to download MacKernelSDK into the "itlwm-master" folder
+- Next, download MacKernelSDK into the "itlwm-master" folder: `git clone https://github.com/acidanthera/MacKernelSDK` 
 - Delete unnecessary firmware files except the one required for the AC-9560 by entering: `find itlwm/firmware/ -type f ! -name 'iwm-9000-*' -delete`
 - Leave the Terminal window open for later use
 
@@ -22,7 +22,7 @@ The size of the Intel Wireless kext can be reduced drastically by about factor 1
 - Unzip the file – "IntelBluetoothFirmware-master" folder will be created
 - Run Terminal
 - Enter: `cd ~/Downloads/IntelBluetoothFirmware-master`
-- Next, enter `git clone https://github.com/acidanthera/MacKernelSDK` to download MacKernelSDK into the "IntelBluetoothFirmware-master" folder
+- Next, download MacKernelSDK into the "IntelBluetoothFirmware-master" folder: `git clone https://github.com/acidanthera/MacKernelSDK`
 - Leave the Terminal window open for later use
 - Download the DEBUG version of Lilu, extract it and place the kext in the IntelBluetoothFirmware-master folder
 - In Finder, navigate to `~/Downloads//IntelBluetoothFirmware-master/IntelBluetoothFirmware/fw`
@@ -47,12 +47,19 @@ xcodebuild -project itlwm.xcodeproj -target fw_gen -configuration Release -sdk m
 
 Once compiling is completed the kexts will be located at `~/Downloads/itlwm-master/itlwm/build/Release`:<br>![kexts](https://github.com/user-attachments/assets/719630a7-54db-4c3e-b214-770dd24302a3)
 
+
 ### Compiling `InteBluetothFirmware`
 
-- Run Terminal 
-- Enter: `cd ~/Downloads/IntelBluetoothFirmware-master`
-- Next, enter ` xcodebuild -alltargets -configuration Release`to compile the kexts
-- The finished kexts will be located under `~/Downloads/IntelBluetoothFirmwar-master/build/Release`:<br>![itlbtfw](https://github.com/user-attachments/assets/c9be468e-11fa-475e-9fb8-c7d7b3a348e2)
+Enter the following commands (the lines without `#`) in Terminal and execute them one by one to build the IntelBluetoothFirmware kext:
+
+```
+# Navigate to the folder
+cd ~/Downloads/IntelBluetoothFirmware-master
+
+# build the kext
+xcodebuild -alltargets -configuration Release
+```
+The compiled kexts will be located under `~/Downloads/IntelBluetoothFirmwar-master/build/Release`:<br>![itlbtfw](https://github.com/user-attachments/assets/c9be468e-11fa-475e-9fb8-c7d7b3a348e2)
 
 ## Testing
 - Copy the newly compiled kexts to `EFI/OC/Kexts`, replacing the existing ones

@@ -62,7 +62,9 @@ cd ~/Downloads/IntelBluetoothFirmware-master
 # build the kext
 xcodebuild -alltargets -configuration Release
 ```
-The compiled kexts will be located under `~/Downloads/IntelBluetoothFirmwar-master/build/Release`:<br>![itlbtfw](https://github.com/user-attachments/assets/c9be468e-11fa-475e-9fb8-c7d7b3a348e2)
+The compiled kexts will be located under `~/Downloads/IntelBluetoothFirmwar-master/build/Release`:
+
+![itlbtfw](https://github.com/user-attachments/assets/c9be468e-11fa-475e-9fb8-c7d7b3a348e2)
 
 ## Testing
 - Copy the newly compiled kexts to `EFI/OC/Kexts`, replacing the existing ones

@@ -15,7 +15,6 @@ The size of the Intel Wireless kext can be reduced drastically by about factor 1
 - Enter `cd ~/Downloads/itlwm-master`
 - Next, download MacKernelSDK into the "itlwm-master" folder: `git clone https://github.com/acidanthera/MacKernelSDK` 
 - Delete unnecessary firmware files except the one required for the AC-9560 by entering: `find itlwm/firmware/ -type f ! -name 'iwm-9000-*' -delete`
-- Leave the Terminal window open for later use
 
 ### Prepare the `IntelBluetoothFirmware` source code
 - Download [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware) source code (click on "Code" and select "Download zip")
@@ -35,6 +34,9 @@ The size of the Intel Wireless kext can be reduced drastically by about factor 1
 Enter the following commands (the lines without `#`) in Terminal and execute them one by one to build itlwm as well as AirportItlwm kexts for all versions of macOS:
 
 ```
+# navigate to the itlwm folder (if it is not your working directory already)
+cd ~/Downloads/itlwm-master
+
 # remove generated firmware
 rm include/FwBinary.cpp
 
@@ -47,13 +49,12 @@ xcodebuild -project itlwm.xcodeproj -target fw_gen -configuration Release -sdk m
 
 Once compiling is completed the kexts will be located at `~/Downloads/itlwm-master/itlwm/build/Release`:<br>![kexts](https://github.com/user-attachments/assets/719630a7-54db-4c3e-b214-770dd24302a3)
 
-
 ### Compiling `InteBluetothFirmware`
 
 Enter the following commands (the lines without `#`) in Terminal and execute them one by one to build the IntelBluetoothFirmware kext:
 
 ```
-# Navigate to the folder
+# Navigate to the IntelBluetoothFirmware folder (if it is not your working directory already)
 cd ~/Downloads/IntelBluetoothFirmware-master
 
 # build the kext

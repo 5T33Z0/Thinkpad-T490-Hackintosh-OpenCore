@@ -47,7 +47,9 @@ xcodebuild -project itlwm.xcodeproj -target fw_gen -configuration Release -sdk m
  xcodebuild -alltargets -configuration Release
 ```
 
-The build process will begin and take about 2 minutes. Once compiling is completed, the kexts will be located at `~/Downloads/itlwm-master/itlwm/build/Release`:<br>![kexts](https://github.com/user-attachments/assets/719630a7-54db-4c3e-b214-770dd24302a3)
+The build process will begin and take about 2 minutes. Once compiling is completed, the kexts will be located at `~/Downloads/itlwm-master/itlwm/build/Release`:
+
+![kexts](https://github.com/user-attachments/assets/719630a7-54db-4c3e-b214-770dd24302a3)
 
 ### Compiling `InteBluetothFirmware`
 

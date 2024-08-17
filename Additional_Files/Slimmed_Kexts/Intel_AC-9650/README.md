@@ -26,7 +26,7 @@ The size of the Intel Wireless kext can be reduced drastically by about factor 1
 - Leave the Terminal window open for later use
 - Download the DEBUG version of Lilu, extract it and place the kext in the IntelBluetoothFirmware-master folder
 - In Finder, navigate to `~/Downloads//IntelBluetoothFirmware-master/IntelBluetoothFirmware/fw`
-- In the `fw` folder delete all the firmware files except two: `ibt-17-16-1.ddc` and `ibt-17-16-1.sfi`
+- In the `fw` folder delete all firmware files _except_ these two: `ibt-17-16-1.ddc` and `ibt-17-16-1.sfi`
 - If present, also delete `FwBinary.cpp` from /IntelBluetoothFirmware-MASTER/IntelBluetoothFirmware
 
 ## Compiling the kexts

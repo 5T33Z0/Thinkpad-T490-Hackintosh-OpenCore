@@ -14,7 +14,7 @@ The size of the Intel Wireless kext can be reduced drastically by about factor 1
 - Run Terminal
 - Enter `cd ~/Downloads/itlwm-master`
 - Next, enter `git clone https://github.com/acidanthera/MacKernelSDK` to download MacKernelSDK into the "itlwm-master" folder
-- Delete the unnecessary firmware files by entering: `find itlwm/firmware/ -type f ! -name 'iwm-9000-*' -delete`
+- Delete unnecessary firmware files except the one required for the AC-9560 by entering: `find itlwm/firmware/ -type f ! -name 'iwm-9000-*' -delete`
 - Leave the Terminal window open for later use
 
 ### Prepare the `IntelBluetoothFirmware` source code

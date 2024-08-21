@@ -300,7 +300,8 @@ Add the following entries to the "Kext URL Upgrade" list accessible via "Setting
 Kext Name | Source URL
 ----------|-----------
 **AdvancedMap.kext** | https://github.com/notjosh/AdvancedMap
-**AirportItlwm.kext** | https://github.com/OpenIntelWireless/itlwm 
+**AirportItlwm.kext** | https://github.com/OpenIntelWireless/itlwm
+**AMFIPass.kext** | https://github.com/dortania/OpenCore-Legacy-Patcher
 **IntelBluetoothFirmware.kext** | https://github.com/OpenIntelWireless/IntelBluetoothFirmware
 **IntelMausiEthernet.kext** | https://github.com/CloverHackyColor/IntelMausiEthernet
 **itlwm.kext** | https://github.com/OpenIntelWireless/itlwm 

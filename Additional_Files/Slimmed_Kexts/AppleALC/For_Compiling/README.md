@@ -25,6 +25,10 @@ This guide is for compiling AppleALC for your Codec and the audio layout(s) of y
 - Adjust the Layout-ID to `97`
 - Reboot and enjoy your slimmed AppleALC kext for the ALC257 for your Lenovo T490.
 
+> [!NOTE]
+>
+> If you are running the `xcodebuild` command for the very first time on your machine, the will be a pop-up, to download Command Line Developer Tools. Once the tools are downloaded and installed, run the command again to build the kext.
+
 ## Credits and further resources
 - Apple for [XCode](https://developer.apple.com/xcode/)
 - Acidanthera for [AppleALC](https://github.com/acidanthera/AppleALC), [Lilu](https://github.com/acidanthera/Lilu) and [MacKernelSDK](https://github.com/acidanthera/MacKernelSDK)

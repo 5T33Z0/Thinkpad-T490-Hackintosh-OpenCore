@@ -47,8 +47,8 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 - Working 3D Globe in Maps (macOS 12+)
 
 ### Future Developments
-- Creating AppleALC Layout for Docking Station
-- Enabling HDMI/DP Ports on Docking Station
+- [ ] Creating an AppleALC Layout-ID for audio output on Docking Station
+- [ ] Adjusting Framebuffer Patch for HDMI/DP Ports on Docking Station
 
 ## Issues
 - Audio Jack creates an unpleasant buzz/noise during driver initialization. So it's best to connect Headphones to it *after* booting.

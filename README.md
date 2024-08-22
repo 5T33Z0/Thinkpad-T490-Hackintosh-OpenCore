@@ -47,6 +47,7 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 - Working 3D Globe in Maps (macOS 12+)
 
 ### Future Developments
+- [x] Adding USB ports of docking station to the USB port kext
 - [ ] Creating an AppleALC Layout-ID for audio output on Docking Station
 - [ ] Adjusting Framebuffer Patch for HDMI/DP Ports on Docking Station
 

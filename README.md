@@ -253,6 +253,11 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 - Install macOS
 - Once that is completed, continue with Post-Install
 
+> [!IMPORTANT]
+>
+> 1. Don't try to install macOS on the Samsung PM981a NVMe that comes with the system – it won't work. Use a different NVMe drive!
+> 2. Don't install macOS on an external USB drive. The installer will crash.
+
 ## Post-Install
 - **Disable Gatekeeper**: `sudo spctl --master-disable` because it is annoying and wants to stop you from running scripts from github etc. This command no longer works in macOS Sequoia – it requires a [different method](https://github.com/5T33Z0/OC-Little-Translated/blob/main/14_OCLP_Wintel/Guides/Disable_Gatekeeper.md) to disable Gatekeeper.
 - **Wi-Fi** (`itlwm.kext` users only): 

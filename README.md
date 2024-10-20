@@ -219,7 +219,7 @@ EFI
 #### AirportItlwm vs. itlwm WiFi kext
 Although the Intel AC-9560 Card is compatible with both kexts (use either one or the other), there are Pros and Cons to both of them (check the [**FAQs**](https://openintelwireless.github.io/itlwm/FAQ.html#features) for other differences):
 
-- **AirportItlwm**: (default)
+- **AirportItlwm**: (used in macOS Sonoman)
 	- **Pro**: Can be used during macOS Setup/Recoveery which is not possible with `itlwm.kext`
 	- **Pro**: Supports Location Services and "Find My Mac"
  	- **Pro**: Connects faster to Wi-Fi Hotspots than `itlwm.kext`
@@ -228,7 +228,7 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 	- **Con**: Requires the correct kext per macOS version, so running multiple version of macOS requires multiple versions of this kext controlled via `MinKernel` and `MaxKernel` settings
 	- **Con**: iMessage and FaceTime don't work when using AirportItlwm (&rarr; See [Issue 14](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/issues/14))
 
-- **itlwm.kext** (disabled)
+- **itlwm.kext** (used in Sequoia)
 	- **Pro**: `itlwm.kext` works across _multiple_ versions of macOS
 	- **Pro**: Loading webpages feels a lot quicker than with `AirportItlwm` 
 	- **Pro**: Can connect to hidden WiFi Networks

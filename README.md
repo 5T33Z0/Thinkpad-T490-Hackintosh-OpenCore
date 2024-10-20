@@ -27,12 +27,7 @@
 ## About
 OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo ThinkPad T490. Read the following documentation carefully in order to install/boot macOS successfully!
 
-> [!CAUTION]
-> 
-> Upgrading from to macOS 14.3.1 to 14.4 and newer via `System Update` causes a Kernel Panic during install! Disable `AiportItlwm` and enable `itlwm.kext` instead. Set `SecureBootModel` to `Disabled`, reset NVRAM and run the update again. If this does not work, use this [workaround](https://github.com/5T33Z0/OC-Little-Translated/blob/main/W_Workarounds/macOS14.4.md) to install macOS 14.4 on a new APFS volume. Use Migration Manager afterwards to get your data onto the new volume!
-
 ### Before you begin
-
 The built-in Samsung PM981a NVMe is NOT compatible with macOS. You must get a different NVMe first!
 
 ### Notable Features
@@ -257,6 +252,10 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 - Reboot from the USB installer 
 - Install macOS
 - Once that is completed, continue with Post-Install
+
+> [!CAUTION]
+> 
+> Upgrading from to macOS 14.3.1 to 14.4 or newer via `System Update` causes a Kernel Panic during install! Disable `AiportItlwm` and enable `itlwm.kext` instead. Set `SecureBootModel` to `Disabled`, reset NVRAM and run the update again. If this does not work, use this [workaround](https://github.com/5T33Z0/OC-Little-Translated/blob/main/W_Workarounds/macOS14.4.md) to install macOS 14.4 on a new APFS volume. Use Migration Manager afterwards to get your data onto the new volume!
 
 ## Post-Install
 - **Disable Gatekeeper**: `sudo spctl --master-disable` because it is annoying and wants to stop you from running scripts from github etc. This command no longer works in macOS Sequoia – it requires a [different method](https://github.com/5T33Z0/OC-Little-Translated/blob/main/14_OCLP_Wintel/Guides/Disable_Gatekeeper.md) to disable Gatekeeper.

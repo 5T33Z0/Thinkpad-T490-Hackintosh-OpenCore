@@ -219,7 +219,7 @@ EFI
 #### AirportItlwm vs. itlwm WiFi kext
 Although the Intel AC-9560 Card is compatible with both kexts (use either one or the other), there are Pros and Cons to both of them (check the [**FAQs**](https://openintelwireless.github.io/itlwm/FAQ.html#features) for other differences):
 
-- **AirportItlwm**: (used in macOS Sonoman)
+- **AirportItlwm**: (used in macOS Sonoma)
 	- **Pro**: Can be used during macOS Setup/Recoveery which is not possible with `itlwm.kext`
 	- **Pro**: Supports Location Services and "Find My Mac"
  	- **Pro**: Connects faster to Wi-Fi Hotspots than `itlwm.kext`

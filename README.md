@@ -4,24 +4,24 @@
 **TABLE of CONTENTS**
 
 - [About](#about)
+	- [Before you begin](#before-you-begin)
 	- [Notable Features](#notable-features)
+	- [Known Issues](#known-issues)
 	- [Future Developments](#future-developments)
-- [Issues](#issues)
 - [Specs](#specs)
 - [BIOS Settings](#bios-settings)
 - [EFI Folder Content](#efi-folder-content)
 - [Preparations](#preparations)
 	- [Config Adjustments](#config-adjustments)
-		- [AirportItlwm.kext vs. itlwm.kext](#airportitlwmkext-vs-itlwmkext)
+		- [AirportItlwm vs. itlwm WiFi kext](#airportitlwm-vs-itlwm-wifi-kext)
 - [Deployment](#deployment)
 	- [If macOS is installed already](#if-macos-is-installed-already)
 	- [If macOS is not installed](#if-macos-is-not-installed)
 - [Post-Install](#post-install)
-- [Mounting the EFI partition in macOS 15 beta 5](#mounting-the-efi-partition-in-macos-15-beta-5)
 - [Understanding YogaSMC Settings](#understanding-yogasmc-settings)
 	- [Disabling YogaSMC](#disabling-yogasmc)
 - [For OCAT Users](#for-ocat-users)
-- [Compile Intel Wi-Fi and Bluetooth Firmware kexts easily](#compile-intel-wi-fi-and-bluetooth-firmware-kexts-easily)
+- [Compiling Intel Wi-Fi and Bluetooth Firmware kexts easily](#compiling-intel-wi-fi-and-bluetooth-firmware-kexts-easily)
 - [Credits and Thank Yous](#credits-and-thank-yous)
 
 ## About
@@ -29,34 +29,39 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 
 > [!CAUTION]
 > 
-> Upgrading from to macOS 14.3.1 to 14.4 and newer via `System Update` causes a Kernel Panic during install! Disable `AiportItlwm` and enable `itlwm.kext` instead. Set `SecureBootModel` to `Disabled`, reset NVRAM and run the update again. If this does not work, follow this [workaround](https://github.com/5T33Z0/OC-Little-Translated/blob/main/W_Workarounds/macOS14.4.md) to install macOS 14.4 on a new APFS volume. Use Migration Manager afterwards to get your data onto the new volume!
+> Upgrading from to macOS 14.3.1 to 14.4 and newer via `System Update` causes a Kernel Panic during install! Disable `AiportItlwm` and enable `itlwm.kext` instead. Set `SecureBootModel` to `Disabled`, reset NVRAM and run the update again. If this does not work, use this [workaround](https://github.com/5T33Z0/OC-Little-Translated/blob/main/W_Workarounds/macOS14.4.md) to install macOS 14.4 on a new APFS volume. Use Migration Manager afterwards to get your data onto the new volume!
+
+### Before you begin
+
+The built-in Samsung PM981a NVMe is NOT compatible with macOS. You must get a different NVMe first!
 
 ### Notable Features
-- Compatible with macOS Sonoma and Sequoia
+- Compatible with macOS Sonoma and Sequoia (should work with older versions of macOS as well, but requires different WiFi-Kexts and config adjustments)
 - New USB Port Mapping (includes ports of Docking Station) 
 - Working MicroSD Card Reader
 - Working clamshell mode (when connected to A/C and external display)
 - Optimized Framebuffer Patch for smoother handshake with external displays
-- Lean EFI folder with slimmed kexts (20 instead of 62 MB):
- 	- **AirportItlwm_Sonoma**: 1,8 instead of 16 MB. Only Contains Firmware for Intel AC 9560.
+- Lean EFI folder with slimmed kexts (20 MB in size, instead of 62):
+ 	- **AirportItlwm_Sonoma**: 1,8 instead of 16 MB. Only contains Firmware for Intel AC 9560.
 	- **AppleALC**: 86 Kb instead of 2,3 MB. Only contains layout `97`.
 	- **IntelBluetoothFirmware**: 560 KB instead of 11,5 MB.
 	- **itlwm** (1.5 mb instead of 16 mb). Only Contains Firmware for Intel AC 9560.
-- YogaSMC support for additional features like CPU fan control, performance bias, all <kbd>Fn</kbd> Keyboard shortcuts working, additional OSD overlays, etc.
+- YogaSMC support for additional features like CPU fan control, performance bias, working <kbd>Fn</kbd> Keyboard shortcuts, additional OSD overlays, etc.
 - No injection of `PlatformInfo` data into Windows.
-- Working 3D Globe in Maps (macOS 12+)
+- Working 3D Globe in Maps app (macOS 12+)
+
+### Known Issues
+- Audio Jack creates an unpleasant buzz/noise during driver initialization. So it's best to connect Headphones to it *after* booting.
+
+> [!IMPORTANT]
+> 
+> - Before reporting any issues, ensure that your system uses the latest available UEFI and EC Firmware.
+> - Don't install macOS on an external disk or flash drive – use a compatible internal disk.
 
 ### Future Developments
 - [x] Adding USB ports of docking station to the USB port kext
 - [ ] Creating an AppleALC Layout-ID for audio output on Docking Station
 - [ ] Adjusting Framebuffer Patch for HDMI/DP Ports on Docking Station
-
-## Issues
-- Audio Jack creates an unpleasant buzz/noise during driver initialization. So it's best to connect Headphones to it *after* booting.
-
-> [!IMPORTANT]
-> 
-> Before reporting any issues, ensure that your system uses the latest UEFI and EC Firmware as I do. I have no time trying to fix issues which are not caused by my EFI but rather by running the system on outdated firmware! 
 
 ## Specs
 
@@ -211,7 +216,7 @@ EFI
 > - Don't change the SMBIOS or the USB port mapping stored in `USBMap_MBP152.kext` won't be applied and Bluetooth won't work either! If you must change the SMBIOS then you also need to change the `model` property inside the `info.plist` of the kext to match the selected SMBIOS as well ([instructions](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/issues/13#issuecomment-1858917249)).
 > - If your T490 model uses a different WiFi/BT card than the stock Intel AC-9560 card, use the official `itlwm.kext` instead because mine only contains the firmware for the 9560 so it won't work with other cards.
 
-#### AirportItlwm.kext vs. itlwm.kext
+#### AirportItlwm vs. itlwm WiFi kext
 Although the Intel AC-9560 Card is compatible with both kexts (use either one or the other), there are Pros and Cons to both of them (check the [**FAQs**](https://openintelwireless.github.io/itlwm/FAQ.html#features) for other differences):
 
 - **AirportItlwm**: (default)
@@ -252,11 +257,6 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 - Reboot from the USB installer 
 - Install macOS
 - Once that is completed, continue with Post-Install
-
-> [!IMPORTANT]
->
-> 1. Don't try to install macOS on the Samsung PM981a NVMe that comes with the system – it won't work. Use a different NVMe drive!
-> 2. Don't install macOS on an external USB drive. The installer will crash.
 
 ## Post-Install
 - **Disable Gatekeeper**: `sudo spctl --master-disable` because it is annoying and wants to stop you from running scripts from github etc. This command no longer works in macOS Sequoia – it requires a [different method](https://github.com/5T33Z0/OC-Little-Translated/blob/main/14_OCLP_Wintel/Guides/Disable_Gatekeeper.md) to disable Gatekeeper.
@@ -312,15 +312,15 @@ Kext Name | Source URL
 
 > [!IMPORTANT]
 > 
-> Don't update `AirportItlwm.kext`, `AppleALC.kext`, `IntelBluetoothFirmware.kext` and `itlwm.kext` via OCAT because then you lose the slimmed versions of these kexts!
+> Don't update `AirportItlwm.kext`, `AppleALC.kext`, `IntelBluetoothFirmware.kext` and `itlwm.kext` because then you lose the slimmed versions of these kexts!
 
-## Compile Intel Wi-Fi and Bluetooth Firmware kexts easily
+## Compiling Intel Wi-Fi and Bluetooth Firmware kexts easily
 
 Chris1111 has created a helpful little app called [**Wifi-Intel-KextsBuilder**](https://github.com/chris1111/Wifi-Intel-KextsBuilder) which automates the process of compiling Intel Wi-Fi and Bluetooth Firmware kexts. It only requires you to have Xcode installed and will handle the rest on its own once you run it.
 
 Wifi-Intel-KextsBuilder downloads the source code of itlwm, IntelBluetoothFirmware, MacKernelSDK and Lilu and then compiles itlwm, AirportItlwm and Intel Bluetooth Firmware kexts. They will be located under "Users/YOUR_USERNAME/Developer/Wifi-Intel-KextsBuilder/ in the "build/Release" folder of each repo.
 
-These kexts won't be slimmed like the ones present in my EFI folders but at least you now have a simple option to compile them on your own in the future. For compiling slimmed kexts, [follow my guide](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/tree/main/Additional_Files/Slimmed_Kexts/Intel_AC-9650)
+These kexts won't be slimmed like the ones present in my EFI folders but at least you now have a simple option to compile them on your own in the future. For compiling slimmed kexts, you can [follow my guide](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/tree/main/Additional_Files/Slimmed_Kexts/Intel_AC-9650) to do so.
 
 ## Credits and Thank Yous
 - [**Acidanthera**](https://github.com/acidanthera) for OpenCore, Kexts and maciASL

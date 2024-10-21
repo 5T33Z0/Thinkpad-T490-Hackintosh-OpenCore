@@ -47,6 +47,7 @@ The built-in Samsung PM981a NVMe is NOT compatible with macOS. You must get a di
 
 ### Known Issues
 - Audio Jack creates an unpleasant buzz/noise during driver initialization. So it's best to connect Headphones to it *after* booting.
+- Fingerprint sensor does not work under macOS since there is currently no way to emulate Touch ID.
 
 > [!IMPORTANT]
 > 

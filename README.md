@@ -40,7 +40,7 @@ The built-in Samsung PM981a NVMe is NOT compatible with macOS. You must get a di
 - Working MicroSD Card Reader
 - Working clamshell mode (when connected to A/C and external display)
 - Optimized Framebuffer Patch for smoother handshake with external displays
-- Lean EFI folder with slimmed kexts (20 MB in size, instead of 62):
+- Lean EFI folder with slimmed kexts (20 instead of 62 MB):
  	- **AirportItlwm_Sonoma**: 1,8 instead of 16 MB. Only contains Firmware for Intel AC 9560.
 	- **AppleALC**: 86 Kb instead of 2,3 MB. Only contains layout `97`.
 	- **IntelBluetoothFirmware**: 560 KB instead of 11,5 MB.

@@ -30,10 +30,6 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 ### Before you begin
 The built-in Samsung PM981a NVMe is NOT compatible with macOS. You must get a different NVMe first!
 
-> [!CAUTION]
-> 
-> Do not update to macOS 15.2 yet since the installer crashes early! Further investigation required.
-
 ### Notable Features
 - Compatible with macOS Sonoma and Sequoia (should work with older versions of macOS as well, but requires different WiFi-Kexts and config adjustments)
 - New USB Port Mapping (includes ports of Docking Station) 

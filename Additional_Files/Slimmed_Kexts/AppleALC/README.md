@@ -1,9 +1,9 @@
 # Slimmed AppleALC kext
-**Mainboard**: Lenovo ThinkPad T490</br>
+**System**: Lenovo ThinkPad T490</br>
 **Codec**: Realtek ALC257 </br>
 **Included Layouts**: `97`</br>
 **Size**: 86 kb <br>
-**Version**: 1.8.4
+**Latest Version**: 1.9.3
 
 ## Codec Structure
 ![](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/blob/main/Additional_Files/SysReport/Audio/Codec-Dump.png?raw=true)

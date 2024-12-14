@@ -31,19 +31,19 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 ⚠️ The built-in Samsung PM981a NVMe is NOT compatible with macOS. You _must_ use a different NVMe!
 
 ### Notable Features
-- Compatible with macOS Sonoma and Sequoia (should work with older versions of macOS as well, but requires different WiFi-Kexts and config adjustments)
-- New USB Port Mapping (includes ports of Docking Station) 
-- Working MicroSD Card Reader
-- Working clamshell mode (when connected to A/C and external display)
-- Optimized Framebuffer Patch for smoother handshake with external displays
-- Lean EFI folder with slimmed kexts (20 instead of 62 MB):
+- [x] Compatible with macOS Sonoma and Sequoia (works with older versions of macOS as well, but requires different WiFi-Kexts and config adjustments)
+- [x] New USB Port Mapping with support for docking station 
+- [x] Optimized Framebuffer Patch for smoother handshake with external displays via HDMI
+- [x] Working clamshell mode (when connected to A/C and external display)
+- [x] Working MicroSD Card Reader
+- [x] Lean EFI folder with slimmed kexts (20 MB instead of 62 MB overall):
  	- **AirportItlwm_Sonoma**: 1,8 instead of 16 MB. Only contains Firmware for Intel AC 9560.
 	- **AppleALC**: 86 Kb instead of 2,3 MB. Only contains layout `97`.
 	- **IntelBluetoothFirmware**: 560 KB instead of 11,5 MB.
 	- **itlwm** (1.5 mb instead of 16 mb). Only Contains Firmware for Intel AC 9560.
-- YogaSMC support for additional features like CPU fan control, performance bias, working <kbd>Fn</kbd> Keyboard shortcuts, additional OSD overlays, etc.
-- No injection of `PlatformInfo` data into Windows.
-- Working 3D Globe in Maps app (macOS 12+)
+- [x] YogaSMC support for additional features like CPU fan control, performance bias, handling <kbd>Fn</kbd> Keyboard shortcuts, additional OSD overlays, etc.
+- [x] No injection of `PlatformInfo` data into MS Windows.
+- [x] Working 3D globe in Maps app (macOS 12+)
 
 ### Known Issues
 - [ ] In general, the system runs hotter under macOS than under Windows. My guess is that this is due to the required iGPU spoof.
@@ -58,7 +58,7 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 ### Future Developments
 - [x] Adding USB ports of docking station to the USB port kext
 - [ ] Creating an AppleALC Layout-ID for audio output on Docking Station
-- [ ] Adjusting Framebuffer Patch for HDMI/DP Ports on Docking Station
+- [ ] Adjusting Framebuffer Patch so HDMI/DP Ports on docking stations can be utilized
 
 ## Specs
 

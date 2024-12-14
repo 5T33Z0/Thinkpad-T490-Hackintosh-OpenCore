@@ -94,7 +94,7 @@ Category | Setting
 ## EFI Folder Content
 
 <details>
-<summary><strong>Click to reveal</strong></summary>
+<summary><strong>Click to reveal</strong></summary><br>
 
 ```
 EFI

@@ -124,16 +124,16 @@ EFI
 │   │   ├── OpenRuntime.efi
 │   │   └── ResetNvramEntry.efi
 │   ├── Kexts (Loading managed by MinKernel/MaxKernel settings)
-│   │   ├── AMFIPass.kext
-│   │   ├── AdvancedMap_Sequoia.kext
-│   │   ├── AdvancedMap_Sonoma.kext
+│   │   ├── AdvancedMap.kext
 │   │   ├── AirportItlwm_Sonoma.kext
+│   │   ├── AMFIPass.kext
 │   │   ├── AppleALC.kext
 │   │   ├── BlueToolFixup.kext
 │   │   ├── BrightnessKeys.kext
 │   │   ├── CPUFriend.kext
 │   │   ├── CPUFriendDataProvider.kext
 │   │   ├── ECEnabler.kext
+│   │   ├── HibernationFixup.kext
 │   │   ├── IntelBTPatcher.kext
 │   │   ├── IntelBluetoothFirmware.kext
 │   │   ├── IntelBluetoothInjector.kext
@@ -144,9 +144,11 @@ EFI
 │   │   ├── RealtekCardReader.kext
 │   │   ├── RealtekCardReaderFriend.kext
 │   │   ├── RestrictEvents.kext
+│   │   ├── RTCMemoryFixup.kext
 │   │   ├── SMCBatteryManager.kext
 │   │   ├── SMCProcessor.kext
 │   │   ├── SMCSuperIO.kext
+│   │   ├── USBMap.kext
 │   │   ├── VirtualSMC.kext
 │   │   ├── VoodooPS2Controller.kext
 │   │   │   └── Contents

@@ -1,5 +1,5 @@
 # Lenovo ThinkPad T490 Hackintosh OpenCore
-[![OpenCore](https://img.shields.io/badge/OpenCore-1.0.3-cyan.svg)](https://github.com/acidanthera/OpenCorePkg/releases/latest) [![macOS Sequoia](https://img.shields.io/badge/macOS-15.2-white.svg)](https://www.apple.com/macos/macos-sequoia-preview/) [![release](https://img.shields.io/badge/Download-latest-success.svg)](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/releases/latest)<br>![10053604](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/assets/76865553/ed932a1a-8205-4b81-a4e2-f68d7d8a7178)
+[![OpenCore](https://img.shields.io/badge/OpenCore-1.0.3-cyan.svg)](https://github.com/acidanthera/OpenCorePkg/releases/latest) [![macOS Sequoia](https://img.shields.io/badge/macOS-15.3-white.svg)](https://www.apple.com/macos/macos-sequoia-preview/) [![release](https://img.shields.io/badge/Download-latest-success.svg)](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/releases/latest)<br>![10053604](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/assets/76865553/ed932a1a-8205-4b81-a4e2-f68d7d8a7178)
 
 **TABLE of CONTENTS**
 
@@ -235,7 +235,7 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 	- **Con**: Requires [**HeliPort**](https://github.com/diepeterpan/HeliPort/releases) app to connect to Wi-Fi hotspots, so it can't be used during macOS Setup/Recovery
 	- **Con**: Doesn't support Location Services
 
-- Pre-compiled WiFi kexts for other versions of macOS can be found in the [Additional Files](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/tree/main/Additional_Files/Slimmed_Kexts/Intel_AC-9650/itlwm) section! You will need them if you want to run other macOS versions than Sonoma or Sequioa!
+- Pre-compiled WiFi kexts for other versions of macOS can be found in the [Additional Files](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/tree/main/Additional_Files/Slimmed_Kexts/Intel_AC-9650/itlwm) section! You will need them if you want to run older versions of macOS!
 
 > [!NOTE]
 > 
@@ -262,7 +262,9 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 > Upgrading from to macOS 14.3.1 to 14.4 or newer via `System Update` causes a Kernel Panic during install! Disable `AiportItlwm` and enable `itlwm.kext` instead. Set `SecureBootModel` to `Disabled`, reset NVRAM and run the update again. If this does not work, use this [workaround](https://github.com/5T33Z0/OC-Little-Translated/blob/main/W_Workarounds/macOS14.4.md) to install macOS 14.4 on a new APFS volume. Use Migration Manager afterwards to get your data onto the new volume!
 
 ## Post-Install
-- **Disable Gatekeeper**: `sudo spctl --master-disable` because it is annoying and wants to stop you from running scripts from github etc. This command no longer works in macOS Sequoia – it requires a [different method](https://github.com/5T33Z0/OC-Little-Translated/blob/main/14_OCLP_Wintel/Guides/Disable_Gatekeeper.md) to disable Gatekeeper.
+- **Disable Gatekeeper** because it is annoying and wants to stop you from running scripts from github etc.:
+	- Open Terminal and run: `sudo spctl --master-disable`
+	- The process has slightly changed in macOS Sequoia 15.1.1. and newer [more info](https://github.com/5T33Z0/OC-Little-Translated/blob/main/14_OCLP_Wintel/Guides/Disable_Gatekeeper.md)
 - **Wi-Fi** (`itlwm.kext` users only): 
 	- Mount **HeliPort.dmg**, drag the app into the "Programs" folder and run it.
 	- Use it to connect to your WiFI hotspot.
@@ -276,7 +278,8 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 - Use [**CPUFriendFriend**](https://github.com/corpnewt/CPUFriendFriend) to generate your own `CPUFriendDataProvider.kext` to optimize CPU Power Management if your T490 uses a different CPU than mine.
 - **Enabling Hibernation**: Use Terminal or change in Hackintool
 	- Disable PowerNap: `sudo pmset -a powernap 0`
-	- Change Hibernatemode to 25: `sudo pmset -a hibernatemode 25` 
+	- Change Hibernatemode to 25: `sudo pmset -a hibernatemode 25`
+- Install [**MonitorControl**](https://github.com/MonitorControl/MonitorControl) (optional). It's a helpful little tool that lets you control the brightness and contrast of external displays from the menubar.
 
 ## Understanding YogaSMC Settings
 Open the YogaSMC preference pane. You will find the following options (among others):

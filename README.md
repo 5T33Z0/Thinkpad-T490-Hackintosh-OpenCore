@@ -198,8 +198,8 @@ EFI
 			- If other issues occur, try the other framebuffer patch in the config (the one that's disabled by `#`)!
 			- An additional list of Framebuffer Patches can be found [here](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/blob/main/Additional_Files/Framebuffer_Patches/UHD620_Framebuffer_Patches.plist)
 	- **Wi-Fi**: Decide, which Wi-Fi kext you want to use (&rarr; see [**AirportItlwm vs. itlwm**](#airportitlwmkext-vs-itlwmkext)):
-    	- Sonoma uses **AirportItlwm_Sonoma** 
-    	- Sequoia uses **Itlwm** because there's no AirportItlwm variant for Sequoia yet 
+    	- By default, Sonoma uses **AirportItlwm_Sonoma** 
+    	- Sequoia *requires* **Itlwm** because there's no AirportItlwm variant for Sequoia yet 
 	- **Kernel/Quirks**: 
 		- `AppleXcpmCfgLock` is not required on my system. Try for yourself if your T490 can boot without it.
 	- **NVRAM/Add/7C436110-AB2A-4BBB-A880-FE41995C9F82**

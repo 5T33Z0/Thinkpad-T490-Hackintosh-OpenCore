@@ -18,6 +18,14 @@
 	- [If macOS is installed already](#if-macos-is-installed-already)
 	- [If macOS is not installed](#if-macos-is-not-installed)
 - [Post-Install](#post-install)
+	- [Disable Gatekeeper (optional)](#disable-gatekeeper-optional)
+	- [WiFi](#wifi)
+		- [Option 1: For `Itlwm.kext` users](#option-1-for-itlwmkext-users)
+		- [Option 2: enable `AirportItlwm.kext` in macOS Sequoia](#option-2-enable-airportitlwmkext-in-macos-sequoia)
+	- [Enable YogaSMC](#enable-yogasmc)
+	- [Configure CPUFriend](#configure-cpufriend)
+	- [Configure Hibernation](#configure-hibernation)
+	- [Install MonitorControl (optional).](#install-monitorcontrol-optional)
 - [Understanding YogaSMC Settings](#understanding-yogasmc-settings)
 	- [Disabling YogaSMC](#disabling-yogasmc)
 - [For OCAT Users](#for-ocat-users)
@@ -138,6 +146,8 @@ EFI
 │   │   ├── IntelBluetoothFirmware.kext
 │   │   ├── IntelBluetoothInjector.kext
 │   │   ├── IntelMausiEthernet.kext
+│   │   ├── IO80211FamilyLegacy.kext
+│   │   ├── IOSkywalkFamily.kext
 │   │   ├── itlwm.kext
 │   │   ├── Lilu.kext
 │   │   ├── NVMeFix.kext
@@ -262,24 +272,56 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 > Upgrading from to macOS 14.3.1 to 14.4 or newer via `System Update` causes a Kernel Panic during install! Disable `AiportItlwm` and enable `itlwm.kext` instead. Set `SecureBootModel` to `Disabled`, reset NVRAM and run the update again. If this does not work, use this [workaround](https://github.com/5T33Z0/OC-Little-Translated/blob/main/W_Workarounds/macOS14.4.md) to install macOS 14.4 on a new APFS volume. Use Migration Manager afterwards to get your data onto the new volume!
 
 ## Post-Install
-- **Disable Gatekeeper** because it is annoying and wants to stop you from running scripts from github etc.:
-	- Open Terminal and run: `sudo spctl --master-disable`
-	- The process has slightly changed in macOS Sequoia 15.1.1. and newer [more info](https://github.com/5T33Z0/OC-Little-Translated/blob/main/14_OCLP_Wintel/Guides/Disable_Gatekeeper.md)
-- **Wi-Fi** (`itlwm.kext` users only): 
-	- Mount **HeliPort.dmg**, drag the app into the "Programs" folder and run it.
-	- Use it to connect to your WiFI hotspot.
-	- Add HeliPort to "Login Items", so it stars with macOS and connects to your WiFi network automatically.
-- **YogaSMC**:
-	- Download [**YogaSMC-App**](https://github.com/zhen-zen/YogaSMC/files/14324664/Builds.zip) and mount it. This is a custom build which fixes the "Failed to open Preferences" [issue](https://github.com/zhen-zen/YogaSMC/issues/189) in Ventura and newer  
-	- Double-click the YogaSMC **prefPane** to install it
-	- Drag the `YogaSMC` app into the "Programs" folder and run it
-	- Click on the icon (⌥) in the menu bar and select "Start at Login"
-	- Now you can control performance profiles, fan speed and other settings
+
+### Disable Gatekeeper (optional)
+Gatekeeper can be really annoying and wants to stop you from running python scripts from github, etc. Do the following to disable it:
+
+- Open Terminal and run: `sudo spctl --master-disable`
+- The process has slightly changed in macOS Sequoia 15.1.1. and newer [more info](https://github.com/5T33Z0/OC-Little-Translated/blob/main/14_OCLP_Wintel/Guides/Disable_Gatekeeper.md)
+
+### WiFi
+
+#### Option 1: For `Itlwm.kext` users
+
+- Mount **HeliPort.dmg**, drag the app into the "Programs" folder and run it.
+- Use it to connect to your WiFI hotspot.
+- Add HeliPort to "Login Items", so it stars with macOS and connects to your WiFi network automatically.
+
+#### Option 2: enable `AirportItlwm.kext` in macOS Sequoia
+
+By default, `Itlwm.kext` is requird when running macOS 15. But if you want to use `AirportItlwm.kext` instead, you have to apply "Modern WiFi" patches with OpenCore Legacy patcher:
+
+- Download [**OpenCore Legacy Patcher**](https://github.com/dortania/OpenCore-Legacy-Patcher/releases) (.pkg).
+- Remove `HeliPort` from Login-Items (if present) – you won't need it any more.
+- Download my EFI folder and extract it.
+- Place it in your EFI partition.
+- Reboot into macOS Sequoia
+- At this stage, WiFi won't work!
+- Install OpenCore legacy patcher and run it
+- Click on "Root Patches"
+- Next, click on "Start Root Patching" to install the required frameworks for "Modern Wi-Fi"
+- Once that's done, reboot
+- Reset NVRAM and start macOS Sequoia.
+- Connect to a WiFi AP via Airport-Utility
+
+More details about this patch can be found [here](https://github.com/5T33Z0/OC-Little-Translated/blob/main/14_OCLP_Wintel/Enable_Features/AirportItllwm_Sequoia.md)
+
+### Enable YogaSMC
+- Download [**YogaSMC-App**](https://github.com/zhen-zen/YogaSMC/files/14324664/Builds.zip) and mount it. This is a custom build which fixes the "Failed to open Preferences" [issue](https://github.com/zhen-zen/YogaSMC/issues/189) in Ventura and newer  
+- Double-click the YogaSMC **prefPane** to install it
+- Drag the `YogaSMC` app into the "Programs" folder and run it
+- Click on the icon (⌥) in the menu bar and select "Start at Login"
+- Now you can control performance profiles, fan speed and other settings
+
+### Configure CPUFriend
 - Use [**CPUFriendFriend**](https://github.com/corpnewt/CPUFriendFriend) to generate your own `CPUFriendDataProvider.kext` to optimize CPU Power Management if your T490 uses a different CPU than mine.
-- **Enabling Hibernation**: Use Terminal or change in Hackintool
-	- Disable PowerNap: `sudo pmset -a powernap 0`
-	- Change Hibernatemode to 25: `sudo pmset -a hibernatemode 25`
-- Install [**MonitorControl**](https://github.com/MonitorControl/MonitorControl) (optional). It's a helpful little tool that lets you control the brightness and contrast of external displays from the menubar.
+
+### Configure Hibernation
+- Disable PowerNap: `sudo pmset -a powernap 0`
+- Change Hibernatemode to 25: `sudo pmset -a hibernatemode 25`
+
+### Install MonitorControl (optional). 
+[**MonitorControl**](https://github.com/MonitorControl/MonitorControl) is a helpful little tool that lets you control the brightness and contrast of external displays from the menubar.
 
 ## Understanding YogaSMC Settings
 Open the YogaSMC preference pane. You will find the following options (among others):
@@ -309,7 +351,6 @@ Kext Name | Source URL
 ----------|-----------
 **AdvancedMap.kext** | https://github.com/notjosh/AdvancedMap
 **AirportItlwm.kext** | https://github.com/OpenIntelWireless/itlwm
-**AMFIPass.kext** | https://github.com/dortania/OpenCore-Legacy-Patcher
 **IntelBluetoothFirmware.kext** | https://github.com/OpenIntelWireless/IntelBluetoothFirmware
 **IntelMausiEthernet.kext** | https://github.com/CloverHackyColor/IntelMausiEthernet
 **itlwm.kext** | https://github.com/OpenIntelWireless/itlwm 

@@ -13,15 +13,15 @@
 - [EFI Folder Content](#efi-folder-content)
 - [Preparations](#preparations)
 	- [Config Adjustments](#config-adjustments)
-		- [AirportItlwm vs. itlwm WiFi kext](#airportitlwm-vs-itlwm-wifi-kext)
+	- [AirportItlwm vs. itlwm WiFi kext](#airportitlwm-vs-itlwm-wifi-kext)
 - [Deployment](#deployment)
 	- [If macOS is installed already](#if-macos-is-installed-already)
 	- [If macOS is not installed](#if-macos-is-not-installed)
 - [Post-Install](#post-install)
 	- [Disable Gatekeeper (optional)](#disable-gatekeeper-optional)
 	- [WiFi](#wifi)
-		- [Option 1: For `Itlwm.kext` users](#option-1-for-itlwmkext-users)
-		- [Option 2: enable `AirportItlwm.kext` in macOS Sequoia](#option-2-enable-airportitlwmkext-in-macos-sequoia)
+		- [Option 1: enable `AirportItlwm.kext` in macOS Sequoia](#option-1-enable-airportitlwmkext-in-macos-sequoia)
+		- [Option 2: For `Itlwm.kext` users](#option-2-for-itlwmkext-users)
 	- [Enable YogaSMC](#enable-yogasmc)
 	- [Configure CPUFriend](#configure-cpufriend)
 	- [Configure Hibernation](#configure-hibernation)
@@ -204,14 +204,13 @@ EFI
 - Open the `config.plist` with a plist editor (e.g. ProperTree or OCAT) and adjust the following settings based on the used version of macOS and personal preferences:
 	- **Graphics**
 		- `Devices/Properties/Add/PciRoot(0x0)/Pci(0x2,0x0)`
-			- If you plan to install macOS 13.3 or older, disable/delete `enable-backlight-registers-alternative-fix` and use `enable-backlight-registers-fix` instead to fix black screen issues.
-			- If other issues occur, try the other framebuffer patch in the config (the one that's disabled by `#`)!
-			- An additional list of Framebuffer Patches can be found [here](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/blob/main/Additional_Files/Framebuffer_Patches/UHD620_Framebuffer_Patches.plist)
+			- For macOS ≤ 13.3, disable/delete `enable-backlight-registers-alternative-fix` and use `enable-backlight-registers-fix` instead to fix black screen issues.
+			- If other issues occur, try another framebuffer patch. I collected addtitional ones which be found [here](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/blob/main/Additional_Files/Framebuffer_Patches/UHD620_Framebuffer_Patches.plist)
 	- **Wi-Fi**: Decide, which Wi-Fi kext you want to use (&rarr; see [**AirportItlwm vs. itlwm**](#airportitlwmkext-vs-itlwmkext)):
     	- By default, Sonoma uses **AirportItlwm_Sonoma** 
-    	- Sequoia *requires* **Itlwm** because there's no AirportItlwm variant for Sequoia yet 
-	- **Kernel/Quirks**: 
-		- `AppleXcpmCfgLock` is not required on my system. Try for yourself if your T490 can boot without it.
+    	- By default, Sequoia *requires* **Itlwm**. But with the help of OpenCore Legacy Patcher, **AirportItlwm** can be used as well. And that's what I configured my config for. 
+	- **Kernel/Quirks** 
+		- `AppleXcpmCfgLock` is not required on my system. Try for yourself if your T490 needs it to boot.
 	- **NVRAM/Add/7C436110-AB2A-4BBB-A880-FE41995C9F82**
 		- Optional: add `boot-args` `-v`, `debug=0x100` and `keepsyms=1` for debugging if you face issues.
 	- **UEFI/APFS** 
@@ -222,10 +221,10 @@ EFI
 
 > [!CAUTION]
 > 
-> - Don't change the SMBIOS or the USB port mapping stored in `USBMap_MBP152.kext` won't be applied and Bluetooth won't work either! If you must change the SMBIOS then you also need to change the `model` property inside the `info.plist` of the kext to match the selected SMBIOS as well ([instructions](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/issues/13#issuecomment-1858917249)).
-> - If your T490 model uses a different WiFi/BT card than the stock Intel AC-9560 card, use the official `itlwm.kext` instead because mine only contains the firmware for the 9560 so it won't work with other cards.
+> - Don't change the SMBIOS or the USB port mapping injected by `USBMap.kext` won't be applied and Bluetooth won't work either! If you change the SMBIOS, then you also need to change the `model` property in the `info.plist` contained in the kext to match the selected SMBIOS ([instructions](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/issues/13#issuecomment-1858917249)).
+> - If your T490 model uses a different WiFi/BT card than the stock Intel AC-9560 card, use the official `itlwm.kext` instead because mine only contains the firmware for the AC-9560, so it won't work with other cards.
 
-#### AirportItlwm vs. itlwm WiFi kext
+### AirportItlwm vs. itlwm WiFi kext
 Although the Intel AC-9560 Card is compatible with both kexts (use either one or the other), there are Pros and Cons to both of them (check the [**FAQs**](https://openintelwireless.github.io/itlwm/FAQ.html#features) for other differences):
 
 - **AirportItlwm**: (used in macOS Sonoma)
@@ -249,9 +248,10 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 
 > [!NOTE]
 > 
-> My config uses `AirportItlw.kext` by default since it allows accessing the internet during macOS installation (unlike `itlwm.kext` which requires an additional app to do so). Currently, AirportItlwm kexts for macOS Sonoma is included. My `itlwm.kext` is a slimmed-down version only containing the firmware for the Intel AC-9560 (1,5 MB instead of 16,1 MB). If you want to use itlwm, disable AirportItlwm (all variants) and enable itlwm in the config.plist instead. Next, download the Helipad app, run it and add it to "Login Items" (in System Settings) so that it starts automatically with macOS.
+> My config uses `AirportItlw` by default since it allows accessing the internet during macOS installation (unlike `itlwm.kext`, which requires an additional app to do so). Currently, `AirportItlwm` kexts for macOS Sonoma and Sequoia are included. If you want to use `itlwm`, disable `AirportItlwm` (all variants), enable 'itlwm' and adjust the `MinKernel` setting to match the Kernel version of macOS (currently: 24.0.0 = macOS Sequoia). Next, download the [**HeliPort**](https://github.com/OpenIntelWireless/HeliPort) app, run it and add it to "Login Items" (in System Settings), so that it starts automatically with macOS.
 
 ## Deployment
+
 ### If macOS is installed already
 - Put the EFI folder on a FAT32 formatted USB flash drive
 - Reboot from said USB flash drive for testing
@@ -281,13 +281,7 @@ Gatekeeper can be really annoying and wants to stop you from running python scri
 
 ### WiFi
 
-#### Option 1: For `Itlwm.kext` users
-
-- Mount **HeliPort.dmg**, drag the app into the "Programs" folder and run it.
-- Use it to connect to your WiFI hotspot.
-- Add HeliPort to "Login Items", so it stars with macOS and connects to your WiFi network automatically.
-
-#### Option 2: enable `AirportItlwm.kext` in macOS Sequoia
+#### Option 1: enable `AirportItlwm.kext` in macOS Sequoia
 
 By default, `Itlwm.kext` is requird when running macOS 15. But if you want to use `AirportItlwm.kext` instead, you have to apply "Modern WiFi" patches with OpenCore Legacy patcher:
 
@@ -305,6 +299,12 @@ By default, `Itlwm.kext` is requird when running macOS 15. But if you want to us
 - Connect to a WiFi AP via Airport-Utility
 
 More details about this patch can be found [here](https://github.com/5T33Z0/OC-Little-Translated/blob/main/14_OCLP_Wintel/Enable_Features/AirportItllwm_Sequoia.md)
+
+#### Option 2: For `Itlwm.kext` users
+
+- Mount **HeliPort.dmg**, drag the app into the "Programs" folder and run it.
+- Use it to connect to your WiFI hotspot.
+- Add HeliPort to "Login Items", so it stars with macOS and connects to your WiFi network automatically.
 
 ### Enable YogaSMC
 - Download [**YogaSMC-App**](https://github.com/zhen-zen/YogaSMC/files/14324664/Builds.zip) and mount it. This is a custom build which fixes the "Failed to open Preferences" [issue](https://github.com/zhen-zen/YogaSMC/issues/189) in Ventura and newer  

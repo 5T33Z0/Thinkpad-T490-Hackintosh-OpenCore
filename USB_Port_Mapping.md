@@ -2,7 +2,7 @@
 
 ## `SSDT-PORTS.aml`
 
-Listed below, you find the USB ports defined in the `SSDT-PORTS.aml` table. Before using this SSDT, you have to disable any USBPort.kext and drop the OEM USB port map!
+Listed below, you find the USB ports defined in the `SSDT-PORTS.aml` table. Before using this SSDT, you have to disable any `USBPort.kext` and drop the OEM USB port map!
 
 Port  | Type   | On/Off
 ------|:------:|:------:

@@ -1,0 +1,29 @@
+
+Verbs from ConfigData
+
+Codec: ???   Address: 0   DevID: 0 (0x00000000)
+
+NID       PinDefault     Device             Connector           Port            Location                    Color     G  P  EAPD  Original Verbs
+------------------------------------------------------------------------------------------------------------------------------------------------
+19 (0x13) 40000000   Out Line Out           Unknown             No Connection   External N/A                Unknown   0  0  -     01371C00 01371D00 01371E00 01371F40
+20 (0x14) 90170110   Out Speaker            Other Analog        Fixed           Internal N/A                Unknown   1  0  0x2   01471C10 01471D01 01471E17 01471F90 01470C02
+33 (0x21) 0421101F   Out HP Out             1/8" Stereo/Mono    Jack            External Right              Black     1  15 0x2   02171C1F 02171D10 02171E21 02171F04 02170C02
+18 (0x12) 90A60120   In  Mic In             Other Digital       Fixed           Internal N/A                Unknown   2  0  -     01271C20 01271D01 01271EA6 01271F90
+25 (0x19) 04A11030   In  Mic In             1/8" Stereo/Mono    Jack            External Right              Black     3  0  -     01971C30 01971D10 01971EA1 01971F04
+29 (0x1D) 40661B45   Out Modem Line Side    Other Digital       No Connection   External N/A                Black     4  5  -     01D71C45 01D71D1B 01D71E66 01D71F40
+24 (0x18) 411111F0   Out Speaker            1/8" Stereo/Mono    No Connection   External Rear               Black     15 0  -     01871CF0 01871D11 01871E11 01871F41
+26 (0x1A) 411111F0   Out Speaker            1/8" Stereo/Mono    No Connection   External Rear               Black     15 0  -     01A71CF0 01A71D11 01A71E11 01A71F41
+27 (0x1B) 411111F0   Out Speaker            1/8" Stereo/Mono    No Connection   External Rear               Black     15 0  0x2   01B71CF0 01B71D11 01B71E11 01B71F41 01B70C02
+30 (0x1E) 411111F0   Out Speaker            1/8" Stereo/Mono    No Connection   External Rear               Black     15 0  -     01E71CF0 01E71D11 01E71E11 01E71F41
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+NID       PinDefault     Device             Connector           Port            Location                    Color     G  P  EAPD  Modified Verbs
+------------------------------------------------------------------------------------------------------------------------------------------------
+20 (0x14) 90170110   Out Speaker            Other Analog        Fixed           Internal N/A                Unknown   1  0  0x2   01471C10 01471D01 01471E17 01471F90 01470C02
+33 (0x21) 0421101F   Out HP Out             1/8" Stereo/Mono    Jack            External Right              Black     1  15 0x2   02171C1F 02171D10 02171E21 02171F04 02170C02
+18 (0x12) 90A60120   In  Mic In             Other Digital       Fixed           Internal N/A                Unknown   2  0  -     01271C20 01271D01 01271EA6 01271F90
+25 (0x19) 04A11030   In  Mic In             1/8" Stereo/Mono    Jack            External Right              Black     3  0  -     01971C30 01971D10 01971EA1 01971F04
+27 (0x1B) 07014110   Out Line Out           1/8" Stereo/Mono    Jack            External Rear Panel         Green     1  0  0x3   01B71C10 01B71D41 01B71E01 01B71F07 01B70C03
+------------------------------------------------------------------------------------------------------------------------------------------------
+

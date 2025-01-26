@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ACPI</key>
+	<dict>
+		<key>DSDT</key>
+		<dict>
+			<key>Patches</key>
+			<array>
+				<dict>
+					<key>Comment</key>
+					<string>_Q6A to XQ6A (F4 - Microphone Mute)</string>
+					<key>Count</key>
+					<integer>1</integer>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>X1E2QQ==</data>
+					<key>Replace</key>
+					<data>WFE2QQ==</data>
+					<key>Skip</key>
+					<integer>0</integer>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>_Q15 to XQ15 (F5 - Brightness Down)</string>
+					<key>Count</key>
+					<integer>1</integer>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>X1ExNQ==</data>
+					<key>Replace</key>
+					<data>WFExNQ==</data>
+					<key>Skip</key>
+					<integer>0</integer>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>_Q14 to XQ14 (F6 - Brightness Up)</string>
+					<key>Count</key>
+					<integer>1</integer>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>X1ExNA==</data>
+					<key>Replace</key>
+					<data>WFExNA==</data>
+					<key>Skip</key>
+					<integer>0</integer>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>_Q16 to XQ16 (F7 - Dual Display)</string>
+					<key>Count</key>
+					<integer>1</integer>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>X1ExNg==</data>
+					<key>Replace</key>
+					<data>WFExNg==</data>
+					<key>Skip</key>
+					<integer>0</integer>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>_Q64 to XQ64 (F8 - Network)</string>
+					<key>Count</key>
+					<integer>1</integer>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>X1E2NA==</data>
+					<key>Replace</key>
+					<data>WFE2NA==</data>
+					<key>Skip</key>
+					<integer>0</integer>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>_Q66 to XQ66 (F9 - Settings)</string>
+					<key>Count</key>
+					<integer>1</integer>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>X1E2Ng==</data>
+					<key>Replace</key>
+					<data>WFE2Ng==</data>
+					<key>Skip</key>
+					<integer>0</integer>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>_Q60 to XQ60 (F10 - Bluetooth)</string>
+					<key>Count</key>
+					<integer>1</integer>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>X1E2MA==</data>
+					<key>Replace</key>
+					<data>WFE2MA==</data>
+					<key>Skip</key>
+					<integer>0</integer>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>_Q61 to XQ61 (F11 - Keyboard)</string>
+					<key>Count</key>
+					<integer>1</integer>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>X1E2MQ==</data>
+					<key>Replace</key>
+					<data>WFE2MQ==</data>
+					<key>Skip</key>
+					<integer>0</integer>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>_Q62 to XQ62 (F12 - Star)</string>
+					<key>Count</key>
+					<integer>1</integer>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>X1E2Mg==</data>
+					<key>Replace</key>
+					<data>WFE2Mg==</data>
+					<key>Skip</key>
+					<integer>0</integer>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+</dict>
+</plist>

@@ -19,7 +19,7 @@
 				<key>Comment</key>
 				<string>Keyboard Mappings</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Path</key>
 				<string>SSDT-T490-KBRD.aml</string>
 			</dict>
@@ -36,7 +36,7 @@
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>X1E2QQ==</data>
 				<key>Limit</key>
@@ -66,7 +66,7 @@
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>X1ExNQ==</data>
 				<key>Limit</key>
@@ -96,7 +96,7 @@
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>X1ExNA==</data>
 				<key>Limit</key>
@@ -126,7 +126,7 @@
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>X1ExNg==</data>
 				<key>Limit</key>
@@ -156,7 +156,7 @@
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>X1E2NA==</data>
 				<key>Limit</key>
@@ -186,7 +186,7 @@
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>X1E2Ng==</data>
 				<key>Limit</key>
@@ -216,7 +216,7 @@
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>X1E2MA==</data>
 				<key>Limit</key>
@@ -246,7 +246,7 @@
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>X1E2MQ==</data>
 				<key>Limit</key>
@@ -276,7 +276,7 @@
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>X1E2Mg==</data>
 				<key>Limit</key>

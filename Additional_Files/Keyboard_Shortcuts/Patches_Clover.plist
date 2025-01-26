@@ -28,7 +28,7 @@
 					<key>Count</key>
 					<integer>1</integer>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Find</key>
 					<data>X1ExNQ==</data>
 					<key>Replace</key>
@@ -42,7 +42,7 @@
 					<key>Count</key>
 					<integer>1</integer>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Find</key>
 					<data>X1ExNA==</data>
 					<key>Replace</key>
@@ -56,7 +56,7 @@
 					<key>Count</key>
 					<integer>1</integer>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Find</key>
 					<data>X1ExNg==</data>
 					<key>Replace</key>
@@ -70,7 +70,7 @@
 					<key>Count</key>
 					<integer>1</integer>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Find</key>
 					<data>X1E2NA==</data>
 					<key>Replace</key>
@@ -84,7 +84,7 @@
 					<key>Count</key>
 					<integer>1</integer>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Find</key>
 					<data>X1E2Ng==</data>
 					<key>Replace</key>
@@ -98,7 +98,7 @@
 					<key>Count</key>
 					<integer>1</integer>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Find</key>
 					<data>X1E2MA==</data>
 					<key>Replace</key>
@@ -112,7 +112,7 @@
 					<key>Count</key>
 					<integer>1</integer>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Find</key>
 					<data>X1E2MQ==</data>
 					<key>Replace</key>
@@ -126,7 +126,7 @@
 					<key>Count</key>
 					<integer>1</integer>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Find</key>
 					<data>X1E2Mg==</data>
 					<key>Replace</key>

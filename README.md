@@ -55,6 +55,7 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 
 ### Known Issues
 - [ ] In general, the system runs hotter under macOS than under Windows. My guess is that this is due to the required iGPU spoof.
+- Hibernation Mode 25 does not work properly
 - [ ] Fingerprint sensor does not work under macOS since there is currently no way to emulate Touch ID.
 - [ ] The audio combo jack creates an unpleasant buzz/noise during driver initialization. So it's best to connect headphones *after* booting.
 
@@ -318,7 +319,11 @@ More details about this patch can be found [here](https://github.com/5T33Z0/OC-L
 
 ### Configure Hibernation
 - Disable PowerNap: `sudo pmset -a powernap 0`
-- Change Hibernatemode to 25: `sudo pmset -a hibernatemode 25`
+- Change Hibernatemode to 3: `sudo pmset -a hibernatemode 3`
+
+> [!IMPORTANT]
+> 
+> Currently, Hibernatemode 25 does not work properly since I haven't figured out completely which RTC memory regions to block. I've managed to skip RTC memory checksum errors and restore the system from the sleepimage but it freezes after returning to the desktop after 2 seconds (scrambled image). Any assistence for fixingg this would be highly appreciated.
 
 ### Install MonitorControl (optional). 
 [**MonitorControl**](https://github.com/MonitorControl/MonitorControl) is a helpful little tool that lets you control the brightness and contrast of external displays from the menubar.

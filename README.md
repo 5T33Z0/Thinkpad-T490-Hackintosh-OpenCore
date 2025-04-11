@@ -320,6 +320,7 @@ More details about this patch can be found [here](https://github.com/5T33Z0/OC-L
 ### Configure Hibernation
 - Disable PowerNap: `sudo pmset -a powernap 0`
 - Change Hibernatemode to 3: `sudo pmset -a hibernatemode 3`
+- For more details, have a look at my [Hibernation Configuration Guide](https://github.com/5T33Z0/OC-Little-Translated/blob/main/04_Fixing_Sleep_and_Wake_Issues/Changing_Hibernation_Modes/README.md)
 
 > [!IMPORTANT]
 > 

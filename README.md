@@ -22,7 +22,7 @@
 	- [WiFi](#wifi)
 		- [Option 1: enable `AirportItlwm.kext` in macOS Sequoia](#option-1-enable-airportitlwmkext-in-macos-sequoia)
 		- [Option 2: For `Itlwm.kext` users](#option-2-for-itlwmkext-users)
-	- [Enable YogaSMC](#enable-yogasmc)
+	- [Enable YogaSMC (optional, not recommended)](#enable-yogasmc-optional-not-recommended)
 	- [Configure CPUFriend](#configure-cpufriend)
 	- [Configure Hibernation](#configure-hibernation)
 	- [Install MonitorControl (optional).](#install-monitorcontrol-optional)
@@ -30,6 +30,8 @@
 	- [Disabling YogaSMC](#disabling-yogasmc)
 - [Compiling Intel Wi-Fi and Bluetooth Firmware kexts easily](#compiling-intel-wi-fi-and-bluetooth-firmware-kexts-easily)
 - [Credits and Thank Yous](#credits-and-thank-yous)
+
+---
 
 ## About
 OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo ThinkPad T490. Read the following documentation carefully in order to install/boot macOS successfully!
@@ -123,6 +125,7 @@ EFI
 │   │   ├── SSDT-PNLF.aml
 │   │   ├── SSDT-PORTS.aml
 │   │   ├── SSDT-PTSWAK.aml
+│   │   ├── SSDT-T490-KBRD.aml
 │   │   ├── SSDT-THINK.aml
 │   │   └── SSDT-USBX.aml
 │   ├── Drivers
@@ -133,6 +136,7 @@ EFI
 │   │   └── ResetNvramEntry.efi
 │   ├── Kexts (Loading managed by MinKernel/MaxKernel settings)
 │   │   ├── AdvancedMap.kext
+│   │   ├── AirportItlwm_Sequoia.kext
 │   │   ├── AirportItlwm_Sonoma.kext
 │   │   ├── AMFIPass.kext
 │   │   ├── AppleALC.kext
@@ -142,9 +146,9 @@ EFI
 │   │   ├── CPUFriendDataProvider.kext
 │   │   ├── ECEnabler.kext
 │   │   ├── HibernationFixup.kext
-│   │   ├── IntelBTPatcher.kext
 │   │   ├── IntelBluetoothFirmware.kext
 │   │   ├── IntelBluetoothInjector.kext
+│   │   ├── IntelBTPatcher.kext
 │   │   ├── IntelMausiEthernet.kext
 │   │   ├── IO80211FamilyLegacy.kext
 │   │   ├── IOSkywalkFamily.kext
@@ -289,7 +293,9 @@ By default, `Itlwm.kext` is requird when running macOS 15. But if you want to us
 - Remove `HeliPort` from Login-Items (if present) – you won't need it any more.
 - Download my EFI folder and extract it.
 - Place it in your EFI partition.
-- Reboot into macOS Sequoia
+- Reboot 
+- Reset NVRAM
+- Boot into macOS Sequoia
 - At this stage, WiFi won't work!
 - Install OpenCore legacy patcher and run it
 - Click on "Root Patches"
@@ -306,7 +312,13 @@ More details about this patch can be found [here](https://github.com/5T33Z0/OC-L
 - Use it to connect to your WiFI hotspot.
 - Add HeliPort to "Login Items", so it stars with macOS and connects to your WiFi network automatically.
 
-### Enable YogaSMC
+### Enable YogaSMC (optional, not recommended)
+
+Starting with Release 1.0.5 v1.0 of my OC EFI folder, I've disabled YogaSMC, CPUFriend and the required SSDTs due to reported [CPU performance issues](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/issues/44#issuecomment-2798489637). You can still re-enable it if you want to but I won't support it.
+
+- **Config Settings**: 
+  - Enable `SSDT-ECRW.aml`, `SSDT-THINK.aml` and `YogaSMC.kext`
+  - Disable `SSDT-T490-KBRD.aml` and ACPI patches for the Keyboard Shortcuts
 - Download [**YogaSMC-App**](https://github.com/zhen-zen/YogaSMC/files/14324664/Builds.zip) and mount it. This is a custom build which fixes the "Failed to open Preferences" [issue](https://github.com/zhen-zen/YogaSMC/issues/189) in Ventura and newer  
 - Double-click the YogaSMC **prefPane** to install it
 - Drag the `YogaSMC` app into the "Programs" folder and run it

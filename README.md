@@ -28,7 +28,6 @@
 	- [Install MonitorControl (optional).](#install-monitorcontrol-optional)
 - [Understanding YogaSMC Settings](#understanding-yogasmc-settings)
 	- [Disabling YogaSMC](#disabling-yogasmc)
-- [For OCAT Users](#for-ocat-users)
 - [Compiling Intel Wi-Fi and Bluetooth Firmware kexts easily](#compiling-intel-wi-fi-and-bluetooth-firmware-kexts-easily)
 - [Credits and Thank Yous](#credits-and-thank-yous)
 
@@ -349,23 +348,6 @@ If you don't want to use YogaSMC, do the following:
 > [!NOTE]
 > 
 > After disabling YogaSMC, fan and performance controls are no longer available. F-keys besides Volume and Brightness will no longer work either.
-
-## For OCAT Users
-Add the following entries to the "Kext URL Upgrade" list accessible via "Settings" from the "Sync" window (if not present already), so kext which are marked in grey in the Sync window will be downloaded when checking for updates:
-
-Kext Name | Source URL
-----------|-----------
-**AdvancedMap.kext** | https://github.com/notjosh/AdvancedMap
-**AirportItlwm.kext** | https://github.com/OpenIntelWireless/itlwm
-**IntelBluetoothFirmware.kext** | https://github.com/OpenIntelWireless/IntelBluetoothFirmware
-**IntelMausiEthernet.kext** | https://github.com/CloverHackyColor/IntelMausiEthernet
-**itlwm.kext** | https://github.com/OpenIntelWireless/itlwm 
-**RealtekCardReader.kext** | https://github.com/0xFireWolf/RealtekCardReader
-**RealtekCardReaderFriend.kext** | https://github.com/0xFireWolf/RealtekCardReaderFriend
-
-> [!IMPORTANT]
-> 
-> Don't update `AirportItlwm.kext`, `AppleALC.kext`, `IntelBluetoothFirmware.kext` and `itlwm.kext` because then you lose the slimmed versions of these kexts!
 
 ## Compiling Intel Wi-Fi and Bluetooth Firmware kexts easily
 

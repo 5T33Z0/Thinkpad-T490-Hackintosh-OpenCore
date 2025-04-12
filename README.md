@@ -228,7 +228,7 @@ EFI
 Although the Intel AC-9560 Card is compatible with both kexts (use either one or the other), there are Pros and Cons to both of them (check the [**FAQs**](https://openintelwireless.github.io/itlwm/FAQ.html#features) for other differences):
 
 - **AirportItlwm**: (used in macOS Sonoma)
-	- **Pro**: Can be used during macOS Setup/Recoveery which is not possible with `itlwm.kext`
+	- **Pro**: Can be used during macOS Setup/Recovery which is not possible with `itlwm.kext`
 	- **Pro**: Supports Location Services and "Find My Mac"
  	- **Pro**: Connects faster to Wi-Fi Hotspots than `itlwm.kext`
 	- **Con**: Doesn't perform as well as `itlwm.kext`
@@ -248,7 +248,7 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 
 > [!NOTE]
 > 
-> My config uses `AirportItlw` by default since it allows accessing the internet during macOS installation (unlike `itlwm.kext`, which requires an additional app to do so). Currently, `AirportItlwm` kexts for macOS Sonoma and Sequoia are included. If you want to use `itlwm`, disable `AirportItlwm` (all variants), enable 'itlwm' and adjust the `MinKernel` setting to match the Kernel version of macOS (currently: 24.0.0 = macOS Sequoia). Next, download the [**HeliPort**](https://github.com/OpenIntelWireless/HeliPort) app, run it and add it to "Login Items" (in System Settings), so that it starts automatically with macOS.
+> My config uses `AirportItlw` by default since it allows accessing the internet during macOS installation (unlike `itlwm.kext`, which requires an additional app to do so). Currently, `AirportItlwm` kexts for macOS Sonoma and Sequoia are included. If you want to use `itlwm`, disable `AirportItlwm` (all variants), enable `itlwm` and adjust the `MinKernel` setting to match the Kernel version of macOS (currently: 24.0.0 = macOS Sequoia). Next, download the [**HeliPort**](https://github.com/OpenIntelWireless/HeliPort) app, run it and add it to "Login Items" (in System Settings), so that it starts automatically with macOS.
 
 ## Deployment
 

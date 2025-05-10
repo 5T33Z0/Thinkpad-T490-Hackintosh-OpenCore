@@ -8,7 +8,7 @@
 	- [Notable Features](#notable-features)
 	- [Known Issues](#known-issues)
 	- [Future Developments](#future-developments)
-- [Specs](#specs)
+- [System Specs](#system-specs)
 - [BIOS Settings](#bios-settings)
 - [EFI Folder Content](#efi-folder-content)
 - [Preparations](#preparations)
@@ -71,7 +71,7 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 - [ ] Creating an AppleALC Layout-ID for audio output on Docking Station
 - [ ] Adjusting Framebuffer Patch so HDMI/DP Ports on docking stations can be utilized
 
-## Specs
+## System Specs
 
 Category | Description
 :-------:|------------

@@ -58,7 +58,6 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 	- **itlwm** (1.5 mb instead of 16 mb). Only Contains Firmware for Intel AC 9560.
 
 ### Known Issues
-- [ ] In general, the system runs hotter under macOS than under Windows. My guess is that this is due to the required iGPU spoof.
 - [ ] Hibernation Mode 25 does not work properly
 - [ ] Fingerprint sensor does not work under macOS since there is currently no way to emulate Touch ID.
 - [ ] The audio combo jack creates an unpleasant buzz/noise during driver initialization. So it's best to connect headphones *after* booting.

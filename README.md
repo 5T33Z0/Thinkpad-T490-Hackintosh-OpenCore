@@ -37,22 +37,23 @@
 OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo ThinkPad T490. Read the following documentation carefully in order to install/boot macOS successfully!
 
 ### Before you begin
-⚠️ The built-in Samsung PM981a NVMe is NOT compatible with macOS. You _must_ use a different NVMe!
+⚠️ The built-in Samsung PM981a NVMe that comes with the system is NOT compatible with macOS. You _must_ use a different NVMe!
 
 ### Notable Features
 - [x] Compatible with macOS Sonoma and Sequoia (works with older versions of macOS as well, but requires different WiFi-Kexts and config adjustments)
+- [x] Thunderbolt workin
 - [x] New USB Port Mapping with support for docking station 
 - [x] Optimized Framebuffer Patch for smoother handshake with external displays via HDMI
 - [x] Working clamshell mode (when connected to A/C and external display)
 - [x] Working MicroSD Card Reader
+- [x] Working 3D globe in Maps app (macOS 12+)
+- [x] No injection of `PlatformInfo` data into Microsoft Windows.
+- [x] YogaSMC support for additional features like CPU fan control, performance bias, handling <kbd>Fn</kbd> Keyboard shortcuts, additional OSD overlays, etc.
 - [x] Lean EFI folder with slimmed kexts (20 MB instead of 62 MB overall):
  	- **AirportItlwm_Sonoma**: 1,8 instead of 16 MB. Only contains Firmware for Intel AC 9560.
 	- **AppleALC**: 86 Kb instead of 2,3 MB. Only contains layout `97`.
 	- **IntelBluetoothFirmware**: 560 KB instead of 11,5 MB.
 	- **itlwm** (1.5 mb instead of 16 mb). Only Contains Firmware for Intel AC 9560.
-- [x] YogaSMC support for additional features like CPU fan control, performance bias, handling <kbd>Fn</kbd> Keyboard shortcuts, additional OSD overlays, etc.
-- [x] No injection of `PlatformInfo` data into MS Windows.
-- [x] Working 3D globe in Maps app (macOS 12+)
 
 ### Known Issues
 - [ ] In general, the system runs hotter under macOS than under Windows. My guess is that this is due to the required iGPU spoof.
@@ -84,7 +85,7 @@ Category | Description
 **iGPU** | Intel(R) Grpahics UHD 620 (spoofed as Iris 655, BusID: `2`)
 **dGPU** | None
 **Audio** | [**Realtek ALC257**](https://github.com/dreamwhite/ChonkyAppleALC-Build/blob/master/Realtek/ALC257.md) (using Layout `97`)
-**Thunderbolt** | Titan Ridge Thunderbolt 3 Connector (USB-C)<br> (Reported working but I don't have any gear to test it)
+**Thunderbolt** | Titan Ridge Thunderbolt 3 Connector (USB-C)<br> Tested with i-tec [USB-C Metal Nano](https://i-tec.pro/de/produkt/c31nanodockpropd-3/) Docking Station
 **Ethernet** | Intel I219-V
 **WiFi** | Intel AC-9560 <br> **Firmware**: [**`iwm-9000-46`**](https://www.intel.com/content/www/us/en/support/articles/000005511/wireless.html) ([Screenshot](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/blob/main/Additional_Files/Pics/wifi-firmware.png))
 **Bluetooth** | **Device**: Intel Wireless Bluetooth <br> **BT Version**: 5.1 <br> **VID**: `0x8087`, **PID**: `0x0aaa` <br> **Firmware**: `ibt-17-16-1.sfi`, `ibt17-16-1.ddc` <br>**USB Port**: `HS10`

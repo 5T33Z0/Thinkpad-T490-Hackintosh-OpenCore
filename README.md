@@ -70,7 +70,7 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 ### Future Developments
 - [x] Adding USB ports of docking station to the USB port kext
 - [ ] Creating an AppleALC Layout-ID for audio output on Docking Station
-- [ ] Adjusting Framebuffer Patch so HDMI/DP Ports on docking stations can be utilized
+- [x] Adjusting Framebuffer Patch so HDMI/DP Ports on docking stations can be utilized
 
 ## System Specs
 

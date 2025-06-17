@@ -236,7 +236,7 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 - **AirportItlwm**: (used in macOS Sonoma)
 	- **Pro**: Can be used during macOS Setup/Recovery which is not possible with `itlwm.kext`
 	- **Pro**: Supports Location Services and "Find My Mac"
- 	- **Pro**: Connects faster to Wi-Fi Hotspots than `itlwm.kext`
+	- **Pro**: Connects faster to Wi-Fi Hotspots than `itlwm.kext`
 	- **Con**: Doesn't perform as well as `itlwm.kext`
 	- **Con**: Can't connect to hidden WiFi Networks
 	- **Con**: Requires the correct kext per macOS version, so running multiple version of macOS requires multiple versions of this kext controlled via `MinKernel` and `MaxKernel` settings
@@ -246,7 +246,7 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 	- **Pro**: `itlwm.kext` works across _multiple_ versions of macOS
 	- **Pro**: Loading webpages feels a lot quicker than with `AirportItlwm` 
 	- **Pro**: Can connect to hidden WiFi Networks
- 	- **Pro**: Does work with iMessage and FaceTime 	
+	- **Pro**: Does work with iMessage and FaceTime
 	- **Con**: Requires [**HeliPort**](https://github.com/diepeterpan/HeliPort/releases) app to connect to Wi-Fi hotspots, so it can't be used during macOS Setup/Recovery
 	- **Con**: Doesn't support Location Services
 
@@ -254,7 +254,9 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 
 > [!NOTE]
 > 
-> My config uses `AirportItlw` by default since it allows accessing the internet during macOS installation (unlike `itlwm.kext`, which requires an additional app to do so). Currently, `AirportItlwm` kexts for macOS Sonoma and Sequoia are included. If you want to use `itlwm`, disable `AirportItlwm` (all variants), enable `itlwm` and adjust the `MinKernel` setting to match the Kernel version of macOS (currently: 24.0.0 = macOS Sequoia). Next, download the [**HeliPort**](https://github.com/OpenIntelWireless/HeliPort) app, run it and add it to "Login Items" (in System Settings), so that it starts automatically with macOS.
+> My config uses `AirportItlw` by default since it allows accessing the internet during macOS installation (unlike `itlwm.kext`, which requires an additional app to do so). Currently, `AirportItlwm` kexts for macOS Sonoma and Sequoia are included, while macOS requires `itlwm.kext`.
+> 
+> If you want to use `itlwm`, disable `AirportItlwm` (all variants), enable `itlwm` and adjust the `MinKernel` setting to match the Kernel version of macOS (currently: 24.0.0 = macOS Sequoia). Next, download the [**HeliPort**](https://github.com/OpenIntelWireless/HeliPort) app, run it and add it to "Login Items" (in System Settings), so that it starts automatically with macOS.
 
 ## Deployment
 

@@ -1,5 +1,5 @@
 # Lenovo ThinkPad T490 Hackintosh OpenCore
-[![OpenCore](https://img.shields.io/badge/OpenCore-1.0.5-cyan.svg)](https://github.com/acidanthera/OpenCorePkg/releases/latest) [![macOS](https://img.shields.io/badge/macOS-14.x_to_26-white.svg)](https://www.apple.com/macos/) [![release](https://img.shields.io/badge/Download-latest-success.svg)](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/releases/latest)<br>![10053604](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/assets/76865553/ed932a1a-8205-4b81-a4e2-f68d7d8a7178)
+[![OpenCore](https://img.shields.io/badge/OpenCore-1.0.5-cyan.svg)](https://github.com/acidanthera/OpenCorePkg/releases/latest) [![macOS](https://img.shields.io/badge/macOS-14.x_to_26b2-white.svg)](https://www.apple.com/macos/) [![release](https://img.shields.io/badge/Download-latest-success.svg)](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/releases/latest)<br>![10053604](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/assets/76865553/ed932a1a-8205-4b81-a4e2-f68d7d8a7178)
 
 ---
 
@@ -21,13 +21,14 @@
 	- [If macOS is not installed](#if-macos-is-not-installed)
 - [Post-Install](#post-install)
 	- [Disable Gatekeeper (optional)](#disable-gatekeeper-optional)
+	- [Fixing On-Board Audio with OCLP Mod (macOS Tahoe beta 2)](#fixing-on-board-audio-with-oclp-mod-macos-tahoe-beta-2)
 	- [WiFi](#wifi)
 		- [Option 1: enable `AirportItlwm.kext` in macOS Sequoia](#option-1-enable-airportitlwmkext-in-macos-sequoia)
 		- [Option 2: For `Itlwm.kext` users](#option-2-for-itlwmkext-users)
 	- [Enable YogaSMC (optional, not recommended)](#enable-yogasmc-optional-not-recommended)
 	- [Configure CPUFriend](#configure-cpufriend)
 	- [Configure Hibernation](#configure-hibernation)
-	- [Install MonitorControl (optional).](#install-monitorcontrol-optional)
+	- [Install MonitorControl (optional)](#install-monitorcontrol-optional)
 - [Understanding YogaSMC Settings](#understanding-yogasmc-settings)
 	- [Disabling YogaSMC](#disabling-yogasmc)
 - [Compiling Intel Wi-Fi and Bluetooth Firmware kexts easily](#compiling-intel-wi-fi-and-bluetooth-firmware-kexts-easily)
@@ -233,7 +234,7 @@ EFI
 ### AirportItlwm vs. itlwm WiFi kext
 Although the Intel AC-9560 Card is compatible with both kexts (use either one or the other), there are Pros and Cons to both of them (check the [**FAQs**](https://openintelwireless.github.io/itlwm/FAQ.html#features) for other differences):
 
-- **AirportItlwm**: (used in macOS Sonoma)
+- **AirportItlwm**: (used in macOS Sonoma, requires root patches in Sequoa)
 	- **Pro**: Can be used during macOS Setup/Recovery which is not possible with `itlwm.kext`
 	- **Pro**: Supports Location Services and "Find My Mac"
 	- **Pro**: Connects faster to Wi-Fi Hotspots than `itlwm.kext`
@@ -242,7 +243,7 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 	- **Con**: Requires the correct kext per macOS version, so running multiple version of macOS requires multiple versions of this kext controlled via `MinKernel` and `MaxKernel` settings
 	- **Con**: iMessage and FaceTime don't work when using AirportItlwm (&rarr; See [Issue 14](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/issues/14))
 
-- **itlwm.kext** (used in Sequoia)
+- **itlwm.kext** (used in macOS Tahoe)
 	- **Pro**: `itlwm.kext` works across _multiple_ versions of macOS
 	- **Pro**: Loading webpages feels a lot quicker than with `AirportItlwm` 
 	- **Pro**: Can connect to hidden WiFi Networks
@@ -254,7 +255,7 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 
 > [!NOTE]
 > 
-> My config uses `AirportItlw` by default since it allows accessing the internet during macOS installation (unlike `itlwm.kext`, which requires an additional app to do so). Currently, `AirportItlwm` kexts for macOS Sonoma and Sequoia are included, while macOS requires `itlwm.kext`.
+> My config uses `AirportItlw` by default since it allows accessing the internet during macOS installation (unlike `itlwm.kext`, which requires an additional app to do so). Currently, `AirportItlwm` kexts for macOS Sonoma and Sequoia are included, while macOS Tahoe requires `itlwm.kext`.
 > 
 > If you want to use `itlwm`, disable `AirportItlwm` (all variants), enable `itlwm` and adjust the `MinKernel` setting to match the Kernel version of macOS (currently: 24.0.0 = macOS Sequoia). Next, download the [**HeliPort**](https://github.com/OpenIntelWireless/HeliPort) app, run it and add it to "Login Items" (in System Settings), so that it starts automatically with macOS.
 
@@ -286,6 +287,9 @@ Gatekeeper can be really annoying and wants to stop you from running python scri
 
 - Open Terminal and run: `sudo spctl --master-disable`
 - The process has slightly changed in macOS Sequoia 15.1.1. and newer [more info](https://github.com/5T33Z0/OC-Little-Translated/blob/main/14_OCLP_Wintel/Guides/Disable_Gatekeeper.md)
+
+### Fixing On-Board Audio with OCLP Mod (macOS Tahoe beta 2)
+Apple deleted the AppleHDA required for on-board audio in macOS 26 beta 2. Since there's no official OCLP version available for macOS Tahoe yet, we are going to use [**OCLP Mod**](https://github.com/laobamac/OCLP-Mod/) to apply root patches – which will also install AppleHDA, thereby re-enabling audio. (&rarr; [Instructions](https://github.com/5T33Z0/OCLP4Hackintosh/blob/main/Enable_Features/Audio_Tahoe.md#instructions))
 
 ### WiFi
 
@@ -341,7 +345,7 @@ Starting with Release 1.0.5 v1.0 of my OC EFI folder, I've disabled YogaSMC, CPU
 > 
 > Currently, Hibernatemode 25 does not work properly since I haven't figured out completely which RTC memory regions to block. I've managed to skip RTC memory checksum errors and restore the system from the sleepimage but it freezes after returning to the desktop after 2 seconds (scrambled image). Any assistence for fixing this would be highly appreciated.
 
-### Install MonitorControl (optional). 
+### Install MonitorControl (optional)
 [**MonitorControl**](https://github.com/MonitorControl/MonitorControl) is a helpful little tool that lets you control the brightness and contrast of external displays from the menubar.
 
 ## Understanding YogaSMC Settings
@@ -353,7 +357,7 @@ Open the YogaSMC preference pane. You will find the following options (among oth
 ### Disabling YogaSMC
 If you don't want to use YogaSMC, do the following:
 
-- macOS:
+- In macOS:
 	- Open System Preferences
 	- Right-Click on `YogaSMCPane` and remove it
 	- Under "Login items" (or similar) remove the YogaSMC App from the list

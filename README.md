@@ -48,7 +48,7 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 
 ### Notable Features
 - [x] Compatible with macOS Sonoma and Sequoia (works with older versions of macOS as well, but requires different WiFi-Kexts and config adjustments)
-- [x] Woorking Thunderbolt 3 over USB-C
+- [x] Working Thunderbolt 3 over USB-C
 - [x] New USB Port Mapping with support for docking station 
 - [x] Optimized Framebuffer Patch for smoother handshake with external displays via HDMI
 - [x] Working clamshell mode (when connected to A/C and external display)

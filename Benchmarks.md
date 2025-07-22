@@ -1,37 +1,26 @@
-# Geekbench 6 Test Results
+# Benchmark Test Results
 
-## CPU
+## Test Evironment
 
-- **OpenCore**: 0.9.4
-- **OS**: macOS Monterey 12.6.7 (21G708)
-- **SecureBootModel**: `j132` (MBP 15,2), `j213` (MBP 15,4)
+**macOS**: 14.7.7 (23H709)<br>
+**CPU**: Intel Core i5 8265U (Quad Core)<br>
+**iGPU**: Intel UHD 620 (spoofed as UHD 630)<br>
+**Tool**: Geekbench 5.5.1
 
-SMBIOS | YogaSMC <br> Profile | CPU <br>Friend | Score <br> Single-/ (Multi-Core)
--------|:--------------------:|:--------------:|:-----------:
-**MBP15,2**| Balance | ON | [**1331 (3375)**](https://browser.geekbench.com/v6/cpu/1613207)
-**MBP15,2**| Performance | ON |[**1342 (3849)**](https://browser.geekbench.com/v6/cpu/1613332)
-**MBP15,4**| Balance | ON | [**1345 (3358)**](https://browser.geekbench.com/v6/cpu/1613517)
-**MBP15,4**|Performance[^1] | ON | [**1345 (3295)**](https://browser.geekbench.com/v6/cpu/1613599)
+## CPU Results
 
-[^1]: It seems that YogaSMC didn't work correctly during tests with this setting. Because when I looked into the preferences afterwards, the performance slider was unavailable and `DYTCRevision` said `Unsupported` whereas in previous tests using MBP15,2 it said `LAP` (for Laptop, I guess). After a restart with MBP15,4 it said `Standard`. So `MBO15,2` is the SMBIOS of choice.
+Test # | Parameters | Single-Core <br>Score| Multicore <br>Score
+:-----:|------------|:--------------------:|:--------------------:
+[1](https://browser.geekbench.com/v5/cpu/23665259) |<ul><li>YogaSMC **OFF** <li> CPUFriend: **OFF** |1017|3252
+[2](https://browser.geekbench.com/v5/cpu/23665246) |<ul><li>YogaSMC **OFF** <li> CPUFriend: **ON** | 1016 | 3330
 
-- **OpenCore**: 0.9.6
-- **Geekbench**: 6.2.1
-- **OS**: macOS Sonoma 14.1 b3 (23B5067a)
-- **SecureBootModel**: `j132` (MBP 15,2)
+## iGPU Results
 
-SMBIOS | YogaSMC <br> Profile | CPU <br>Friend | Score <br> Single-/ (Multi-Core)
--------|:--------------------:|:--------------:|:-----------:
-**MBP15,2**| Balance | ON | [**1317 (3334)**](https://browser.geekbench.com/v6/cpu/3081247)
-
-## iGPU
-
-- **iGPU**: Intel Graphics UHD 620 (spoofed as Intel Iris Plus 655)
-- **SMBIOS**: MBP15,2
-- **OS**: macOS Ventura 13.4 (22F66)
-
-Flags | YogaSMC <br> Profile | CPU <br>Friend | OpenCL Score | Metal Score  
-:----------------:|:--------------------:|:--------------:|:------------:|:---------:
-none|Balance|ON||[5648](https://browser.geekbench.com/v6/compute/572838)
-`igfxfw=2` | Balance | ON ||[5829](https://browser.geekbench.com/v6/compute/572751)
-`rps-control`|Balance|ON|[**4229**](https://browser.geekbench.com/v6/compute/574487)|[**5895**](https://browser.geekbench.com/v6/compute/574463)
+Setup # | Parameters | Freq. (GHZ) | OpenCL<br>Scrore | Metal<br>Score 
+:-----:|-------------|:-----------:|:----------------:|:--------------:
+1 | <ul><li>CPUFriend: **OFF** <li>[GUC FW](https://github.com/5T33Z0/OC-Little-Translated/blob/main/Content/11_Graphics/iGPU/GUC_Firmware.md): **ON**| 1,10| [4927](https://browser.geekbench.com/v5/compute/6878344) | [4660](https://browser.geekbench.com/v5/compute/6878345)
+2 | <ul><li> CPUFriend: **OFF** <li>[RPS Control](https://github.com/5T33Z0/OC-Little-Translated/blob/main/Content/11_Graphics/iGPU/RPS-Control.md): **ON** | 110 | [**4930**](https://browser.geekbench.com/v5/compute/6878349) |[4700](https://browser.geekbench.com/v5/compute/6878350)
+3 | CPUFriend: **OFF** | 1,10 | [4559](https://browser.geekbench.com/v5/compute/6878351) | [4418](https://browser.geekbench.com/v5/compute/6878352)
+4 | <ul><li>CPUFriend: **ON** <li>GUC FW: **ON** | 1,10| [4858](https://browser.geekbench.com/v5/compute/6878353) | [4620](https://browser.geekbench.com/v5/compute/6878354)
+5 | <ul><li>CPUFriend: **ON** <li>RPS-Control: **ON** | 1,10 | [4841](https://browser.geekbench.com/v5/compute/6878355) | [**4718**](https://browser.geekbench.com/v5/compute/6878356)
+6 | CPUFriend: **ON** | 1,10 | [4684](https://browser.geekbench.com/v5/compute/6878361)| [4411](https://browser.geekbench.com/v5/compute/6878363)

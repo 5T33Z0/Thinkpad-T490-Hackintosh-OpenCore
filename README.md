@@ -47,7 +47,8 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 ⚠️ The built-in Samsung PM981a NVMe that comes with the system is NOT compatible with macOS. You _must_ use a different NVMe!
 
 ### Notable Features
-- [x] Compatible with macOS Sonoma and Sequoia (works with older versions of macOS as well, but requires different WiFi-Kexts and config adjustments)
+- [x] Compatible with macOS Sonoma to Tahoe (compatible with older versions of macOS as well, but requires different WiFi-Kexts and config adjustments)
+- [x] Disabled BDPROCHOT to fix performance issues after waking from S3 sleep. 
 - [x] Working Thunderbolt 3 over USB-C
 - [x] New USB Port Mapping with support for docking station 
 - [x] Optimized Framebuffer Patch for smoother handshake with external displays via HDMI
@@ -75,7 +76,7 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 ### Future Developments
 - [x] Adding USB ports of docking station to the USB port kext
 - [ ] Creating an AppleALC Layout-ID for audio output on Docking Station
-- [x] Adjusting Framebuffer Patch so HDMI/DP Ports on docking stations can be utilized
+- [x] Adjusted Framebuffer Patch so HDMI/DP Ports on docking stations can be utilized
 
 ## System Specs
 

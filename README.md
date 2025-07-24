@@ -138,6 +138,7 @@ EFI
 │   │   └── SSDT-USBX.aml
 │   ├── Drivers
 │   │   ├── AudioDxe.efi
+│   │   ├── DisablePROCHOT.efi
 │   │   ├── HfsPlus.efi
 │   │   ├── OpenCanopy.efi
 │   │   ├── OpenRuntime.efi
@@ -167,6 +168,7 @@ EFI
 │   │   ├── RealtekCardReaderFriend.kext
 │   │   ├── RestrictEvents.kext
 │   │   ├── RTCMemoryFixup.kext
+│   │   ├── SimpleMSR.kext
 │   │   ├── SMCBatteryManager.kext
 │   │   ├── SMCProcessor.kext
 │   │   ├── SMCSuperIO.kext
@@ -198,9 +200,7 @@ EFI
 │   │   │   └── Font_2x.png
 │   │   ├── Image
 │   │   │   ├── Acidanthera (removed icons from tree view)
-│   │   │   │   ├── Chardonnay
-│   │   │   │   ├── GoldenGate
-│   │   │   │   └── Syrah 
+│   │   │   │   └── GoldenGate 
 │   │   │   └── Blackosx
 │   │   │       └── BsxM1 (removed icons from tree view)
 │   │   └── Label (removed files from tree view)

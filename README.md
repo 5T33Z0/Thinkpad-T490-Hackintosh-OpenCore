@@ -279,7 +279,7 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 - Place the EFI folder in the EFI partition
 - Restart your system and boot from the USB installer.
 - Install macOS.
-- Once macOS installed, you have to copy the bootloader files from the USB Installer to your system's EFI partition on the internal disk in order to boot without the USB flash drive (&rarr; [Instructions](https://dortania.github.io/OpenCore-Post-Install/universal/oc2hdd.html#grabbing-opencore-off-the-usb)
+- Once macOS installed, you have to copy the bootloader files from the USB Installer to your system's EFI partition on the internal disk in order to boot without the USB flash drive (&rarr; [Instructions](https://dortania.github.io/OpenCore-Post-Install/universal/oc2hdd.html#grabbing-opencore-off-the-usb))
 - Disconnect the USB Installer and reboot into macOS
 - Continue with Post-Install
 

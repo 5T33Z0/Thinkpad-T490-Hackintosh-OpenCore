@@ -269,17 +269,19 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 ### If macOS is installed already
 - Put the EFI folder on a FAT32 formatted USB flash drive
 - Reboot from said USB flash drive for testing
-- If it works, mount your system's ESP, replace the BOOT and OC folders in the EFI folder
+- If it works, mount your system's ESP (EFI System Partiton), replace the BOOT and OC folders in the EFI folder
 - Continue with Post-Install 
 
 ### If macOS is not installed
 - Follow Dortania's [**OpenCore Install Guide**](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/#making-the-installer) to prepare a USB Installer
 - **Optional**: Once the USB has been created, download the latest version of [**HeliPort**](https://github.com/diepeterpan/HeliPort/releases) and copy the .dmg to your USB Installer (only required when `itlwm.kext` is used for Wi-Fi)
-- Next, mount the ESP of the USB Installer (you can use [**MountEFI**](https://github.com/corpnewt/MountEFI) for this)
-- Put the EFI folder on the EFI partition of the USB installer
-- Reboot from the USB installer 
-- Install macOS
-- Once that is completed, continue with Post-Install
+- Next, mount the ESP (EFI System Partiton), of the USB Installer (you can use [**MountEFI**](https://github.com/corpnewt/MountEFI) for this)
+- Place the EFI folder in the EFI partition
+- Restart your system and boot from the USB installer.
+- Install macOS.
+- Once macOS installed, you have to copy the bootloader files from the USB Installer to your system's EFI partition on the internal disk in order to boot without the USB flash drive (&rarr; [Instructions](https://dortania.github.io/OpenCore-Post-Install/universal/oc2hdd.html#grabbing-opencore-off-the-usb)
+- Disconnect the USB Installer and reboot into macOS
+- Continue with Post-Install
 
 > [!CAUTION]
 > 

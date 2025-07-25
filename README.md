@@ -329,12 +329,12 @@ More details about this patch can be found [here](https://github.com/5T33Z0/OC-L
 
 ### Enable YogaSMC (optional, not recommended)
 
-Starting with Release 1.0.5 v1.0 of my OC EFI folder, I've disabled YogaSMC, CPUFriend and the required SSDTs due to reported [CPU performance issues](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/issues/44#issuecomment-2798489637). You can still re-enable it if you want to but I won't support it.
+Starting with Release 1.0.5 v1.0 of my OC EFI folder, I've disabled YogaSMC and the required SSDTs due to reported [CPU performance issues](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/issues/44#issuecomment-2798489637). You can still re-enable it if you want to but I won't support it.
 
 - **Config Settings**: 
   - Enable `SSDT-ECRW.aml`, `SSDT-THINK.aml` and `YogaSMC.kext`
   - Disable `SSDT-T490-KBRD.aml` and ACPI patches for the Keyboard Shortcuts
-- Download [**YogaSMC-App**](https://github.com/zhen-zen/YogaSMC/files/14324664/Builds.zip) and mount it. This is a custom build which fixes the "Failed to open Preferences" [issue](https://github.com/zhen-zen/YogaSMC/issues/189) in Ventura and newer  
+- Download [**YogaSMC.7z**](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/tree/main/Additional_Files/YogaSMC) and extract it.
 - Double-click the YogaSMC **prefPane** to install it
 - Drag the `YogaSMC` app into the "Programs" folder and run it
 - Click on the icon (⌥) in the menu bar and select "Start at Login"

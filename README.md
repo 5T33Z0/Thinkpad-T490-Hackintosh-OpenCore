@@ -47,7 +47,8 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 ⚠️ The built-in Samsung PM981a NVMe that comes with the system is NOT compatible with macOS. You _must_ use a different NVMe!
 
 ### Notable Features
-- [x] Compatible with macOS Sonoma and Sequoia (works with older versions of macOS as well, but requires different WiFi-Kexts and config adjustments)
+- [x] Compatible with macOS Sonoma to Tahoe (compatible with older versions of macOS as well, but requires different WiFi-Kexts and config adjustments)
+- [x] Disabled BDPROCHOT to fix performance issues after waking from S3 sleep. 
 - [x] Working Thunderbolt 3 over USB-C
 - [x] New USB Port Mapping with support for docking station 
 - [x] Optimized Framebuffer Patch for smoother handshake with external displays via HDMI
@@ -75,7 +76,7 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 ### Future Developments
 - [x] Adding USB ports of docking station to the USB port kext
 - [ ] Creating an AppleALC Layout-ID for audio output on Docking Station
-- [x] Adjusting Framebuffer Patch so HDMI/DP Ports on docking stations can be utilized
+- [x] Adjusted Framebuffer Patch so HDMI/DP Ports on docking stations can be utilized
 
 ## System Specs
 
@@ -137,6 +138,7 @@ EFI
 │   │   └── SSDT-USBX.aml
 │   ├── Drivers
 │   │   ├── AudioDxe.efi
+│   │   ├── DisablePROCHOT.efi
 │   │   ├── HfsPlus.efi
 │   │   ├── OpenCanopy.efi
 │   │   ├── OpenRuntime.efi
@@ -166,6 +168,7 @@ EFI
 │   │   ├── RealtekCardReaderFriend.kext
 │   │   ├── RestrictEvents.kext
 │   │   ├── RTCMemoryFixup.kext
+│   │   ├── SimpleMSR.kext
 │   │   ├── SMCBatteryManager.kext
 │   │   ├── SMCProcessor.kext
 │   │   ├── SMCSuperIO.kext
@@ -197,9 +200,7 @@ EFI
 │   │   │   └── Font_2x.png
 │   │   ├── Image
 │   │   │   ├── Acidanthera (removed icons from tree view)
-│   │   │   │   ├── Chardonnay
-│   │   │   │   ├── GoldenGate
-│   │   │   │   └── Syrah 
+│   │   │   │   └── GoldenGate 
 │   │   │   └── Blackosx
 │   │   │       └── BsxM1 (removed icons from tree view)
 │   │   └── Label (removed files from tree view)
@@ -268,17 +269,19 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 ### If macOS is installed already
 - Put the EFI folder on a FAT32 formatted USB flash drive
 - Reboot from said USB flash drive for testing
-- If it works, mount your system's ESP, replace the BOOT and OC folders in the EFI folder
+- If it works, mount your system's ESP (EFI System Partiton), replace the BOOT and OC folders in the EFI folder
 - Continue with Post-Install 
 
 ### If macOS is not installed
 - Follow Dortania's [**OpenCore Install Guide**](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/#making-the-installer) to prepare a USB Installer
 - **Optional**: Once the USB has been created, download the latest version of [**HeliPort**](https://github.com/diepeterpan/HeliPort/releases) and copy the .dmg to your USB Installer (only required when `itlwm.kext` is used for Wi-Fi)
-- Next, mount the ESP of the USB Installer (you can use [**MountEFI**](https://github.com/corpnewt/MountEFI) for this)
-- Put the EFI folder on the EFI partition of the USB installer
-- Reboot from the USB installer 
-- Install macOS
-- Once that is completed, continue with Post-Install
+- Next, mount the ESP (EFI System Partiton), of the USB Installer (you can use [**MountEFI**](https://github.com/corpnewt/MountEFI) for this)
+- Place the EFI folder in the EFI partition
+- Restart your system and boot from the USB installer.
+- Install macOS.
+- Once macOS installed, you have to copy the bootloader files from the USB Installer to your system's EFI partition on the internal disk in order to boot without the USB flash drive (&rarr; [Instructions](https://dortania.github.io/OpenCore-Post-Install/universal/oc2hdd.html#grabbing-opencore-off-the-usb))
+- Disconnect the USB Installer and reboot into macOS
+- Continue with Post-Install
 
 > [!CAUTION]
 > 

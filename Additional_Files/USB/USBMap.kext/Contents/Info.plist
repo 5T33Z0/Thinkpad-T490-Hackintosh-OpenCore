@@ -53,7 +53,7 @@
 					<key>HS03</key>
 					<dict>
 						<key>usb-port-number</key>
-						<integer>0</integer>
+						<integer>3</integer>
 						<key>UsbConnector</key>
 						<integer>0</integer>
 						<key>name</key>
@@ -64,7 +64,7 @@
 					<key>HS04</key>
 					<dict>
 						<key>usb-port-number</key>
-						<integer>0</integer>
+						<integer>4</integer>
 						<key>UsbConnector</key>
 						<integer>0</integer>
 						<key>name</key>
@@ -77,9 +77,9 @@
 						<key>Comment</key>
 						<string>USB Hub</string>
 						<key>usb-port-number</key>
-						<integer>3</integer>
+						<integer>5</integer>
 						<key>UsbConnector</key>
-						<integer>0</integer>
+						<integer>8</integer>
 						<key>name</key>
 						<string>HS05</string>
 						<key>port</key>
@@ -90,7 +90,7 @@
 						<key>UsbConnector</key>
 						<integer>0</integer>
 						<key>usb-port-number</key>
-						<integer>0</integer>
+						<integer>8</integer>
 						<key>name</key>
 						<string>HS08</string>
 						<key>port</key>
@@ -101,7 +101,7 @@
 						<key>UsbConnector</key>
 						<integer>0</integer>
 						<key>usb-port-number</key>
-						<integer>0</integer>
+						<integer>9</integer>
 						<key>name</key>
 						<string>HS09</string>
 						<key>port</key>
@@ -112,7 +112,7 @@
 						<key>UsbConnector</key>
 						<integer>255</integer>
 						<key>usb-port-number</key>
-						<integer>255</integer>
+						<integer>10</integer>
 						<key>name</key>
 						<string>HS10</string>
 						<key>port</key>
@@ -121,7 +121,7 @@
 					<key>SS03</key>
 					<dict>
 						<key>usb-port-number</key>
-						<integer>3</integer>
+						<integer>15</integer>
 						<key>UsbConnector</key>
 						<integer>3</integer>
 						<key>name</key>
@@ -131,12 +131,12 @@
 					</dict>
 					<key>SS04</key>
 					<dict>
+						<key>usb-port-number</key>
+						<integer>16</integer>
 						<key>UsbConnector</key>
 						<integer>3</integer>
 						<key>name</key>
 						<string>SS04</string>
-						<key>usb-port-number</key>
-						<integer>3</integer>
 						<key>port</key>
 						<data>EAAAAA==</data>
 					</dict>
@@ -178,7 +178,7 @@
 						<key>Comment</key>
 						<string>USB Hub</string>
 						<key>UsbConnector</key>
-						<integer>3</integer>
+						<integer>9</integer>
 						<key>usb-port-number</key>
 						<integer>3</integer>
 						<key>name</key>

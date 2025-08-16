@@ -1,7 +1,7 @@
 # Lenovo ThinkPad T490 Hackintosh OpenCore
 
 [![OpenCore](https://img.shields.io/badge/OpenCore-1.0.6-cyan.svg?style=flat-square&title=OpenCore%20Bootloader)](https://github.com/acidanthera/OpenCorePkg/releases/latest)
-[![macOS](https://img.shields.io/badge/macOS-14.x--26b4-005BB5.svg?style=flat-square&title=Supported%20macOS%20Versions)](https://www.apple.com/macos/)
+[![macOS](https://img.shields.io/badge/macOS-14.x--26b6-005BB5.svg?style=flat-square&title=Supported%20macOS%20Versions)](https://www.apple.com/macos/)
 [![Release](https://img.shields.io/badge/Download-Latest-success.svg?style=flat-square&title=Latest%20Release)](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/releases/latest)
 ![ThinkPad T490 Hackintosh](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/assets/76865553/ed932a1a-8205-4b81-a4e2-f68d7d8a7178)
 
@@ -25,7 +25,7 @@
 	- [If macOS is not installed](#if-macos-is-not-installed)
 - [Post-Install](#post-install)
 	- [Disable Gatekeeper (optional)](#disable-gatekeeper-optional)
-	- [Fixing On-Board Audio with OCLP Mod (macOS Tahoe beta 2)](#fixing-on-board-audio-with-oclp-mod-macos-tahoe-beta-2)
+	- [macOS Tahoe fixes (Audio and Bluetooth)](#macos-tahoe-fixes-audio-and-bluetooth)
 	- [WiFi](#wifi)
 		- [Option 1: enable `AirportItlwm.kext` in macOS Sequoia](#option-1-enable-airportitlwmkext-in-macos-sequoia)
 		- [Option 2: For `Itlwm.kext` users](#option-2-for-itlwmkext-users)
@@ -47,11 +47,11 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 ⚠️ The built-in Samsung PM981a NVMe that comes with the system is NOT compatible with macOS. You _must_ use a different NVMe!
 
 ### Notable Features
-- [x] Compatible with macOS Sonoma to Tahoe (compatible with older versions of macOS as well, but requires different WiFi-Kexts and config adjustments)
+- [x] Compatible and tested with macOS Sonoma to Tahoe (should work with older versions as well)
 - [x] Disabled BDPROCHOT to fix performance issues after waking from S3 sleep. 
 - [x] Working Thunderbolt 3 over USB-C
 - [x] New USB Port Mapping with support for docking station 
-- [x] Optimized Framebuffer Patch for smoother handshake with external displays via HDMI
+- [x] Optimized Framebuffer Patch for smoother handshake with external displays
 - [x] Working clamshell mode (when connected to A/C and external display)
 - [x] Working MicroSD Card Reader
 - [x] Working 3D globe in Maps app (macOS 12+)
@@ -270,16 +270,16 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 - Put the EFI folder on a FAT32 formatted USB flash drive
 - Reboot from said USB flash drive for testing
 - If it works, mount your system's ESP (EFI System Partiton), replace the BOOT and OC folders in the EFI folder
-- Continue with Post-Install 
+- Continue with Post-Install
 
 ### If macOS is not installed
 - Follow Dortania's [**OpenCore Install Guide**](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/#making-the-installer) to prepare a USB Installer
-- **Optional**: Once the USB has been created, download the latest version of [**HeliPort**](https://github.com/diepeterpan/HeliPort/releases) and copy the .dmg to your USB Installer (only required when `itlwm.kext` is used for Wi-Fi)
-- Next, mount the ESP (EFI System Partiton), of the USB Installer (you can use [**MountEFI**](https://github.com/corpnewt/MountEFI) for this)
+- Download the latest version of [**HeliPort**](https://github.com/diepeterpan/HeliPort/releases) and copy the .dmg to your USB Installer (only required for macOS Tahoe since it requires `itlwm.kext` for WiFi)
+- Next, mount the ESP (EFI System Partiton), of the USB Installer – you can use [**MountEFI**](https://github.com/corpnewt/MountEFI) for this
 - Place the EFI folder in the EFI partition
 - Restart your system and boot from the USB installer.
 - Install macOS.
-- Once macOS installed, you have to copy the bootloader files from the USB Installer to your system's EFI partition on the internal disk in order to boot without the USB flash drive (&rarr; [Instructions](https://dortania.github.io/OpenCore-Post-Install/universal/oc2hdd.html#grabbing-opencore-off-the-usb))
+- Once macOS is installed, copy the bootloader files from the USB Installer to the internal disk in order to boot without the USB flash drive (&rarr; [Instructions](https://dortania.github.io/OpenCore-Post-Install/universal/oc2hdd.html#grabbing-opencore-off-the-usb))
 - Disconnect the USB Installer and reboot into macOS
 - Continue with Post-Install
 
@@ -295,8 +295,16 @@ Gatekeeper can be really annoying and wants to stop you from running python scri
 - Open Terminal and run: `sudo spctl --master-disable`
 - The process has slightly changed in macOS Sequoia 15.1.1. and newer [more info](https://github.com/5T33Z0/OC-Little-Translated/blob/main/14_OCLP_Wintel/Guides/Disable_Gatekeeper.md)
 
-### Fixing On-Board Audio with OCLP Mod (macOS Tahoe beta 2)
-Apple deleted the AppleHDA required for on-board audio in macOS 26 beta 2. Since there's no official OCLP version available for macOS Tahoe yet, we are going to use [**OCLP Mod**](https://github.com/laobamac/OCLP-Mod/) to apply root patches – which will also install AppleHDA, thereby re-enabling audio. (&rarr; [Instructions](https://github.com/5T33Z0/OCLP4Hackintosh/blob/main/Enable_Features/Audio_Tahoe.md#instructions))
+### macOS Tahoe fixes (Audio and Bluetooth)
+In order for Audio and Bluetooth to work you need to apply root-pateches with [**OCLP Mod**](https://github.com/laobamac/OCLP-Mod/) since the offial OCLP version is not ready yet. Make sure that you are connected to the internet before attempting to apply root patches because the patcher needs to download additional files.
+
+- Open the app's settings:<br>![alt text](oclpmod02.png)
+- Click on the highlighted Tab and enable the following 2 options before patching and press "OK" at the bottom:<br>![alt text](oclpmod01.png)
+- Press the upper right button for root patching:<br>![oclp_mod01](https://github.com/user-attachments/assets/ad42427a-3726-480e-89a3-d2bd98754c3c)
+- Next, press the upper button to install patches and wait until patching is completed:<br>![oclp_mod02](https://github.com/user-attachments/assets/25e5fc28-05de-4cdd-ac3d-d5a28d06d1db)
+- Once patching is complete, reboot
+
+Audio and Bluetooth should work now. If there's no sound, you have to go into system settings to change the output to "Internal Speakers"
 
 ### WiFi
 

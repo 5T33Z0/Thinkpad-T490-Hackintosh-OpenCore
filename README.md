@@ -298,11 +298,11 @@ Gatekeeper can be really annoying and wants to stop you from running python scri
 ### macOS Tahoe fixes (Audio and Bluetooth)
 In order for Audio and Bluetooth to work you need to apply root-pateches with [**OCLP Mod**](https://github.com/laobamac/OCLP-Mod/) since the offial OCLP version is not ready yet. Make sure that you are connected to the internet before attempting to apply root patches because the patcher needs to download additional files.
 
-- Open the app's settings:<br>![alt text](oclpmod02.png)
-- Click on the highlighted Tab and enable the following 2 options before patching and press "OK" at the bottom:<br>![alt text](oclpmod01.png)
+- Open the app's settings:<br><img width="609" height="331" alt="oclpmod02" src="https://github.com/user-attachments/assets/ecc08229-e0f2-4e0b-bd99-d3787a3fcf70" />
+- Click on the highlighted Tab and enable the following 2 options before patching and press "OK" at the bottom:<br><img width="604" height="398" alt="oclpmod01" src="https://github.com/user-attachments/assets/e553dd66-8556-4652-ba11-8014da9ac47b" />
 - Press the upper right button for root patching:<br>![oclp_mod01](https://github.com/user-attachments/assets/ad42427a-3726-480e-89a3-d2bd98754c3c)
 - Next, press the upper button to install patches and wait until patching is completed:<br>![oclp_mod02](https://github.com/user-attachments/assets/25e5fc28-05de-4cdd-ac3d-d5a28d06d1db)
-- Once patching is complete, reboot
+- Once patching is complete, reboot.
 
 Audio and Bluetooth should work now. If there's no sound, you have to go into system settings to change the output to "Internal Speakers"
 

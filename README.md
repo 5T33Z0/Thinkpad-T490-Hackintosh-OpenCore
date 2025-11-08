@@ -95,7 +95,7 @@ Category | Description
 **iGPU** | Intel(R) Grpahics UHD 620 (spoofed as Iris 655, BusID: `2`)
 **dGPU** | None
 **Audio** | [**Realtek ALC257**](https://github.com/dreamwhite/ChonkyAppleALC-Build/blob/master/Realtek/ALC257.md) (using Layout `97`)
-**Thunderbolt** | Titan Ridge Thunderbolt 3 Connector (USB-C)<br> Tested with i-tec [USB-C Metal Nano](https://i-tec.pro/de/produkt/c31nanodockpropd-3/) Docking Station
+**Thunderbolt** | <ul><li>**Model**: Titan Ridge Thunderbolt 3 Connector (USB-C) <li>**Firmware**: 1.41.1353.0  <li>Tested with i-tec [USB-C Metal Nano](https://i-tec.pro/de/produkt/c31nanodockpropd-3/) Docking Station
 **Ethernet** | Intel I219-V
 **WiFi** | Intel AC-9560 <br> **Firmware**: [**`iwm-9000-46`**](https://www.intel.com/content/www/us/en/support/articles/000005511/wireless.html) ([Screenshot](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/blob/main/Additional_Files/Pics/wifi-firmware.png))
 **Bluetooth** | **Device**: Intel Wireless Bluetooth <br> **BT Version**: 5.1 <br> **VID**: `0x8087`, **PID**: `0x0aaa` <br> **Firmware**: `ibt-17-16-1.sfi`, `ibt17-16-1.ddc` <br>**USB Port**: `HS10`

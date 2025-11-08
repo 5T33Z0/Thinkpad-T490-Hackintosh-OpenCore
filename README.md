@@ -396,7 +396,7 @@ Wifi-Intel-KextsBuilder downloads the source code of itlwm, IntelBluetoothFirmwa
 These kexts won't be slimmed like the ones present in my EFI folders but at least you now have a simple option to compile them on your own in the future. For compiling slimmed kexts, you can [follow my guide](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/tree/main/Additional_Files/Slimmed_Kexts/Intel_AC-9650) to do so.
 
 ## Links
-[T490 Thunderbolt EEPROM fix](https://github.com/SkippyHub/Lenovo-thinkpad-T490-thunderbolt-eeprom-fix)
+[T490 Thunderbolt Voltage Fix](https://github.com/SkippyHub/Lenovo-thinkpad-T490-thunderbolt-eeprom-fix)
 
 ## Credits and Thank Yous
 - [**Acidanthera**](https://github.com/acidanthera) for OpenCore, Kexts and maciASL

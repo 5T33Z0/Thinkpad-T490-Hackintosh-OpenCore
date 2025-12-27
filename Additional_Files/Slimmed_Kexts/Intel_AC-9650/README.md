@@ -94,5 +94,5 @@ The compiled kexts will be located under `~/Downloads/IntelBluetoothFirmwar-mast
 
 > [!IMPORTANT]
 > 
-> - itlw.kext requires the [Heliport](https://github.com/OpenIntelWireless/HeliPort) app to connect to Wi-Fi Hotspots
-> - If you are having issues with the slimmed itlwm.kext, use the pre-cpmpiled version from the OpenIntelWireless repo!
+> - `itlwm.kext` requires the [Heliport](https://github.com/OpenIntelWireless/HeliPort) app to connect to Wi-Fi Hotspots
+> - If you are having issues with the slimmed `itlwm.kext`, use the pre-cpmpiled version from the OpenIntelWireless repo!

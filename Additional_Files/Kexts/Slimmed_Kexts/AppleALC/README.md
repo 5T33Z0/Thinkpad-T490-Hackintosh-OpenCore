@@ -3,7 +3,7 @@
 **Codec**: Realtek ALC257 </br>
 **Included Layouts**: `97`</br>
 **Size**: 86 kb <br>
-**Latest Version**: 1.9.3
+**Latest Version**: 1.9.7
 
 ## Codec Structure
 ![](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/blob/main/Additional_Files/SysReport/Audio/Codec-Dump.png?raw=true)

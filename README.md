@@ -48,16 +48,15 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 ⚠️ The built-in Samsung PM981a NVMe that comes with the system is NOT compatible with macOS. You _must_ use a different NVMe!
 
 ### Notable Features
-- [x] Compatible and tested with macOS Sonoma to Tahoe (should work with older versions as well)
+- [x] Proper Hibernation (Modes 3 and 25 supported)
+- [x] Cleaner implementation of `_OSI` checks
+- [x] Optimized Framebuffer Patch for smoother handshake with external displays
 - [x] Disabled BDPROCHOT to fix performance issues after waking from S3 sleep. 
 - [x] Working Thunderbolt 3 over USB-C
-- [x] New USB Port Mapping with support for docking station 
-- [x] Optimized Framebuffer Patch for smoother handshake with external displays
+- [x] New USB Port Mapping with support for docking stations 
 - [x] Working clamshell mode (when connected to A/C and external display)
-- [x] Working MicroSD Card Reader
 - [x] Working 3D globe in Maps app (macOS 12+)
 - [x] No injection of `PlatformInfo` data into Microsoft Windows.
-- [x] YogaSMC support for additional features like CPU fan control, performance bias, handling <kbd>Fn</kbd> Keyboard shortcuts, additional OSD overlays, etc.
 - [x] Lean EFI folder with slimmed kexts (20 MB instead of 62 MB overall):
  	- **AirportItlwm_Sonoma**: 1,8 instead of 16 MB. Only contains Firmware for Intel AC 9560.
 	- **AppleALC**: 86 Kb instead of 2,3 MB. Only contains layout `97`.
@@ -65,10 +64,10 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 	- **itlwm** (1.5 mb instead of 16 mb). Only Contains Firmware for Intel AC 9560.
 
 ### Known Issues
-- [ ] Hibernation Mode 25 does not work properly
-- [ ] SDCard only works when inserted prior to booting (https://github.com/0xFireWolf/RealtekCardReader/issues/59)
 - [ ] Fingerprint sensor does not work under macOS since there is currently no way to emulate Touch ID.
-- [ ] The audio combo jack creates an unpleasant buzz/noise during driver initialization. So it's best to connect headphones *after* booting.
+- [ ] Infrared portion of integrated camera unsupported by macOS &rarr; So moving the frontside switch to the left actually disables the camera in macOS (if you don't want to disable it in BIOS)
+- [ ] SDCard only works when inserted prior to booting (https://github.com/0xFireWolf/RealtekCardReader/issues/59)
+- [ ] Disabled YogaSMC and corresponding ACPI Tables for now since it hasn't been update in years, causes issues and is incompatibel with macOS Tahoe
 
 > [!IMPORTANT]
 > 

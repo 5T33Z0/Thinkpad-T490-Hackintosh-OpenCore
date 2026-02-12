@@ -51,7 +51,7 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 - [x] Proper Hibernation (Modes 3 and 25 supported)
 - [x] Cleaner implementation of `_OSI` checks
 - [x] Optimized Framebuffer Patch for smoother handshake with external displays
-- [x] Disabled BDPROCHOT to fix performance issues after waking from S3 sleep. 
+- [x] Disabled BDPROCHOT to fix performance issues after waking from S3/S4 sleep. 
 - [x] Working Thunderbolt 3 over USB-C
 - [x] New USB Port Mapping with support for docking stations 
 - [x] Working clamshell mode (when connected to A/C and external display)

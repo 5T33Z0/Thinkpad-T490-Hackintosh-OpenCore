@@ -132,6 +132,7 @@ EFI
 │   │   ├── SSDT-EXT4-WakeScreen.aml
 │   │   ├── SSDT-GPRW.aml
 │   │   ├── SSDT-MCHC.aml
+│   │   ├── SSDT-OSDW.aml
 │   │   ├── SSDT-PLUG.aml
 │   │   ├── SSDT-PNLF.aml
 │   │   ├── SSDT-PORTS.aml

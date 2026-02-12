@@ -356,13 +356,35 @@ Starting with Release 1.0.5 v1.0 of my OC EFI folder, I've disabled YogaSMC and 
 - Use [**CPUFriendFriend**](https://github.com/corpnewt/CPUFriendFriend) to generate your own `CPUFriendDataProvider.kext` to optimize CPU Power Management if your T490 uses a different CPU than mine.
 
 ### Configure Hibernation
-- Disable PowerNap: `sudo pmset -a powernap 0`
-- Change Hibernatemode to 3: `sudo pmset -a hibernatemode 3`
-- For more details, have a look at my [Hibernation Configuration Guide](https://github.com/5T33Z0/OC-Little-Translated/blob/main/04_Fixing_Sleep_and_Wake_Issues/Changing_Hibernation_Modes/README.md)
+Open Terminal and enter the following commands, to enable Hibernation (=`hibernatemode 25`). If you don't want to use Hibernation, use `hibernatemode 3` (= regukar S3 Sleep) instead:
 
-> [!IMPORTANT]
+```shell
+# Enable hibernatemode 25 (sleep to disk, power off RAM)
+sudo pmset -a hibernatemode 25
+
+# Enable standby (required for hibernation to actually work)
+sudo pmset -a standby 1
+
+# Set standby delays (time before entering hibernation)
+sudo pmset -a standbydelayhigh 900    # 15 minutes when battery > 50%
+sudo pmset -a standbydelaylow 900     # 15 minutes when battery < 50%
+
+# Sleep timings (optional - adjust to preference)
+sudo pmset -a displaysleep 10         # Display sleeps after 10 minutes
+sudo pmset -a disksleep 10            # Hard disk sleeps after 10 minutes
+sudo pmset -a sleep 1                 # System sleeps after 1 minute of inactivity
+
+# Disable wake-causing features
+sudo pmset -a powernap 0              # Disable Power Nap
+sudo pmset -a tcpkeepalive 0          # Prevent network from waking system
+sudo pmset -a proximitywake 0         # Disable wake when iPhone/iPad nearby
+sudo pmset -a ttyskeepawake 0         # Prevent remote login from preventing sleep
+sudo pmset -a womp 0                  # Disable wake-on-LAN
+```
+
+> [!TIP]
 > 
-> Currently, Hibernatemode 25 does not work properly since I haven't figured out completely which RTC memory regions to block. I've managed to skip RTC memory checksum errors and restore the system from the sleepimage but it freezes after returning to the desktop after 2 seconds (scrambled image). Any assistence for fixing this would be highly appreciated.
+> For more details, have a look at my [Hibernation Configuration Guide](https://github.com/5T33Z0/OC-Little-Translated/blob/main/04_Fixing_Sleep_and_Wake_Issues/Changing_Hibernation_Modes/README.md).
 
 ### Install MonitorControl (optional)
 [**MonitorControl**](https://github.com/MonitorControl/MonitorControl) is a helpful little tool that lets you control the brightness and contrast of external displays from the menubar.

@@ -82,7 +82,7 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 ## System Specs
 
 Category | Description
-:-------:|------------
+-------:|------------
 **Model** | Lenovo ThinkPad T490 
 **Variant** | [**20N3**](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t490-type-20n2-20n3/document-userguide)
 **UEFI BIOS** | v1.84 (2025-07-03)

@@ -27,7 +27,7 @@
 	- [Disable Gatekeeper (optional)](#disable-gatekeeper-optional)
 	- [macOS Tahoe fixes (Audio)](#macos-tahoe-fixes-audio)
 	- [WiFi](#wifi)
-		- [Option 1: enable `AirportItlwm.kext` in macOS Sequoia](#option-1-enable-airportitlwmkext-in-macos-sequoia)
+		- [Option 1: enable `AirportItlwm.kext` in macOS Sequoia+](#option-1-enable-airportitlwmkext-in-macos-sequoia)
 		- [Option 2: For `Itlwm.kext` users](#option-2-for-itlwmkext-users)
 	- [Enable YogaSMC (optional, not recommended)](#enable-yogasmc-optional-not-recommended)
 	- [Configure CPUFriend](#configure-cpufriend)

@@ -216,8 +216,10 @@ EFI
 ## Preparations
 
 ### Config Adjustments
+If your T490 is the same model as mine and if you are installing macOS Sonoma or newer, you don't have to make any changes to the config.plist besides adding `MLB`, `Serial` and `ROM` to the `Platforminfo/Generic` section.
+
 - Download the [**latest Release**](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/releases/latest) of my EFI folder and unzip it
-- Open the `config.plist` with a plist editor (e.g. ProperTree or OCAT) and adjust the following settings based on the used version of macOS and personal preferences:
+- Open the `config.plist` with a plist editor (e.g. ProperTree or OCAT) and adjust the following settings based on personal preferences and the version of macOS installed:
 	- **Graphics**
 		- `Devices/Properties/Add/PciRoot(0x0)/Pci(0x2,0x0)`
 			- For macOS ≤ 13.3, disable/delete `enable-backlight-registers-alternative-fix` and use `enable-backlight-registers-fix` instead to fix black screen issues.
@@ -225,14 +227,14 @@ EFI
 	- **Wi-Fi**: Decide, which Wi-Fi kext you want to use (&rarr; see [**AirportItlwm vs. itlwm**](#airportitlwmkext-vs-itlwmkext)):
     	- By default, Sonoma uses **AirportItlwm_Sonom** kext without the need for root patches
      	- By default, Sequoia and Tahoe use **AirportItlwm_Sequoia** but requires root patching with OCLP-Mod in Post-Install
-    	- Optionally, Itlwm kext is present but disabled and configured for use with macOS Tahoe (`MinKernel 25.0`)
+    	- Optional: **Itlwm.kext** is present and configured for use with macOS Tahoe (`MinKernel 25.0`) but disabled. If you want to use it instead, you have to disable **AirportItlwm_Sequoia**
 	- **Kernel/Quirks** 
 		- `AppleXcpmCfgLock` is not required on my system. Try for yourself if your T490 needs it to boot.
 	- **NVRAM/Add/7C436110-AB2A-4BBB-A880-FE41995C9F82**
 		- Optional: add `boot-args` `-v`, `debug=0x100` and `keepsyms=1` for debugging if you face issues.
 	- **UEFI/APFS** 
     	- Change `MinVersion` and `MinDate` to `-1` if you want to run macOS Catalina or older.
-	- **Platforminfo/Generic**: SMBIOS
+	- **PlatformInfo/Generic**:
 		- Generate `MLB`, `Serial` and `ROM` for `MacBookPro15,2` using GenSMBIOS or OCAT.
 - Save the changes
 
@@ -295,13 +297,13 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 ## Post-Install
 
 ### Disable Gatekeeper (optional)
-Gatekeeper can be really annoying and wants to stop you from running python scripts from github, etc. Do the following to disable it:
+Gatekeeper can be really annoying and wants to stop you from running python scripts from Github, etc. Do the following to disable it:
 
 - Open Terminal and run: `sudo spctl --master-disable`
 - The process has slightly changed in macOS Sequoia 15.1.1. and newer [more info](https://github.com/5T33Z0/OC-Little-Translated/blob/main/14_OCLP_Wintel/Guides/Disable_Gatekeeper.md)
 
 ### macOS Tahoe fixes (Audio)
-In order for Audio to work you need to apply root-pateches with [**OCLP Mod**](https://github.com/laobamac/OCLP-Mod/) since the offial OCLP version is not available yet. Make sure that you are connected to the internet before attempting to apply root patches because the patcher needs to download additional files.
+In order for Audio to work you need to apply root-pateches with [**OCLP-Mod**](https://github.com/laobamac/OCLP-Mod/) since the offial OCLP version is not available yet. Make sure that you are connected to the internet before attempting to apply root patches because the patcher needs to download additional files.
 
 - Open the app's settings:<br><img width="609" height="331" alt="oclpmod02" src="https://github.com/user-attachments/assets/ecc08229-e0f2-4e0b-bd99-d3787a3fcf70" />
 - Click on the highlighted Tab and enable the following setting before patching and press "OK" at the bottom:<br><img width="604" height="410" alt="Bildschirmfoto 2026-01-02 um 19 24 50" src="https://github.com/user-attachments/assets/568cae6d-066d-4cde-8b9c-a94b0b16d76a" />
@@ -315,7 +317,7 @@ Audio and Bluetooth should work now. If there's no sound, you have to go into sy
 
 #### Option 1: enable `AirportItlwm.kext` in macOS Sequoia+
 
-Follow my Guide to [enable AirportItlwm in macOS 15+](https://github.com/5T33Z0/OCLP4Hackintosh/blob/main/Enable_Features/AirportItllwm_Sequoia.md)
+Apply Root-Patches with OCLP-Mod. [More details](https://github.com/5T33Z0/OCLP4Hackintosh/blob/main/Enable_Features/AirportItllwm_Sequoia.md)
 
 #### Option 2: For `Itlwm.kext` users
 

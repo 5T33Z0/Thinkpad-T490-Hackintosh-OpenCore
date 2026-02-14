@@ -313,26 +313,9 @@ Audio and Bluetooth should work now. If there's no sound, you have to go into sy
 
 ### WiFi
 
-#### Option 1: enable `AirportItlwm.kext` in macOS Sequoia
+#### Option 1: enable `AirportItlwm.kext` in macOS Sequoia+
 
-By default, `Itlwm.kext` is requird when running macOS 15. But if you want to use `AirportItlwm.kext` instead, you have to apply "Modern WiFi" patches with OpenCore Legacy patcher:
-
-- Download [**OpenCore Legacy Patcher**](https://github.com/dortania/OpenCore-Legacy-Patcher/releases) (.pkg).
-- Remove `HeliPort` from Login-Items (if present) – you won't need it any more.
-- Download my EFI folder and extract it.
-- Place it in your EFI partition.
-- Reboot 
-- Reset NVRAM
-- Boot into macOS Sequoia
-- At this stage, WiFi won't work!
-- Install OpenCore legacy patcher and run it
-- Click on "Root Patches"
-- Next, click on "Start Root Patching" to install the required frameworks for "Modern Wi-Fi"
-- Once that's done, reboot
-- Reset NVRAM and start macOS Sequoia.
-- Connect to a WiFi AP via Airport-Utility
-
-More details about this patch can be found [here](https://github.com/5T33Z0/OC-Little-Translated/blob/main/14_OCLP_Wintel/Enable_Features/AirportItllwm_Sequoia.md)
+Follow my Guide to [enable AirportItlwm in macOS 15+](https://github.com/5T33Z0/OCLP4Hackintosh/blob/main/Enable_Features/AirportItllwm_Sequoia.md)
 
 #### Option 2: For `Itlwm.kext` users
 

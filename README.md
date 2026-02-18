@@ -44,6 +44,14 @@
 ## About
 OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo ThinkPad T490. Read the following documentation carefully in order to install/boot macOS successfully!
 
+> [!CAUTION]
+>
+> ⚠️ **DO NOT INSTALL macOS 26.4**
+> macOS 26.4 is currently **incompatible with OCLP-Mod Patcher** and will break patching and post-install functionality.
+> Installing this version may result in an unbootable or unstable system.
+>
+> **Stay on earlier supported macOS versions until OCLP-Mod Patcher explicitly adds support for 26.4.**
+
 ### Before you begin
 ⚠️ The built-in Samsung PM981a NVMe that comes with the system is NOT compatible with macOS. You _must_ use a different NVMe!
 

@@ -227,7 +227,7 @@ At minimum, generate valid SMBIOS data.
 
 Save the changes and test the EFI from USB before installing it to the internal disk.
 
->[IMPORTANT]
+> [!IMPORTANT]
 >
 > - Do not change the SMBIOS model unless you also update the `model` property inside the `USBMap.kext` because the USB port mapping is SMBIOS-dependent; if mismatched, Bluetooth will not work.
 > - This Wi-FI and BT kexts in this EFI are slimmed and only contain firmware for the Intel AC-9560. If your T490 uses a different Wi-Fi card, use the official itlwm and BT Firmware kexts.

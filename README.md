@@ -7,40 +7,6 @@
 
 ---
 
-**TABLE of CONTENTS**
-
-- [About](#about)
-	- [Before you begin](#before-you-begin)
-	- [Notable Features](#notable-features)
-	- [Known Issues](#known-issues)
-	- [Future Developments](#future-developments)
-- [System Specs](#system-specs)
-- [BIOS Settings](#bios-settings)
-- [EFI Folder Content](#efi-folder-content)
-- [Preparations](#preparations)
-	- [Config Adjustments](#config-adjustments)
-	- [AirportItlwm vs. itlwm WiFi kext](#airportitlwm-vs-itlwm-wifi-kext)
-- [Deployment](#deployment)
-	- [If macOS is installed already](#if-macos-is-installed-already)
-	- [If macOS is not installed](#if-macos-is-not-installed)
-- [Post-Install](#post-install)
-	- [Disable Gatekeeper (optional)](#disable-gatekeeper-optional)
-	- [macOS Tahoe fixes (Audio)](#macos-tahoe-fixes-audio)
-	- [WiFi](#wifi)
-		- [Option 1: enable `AirportItlwm.kext` in macOS Sequoia+](#option-1-enable-airportitlwmkext-in-macos-sequoia)
-		- [Option 2: For `Itlwm.kext` users](#option-2-for-itlwmkext-users)
-	- [Enable YogaSMC (optional, not recommended)](#enable-yogasmc-optional-not-recommended)
-	- [Configure CPUFriend](#configure-cpufriend)
-	- [Configure Hibernation](#configure-hibernation)
-	- [Install MonitorControl (optional)](#install-monitorcontrol-optional)
-- [Understanding YogaSMC Settings](#understanding-yogasmc-settings)
-	- [Disabling YogaSMC](#disabling-yogasmc)
-- [Links](#links) 
-- [Compiling Intel Wi-Fi and Bluetooth Firmware kexts easily](#compiling-intel-wi-fi-and-bluetooth-firmware-kexts-easily)
-- [Credits and Thank Yous](#credits-and-thank-yous)
-
----
-
 ## About
 OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo ThinkPad T490. Read the following documentation carefully in order to install/boot macOS successfully!
 
@@ -284,6 +250,22 @@ Although the Intel AC-9560 Card is compatible with both kexts (use either one or
 > My config uses `AirportItlw` by default since it allows accessing the internet during macOS installation (unlike `itlwm.kext`, which requires an additional app to do so). Currently, `AirportItlwm` kexts for macOS Sonoma and Sequoia are included, while macOS Tahoe requires `itlwm.kext`.
 > 
 > If you want to use `itlwm`, disable `AirportItlwm` (all variants), enable `itlwm` and adjust the `MinKernel` setting to match the Kernel version of macOS (currently: 24.0.0 = macOS Sequoia). Next, download the [**HeliPort**](https://github.com/OpenIntelWireless/HeliPort) app, run it and add it to "Login Items" (in System Settings), so that it starts automatically with macOS.
+
+### Recommended configuration (until further notice)
+
+Since macOS Tahoe 26.4 beta, root-patching audio leads to a bricked, undbootable system. Therefore, I would recommend staying on **macOS Sequoia** and using **itlwm** kexts instead of **AirportItwm_Sequoia** for WiFi since it doesn't require root patching at all.
+
+**Nceessary Config adjustment**:
+
+	- Disable `com.apple.iokit.IOSkywalkFamily`
+- **Kernel/Add**:
+	- Disable `IOSkywalkFamily.kext`
+	- Disbale `IO80211FamilyLegacy.kext`
+	- Disable `AirportItlwm_Sequoia.kext`
+	- Enable `itlwm.kext`
+- Use [**Heliport**](https://github.com/OpenIntelWireless/HeliPort/releases) App to connect to Wi-Fi APs. There's also a [fork](https://github.com/sambow23/HeliPort) with an updated version with some qualitiy-of-life improvements
+
+---
 
 ## Deployment
 

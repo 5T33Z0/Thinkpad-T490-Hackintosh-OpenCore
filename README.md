@@ -10,47 +10,44 @@
 ## About
 OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo ThinkPad T490. Read the following documentation carefully in order to install/boot macOS successfully!
 
-> [!CAUTION]
->
-> ⚠️ **DO NOT APPLY AUDIO OR LEGACY USB PATCHES ON macOS 26.4 BETA 1**
-> 
-> Do **NOT** apply audio or legacy USB patches with OCLP-MOde until macOS 26.4 Beta 1's **[Kernel Debug Kit](https://github.com/dortania/KdkSupportPkg/releases) (KDK)** is released!
-> macOS 26.4 Beta 1 is **not compatible with older KDK versions** and won't boot after patching audio.
+|⚠️ Important Notes
+|:-----------------------|
+|**DO NOT APPLY AUDIO OR LEGACY USB PATCHES ON macOS 26.4 BETA 1** until macOS 26.4 Beta 1's **[Kernel Debug Kit](https://github.com/dortania/KdkSupportPkg/releases) (KDK)** is released! MacOS 26.4 Beta 1 is **not compatible with older KDK versions** and won't boot after applying audio or USB patches.|
+| The **Samsung PM981a NVMe** that comes with the system is NOT compatible with macOS. You **_must_** use a different, compatible NVMe drive! |
 
-### Before you begin
-⚠️ The built-in Samsung PM981a NVMe that comes with the system is NOT compatible with macOS. You _must_ use a different NVMe!
-
-### Notable Features
+## Notable Features
 - [x] Proper Hibernation (Modes 3 and 25 supported)
 - [x] Cleaner implementation of `_OSI` checks
 - [x] Optimized Framebuffer Patch for smoother handshake with external displays
-- [x] Disabled BDPROCHOT to fix performance issues after waking from S3/S4 sleep. 
+- [x] Added Disable BDPROCHOT driver to fix performance issues after waking from S3/S4 sleep. 
 - [x] Working Thunderbolt 3 over USB-C
-- [x] New USB Port Mapping with support for docking stations 
+- [x] New USB Port Mapping with docking station support
 - [x] Working clamshell mode (when connected to A/C and external display)
 - [x] Working 3D globe in Maps app (macOS 12+)
 - [x] No injection of `PlatformInfo` data into Microsoft Windows.
-- [x] Lean EFI folder with slimmed kexts (20 MB instead of 62 MB overall):
+- [x] Lean EFI folder with slimmed kexts (20 MB instead of 62 MB):
  	- **AirportItlwm_Sonoma**: 1,8 instead of 16 MB. Only contains Firmware for Intel AC 9560.
 	- **AppleALC**: 86 Kb instead of 2,3 MB. Only contains layout `97`.
 	- **IntelBluetoothFirmware**: 560 KB instead of 11,5 MB.
 	- **itlwm** (1.5 mb instead of 16 mb). Only Contains Firmware for Intel AC 9560.
 
-### Known Issues
-- [ ] Fingerprint sensor does not work under macOS since there is currently no way to emulate Touch ID.
+## Known Issues
+- [ ] Fingerprint reader &rarr; incompatible with macOS
 - [ ] Infrared portion of integrated camera unsupported by macOS &rarr; So moving the frontside switch to the left actually disables the camera in macOS (if you don't want to disable it in BIOS)
-- [ ] SDCard only works when inserted prior to booting (https://github.com/0xFireWolf/RealtekCardReader/issues/59)
-- [ ] Disabled YogaSMC and corresponding ACPI Tables for now since it hasn't been update in years, causes issues and is incompatibel with macOS Tahoe
+- [ ] SDCard Reader only works when a card is inserted prior to booting (&rarr; see [issue 59](https://github.com/0xFireWolf/RealtekCardReader/issues/59))
+- [ ] YogaSMC hasn't been update in years, causes issues and is incompatibel with macOS Tahoe. That's why it's disabled by default
 
 > [!IMPORTANT]
 > 
 > - Before reporting any issues, ensure that your system uses the latest available UEFI and EC Firmware.
 > - Don't install macOS on an external disk or flash drive – use a compatible internal disk.
 
-### Future Developments
+## Future Developments
+- [x] Adjusted Framebuffer Patch so HDMI/DP Ports on docking stations can be utilized
 - [x] Adding USB ports of docking station to the USB port kext
 - [ ] Creating an AppleALC Layout-ID for audio output on Docking Station
-- [x] Adjusted Framebuffer Patch so HDMI/DP Ports on docking stations can be utilized
+
+---
 
 ## System Specs
 
@@ -189,60 +186,51 @@ EFI
 ## Preparations
 
 ### Config Adjustments
-If your T490 is the same model as mine and if you are installing macOS Sonoma or newer, you don't have to make any changes to the config.plist besides adding `MLB`, `Serial` and `ROM` to the `Platforminfo/Generic` section.
 
-- Download the [**latest Release**](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/releases/latest) of my EFI folder and unzip it
-- Open the `config.plist` with a plist editor (e.g. ProperTree or OCAT) and adjust the following settings based on personal preferences and the version of macOS installed:
-	- **Graphics**
-		- `Devices/Properties/Add/PciRoot(0x0)/Pci(0x2,0x0)`
-			- For macOS ≤ 13.3, disable/delete `enable-backlight-registers-alternative-fix` and use `enable-backlight-registers-fix` instead to fix black screen issues.
-			- If other issues occur, try another framebuffer patch. I collected addtitional ones which be found [here](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/blob/main/Additional_Files/Framebuffer_Patches/UHD620_Framebuffer_Patches.plist)
-	- **Wi-Fi**: Decide, which Wi-Fi kext you want to use (&rarr; see [**AirportItlwm vs. itlwm**](#airportitlwmkext-vs-itlwmkext)):
-    	- By default, Sonoma uses **AirportItlwm_Sonom** kext without the need for root patches
-     	- By default, Sequoia and Tahoe use **AirportItlwm_Sequoia** but requires root patching with OCLP-Mod in Post-Install
-    	- Optional: **Itlwm.kext** is present and configured for use with macOS Tahoe (`MinKernel 25.0`) but disabled. If you want to use it instead, you have to disable **AirportItlwm_Sequoia**
-	- **Kernel/Quirks** 
-		- `AppleXcpmCfgLock` is not required on my system. Try for yourself if your T490 needs it to boot.
-	- **NVRAM/Add/7C436110-AB2A-4BBB-A880-FE41995C9F82**
-		- Optional: add `boot-args` `-v`, `debug=0x100` and `keepsyms=1` for debugging if you face issues.
-	- **UEFI/APFS** 
-    	- Change `MinVersion` and `MinDate` to `-1` if you want to run macOS Catalina or older.
-	- **PlatformInfo/Generic**:
-		- Generate `MLB`, `Serial` and `ROM` for `MacBookPro15,2` using GenSMBIOS or OCAT.
-- Save the changes
+If your T490 matches the specs listed above and you are installing macOS Sonoma or newer, only minimal changes to `config.plist` are required.
 
-> [!CAUTION]
-> 
-> - Don't change the SMBIOS or the USB port mapping injected by `USBMap.kext` won't be applied and Bluetooth won't work either! If you change the SMBIOS, then you also need to change the `model` property in the `info.plist` contained in the kext to match the selected SMBIOS ([instructions](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/issues/13#issuecomment-1858917249)).
-> - If your T490 model uses a different WiFi/BT card than the stock Intel AC-9560 card, use the official `itlwm.kext` instead because mine only contains the firmware for the AC-9560, so it won't work with other cards.
+At minimum, generate valid SMBIOS data.
 
-### AirportItlwm vs. itlwm WiFi kext
-Although the Intel AC-9560 Card is compatible with both kexts (use either one or the other), there are Pros and Cons to both of them (check the [**FAQs**](https://openintelwireless.github.io/itlwm/FAQ.html#features) for other differences):
+* Download the **latest release** of this EFI and extract it.
+* Open `config.plist` using ProperTree or OCAT.
+* Make the following adjustments:
 
-- **AirportItlwm**: (used in macOS Sonoma, requires root patches in Sequoa)
-	- **Pro**: Can be used during macOS Setup/Recovery which is not possible with `itlwm.kext`
-	- **Pro**: Supports Location Services and "Find My Mac"
-	- **Pro**: Connects faster to Wi-Fi Hotspots than `itlwm.kext`
-	- **Con**: Doesn't perform as well as `itlwm.kext`
-	- **Con**: Can't connect to hidden WiFi Networks
-	- **Con**: Requires the correct kext per macOS version, so running multiple version of macOS requires multiple versions of this kext controlled via `MinKernel` and `MaxKernel` settings
-	- **Con**: iMessage and FaceTime don't work when using AirportItlwm (&rarr; See [Issue 14](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/issues/14))
+**PlatformInfo → Generic**
 
-- **itlwm.kext** (used in macOS Tahoe)
-	- **Pro**: `itlwm.kext` works across _multiple_ versions of macOS
-	- **Pro**: Loading webpages feels a lot quicker than with `AirportItlwm` 
-	- **Pro**: Can connect to hidden WiFi Networks
-	- **Pro**: Does work with iMessage and FaceTime
-	- **Con**: Requires [**HeliPort**](https://github.com/diepeterpan/HeliPort/releases) app to connect to Wi-Fi hotspots, so it can't be used during macOS Setup/Recovery
-	- **Con**: Doesn't support Location Services
+* Generate `MLB`, `SystemSerialNumber`, and `ROM` for `MacBookPro15,2` (using GenSMBIOS or OCAT).
 
-- Pre-compiled WiFi kexts for other versions of macOS can be found in the [Additional Files](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/tree/main/Additional_Files/Slimmed_Kexts/Intel_AC-9650/itlwm) section! You will need them if you want to run older versions of macOS!
+**Graphics**
+`Devices → Properties → Add → PciRoot(0x0)/Pci(0x2,0x0)`
 
-> [!NOTE]
-> 
-> My config uses `AirportItlw` by default since it allows accessing the internet during macOS installation (unlike `itlwm.kext`, which requires an additional app to do so). Currently, `AirportItlwm` kexts for macOS Sonoma and Sequoia are included, while macOS Tahoe requires `itlwm.kext`.
-> 
-> If you want to use `itlwm`, disable `AirportItlwm` (all variants), enable `itlwm` and adjust the `MinKernel` setting to match the Kernel version of macOS (currently: 24.0.0 = macOS Sequoia). Next, download the [**HeliPort**](https://github.com/OpenIntelWireless/HeliPort) app, run it and add it to "Login Items" (in System Settings), so that it starts automatically with macOS.
+* For macOS ≤ 13.3:
+  Disable/remove `enable-backlight-registers-alternative-fix` and use `enable-backlight-registers-fix` instead (prevents black screen).
+* If display issues occur, try a different framebuffer patch from `Additional_Files/Framebuffer_Patches/UHD620_Framebuffer_Patches.plist`.
+
+**Wi-Fi** (&rarr; Check [AirpotItlwm vs. Itlwm](AirportItlwm_vs_itlwm.md) for more details)
+
+* **Sonoma**: `AirportItlwm_Sonoma` (no root patches required).
+* **Sequoia**/**Tahoe**: `AirportItlwm_Sequoia` (requires root patching with OCLP-Mod).
+* **Optional**: `itlwm.kext` is present but disabled. If you want to use it, enabled it but disable  `AirportItlwm` kexts.
+
+**Kernel → Quirks**
+
+* `AppleXcpmCfgLock` is not required on my system. Enable only if your machine fails to boot.
+
+**NVRAM → Add → 7C436110-AB2A-4BBB-A880-FE41995C9F82**
+
+* Optional debug boot arguments:
+  `-v debug=0x100 keepsyms=1`
+
+**UEFI → APFS**
+
+* For installing macOS Catalina or older, set `MinVersion` and `MinDate` to `-1`.
+
+Save the changes and test the EFI from USB before installing it to the internal disk.
+
+>[IMPORTANT]
+>
+> - Do not change the SMBIOS model unless you also update the `model` property inside the `USBMap.kext` because the USB port mapping is SMBIOS-dependent; if mismatched, Bluetooth will not work.
+> - This Wi-FI and BT kexts in this EFI are slimmed and only contain firmware for the Intel AC-9560. If your T490 uses a different Wi-Fi card, use the official itlwm and BT Firmware kexts.
 
 ### Recommended configuration (until further notice)
 

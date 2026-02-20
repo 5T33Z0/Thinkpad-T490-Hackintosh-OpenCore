@@ -257,6 +257,7 @@ Since macOS Tahoe 26.4 beta, root-patching audio leads to a bricked, undbootable
 
 **Nceessary Config adjustment**:
 
+- **Kernel/Block**:
 	- Disable `com.apple.iokit.IOSkywalkFamily`
 - **Kernel/Add**:
 	- Disable `IOSkywalkFamily.kext`

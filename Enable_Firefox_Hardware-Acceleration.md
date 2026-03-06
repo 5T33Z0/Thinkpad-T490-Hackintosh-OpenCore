@@ -2,7 +2,7 @@
 
 ## Background
 
-By default, Firefox on macOS does not reliably enable hardware video decode via Apple's VideoToolbox, even when the iGPU is fully capable. A comparison between Firefox's codec support on Windows and macOS illustrates the issue:
+By default, Firefox on macOS does not reliably enable hardware video decode via Apple's VideoToolbox, even when the iGPU is fully capable. A comparison between Firefox's codec support of the Intel UHD 620 on Windows and macOS illustrates the issue:
 
 |Windows|macOS|
 --------|-------

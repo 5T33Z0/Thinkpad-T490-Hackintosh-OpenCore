@@ -2,13 +2,13 @@
 
 ## Background
 
-By default, Firefox on macOS does not reliably enable hardware video decode via Apple's VideoToolbox, even when the iGPU is fully capable. A comparison between Firefox's codec support of the Intel UHD 620 on Windows and macOS illustrates the issue:
+By default, Firefox on macOS does not reliably enable hardware video decode via Apple's VideoToolbox, even when the iGPU is fully capable. In macOS, the UHD 620 supports hardware H264 decode via VideoToolbox, but not VP9, AV1, or HEVC as shown in the following screenshots from Firefox's `about:support` section:
 
 |Windows|macOS|
 --------|-------
 ![](https://github.com/user-attachments/assets/9f963b64-9b54-44e0-b0a0-4191dddea163) | ![](https://github.com/user-attachments/assets/8dde418f-a441-45d6-96a6-1b3320c0f344)
 
-On the T490, this means YouTube falls back to software (CPU) decoding, causing high CPU usage and heat during playback. The UHD 620 supports hardware H264 decode via VideoToolbox, but not VP9, AV1, or HEVC. YouTube preferentially serves VP9 in most browsers, so the fix requires two things: forcing Firefox to use VideoToolbox, and forcing YouTube to serve H264.
+On the T490, this means YouTube falls back to software (CPU) decoding, causing high CPU usage and heat during playback. YouTube preferentially serves VP9 in most browsers, so the fix requires two things: forcing Firefox to use VideoToolbox, and forcing YouTube to serve videos using the H264 codec.
 
 ## Step 1: `about:config` Flags
 

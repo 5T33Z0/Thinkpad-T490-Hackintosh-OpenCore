@@ -12,7 +12,6 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 
 |⚠️ Important Notes
 |:-----------------------|
-|**DO NOT APPLY AUDIO OR LEGACY USB PATCHES ON macOS 26.4 BETA 1** until macOS 26.4 Beta 1's **[Kernel Debug Kit](https://github.com/dortania/KdkSupportPkg/releases) (KDK)** is released! MacOS 26.4 Beta 1 is **not compatible with older KDK versions** and won't boot after applying audio or USB patches.|
 | The **Samsung PM981a NVMe** that comes with the system is NOT compatible with macOS. You **_must_** use a different, compatible NVMe drive! |
 
 ## Notable Features

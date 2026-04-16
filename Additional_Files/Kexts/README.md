@@ -9,4 +9,4 @@
 ## Guides
 
 - [**Compiling slimmed AppleALC kext**](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/tree/main/Additional_Files/Slimmed_Kexts/AppleALC/For_Compiling#compiling-slimmed-applealc-kext)
-- [**Compiling slimmed Airportitlm/itlwm and Intel Bluetooth kexts**](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/tree/main/Additional_Files/Slimmed_Kexts/Intel_AC-9650#how-to-compile-a-slimmed-version-of-itlwmkext-and-intelbluetoothfirmware)
+- [**Compiling slimmed Airportitlm/itlwm and Intel Bluetooth kexts**](/Slimmed_Kexts/Intel_AC-9650)

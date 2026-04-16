@@ -33,20 +33,20 @@ The size of the Intel Wireless kext can be reduced drastically by about factor 1
   cd ~/Downloads/IntelBluetoothFirmware-master
   ```
 - Next, download MacKernelSDK into the "IntelBluetoothFirmware-master" folder:
- ```
- git clone https://github.com/acidanthera/MacKernelSDK
- ```
+  ```
+  git clone https://github.com/acidanthera/MacKernelSDK
+  ```
 - Leave the Terminal window open for later use
 - Download the DEBUG version of Lilu, extract it and place the kext in the IntelBluetoothFirmware-master folder
-- In Finder, navigate to 
- ```
- ~/Downloads//IntelBluetoothFirmware-master/IntelBluetoothFirmware/fw
- ```
-- In the `fw` folder delete all firmware files _except_ these two: 
- ```
- ibt-17-16-1.ddc
- ibt-17-16-1.sfi
- ```
+- In Finder, navigate to
+  ```
+  ~/Downloads//IntelBluetoothFirmware-master/IntelBluetoothFirmware/fw
+  ```
+- In the `fw` folder delete all firmware files _except_ these two:
+  ```
+  ibt-17-16-1.ddc
+  ibt-17-16-1.sfi
+  ```
 - If present, also delete `FwBinary.cpp` from `/IntelBluetoothFirmware-MASTER/IntelBluetoothFirmware`
 
 ## Compiling the kexts

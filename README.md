@@ -258,14 +258,14 @@ Save the changes and test the EFI from USB before installing it to the internal 
 
 ## Post-Install
 
-### Disable Gatekeeper (optional)
-Gatekeeper can be really annoying and wants to stop you from running python scripts from Github, etc. Do the following to disable it:
+### Disable Gatekeeper
+Gatekeeper can be really annoying and wants to stop you from running python scripts or unsigned apps like Heliport, etc. Do the following to disable it:
 
 - Open Terminal and run: `sudo spctl --master-disable`
 - The process has slightly changed in macOS Sequoia 15.1.1. and newer [more info](https://github.com/5T33Z0/OC-Little-Translated/blob/main/14_OCLP_Wintel/Guides/Disable_Gatekeeper.md)
 
-### macOS Tahoe fixes (Audio)
-In order for Audio to work you need to apply root-pateches with [**OCLP-Mod**](https://github.com/laobamac/OCLP-Mod/) since the offial OCLP version is not available yet. Make sure that you are connected to the internet before attempting to apply root patches because the patcher needs to download additional files.
+### macOS Tahoe fixes (Wifi and Audio)
+In order for Audio and AirportItlwm to work in macOS Tahoe, you need to apply root-patches with [**OCLP-Mod**](https://github.com/laobamac/OCLP-Mod/) since the offial OCLP version is not available yet. Make sure that you are connected to the internet before attempting to apply root patches because the patcher may need to download additional files.
 
 - Open the app's settings:<br><img width="609" height="331" alt="oclpmod02" src="https://github.com/user-attachments/assets/ecc08229-e0f2-4e0b-bd99-d3787a3fcf70" />
 - Click on the highlighted Tab and enable the following setting before patching and press "OK" at the bottom:<br><img width="604" height="410" alt="Bildschirmfoto 2026-01-02 um 19 24 50" src="https://github.com/user-attachments/assets/568cae6d-066d-4cde-8b9c-a94b0b16d76a" />
@@ -273,7 +273,11 @@ In order for Audio to work you need to apply root-pateches with [**OCLP-Mod**](h
 - Next, press the upper button to install patches and wait until patching is completed:<br>![oclp_mod02](https://github.com/user-attachments/assets/25e5fc28-05de-4cdd-ac3d-d5a28d06d1db)
 - Once patching is complete, reboot.
 
-Audio and Bluetooth should work now. If there's no sound, you have to go into system settings to change the output to "Internal Speakers"
+Audio and Wi-Fi should work now. If there's no sound, you have to go into system settings to change the output to "Internal Speakers"
+
+> [!NOTE]
+>
+> You don't have to apply root patches in macOS Tahoe to enable audio and Wi-Fi. Alternatively, you can use `itlwm` kext for wifi and [VoodooHDA](https://github.com/chris1111/VoodooHDA-Tahoe) for audio instead.
 
 ### WiFi
 

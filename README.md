@@ -231,21 +231,6 @@ Save the changes and test the EFI from USB before installing it to the internal 
 > - Do not change the SMBIOS model unless you also update the `model` property inside the `USBMap.kext` because the USB port mapping is SMBIOS-dependent; if mismatched, Bluetooth will not work.
 > - This Wi-FI and BT kexts in this EFI are slimmed and only contain firmware for the Intel AC-9560. If your T490 uses a different Wi-Fi card, use the official itlwm and BT Firmware kexts.
 
-### Recommended configuration (until further notice)
-
-Since macOS Tahoe 26.4 beta, root-patching audio leads to a bricked, undbootable system. Therefore, I would recommend staying on **macOS Sequoia** and using **itlwm** kexts instead of **AirportItwm_Sequoia** for WiFi since it doesn't require root patching at all.
-
-**Nceessary Config adjustment**:
-
-- **Kernel/Block**:
-	- Disable `com.apple.iokit.IOSkywalkFamily`
-- **Kernel/Add**:
-	- Disable `IOSkywalkFamily.kext`
-	- Disbale `IO80211FamilyLegacy.kext`
-	- Disable `AirportItlwm_Sequoia.kext`
-	- Enable `itlwm.kext`
-- Use [**Heliport**](https://github.com/OpenIntelWireless/HeliPort/releases) App to connect to Wi-Fi APs. There's also a [fork](https://github.com/sambow23/HeliPort) with an updated version with some qualitiy-of-life improvements
-
 ---
 
 ## Deployment

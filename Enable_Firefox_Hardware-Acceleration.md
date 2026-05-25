@@ -21,7 +21,7 @@ Open `about:config` in Firefox and set the following flags. Double-click a boole
 | `media.webrtc.hw.h264.enabled` | `true` |
 | `layers.acceleration.force-enabled` | `true` |
 
-> Full restart required — close all Firefox windows, don't just reload the tab.
+⚠️ Full Firefox restart required — close all Firefox windows, don't just reload the tab.
 
 ---
 

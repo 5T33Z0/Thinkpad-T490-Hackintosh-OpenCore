@@ -10,7 +10,10 @@ This guide is for compiling AppleALC for your Codec and the audio layout(s) of y
 ### Prepare AppleALC
 - Download [**AppleALC**](https://github.com/acidanthera/AppleALC) (click on "Code" and "Download Zip") and extract it. An "AppleALC-Master" folder will be created
 - In Terminal, enter: <kbd>cd</kbd>, hit <kbd>Spacebar</kbd>, drag the AppleALC-Master folder into the Terminal window and press <kbd>Enter</kbd>.
-- Next, enter `git clone https://github.com/acidanthera/MacKernelSDK` and hit <kbd>Enter</kbd>. This downloads the **MacKernelSDK** to the AppleALC-Master folder.
+- Next, downloads the **MacKernelSDK** to the AppleALC-Master folder. Enter in Terminal:
+  ```bash
+  git clone https://github.com/acidanthera/MacKernelSDK
+  ```
 - Add the **Debug** version of [**Lilu.kext**](https://github.com/acidanthera/Lilu/releases) to the AppleALC-Master folder.
 - Download [R**esources_ALC257.zip**](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/raw/main/Additional_Files/Slimmed_Kexts/AppleALC/For_Compiling/Resources_ALC257.zip) and extract it. This creates a "Resources" folder.
 - Take that "Resources" folder and move it into the AppleALC-Master folder, replacing the existing one.

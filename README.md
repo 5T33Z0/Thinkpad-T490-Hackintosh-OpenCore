@@ -10,9 +10,9 @@
 ## About
 OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo ThinkPad T490. Read the following documentation carefully in order to install/boot macOS successfully!
 
-|⚠️ Important Notes
-|:-----------------------|
-| The **Samsung PM981a NVMe** that comes with the system is NOT compatible with macOS. You **_must_** use a different, compatible NVMe drive! |
+> [!CAUTION]
+>
+> The **Samsung PM981a NVMe** that comes with the system is NOT compatible with macOS. You **_must_** use a different, compatible NVMe drive! 
 
 ## Notable Features
 - [x] Proper Hibernation (Modes 3 and 25 supported)

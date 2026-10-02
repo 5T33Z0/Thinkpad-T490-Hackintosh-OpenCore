@@ -29,9 +29,9 @@ Open `about:config` in Firefox and set the following flags. Double-click a boole
 
 Install the [**enhanced-h264ify**](https://addons.mozilla.org/en-US/firefox/addon/enhanced-h264ify/) extension and block the following codecs in its settings:
 
-- **VP9**
-- **AV1**
-- **VP8** (recommended)
+- **Block VP8** 
+- **Block VP9** – Do not block this if your system and display support 4K playback, otherwise YouTube will be limited to 1080p.
+- **Block AV1**
 
 Leave **H264** *unblocked*. This forces YouTube to serve H264, which is the only codec with hardware decode support on UHD 620.
 

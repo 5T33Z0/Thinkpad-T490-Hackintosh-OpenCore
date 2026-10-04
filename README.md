@@ -186,9 +186,7 @@ EFI
 
 ### Config Adjustments
 
-If your T490 matches the specs listed above and you are installing macOS Sonoma or newer, only minimal changes to `config.plist` are required.
-
-At minimum, generate valid SMBIOS data.
+If your T490 matches the specs listed above and you are installing macOS Sonoma or newer, only minimal changes to `config.plist` are required. At minimum, generate valid SMBIOS data.
 
 * Download the **latest release** of this EFI and extract it.
 * Open `config.plist` using ProperTree or OCAT.
@@ -199,17 +197,28 @@ At minimum, generate valid SMBIOS data.
 * Generate `MLB`, `SystemSerialNumber`, and `ROM` for `MacBookPro15,2` (using GenSMBIOS or OCAT).
 
 **Graphics**
+
 `Devices → Properties → Add → PciRoot(0x0)/Pci(0x2,0x0)`
 
-* For macOS ≤ 13.3:
-  Disable/remove `enable-backlight-registers-alternative-fix` and use `enable-backlight-registers-fix` instead (prevents black screen).
+* **For macOS ≤ 13.3**: Disable/remove `enable-backlight-registers-alternative-fix` and use `enable-backlight-registers-fix` instead (prevents black screen).
 * If display issues occur, try a different framebuffer patch from `Additional_Files/Framebuffer_Patches/UHD620_Framebuffer_Patches.plist`.
 
-**Wi-Fi** (&rarr; Check [AirpotItlwm vs. Itlwm](AirportItlwm_vs_itlwm.md) for more details)
+**Wi-Fi** → Check [AirPortItlwm vs. Itlwm](AirportItlwm_vs_itlwm.md) for more details
 
-* **Sonoma**: `AirportItlwm_Sonoma` (no root patches required).
-* **Sequoia**/**Tahoe**: `AirportItlwm_Sequoia` (requires root patching with OCLP-Mod).
-* **Optional**: `itlwm.kext` is present but disabled. If you want to use it, enabled it but disable  `AirportItlwm` kexts.
+* **Default:** `itlwm.kext` is enabled and does not require root patches.
+* **Alternative:** To use `AirportItlwm`, make the following changes:
+	* **Kernel → Add:** 
+		* Disable `itlwm.kext`
+    	* Enable `IOSkywalkFamily.kext` (macOS 15+)
+    	* Enable `IO80211FamilyLegacy.kext` (macOS 15+)
+    	* Enable `AirportItlwm_Sonoma.kext` (macOS 14)
+    	* Enable `AirportItlwm_Sequoia.kext` (macOS 15+)
+	* **Kernel → Block:** 
+		* Enable `com.apple.iokit.IOSkywalkFamily` (macOS 15+)
+
+> [!IMPORTANT]
+> 
+> After installation, apply the required **OCLP root patches** using OCLP Mod to enable Wi-Fi.
 
 **Kernel → Quirks**
 

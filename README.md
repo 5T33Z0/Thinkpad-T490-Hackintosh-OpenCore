@@ -1,6 +1,6 @@
 # Lenovo ThinkPad T490 Hackintosh OpenCore
 
-[![OpenCore](https://img.shields.io/badge/OpenCore-1.0.8-cyan.svg?style=flat-square&title=OpenCore%20Bootloader)](https://github.com/acidanthera/OpenCorePkg/releases/latest)
+[![OpenCore](https://img.shields.io/badge/OpenCore-1.0.9-cyan.svg?style=flat-square&title=OpenCore%20Bootloader)](https://github.com/acidanthera/OpenCorePkg/releases/latest)
 [![macOS](https://img.shields.io/badge/macOS-14.x--26.x-005BB5.svg?style=flat-square&title=Supported%20macOS%20Versions)](https://www.apple.com/macos/)
 [![Release](https://img.shields.io/badge/Download-Latest-success.svg?style=flat-square&title=Latest%20Release)](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/releases/latest)
 ![ThinkPad T490 Hackintosh](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/assets/76865553/ed932a1a-8205-4b81-a4e2-f68d7d8a7178)
@@ -54,8 +54,8 @@ Category | Description
 -------:|------------
 **Model** | Lenovo ThinkPad T490 
 **Variant** | [**20N3**](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t490-type-20n2-20n3/document-userguide)
-**UEFI BIOS** | v1.84 (2025-07-03)
-**EC** | v1.27
+**UEFI BIOS** | v1.85
+**EC** | v1.28
 **ME Firmware** | v12.0.95.2489
 **CPU** | Intel [**Intel Core i5 8265U**](https://ark.intel.com/content/www/us/en/ark/products/149088/intel-core-i58265u-processor-6m-cache-up-to-3-90-ghz.html) (Quad Core)
 **RAM** | 16 GB: <ul> <li> 8 GB Samsung DDR 4 @2666 Mhz (soldered) <li> 8 GB Samsung DDR 4 @2666 Mhz (RAM Slot)

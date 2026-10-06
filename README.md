@@ -14,27 +14,30 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 >
 > The **Samsung PM981a NVMe** that comes with the system is NOT compatible with macOS. You **_must_** use a different, compatible NVMe drive! 
 
-## Notable Features
-- [x] Proper Hibernation (Modes 3 and 25 supported)
-- [x] Cleaner implementation of `_OSI` checks
-- [x] Optimized Framebuffer Patch for smoother handshake with external displays
-- [x] Added Disable BDPROCHOT driver to fix performance issues after waking from S3/S4 sleep. 
-- [x] Working Thunderbolt 3 over USB-C
-- [x] New USB Port Mapping with docking station support
-- [x] Working clamshell mode (when connected to A/C and external display)
-- [x] Working 3D globe in Maps app (macOS 12+)
-- [x] No injection of `PlatformInfo` data into Microsoft Windows.
-- [x] Lean EFI folder with slimmed kexts (20 MB instead of 62 MB):
- 	- **AirportItlwm_Sonoma**: 1,8 instead of 16 MB. Only contains Firmware for Intel AC 9560.
-	- **AppleALC**: 86 Kb instead of 2,3 MB. Only contains layout `97`.
-	- **IntelBluetoothFirmware**: 560 KB instead of 11,5 MB.
-	- **itlwm** (1.5 mb instead of 16 mb). Only Contains Firmware for Intel AC 9560.
+---
 
-## Known Issues
-- [ ] Fingerprint reader &rarr; incompatible with macOS
-- [ ] Infrared portion of integrated camera unsupported by macOS &rarr; So moving the frontside switch to the left actually disables the camera in macOS (if you don't want to disable it in BIOS)
-- [ ] SDCard Reader only works when a card is inserted prior to booting (&rarr; see [issue 59](https://github.com/0xFireWolf/RealtekCardReader/issues/59))
-- [ ] YogaSMC hasn't been update in years, causes issues and is incompatibel with macOS Tahoe. That's why it's disabled by default
+## ✨ Notable Features
+
+- [x] 📶 **Native Wi-Fi support** — Use the native AirPort Utility in macOS Sequoia/Tahoe without requiring Root Patches
+- [x] 🔌 **Working Thunderbolt 3** — Thunderbolt 3 over USB-C is fully functional
+- [x] 🔗 **Updated USB mapping** — New USB port mapping with docking station support
+- [x] 💤 **Proper hibernation** — Supports hibernation modes `3` and `25`
+- [x] 🖥️ **Working clamshell mode** — Functions correctly when connected to AC power and an external display
+- [x] ⚡ **Disable BDPROCHOT** — Prevents performance issues after waking from S3/S4 sleep
+- [x] 🧩 **Cleaner `_OSI` implementation** — Improved handling of ACPI OS detection
+- [x] 🖥️ **Optimized framebuffer patch** — Smoother handshaking with external displays
+- [x] 🌍 **3D Maps globe** — Working 3D globe in Apple Maps on macOS 12 and later
+- [x] 🪟 **Windows-safe PlatformInfo** — `PlatformInfo` data is not injected into Microsoft Windows
+- [x] 🪶 **Lean EFI** — Reduced from 62 MB to 18 MB by removing unnecessary firmware and resources
+
+---
+
+## ⚠️ Known Issues
+
+- [ ] 🔐 **Fingerprint reader** → Incompatible with macOS
+- [ ] 📷 **IR camera** → The infrared portion of the integrated camera is unsupported by macOS. The physical camera switch controls the camera hardware: **moving the switch to the left cuts power/disconnects the camera, so the regular webcam is also disabled in macOS**. This allows you to disable the camera without disabling it in the BIOS.
+- [ ] 💾 **SD card reader** → Only works when a card is inserted before booting. See [issue #59](https://github.com/0xFireWolf/RealtekCardReader/issues/59).
+- [ ] 🛠️ **YogaSMC** → Hasn't been updated in years, causes issues, and is incompatible with macOS Tahoe. It is therefore disabled by default.
 
 > [!IMPORTANT]
 > 
@@ -72,6 +75,8 @@ Category | Description
 **SD Card Reader** | Realtek MicroSD Card Reader
 **Dock** | [**ThinkPad Ultra Docking Station**](https://support.lenovo.com/us/en/solutions/pd500173-thinkpad-ultra-docking-station-overview-and-service-parts)
 
+---
+
 ## BIOS Settings
 After powering on the machine, spam <kbd>F1</kbd> until you hear a beep to enter the BIOS. Change the following settings:
 
@@ -80,6 +85,8 @@ Category | Setting
 **Config** | **Display** <ul> <li>Shared Display Priority: `HDMI` <li> Total Graphics Memory: irrelevant for macOS </ul> **CPU** <ul> <li> Intel Hyperthreading Technology: `ON` 
 **Security** | **Fingerprint** <ul><li>Predesktop Authentication: `OFF` </ul> **Security Chip** <ul><li>Security Chip`ON` or `OFF` (enable for Windows 11) </ul> **Memory Protection** <ul> <li> Execution Prevention: `ON`</ul></ul> **Virtualization** <ul><li> Kernel DMA Protection: `ON` (enables `VT-D` by design)</ul> **I/O Port Access** <ul> <li> Ethernet LAN: `ON` <li> Wireless LAN: `ON` <li> Bluetooth: `ON` <li> USB Port: `ON` <li> Memory Card Slot: `ON` <li> Smart Card Slot: `OFF` <li> Integrated Camera: `ON` <li> Integrated Audio: `ON` <li> Microphone: `ON` <li> Fingerprint Reader: `ON` (works in Windows only) or `OFF` <li> Thunderbolt 3: `ON` </ul> **Absolute Persistance Module** <ul><li> Absolute Persistance Module Activation: `Disabled`</ul> **Secure Boot Configuration** <ul><li> Secure Boot: `OFF` </ul> **Intel SGX** <ul><li> Intel SGX Control: `Disabled`
 **Startup** | <ul> <li> **UEFI/ Legacy Boot**: `UEFI Only` <li> **Boot Mode**: `Quick` (Skips Diagnostics)
+
+---
 
 ## EFI Folder Content
 
@@ -120,6 +127,7 @@ EFI
 │   │   ├── AdvancedMap.kext
 │   │   ├── AirportItlwm_Sequoia.kext
 │   │   ├── AirportItlwm_Sonoma.kext
+│   │   ├── AirportItlwm_Tahoe.kext
 │   │   ├── AMFIPass.kext
 │   │   ├── AppleALC.kext
 │   │   ├── BlueToolFixup.kext
@@ -132,8 +140,6 @@ EFI
 │   │   ├── IntelBluetoothInjector.kext
 │   │   ├── IntelBTPatcher.kext
 │   │   ├── IntelMausiEthernet.kext
-│   │   ├── IO80211FamilyLegacy.kext
-│   │   ├── IOSkywalkFamily.kext
 │   │   ├── itlwm.kext
 │   │   ├── Lilu.kext
 │   │   ├── NVMeFix.kext
@@ -182,63 +188,69 @@ EFI
 ```
 </details>
 
+---
+
 ## Preparations
 
 ### Config Adjustments
 
-If your T490 matches the specs listed above and you are installing macOS Sonoma or newer, only minimal changes to `config.plist` are required. At minimum, generate valid SMBIOS data.
+If your T490 matches the specifications listed above and you are installing **macOS Sonoma or newer**, only minimal changes to `config.plist` are required. At a minimum, you must generate valid SMBIOS data.
 
-* Download the **latest release** of this EFI and extract it.
-* Open `config.plist` using ProperTree or OCAT.
-* Make the following adjustments:
+1. Download the **latest release** of this EFI and extract it.
+2. Open `config.plist` using **ProperTree** or **OCAT**.
+3. Make the following adjustments:
 
-**PlatformInfo → Generic**
+#### PlatformInfo → Generic
 
-* Generate `MLB`, `SystemSerialNumber`, and `ROM` for `MacBookPro15,2` (using GenSMBIOS or OCAT).
+Generate the following values for `MacBookPro15,2` using **OCAT** or **GenSMBIOS**:
 
-**Graphics**
+- `MLB`
+- `SystemSerialNumber`
+- `ROM`
 
-`Devices → Properties → Add → PciRoot(0x0)/Pci(0x2,0x0)`
+#### DeviceProperties → Graphics
 
-* **For macOS ≤ 13.3**: Disable/remove `enable-backlight-registers-alternative-fix` and use `enable-backlight-registers-fix` instead (prevents black screen).
-* If display issues occur, try a different framebuffer patch from `Additional_Files/Framebuffer_Patches/UHD620_Framebuffer_Patches.plist`.
+Navigate to:
 
-**Wi-Fi** → Check [AirPortItlwm vs. Itlwm](AirportItlwm_vs_itlwm.md) for more details
+`DeviceProperties → Add → PciRoot(0x0)/Pci(0x2,0x0)`
 
-* **Default:** `itlwm.kext` is enabled and does not require root patches.
-* **Alternative:** To use `AirportItlwm`, make the following changes:
-	* **Kernel → Add:** 
-		* Disable `itlwm.kext`
-    	* Enable `IOSkywalkFamily.kext` (macOS 15+)
-    	* Enable `IO80211FamilyLegacy.kext` (macOS 15+)
-    	* Enable `AirportItlwm_Sonoma.kext` (macOS 14)
-    	* Enable `AirportItlwm_Sequoia.kext` (macOS 15+)
-	* **Kernel → Block:** 
-		* Enable `com.apple.iokit.IOSkywalkFamily` (macOS 15+)
+- **macOS ≤ 13.3:** Disable or remove `enable-backlight-registers-alternative-fix` and use `enable-backlight-registers-fix` instead. This prevents a black screen on affected versions.
+- If you experience display issues, try one of the alternative framebuffer patches provided in `Additional_Files/Framebuffer_Patches/UHD620_Framebuffer_Patches.plist`.
 
-> [!IMPORTANT]
-> 
-> After installation, apply the required **OCLP root patches** using OCLP Mod to enable Wi-Fi.
+#### Wi-Fi
 
-**Kernel → Quirks**
+See [AirPortItlwm vs. Itlwm](AirportItlwm_vs_itlwm.md) for a detailed comparison.
 
-* `AppleXcpmCfgLock` is not required on my system. Enable only if your machine fails to boot.
+- **Default:** `AirportItlwm` kexts for **Sonoma, Sequoia, and Tahoe** are included and work without requiring Root Patches.
+- **Alternative:** `itlwm.kext`
+  - Disable `AirportItlwm` kexts.
+  - Enable `itlwm.kext`.
 
-**NVRAM → Add → 7C436110-AB2A-4BBB-A880-FE41995C9F82**
+#### Kernel → Quirks
 
-* Optional debug boot arguments:
-  `-v debug=0x100 keepsyms=1`
+- `AppleXcpmCfgLock` is **not required on my system**. Enable it only if your T490 fails to boot without it.
 
-**UEFI → APFS**
+#### NVRAM → Add → `7C436110-AB2A-4BBB-A880-FE41995C9F82`
 
-* For installing macOS Catalina or older, set `MinVersion` and `MinDate` to `-1`.
+Optional debug boot arguments:
 
-Save the changes and test the EFI from USB before installing it to the internal disk.
+```text
+-v debug=0x100 keepsyms=1
+```
+
+#### UEFI → APFS
+
+When installing **macOS Catalina or older**, set:
+
+- `MinVersion` → `-1`
+- `MinDate` → `-1`
+
+Save your changes and **test the EFI from a USB drive before installing it to the internal EFI partition**.
 
 > [!IMPORTANT]
 >
-> - Do not change the SMBIOS model unless you also update the `model` property inside the `USBMap.kext` because the USB port mapping is SMBIOS-dependent; if mismatched, Bluetooth will not work.
-> - This Wi-FI and BT kexts in this EFI are slimmed and only contain firmware for the Intel AC-9560. If your T490 uses a different Wi-Fi card, use the official itlwm and BT Firmware kexts.
+> - **Do not change the SMBIOS model** unless you also update the `model` property inside `USBMap.kext`. The USB port mapping is SMBIOS-dependent. A mismatched SMBIOS can cause **Bluetooth to stop working**.
+> - The Wi-Fi and Bluetooth kexts included in this EFI are **slimmed down** and contain firmware only for the **Intel AC 9560**. If your T490 uses a different Wi-Fi card, use the **official, full versions** of `itlwm`/`AirportItlwm` and IntelBluetoothFirmware instead.
 
 ---
 
@@ -265,6 +277,8 @@ Save the changes and test the EFI from USB before installing it to the internal 
 > 
 > Upgrading from to macOS 14.3.1 to 14.4 or newer via `System Update` causes a Kernel Panic during install! Disable `AiportItlwm` and enable `itlwm.kext` instead. Set `SecureBootModel` to `Disabled`, reset NVRAM and run the update again. If this does not work, use this [workaround](https://github.com/5T33Z0/OC-Little-Translated/blob/main/W_Workarounds/macOS14.4.md) to install macOS 14.4 on a new APFS volume. Use Migration Manager afterwards to get your data onto the new volume!
 
+---
+
 ## Post-Install
 
 ### Disable Gatekeeper
@@ -273,48 +287,21 @@ Gatekeeper can be really annoying and wants to stop you from running python scri
 - Open Terminal and run: `sudo spctl --master-disable`
 - The process has slightly changed in macOS Sequoia 15.1.1. and newer [more info](https://github.com/5T33Z0/OC-Little-Translated/blob/main/14_OCLP_Wintel/Guides/Disable_Gatekeeper.md)
 
-### macOS Tahoe fixes (Wifi and Audio)
-In order for Audio and AirportItlwm to work in macOS Tahoe, you need to apply root-patches with [**OCLP-Mod**](https://github.com/laobamac/OCLP-Mod/) since the offial OCLP version is not available yet. Make sure that you are connected to the internet before attempting to apply root patches because the patcher may need to download additional files.
+### macOS Tahoe: enable analog audio
 
-- Open the app's settings:<br><img width="609" height="331" alt="oclpmod02" src="https://github.com/user-attachments/assets/ecc08229-e0f2-4e0b-bd99-d3787a3fcf70" />
-- Click on the highlighted Tab and enable the following setting before patching and press "OK" at the bottom:<br><img width="604" height="410" alt="Bildschirmfoto 2026-01-02 um 19 24 50" src="https://github.com/user-attachments/assets/568cae6d-066d-4cde-8b9c-a94b0b16d76a" />
-- Press the upper right button for root patching:<br>![oclp_mod01](https://github.com/user-attachments/assets/ad42427a-3726-480e-89a3-d2bd98754c3c)
-- Next, press the upper button to install patches and wait until patching is completed:<br>![oclp_mod02](https://github.com/user-attachments/assets/25e5fc28-05de-4cdd-ac3d-d5a28d06d1db)
-- Once patching is complete, reboot.
-
-Audio and Wi-Fi should work now. If there's no sound, you have to go into system settings to change the output to "Internal Speakers"
-
-> [!NOTE]
->
-> You don't have to apply root patches in macOS Tahoe to enable audio and Wi-Fi. Alternatively, you can use `itlwm` kext for wifi and [VoodooHDA](https://github.com/chris1111/VoodooHDA-Tahoe) for audio instead.
+&rarr; Follow [this guide](https://github.com/5T33Z0/OCLP4Hackintosh/blob/main/Enable_Features/Audio_Tahoe.md) to enable analog audio in macOS Tahoe
 
 ### WiFi
 
-#### Option 1: enable `AirportItlwm.kext` in macOS Sequoia+
+#### Option 1: `AirportItlwm.kext` in macOS Sonoma+
 
-Apply Root-Patches with OCLP-Mod. [More details](https://github.com/5T33Z0/OCLP4Hackintosh/blob/main/Enable_Features/AirportItllwm_Sequoia.md)
+Just connect to your WiFi Accesspoint of your choise – no root patches required 
 
 #### Option 2: For `Itlwm.kext` users
 
 - Mount **HeliPort.dmg**, drag the app into the "Programs" folder and run it.
 - Use it to connect to your WiFI hotspot.
 - Add HeliPort to "Login Items", so it stars with macOS and connects to your WiFi network automatically.
-
-### Enable YogaSMC (optional, not recommended)
-
-Starting with Release 1.0.5 v1.0 of my OC EFI folder, I've disabled YogaSMC and the required SSDTs due to reported [CPU performance issues](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/issues/44#issuecomment-2798489637). You can still re-enable it if you want to but I won't support it.
-
-- **Config Settings**: 
-  - Enable `SSDT-ECRW.aml`, `SSDT-THINK.aml` and `YogaSMC.kext`
-  - Disable `SSDT-T490-KBRD.aml` and ACPI patches for the Keyboard Shortcuts
-- Download [**YogaSMC.7z**](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/tree/main/Additional_Files/YogaSMC) and extract it.
-- Double-click the YogaSMC **prefPane** to install it
-- Drag the `YogaSMC` app into the "Programs" folder and run it
-- Click on the icon (⌥) in the menu bar and select "Start at Login"
-- Now you can control performance profiles, fan speed and other settings
-
-### Configure CPUFriend
-- Use [**CPUFriendFriend**](https://github.com/corpnewt/CPUFriendFriend) to generate your own `CPUFriendDataProvider.kext` to optimize CPU Power Management if your T490 uses a different CPU than mine.
 
 ### Configure Hibernation
 Open Terminal and enter the following commands, to enable Hibernation (=`hibernatemode 25`). If you don't want to use Hibernation, use `hibernatemode 3` (= regukar S3 Sleep) instead:
@@ -347,33 +334,81 @@ sudo pmset -a womp 0                  # Disable wake-on-LAN
 > 
 > For more details, have a look at my [Hibernation Configuration Guide](https://github.com/5T33Z0/OC-Little-Translated/tree/main/Content/04_Fixing_Sleep_and_Wake_Issues/Changing_Hibernation_Modes).
 
-### Install MonitorControl (optional)
-[**MonitorControl**](https://github.com/MonitorControl/MonitorControl) is a helpful little tool that lets you control the brightness and contrast of external displays from the menubar.
-
 ### Tips for Firefox users
 
 Firefox users should force H.264 video output to enable hardware decoding to reduce heat generated by software decoding ([Instructions](Enable_Firefox_Hardware-Acceleration.md))
 
-## Understanding YogaSMC Settings
-Open the YogaSMC preference pane. You will find the following options (among others):
+### Configure CPUFriend
+- Use [**CPUFriendFriend**](https://github.com/corpnewt/CPUFriendFriend) to generate your own `CPUFriendDataProvider.kext` to optimize CPU Power Management if your T490 uses a different CPU than mine.
 
-- `DYTC`: DYTC stands for `Dynamic Thermal Control`. It allows the OS or firmware to manage the thermal characteristics of a device or component dynamically, adjusting power and performance to maintain safe operating temperatures. 3 profiles are available: "Quiet", "Balanced", and "Performance"
-- If you tick the `PSC support`, the control for the slider becomes more nuanced. Instead of 3 positions it gets more increments. I think `PSC` refers to `Power State Current` in the `DSDT` and is used to control different levels of performance via the slider.
+### Install MonitorControl (optional)
 
-### Disabling YogaSMC
-If you don't want to use YogaSMC, do the following:
+[**MonitorControl**](https://github.com/MonitorControl/MonitorControl) is a helpful little tool that lets you control the brightness and contrast of external displays from the menubar.
 
-- In macOS:
-	- Open System Preferences
-	- Right-Click on `YogaSMCPane` and remove it
-	- Under "Login items" (or similar) remove the YogaSMC App from the list
-- Config.plist: 
-	- Under `ACPI`, disable `SSDT-THINK.aml` and `SSDT-ECRW.aml`
-	- Under `Kernel`, disable `YogaSMC.kext`
+---
+
+## Why is YogaSMC Disabled?
+
+Starting with **Release 1.0.5**, YogaSMC and its required SSDTs are disabled by default due to reported **CPU performance issues**. See [issue #44](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/issues/44#issuecomment-2798489637).
+
+You can still enable YogaSMC if you need its additional controls, but **it is not recommended** since it has been years since it has been updated and the prep pane crashes in Sequoia/Tahoe.
+
+### Enabling YogaSMC
+
+> [!WARNING]
+> 
+> YogaSMC may cause CPU performance issues. Enable it at your own risk.
+
+1. **Update `config.plist`:**
+   - Enable `SSDT-ECRW.aml`
+   - Enable `SSDT-THINK.aml`
+   - Enable `YogaSMC.kext`
+   - Disable `SSDT-T490-KBRD.aml`
+   - Disable the ACPI patches related to keyboard shortcuts
+
+2. Download [**YogaSMC.7z**](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/tree/main/Additional_Files/YogaSMC) and extract it.
+
+3. Double-click the **YogaSMC preference pane** to install it.
+
+4. Move the `YogaSMC` app to the **Applications** folder and launch it.
+
+5. Click the YogaSMC icon in the menu bar and enable **Start at Login**.
+
+You can then use YogaSMC to control performance profiles, fan speed, and other hardware settings.
+
+### YogaSMC Settings
+
+The YogaSMC preference pane provides several settings, including:
+
+- **DYTC** — Dynamic Thermal Control. Provides three thermal/performance profiles:
+  - `Quiet`
+  - `Balanced`
+  - `Performance`
+- **PSC Support** — Provides finer-grained control over the performance slider instead of the default three positions.
+
+### Removing YogaSMC
+
+If you decide to disable YogaSMC again:
+
+**In macOS:**
+
+- Open **System Settings**.
+- Remove `YogaSMCPane` from the installed preference panes.
+- Remove the YogaSMC app from **Login Items**.
+
+**In `config.plist`:**
+
+- Under `ACPI`, disable:
+  - `SSDT-THINK.aml`
+  - `SSDT-ECRW.aml`
+- Under `Kernel`, disable:
+  - `YogaSMC.kext`
 
 > [!NOTE]
 > 
-> After disabling YogaSMC, fan and performance controls are no longer available. F-keys besides Volume and Brightness will no longer work either.
+> After disabling YogaSMC, fan and performance controls provided by YogaSMC are no longer available. Function keys other than **volume** and **brightness** will also no longer work.
+
+---
 
 ## Compiling Intel Wi-Fi and Bluetooth Firmware kexts easily
 
@@ -395,10 +430,11 @@ These kexts won't be slimmed like the ones present in my EFI folders but at leas
 - [**ic005k**](https://github.com/ic005k/OCAuxiliaryTools) for OpenCore Auxiliary Tools
 - [**benbaker76**](https://github.com/benbaker76/Hackintool) for Hackintool
 - [**zxystd**](https://github.com/zxystd/BrcmPatchRAM) for Sonoma-compatible BrcmPatchRAM kext
+- [**laobamac**](https://github.com/laobamac) for Sequoia/Tahoe compatibile AirportItlwm kext
 - **Special Thx to**:
 	- [1Revenger1](https://github.com/1Revenger1/) for VoodooRMI and fixing issues with the TrackPad
 	-  deeveedee for advice when trying to optimize the framebuffer patch for connecting to my external display. 
-- **T490 OpenCore Repos** used for referencing and ACPI hotfixes:
+	- **T490 OpenCore Repos** used for referencing and ACPI hotfixes:
 	- [yusifsalam](https://github.com/yusifsalam/t490-macos)
 	- [Krissh-C ](https://github.com/Krissh-C/T490-macOS)
 	- [ganyuanzhen](https://github.com/ganyuanzhen/T490-Hackintosh-Opencore)

@@ -295,7 +295,11 @@ Gatekeeper can be really annoying and wants to stop you from running python scri
 
 #### Option 1: `AirportItlwm.kext` in macOS Sonoma+
 
-Just connect to your WiFi Accesspoint of your choise – no root patches required 
+Just connect to your WiFi Accesspoint of your choise – no root patches required. 
+
+> [!NOTE]
+>
+> My EFI contains `AirportItlwm.kext` builds for macOS Sonoma, Sequoia, and Tahoe. For older macOS versions, download the [7-Zip archive](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/raw/refs/heads/main/Additional_Files/Kexts/Slimmed_Kexts/Intel_AC-9650/itlwm/2.4.0/Release.7z) containing pre-compiled `AirportItlwm` builds for macOS High Sierra through Tahoe, with firmware specifically for the Intel AC-9650. Extract the archive and use the build matching your macOS version. Use [Keka](https://www.keka.io/de/) for extraction if the built-in unarchiver fails.
 
 #### Option 2: For `Itlwm.kext` users
 

@@ -35,8 +35,8 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 ## ⚠️ Known Issues
 
 - [ ] 🔐 **Fingerprint reader** → Incompatible with macOS
-- [ ] 📷 **IR camera** → The infrared portion of the integrated camera is unsupported by macOS. The physical camera switch controls the camera hardware: **moving the switch to the left cuts power/disconnects the camera, so the regular webcam is also disabled in macOS**. This allows you to disable the camera without disabling it in the BIOS.
 - [ ] 💾 **SD card reader** → Only works when a card is inserted before booting. See [issue #59](https://github.com/0xFireWolf/RealtekCardReader/issues/59).
+- [ ] 📷 **IR camera** → The infrared portion of the integrated camera is unsupported by macOS. The physical camera switch controls the camera hardware: **moving the switch to the left cuts power/disconnects the camera, so the regular webcam is also disabled in macOS**. This allows you to disable the camera without disabling it in the BIOS.
 - [ ] 🛠️ **YogaSMC** → Hasn't been updated in years, causes issues, and is incompatible with macOS Tahoe. It is therefore disabled by default.
 
 > [!IMPORTANT]

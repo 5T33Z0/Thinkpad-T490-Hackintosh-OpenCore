@@ -18,18 +18,19 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 
 ## ✨ Notable Features
 
-- [x] 📶 **Native Wi-Fi support** — Use the native AirPort Utility in macOS Sequoia/Tahoe without requiring Root Patches
-- [x] 🔈 **Working Audio in macOS Tahoe oob** – No root patches required
-- [x] 🔌 **Working Thunderbolt 3** — Thunderbolt 3 over USB-C is fully functional
-- [x] 🔗 **Updated USB mapping** — New USB port mapping with docking station support
-- [x] 💤 **Proper hibernation** — Supports hibernation modes `3` and `25`
-- [x] 🖥️ **Working clamshell mode** — Functions correctly when connected to AC power and an external display
-- [x] ⚡ **Disable BDPROCHOT** — Prevents performance issues after waking from S3/S4 sleep
-- [x] 🧩 **Cleaner `_OSI` implementation** — Improved handling of ACPI OS detection
-- [x] 🖥️ **Optimized framebuffer patch** — Smoother handshaking with external displays
-- [x] 🌍 **3D Maps globe** — Working 3D globe in Apple Maps on macOS 12 and later
-- [x] 🪟 **Windows-safe PlatformInfo** — `PlatformInfo` data is not injected into Microsoft Windows
-- [x] 🪶 **Lean EFI** — Reduced from 62 MB to 18 MB by removing unnecessary firmware and resources
+- [x] 📶 **Native Intel Wi-Fi support** — Use Apple’s native AirPort Utility in macOS Sequoia and Tahoe without requiring root patches
+- [x] 🔈 **Working audio in macOS Tahoe out of the box** — No root patches required
+- [x] 🐧 **Linux boot support** — Adds Linux filesystem drivers to boot Linux directly from the OpenCore GUI (enable, if needed)
+- [x] 🔌 **Fully functional Thunderbolt 3** — Thunderbolt 3 over USB-C works as intended
+- [x] 💤 **Proper hibernation support** — Supports hibernation modes `3` and `25`
+- [x] 🖥️ **Optimized framebuffer patch** — Improves handshaking with external displays
+- [x] 🖥️ **Working clamshell mode** — Works correctly on AC power with an external display connected
+- [x] 🔗 **Updated USB mapping** — Includes docking station support
+- [x] ⚡ **Improved wake performance** — Disables BDPROCHOT to prevent performance issues after waking from S3/S4 sleep
+- [x] 🧩 **Cleaner `_OSI` implementation** — Improves ACPI operating system detection
+- [x] 🪟 **Windows-safe PlatformInfo** — Prevents OpenCore `PlatformInfo` data from being injected into Windows
+- [x] 🌍 **Working 3D globe in Apple Maps** — Restores the 3D globe on macOS Monterey and later
+- [x] 🪶 **Lean EFI** — Reduced EFI size from 62 MB to 18 MB by removing unnecessary firmware and resources
 
 ---
 

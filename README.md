@@ -19,6 +19,7 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 ## ✨ Notable Features
 
 - [x] 📶 **Native Wi-Fi support** — Use the native AirPort Utility in macOS Sequoia/Tahoe without requiring Root Patches
+- [x] 🔈 **Working Audio in macOS Tahoe oob** – No root patches required
 - [x] 🔌 **Working Thunderbolt 3** — Thunderbolt 3 over USB-C is fully functional
 - [x] 🔗 **Updated USB mapping** — New USB port mapping with docking station support
 - [x] 💤 **Proper hibernation** — Supports hibernation modes `3` and `25`

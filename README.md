@@ -234,7 +234,16 @@ See [AirPortItlwm vs. Itlwm](AirportItlwm_vs_itlwm.md) for a detailed comparison
 
 #### NVRAM → Add → `7C436110-AB2A-4BBB-A880-FE41995C9F82`
 
-Optional debug boot arguments:
+**Keyboard/Language Settings:**
+
+- `prev-lang:kbd` → Currently set to `en-US:0` (American English).
+- Change the value to your preferred language. **Examples:** `de-DE:3` (German), `es:87` (Spanish), `fr:60` (French), `it:4` (Italian).
+
+> [!IMPORTANT]
+>
+> Leaving the value empty (e.g., `<>`) forces the Language Picker to appear during initial setup. However, in macOS Tahoe, SimpleHDA uses `prev-lang:kbd` to determine the language of device descriptions in the volume slider. If the value is blank, SimpleHDA defaults to Chinese for these descriptions. To avoid this, set `prev-lang:kbd` to your preferred language.
+
+**Optional debug boot arguments:**
 
 ```text
 -v debug=0x100 keepsyms=1

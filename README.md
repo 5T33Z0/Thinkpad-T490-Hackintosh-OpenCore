@@ -275,7 +275,6 @@ Save your changes and **test the EFI from a USB drive before installing it to th
 
 ### If macOS is not installed
 - Follow Dortania's [**OpenCore Install Guide**](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/#making-the-installer) to prepare a USB Installer
-- Download the latest version of [**HeliPort**](https://github.com/diepeterpan/HeliPort/releases) and copy the .dmg to your USB Installer (only required for macOS Tahoe since it requires `itlwm.kext` for WiFi)
 - Next, mount the ESP (EFI System Partiton), of the USB Installer – you can use [**MountEFI**](https://github.com/corpnewt/MountEFI) for this
 - Place the EFI folder in the EFI partition
 - Restart your system and boot from the USB installer.
@@ -298,10 +297,6 @@ Gatekeeper can be really annoying and wants to stop you from running python scri
 - Open Terminal and run: `sudo spctl --master-disable`
 - The process has slightly changed in macOS Sequoia 15.1.1. and newer [more info](https://github.com/5T33Z0/OC-Little-Translated/blob/main/14_OCLP_Wintel/Guides/Disable_Gatekeeper.md)
 
-### macOS Tahoe: enable analog audio
-
-&rarr; Follow [this guide](https://github.com/5T33Z0/OCLP4Hackintosh/blob/main/Enable_Features/Audio_Tahoe.md) to enable analog audio in macOS Tahoe
-
 ### WiFi
 
 #### Option 1: `AirportItlwm.kext` in macOS Sonoma+
@@ -310,11 +305,12 @@ Just connect to your WiFi Accesspoint of your choise – no root patches require
 
 > [!NOTE]
 >
-> My EFI contains `AirportItlwm.kext` builds for macOS Sonoma, Sequoia, and Tahoe. For older macOS versions, download the [7-Zip archive](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/raw/refs/heads/main/Additional_Files/Kexts/Slimmed_Kexts/Intel_AC-9650/itlwm/2.4.0/Release.7z) containing pre-compiled `AirportItlwm` builds for macOS High Sierra through Tahoe, with firmware specifically for the Intel AC-9650. Extract the archive and use the build matching your macOS version. Use [Keka](https://www.keka.io/de/) for extraction if the built-in unarchiver fails.
+> My EFI contains `AirportItlwm.kext` builds for macOS Sonoma, Sequoia, and Tahoe. For older macOS versions, download this [7-Zip archive](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/raw/refs/heads/main/Additional_Files/Kexts/Slimmed_Kexts/Intel_AC-9650/itlwm/2.4.0/Release.7z) containing pre-compiled `AirportItlwm` builds for macOS High Sierra through Tahoe, with firmware specifically for the Intel AC-9650. Extract the archive and use the build matching your macOS version. Use [Keka](https://www.keka.io/de/) for extraction if the built-in unarchiver fails.
 
 #### Option 2: For `Itlwm.kext` users
 
-- Mount **HeliPort.dmg**, drag the app into the "Programs" folder and run it.
+- Download Josh Calvert's fork of [**Heliport**]([https://github.com/joshcalvert47](https://github.com/joshcalvert47/HeliPort/releases))
+- Mount the **HeliPort.dmg**, drag the app into the "Programs" folder and run it.
 - Use it to connect to your WiFI hotspot.
 - Add HeliPort to "Login Items", so it stars with macOS and connects to your WiFi network automatically.
 

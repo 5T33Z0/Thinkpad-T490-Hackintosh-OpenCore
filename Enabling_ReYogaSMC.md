@@ -2,7 +2,7 @@
 
 ## Status
 - Working: Keyboard Shortcuts
-- Not working: "Device" and  "Cooling and Power" features are not available yet since I don't know what to do with the `ReYogaSMCNCHelper` app (where to place it and how to load it). 
+- Not working: "Device" and  "Cooling and Power" features are not available yet. Needs further investigation
 
 ## Instructions
 

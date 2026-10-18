@@ -30,3 +30,7 @@ Key Combo | Funtion
 <kbd>Fn</kbd>+<kbd>F10</kbd>| :warning: Don't use, it crashes the ReYogaSMCNC app!
 <kbd>Fn</kbd>+<kbd>F11</kbd>| Keyboard Disable/Enable
 <kbd>Fn</kbd>+<kbd>F12</kbd>| Opens ReYogaSMCNC's Settings
+
+## Credits
+- Hoaug-Tran for [ReYogaSMC](https://github.com/hoaug-tran/ReYogaSMC)
+- Zhen-Zen for original [YogaSMC](https://github.com/zhen-zen/YogaSMC)

@@ -219,7 +219,9 @@ Navigate to:
 - **macOS ≤ 13.3:** Disable or remove `enable-backlight-registers-alternative-fix` and use `enable-backlight-registers-fix` instead. This prevents a black screen on affected versions.
 - If you experience display issues, try one of the alternative framebuffer patches provided in `Additional_Files/Framebuffer_Patches/UHD620_Framebuffer_Patches.plist`.
 
-#### Wi-Fi
+#### Kernel &rarr; Add
+
+##### Wi-Fi
 
 See [AirPortItlwm vs. Itlwm](AirportItlwm_vs_itlwm.md) for a detailed comparison.
 
@@ -227,6 +229,10 @@ See [AirPortItlwm vs. Itlwm](AirportItlwm_vs_itlwm.md) for a detailed comparison
 - **Alternative:** `itlwm.kext`
   - Disable `AirportItlwm` kexts.
   - Enable `itlwm.kext`.
+
+#### CPUFriend
+- Disable CPUFriend and CPUFriendDataProvider kexts if your system has a different CPU than my T490 model (Intel Core i5-8265U)
+- Generate your own CPUFriendDataProvider kext in Post-Install with [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend)
 
 #### Kernel → Quirks
 

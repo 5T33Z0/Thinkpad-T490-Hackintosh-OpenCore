@@ -26,7 +26,7 @@ Key Combo | Funtion
 <kbd>Fn</kbd>+<kbd>F6</kbd>| Backlight up
 <kbd>Fn</kbd>+<kbd>F7</kbd>| Opens Display Options
 <kbd>Fn</kbd>+<kbd>F8</kbd>| Wifi Enable/Disable
-<kbd>Fn</kbd>+<kbd>F9</kbd>| System Setting (Sequoia), in Taho it only opens ReYogaSMCNC's Settings
+<kbd>Fn</kbd>+<kbd>F9</kbd>| Opens ReYogaSMCNC's Settings
 <kbd>Fn</kbd>+<kbd>F10</kbd>| :warning: Don't use, it crashes the ReYogaSMCNC app!
 <kbd>Fn</kbd>+<kbd>F11</kbd>| Keyboard Disable/Enable
 <kbd>Fn</kbd>+<kbd>F12</kbd>| Opens ReYogaSMCNC's Settings

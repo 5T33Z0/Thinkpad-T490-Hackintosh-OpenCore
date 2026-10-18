@@ -12,7 +12,7 @@
 - Open ReYogaSMC Settins: In the Menu Bar, click in the `L'` icon and select `Settings…` 
 - In the "Keyboard" tab, enable `Map Legion shortcut kexs to macOS action` &rarr; This opens the Accessibilty Options in System Settings.
 - Allow ReYogaSMCNC to control the computer so the keyboard shortcuts work
-- Add YogaSMC as a login Item via System Settings (via App doesn't work)
+- Add YogaSMC as a login Item via System Settings manually (doesn't work from within the app's settings)
 
 ## Working Fn-Hotkey Combos
 

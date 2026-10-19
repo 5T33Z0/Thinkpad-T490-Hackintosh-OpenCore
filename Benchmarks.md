@@ -2,17 +2,20 @@
 
 ## Test Evironment
 
-**macOS**: 14.7.7 (23H709)<br>
 **CPU**: Intel Core i5 8265U (Quad Core)<br>
 **iGPU**: Intel UHD 620 (spoofed as UHD 630)<br>
 **Tool**: Geekbench 5.5.1
 
 ## CPU Results
 
-Test # | Parameters | Single-Core <br>Score| Multicore <br>Score
-:-----:|------------|:--------------------:|:--------------------:
-[1](https://browser.geekbench.com/v5/cpu/23665259) |<ul><li>YogaSMC **OFF** <li> CPUFriend: **OFF** |1017|3252
-[2](https://browser.geekbench.com/v5/cpu/23665246) |<ul><li>YogaSMC **OFF** <li> CPUFriend: **ON** | 1016 | 3330
+Test # |macOS|Parameters | Single-Core <br>Score| Multicore <br>Score
+:-----:|----|------------|:--------------------:|:--------------------:
+[1](https://browser.geekbench.com/v5/cpu/23665259)| 14.7.7 |<ul><li>YogaSMC **OFF** <li> CPUFriend: **OFF** |1017|3252
+[2](https://browser.geekbench.com/v5/cpu/23665246)| 14.7.7 |<ul><li>YogaSMC **OFF** <li> CPUFriend: **ON** | 1016 | 3330
+||
+[3](https://browser.geekbench.com/v5/cpu/24734273)| 15.8.1 | <ul><li>ReYogaSMC **ON** <li> CPUFriend: **OFF** | 1002 | 3210 
+[4](https://browser.geekbench.com/v5/cpu/24734316)| 15.8.1 | <ul><li>ReYogaSMC **ON** <li> CPUFriend: **ON** | 1013 | 2428
+[5](https://browser.geekbench.com/v5/cpu/24734328)| 15.8.1 | <ul><li>ReYogaSMC **OFF** <li> CPUFriend: **ON** | 1013 | 3187
 
 ## iGPU Results
 

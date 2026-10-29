@@ -20,7 +20,7 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 - [x] 📶 **Native Intel Wi-Fi support** — Use Apple’s native Wi-Fi stack in macOS Sequoia and Tahoe without requiring root patches
 - [x] Features enabled by ReYogaSMC:
 	- [x] ⌨️ All Fn hotkeys functional
-	- [x] 🧊 Selctable Power Profiles: Quiet, Balanced, and Performance
+	- [x] 🧊 Power Profiles: Quiet, Balanced, and Performance
 	- [x] 🌬️ Working Fan Controls with diffferent Modes: Auto, Manual, Custom Curve, Full
 - [x] 🔈 **Working audio in macOS Tahoe out of the box** — No root patches required
 - [x] 🔌 **Fully functional Thunderbolt 3** — Thunderbolt 3 over USB-C works as intended

@@ -2,7 +2,7 @@
 
 ## Instructions
 
-- Download the latest version (at least 2.2.0 or newer!) of the [ReYogaSMCApp](https://github.com/hoaug-tran/ReYogaSMC/releases) 
+- Download the latest version (at least 2.2.0 or newer!) of the [**ReYogaSMCApp**](https://github.com/hoaug-tran/ReYogaSMC/releases) 
 - Extact it
 - Copy the `ReYogaSMC` app to Programs Folder
 - Run the app and enter your admin password when prompted to grant it access to system controls, including sensor data, fan control, battery stats, etc.

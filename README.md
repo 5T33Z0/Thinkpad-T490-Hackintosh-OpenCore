@@ -97,96 +97,98 @@ Category | Setting
 ```
 EFI
 ├── BOOT
-│   └── BOOTx64.efi
-├── OC
-│   ├── ACPI
-│   │   ├── DMAR.aml
-│   │   ├── SSDT-ALS0.aml
-│   │   ├── SSDT-AWAC.aml
-│   │   ├── SSDT-ECRW.aml
-│   │   ├── SSDT-EXT1-FixShutdown.aml
-│   │   ├── SSDT-EXT3-LedReset-TP.aml
-│   │   ├── SSDT-EXT4-WakeScreen.aml
-│   │   ├── SSDT-GPRW.aml
-│   │   ├── SSDT-MCHC.aml
-│   │   ├── SSDT-OSDW.aml
-│   │   ├── SSDT-PLUG.aml
-│   │   ├── SSDT-PNLF.aml
-│   │   ├── SSDT-PORTS.aml
-│   │   ├── SSDT-PTSWAK.aml
-│   │   ├── SSDT-T490-KBRD.aml
-│   │   ├── SSDT-THINK.aml
-│   │   └── SSDT-USBX.aml
-│   ├── Drivers
-│   │   ├── AudioDxe.efi
-│   │   ├── DisablePROCHOT.efi
-│   │   ├── HfsPlus.efi
-│   │   ├── OpenCanopy.efi
-│   │   ├── OpenRuntime.efi
-│   │   └── ResetNvramEntry.efi
-│   ├── Kexts (Loading managed by MinKernel/MaxKernel settings)
-│   │   ├── AdvancedMap.kext
-│   │   ├── AirportItlwm_Sequoia.kext
-│   │   ├── AirportItlwm_Sonoma.kext
-│   │   ├── AirportItlwm_Tahoe.kext
-│   │   ├── AMFIPass.kext
-│   │   ├── AppleALC.kext
-│   │   ├── BlueToolFixup.kext
-│   │   ├── BrightnessKeys.kext
-│   │   ├── CPUFriend.kext
-│   │   ├── CPUFriendDataProvider.kext
-│   │   ├── ECEnabler.kext
-│   │   ├── HibernationFixup.kext
-│   │   ├── iBridged.kext
-│   │   ├── IntelBluetoothFirmware.kext
-│   │   ├── IntelBluetoothInjector.kext
-│   │   ├── IntelBTPatcher.kext
-│   │   ├── IntelMausiEthernet.kext
-│   │   ├── itlwm.kext
-│   │   ├── Lilu.kext
-│   │   ├── NVMeFix.kext
-│   │   ├── RealtekCardReader.kext
-│   │   ├── RealtekCardReaderFriend.kext
-│   │   ├── RestrictEvents.kext
-│   │   ├── ReYogaSMC.kext
-│   │   ├── RTCMemoryFixup.kext
-│   │   ├── SimpleMSR.kext
-│   │   ├── SMCBatteryManager.kext
-│   │   ├── SMCProcessor.kext
-│   │   ├── SMCSuperIO.kext
-│   │   ├── USBMap.kext
-│   │   ├── VirtualSMC.kext
-│   │   ├── VoodooPS2Controller.kext
-│   │   │   └── Contents
-│   │   │       └── PlugIns
-│   │   │           ├── VoodooInput.kext (disabled)
-│   │   │           ├── VoodooPS2Keyboard.kext
-│   │   │           ├── VoodooPS2Mouse.kext (disabled)
-│   │   │           └── VoodooPS2Trackpad.kext
-│   │   ├── VoodooRMI.kext
-│   │   │       └── PlugIns
-│   │   │           ├── RMII2C.kext (disabled)
-│   │   │           ├── RMISMBus.kext
-│   │   │           └── VoodooInput.kext
-│   │   ├── VoodooSMBus.kext
-│   │   └── WhateverGreen.kext
-│   ├── OpenCore.efi
-│   ├── Resources
-│   │   ├── Audio
-│   │   │   └── OCEFIAudio_VoiceOver_Boot.mp3
-│   │   ├── Font
-│   │   │   ├── Font_1x.bin
-│   │   │   ├── Font_1x.png
-│   │   │   ├── Font_2x.bin
-│   │   │   └── Font_2x.png
-│   │   ├── Image
-│   │   │   ├── Acidanthera (removed icons from tree view)
-│   │   │   │   └── GoldenGate 
-│   │   │   └── Blackosx
-│   │   │       └── BsxM1 (removed icons from tree view)
-│   │   └── Label (removed files from tree view)
-│   └── Config.plist
-└── OC Changelog.md
+│   └── BOOTx64.efi
+└── OC
+    ├── ACPI
+    │   ├── DMAR.aml  
+    │   ├── SSDT-ALS0.aml
+    │   ├── SSDT-AWAC.aml
+    │   ├── SSDT-EXT1-FixShutdown.aml 
+    │   ├── SSDT-EXT3-LedReset-TP.aml 
+    │   ├── SSDT-EXT4-WakeScreen.aml 
+    │   ├── SSDT-GPRW.aml 
+    │   ├── SSDT-MCHC.aml  
+    │   ├── SSDT-NO-LAP.aml  
+    │   ├── SSDT-OSDW.aml  
+    │   ├── SSDT-PLUG.aml 
+    │   ├── SSDT-PNLF.aml 
+    │   ├── SSDT-PTSWAK.aml 
+    │   ├── SSDT-ThinkPad.aml 
+    │   └── SSDT-USBX.aml 
+    ├── config.plist 
+    ├── Drivers
+    │   ├── apfs_aligned.efi
+    │   ├── AudioDxe.efi
+    │   ├── btrfs_x64.efi
+    │   ├── DisablePROCHOT.efi
+    │   ├── ext4_x64.efi 
+    │   ├── HfsPlus.efi 
+    │   ├── OpenCanopy.efi 
+    │   ├── OpenLinuxBoot.efi 
+    │   ├── OpenRuntime.efi 
+    │   └── ResetNvramEntry.efi 
+    ├── Kexts
+    │   ├── AdvancedMap.kext
+    │   ├── AirportItlwm_Sequoia.kext
+    │   ├── AirportItlwm_Sonoma.kext
+    │   ├── AirportItlwm_Tahoe.kext
+    │   ├── AMFIPass.kext
+    │   ├── AppleALC.kext
+    │   ├── BlueToolFixup.kext
+    │   ├── BrightnessKeys.kext
+    │   ├── CPUFriend.kext
+    │   ├── CPUFriendDataProvider.kext
+    │   ├── ECEnabler.kext
+    │   ├── HibernationFixup.kext
+    │   ├── IntelBluetoothFirmware.kext
+    │   ├── IntelBluetoothInjector.kext
+    │   ├── IntelBTPatcher.kext
+    │   ├── IntelMausiEthernet.kext
+    │   ├── itlwm.kext
+    │   ├── Lilu.kext
+    │   ├── NVMeFix.kext
+    │   ├── RealtekCardReader.kext
+    │   ├── RealtekCardReaderFriend.kext
+    │   ├── RestrictEvents.kext
+    │   ├── ReYogaSMC.kext
+    │   ├── RTCMemoryFixup.kext
+    │   ├── SimpleHDA.kext
+    │   ├── SimpleMSR.kext
+    │   ├── SMCBatteryManager.kext
+    │   ├── SMCProcessor.kext
+    │   ├── SMCSuperIO.kext
+    │   ├── USBMap.kext
+    │   ├── VirtualSMC.kext
+    │   ├── VoodooPS2Controller.kext
+    │   │   └── Contents
+    │   │       └── PlugIns
+    │   │           ├── VoodooInput.kext (disabled)
+    │   │           ├── VoodooPS2Keyboard.kext
+    │   │           ├── VoodooPS2Mouse.kext (disabled)
+    │   │           └── VoodooPS2Trackpad.kext
+    │   ├── VoodooRMI.kext
+    │   │       └── PlugIns
+    │   │           ├── RMII2C.kext (disabled)
+    │   │           ├── RMISMBus.kext
+    │   │           └── VoodooInput.kext
+    │   ├── VoodooSMBus.kext
+    │   └── WhateverGreen.kext
+    ├── OpenCore.efi  (616 KB)
+    ├── Resources
+    │   ├── Audio
+    │   │   └── OCEFIAudio_VoiceOver_Boot.mp3
+    │   ├── Font
+    │   │   ├── Font_1x.bin
+    │   │   ├── Font_1x.png
+    │   │   ├── Font_2x.bin
+    │   │   └── Font_2x.png
+    │   ├── Image
+    │   │   ├── Acidanthera (removed icons from tree view)
+    │   │   │   └── GoldenGate 
+    │   │   └── Blackosx
+    │   │       └── BsxM1 (removed icons from tree view)
+    │   └── Label (removed files from tree view)
+    └── Config.plist
 ```
 </details>
 

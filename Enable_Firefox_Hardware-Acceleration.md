@@ -58,6 +58,16 @@ This is a hardware limitation — not a Hackintosh or driver issue.
 
 ---
 
+## Alternative: Orion Browser (WebKit + Metal + Extensions)
+
+If you want the power efficiency of Safari without sacrificing extension support, **[Orion](https://kagi.com/orion/)** is a strong alternative:
+
+* **Native Metal Acceleration:** Orion is built directly on Apple’s native **WebKit** engine. It natively offloads UI rendering and video presentation to macOS frameworks (**Metal** and **CoreMedia / VideoToolbox**) out of the box, requiring zero manual configuration or `about:config` flags.
+* **Dual Extension Support (Firefox & Chrome):** Unlike Safari, Orion natively supports extensions from both the **Firefox Add-ons** and **Chrome Web Store**. This allows you to run full desktop **uBlock Origin** alongside **enhanced-h264ify** directly on a WebKit engine.
+* **Reduced CPU Overhead:** Because the tab layout and rendering engine avoid Gecko's additional layer on macOS, the CPU runs noticeably cooler and uses less memory during high-resolution playback compared to Firefox.
+
+---
+
 ## Troubleshooting
 
 **H264 still shows software-only in about:support** — confirm all four flags are `true` and do a full Firefox restart. Also check that WhateverGreen and Lilu kexts are up to date.

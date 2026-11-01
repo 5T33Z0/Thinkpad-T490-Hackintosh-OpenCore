@@ -61,7 +61,7 @@ Category | Description
 **UEFI BIOS** | v1.85
 **EC** | v1.28
 **ME Firmware** | v12.0.95.2489
-**CPU** | Intel [**Intel Core i5 8265U**](https://ark.intel.com/content/www/us/en/ark/products/149088/intel-core-i58265u-processor-6m-cache-up-to-3-90-ghz.html) (Quad Core)
+**CPU** | Intel [**Intel Core i5 8265U**](https://www.intel.com/content/www/us/en/products/sku/149088/intel-core-i58265u-processor-6m-cache-up-to-3-90-ghz/specifications.html) (Quad Core)<br> Device-ID: 3EA0
 **RAM** | 16 GB: <ul> <li> 8 GB Samsung DDR 4 @2666 Mhz (soldered) <li> 8 GB Samsung DDR 4 @2666 Mhz (RAM Slot)
 **Storage** | ~~Samsung PM981a NVMe~~ ([**unusable**](https://dortania.github.io/Anti-Hackintosh-Buyers-Guide/Storage.html)) <br> Western Digital PC SN530 NVMe SSD
 **Display** | Full HD (1080p) (Non-Touch)

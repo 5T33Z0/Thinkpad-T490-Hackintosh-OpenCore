@@ -4,9 +4,9 @@
 
 By default, Firefox on macOS does not reliably enable hardware video decode via Apple's VideoToolbox, even when the iGPU is fully capable. In macOS, the UHD 620 supports hardware H264 decode via VideoToolbox, but not VP9, AV1, or HEVC as shown in the following screenshots from Firefox's `about:support` section:
 
-|Windows|macOS (w/o VPXFixup | macOS (w VPXFixup)
+|Windows|macOS (w/o VPXFixup) | macOS (w VPXFixup)
 --------|--------------------|----------------
-![](https://github.com/user-attachments/assets/9f963b64-9b54-44e0-b0a0-4191dddea163) | ![](https://github.com/user-attachments/assets/8dde418f-a441-45d6-96a6-1b3320c0f344) | 
+<img width="273" height="261" alt="win" src="https://github.com/user-attachments/assets/c949faad-d481-4e8a-9526-e00925845350" /> | <img width="324" height="295" alt="vanilla" src="https://github.com/user-attachments/assets/033ad431-a56a-49c4-98de-afe259fa509a" /> | <img width="377" height="290" alt="VPXFUP" src="https://github.com/user-attachments/assets/0d3d0f67-a8a9-4b83-b124-5cf08873bc72" />
 
 On the T490, this means YouTube falls back to software (CPU) decoding, causing high CPU usage and heat during playback. YouTube preferentially serves VP9 in most browsers, so the fix requires two things: forcing Firefox to use VideoToolbox, and forcing YouTube to serve videos using the H264 codec.
 
@@ -30,7 +30,6 @@ Open `about:config` in Firefox and set the following flags. Double-click a boole
 Install the [**enhanced-h264ify**](https://addons.mozilla.org/en-US/firefox/addon/enhanced-h264ify/) extension and block the following codecs in its settings:
 
 - **Block VP8** 
-- **Block VP9** – Do not block this if your system and display support 4K playback, otherwise YouTube will be limited to 1080p.
 - **Block AV1**
 
 Leave **H264** *unblocked*. This forces YouTube to serve H264, which is the only codec with hardware decode support on UHD 620.
@@ -49,10 +48,11 @@ Leave **H264** *unblocked*. This forces YouTube to serve H264, which is the only
 
 | Codec | HW Decode | YouTube Default | Action |
 |-------|-----------|-----------------|--------|
-| H264 (avc1) | ✅ | With h264ify | Use this |
-| VP9 | ❌ | ✅ Yes | Block via h264ify |
+| H264 (avc1) | ✅ | With h264ify | Use this | –
+| VP8 |  (✅) (req. [VPX8MetalDecoder](https://github.com/medkintos/VP8MetalDecoder)) | ❌ No | Block via h264ify (or install VPX8MetalDecoder)
+| VP9 |  ✅ (via [VPXFixUp](https://github.com/medkintos/VPXFixUp)) | ✅ Yes | |
 | AV1 | ❌ | Some videos | Block via h264ify |
-| HEVC | ❌ | ❌ No | N/A |
+| HEVC | ✅ (via VPXFixUp) |✅ (via VPXFixUp) | N/A | –
 
 This is a hardware limitation — not a Hackintosh or driver issue.
 

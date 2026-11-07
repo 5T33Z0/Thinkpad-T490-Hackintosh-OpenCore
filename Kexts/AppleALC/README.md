@@ -6,7 +6,8 @@
 **Version**: 1.9.9
 
 ## Codec Structure
-![](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/blob/main/Additional_Files/SysReport/Audio/Codec-Dump.png?raw=true)
+
+![](/Hardware_Support/Audio/CodecDump/Codec-Dump.png)
 
 ## How to
 - Download and unzip the **Latest AppleALC-Release**
@@ -15,7 +16,7 @@
 - Save and Reboot
 
 ## Compile your own
-- [**Follow my guide**](/Additional_Files/Kexts/Slimmed_Kexts/AppleALC/For_Compiling)
+- [**Follow my guide**](/Kexts/AppleALC/For_Compiling)
 
 ## Notes
 - When using OCAT to update your kexts, exclude AppleALC. Otherwise this kext will be replaced by the stock version

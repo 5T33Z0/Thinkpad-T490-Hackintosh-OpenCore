@@ -1,27 +1,32 @@
 # Lenovo ThinkPad T490 Hackintosh OpenCore
 
-[![OpenCore](https://img.shields.io/badge/OpenCore-1.0.9-cyan.svg?style=flat-square&title=OpenCore%20Bootloader)](https://github.com/acidanthera/OpenCorePkg/releases/latest)
-[![macOS](https://img.shields.io/badge/macOS-14.x--26.x-005BB5.svg?style=flat-square&title=Supported%20macOS%20Versions)](https://www.apple.com/macos/)
-[![Release](https://img.shields.io/badge/Download-Latest-success.svg?style=flat-square&title=Latest%20Release)](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/releases/latest)
-![ThinkPad T490 Hackintosh](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/assets/76865553/ed932a1a-8205-4b81-a4e2-f68d7d8a7178)
+[![OpenCore](https://img.shields.io/badge/OpenCore-1.0.9-00A8E0?style=for-the-badge&logo=opencorelegacy-patcher&logoColor=white)](https://github.com/acidanthera/OpenCorePkg/releases/latest)
+[![macOS](https://img.shields.io/badge/macOS-14.x--26.x-000000?style=for-the-badge&logo=apple&logoColor=white)](https://www.apple.com/macos/)
+[![Release](https://img.shields.io/badge/Download-Latest-2EA44F?style=for-the-badge&logo=github&logoColor=white)](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/releases/latest)
+
+
+![ThinkPad T490 Hackintosh](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/assets/76865553/ed932a1a-8205-4b81-a4e2-f68d7d8a7178) 
 
 ---
 
 ## About
+
 OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo ThinkPad T490. Read the following documentation carefully in order to install/boot macOS successfully!
 
 > [!CAUTION]
 >
-> The **Samsung PM981a NVMe** that comes with the system is NOT compatible with macOS. You **_must_** use a different, compatible NVMe drive! 
+> The **Samsung PM981a NVMe** that comes with the system is NOT compatible with macOS. You **_must_** use a different, compatible NVMe drive!
 
 ---
+
 ## ✨ Notable Features
 
 - [x] 📶 **Native Intel Wi-Fi support** — Use Apple’s native Wi-Fi stack in macOS Sequoia and Tahoe without requiring root patches
+- [x] 🎬 Improved hardware-accelerated VP9 and HEVC video decoding in Firefox via [VPXFixUp.kext](https://github.com/medkintos/VPXFixUp?utm_source=chatgpt.com).
 - [x] Features enabled by ReYogaSMC:
-	- [x] ⌨️ All Fn hotkeys functional
-	- [x] 🧊 Power Profiles: Quiet, Balanced, and Performance
-	- [x] 🌬️ Working Fan Controls with diffferent Modes: Auto, Manual, Custom Curve, Full
+    - [x] ⌨️ All Fn hotkeys functional
+    - [x] 🧊 Power Profiles: Quiet, Balanced, and Performance
+    - [x] 🌬️ Working Fan Controls with different Modes: Auto, Manual, Custom Curve, Full
 - [x] 🔈 **Working audio in macOS Tahoe out of the box** — No root patches required
 - [x] 🔌 **Fully functional Thunderbolt 3** — Thunderbolt 3 over USB-C works as intended
 - [x] 🖥️ **Optimized framebuffer patch** — Improves handshaking with external displays and working Clamshell mode
@@ -41,11 +46,12 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 - [ ] 📷 **IR camera** → The infrared portion of the integrated camera is unsupported by macOS. The physical camera switch controls the camera hardware: **moving the switch to the left cuts power/disconnects the camera, so the regular webcam is also disabled in macOS**. This allows you to disable the camera without disabling it in the BIOS.
 
 > [!IMPORTANT]
-> 
+>
 > - Before reporting any issues, ensure that your system uses the latest available UEFI and EC Firmware.
 > - Don't install macOS on an external disk or flash drive – use a compatible internal disk.
 
 ## Future Developments
+
 - [x] Adjusted Framebuffer Patch so HDMI/DP Ports on docking stations can be utilized
 - [x] Adding USB ports of docking station to the USB port kext
 - [ ] Creating an AppleALC Layout-ID for audio output on Docking Station
@@ -54,38 +60,39 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 
 ## System Specs
 
-Category | Description
--------:|------------
-**Model** | Lenovo ThinkPad T490 
-**Variant** | [**20N3**](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t490-type-20n2-20n3/document-userguide)
-**UEFI BIOS** | v1.85
-**EC** | v1.28
-**ME Firmware** | v12.0.95.2489
-**CPU** | Intel [**Intel Core i5 8265U**](https://www.intel.com/content/www/us/en/products/sku/149088/intel-core-i58265u-processor-6m-cache-up-to-3-90-ghz/specifications.html) (Quad Core)<br> Device-ID: 3EA0
-**RAM** | 16 GB: <ul> <li> 8 GB Samsung DDR 4 @2666 Mhz (soldered) <li> 8 GB Samsung DDR 4 @2666 Mhz (RAM Slot)
-**Storage** | ~~Samsung PM981a NVMe~~ ([**unusable**](https://dortania.github.io/Anti-Hackintosh-Buyers-Guide/Storage.html)) <br> Western Digital PC SN530 NVMe SSD
-**Display** | Full HD (1080p) (Non-Touch)
-**iGPU** | Intel(R) Grpahics UHD 620 (spoofed as Intel UHD 630, BusID: `2`)
-**dGPU** | None
-**Audio** | [**Realtek ALC257**](https://github.com/dreamwhite/ChonkyAppleALC-Build/blob/master/Realtek/ALC257.md) (using Layout `97`)
-**Thunderbolt** | <ul><li>**Model**: Titan Ridge Thunderbolt 3 Connector (USB-C) <li>**Firmware**: 1.41.1353.0  <li>Tested with i-tec [USB-C Metal Nano](https://i-tec.pro/de/produkt/c31nanodockpropd-3/) Docking Station
-**Ethernet** | Intel I219-V
-**WiFi** | Intel AC-9560 <br> **Firmware**: [**`iwm-9000-46`**](https://www.intel.com/content/www/us/en/support/articles/000005511/wireless.html) ([Screenshot](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/blob/main/Additional_Files/Pics/wifi-firmware.png))
-**Bluetooth** | **Device**: Intel Wireless Bluetooth <br> **BT Version**: 5.1 <br> **VID**: `0x8087`, **PID**: `0x0aaa` <br> **Firmware**: `ibt-17-16-1.sfi`, `ibt17-16-1.ddc` <br>**USB Port**: `HS10`
-**Trackpad** | Synaptics <br>**Device-id**: `pci8086,9de8`. Controlled via SMBus.
-**SD Card Reader** | Realtek MicroSD Card Reader (RTS522A)
-**Dock** | [**ThinkPad Ultra Docking Station**](https://support.lenovo.com/us/en/solutions/pd500173-thinkpad-ultra-docking-station-overview-and-service-parts)
+| Category | Description |
+|-------:|------------|
+| **Model** | Lenovo ThinkPad T490 |
+| **Variant** | [**20N3**](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t490-type-20n2-20n3/document-userguide) |
+| **UEFI BIOS** | v1.85 |
+| **EC** | v1.28 |
+| **ME Firmware** | v12.0.95.2489 |
+| **CPU** | Intel [**Intel Core i5 8265U**](https://www.intel.com/content/www/us/en/products/sku/149088/intel-core-i58265u-processor-6m-cache-up-to-3-90-ghz/specifications.html) (Quad Core)<br>Device-ID: 3EA0 |
+| **RAM** | 16 GB: <ul><li>8 GB Samsung DDR 4 @2666 Mhz (soldered)</li><li>8 GB Samsung DDR 4 @2666 Mhz (RAM Slot)</li></ul> |
+| **Storage** | ~~Samsung PM981a NVMe~~ ([**unusable**](https://dortania.github.io/Anti-Hackintosh-Buyers-Guide/Storage.html)) <br>Western Digital PC SN530 NVMe SSD |
+| **Display** | Full HD (1080p) (Non-Touch) |
+| **iGPU** | Intel(R) Graphics UHD 620 (spoofed as Intel UHD 630, BusID: `2`) |
+| **dGPU** | None |
+| **Audio** | [**Realtek ALC257**](https://github.com/dreamwhite/ChonkyAppleALC-Build/blob/master/Realtek/ALC257.md) (using Layout `97`) |
+| **Thunderbolt** | <ul><li>**Model**: Titan Ridge Thunderbolt 3 Connector (USB-C)</li><li>**Firmware**: 1.41.1353.0</li><li>Tested with i-tec [USB-C Metal Nano](https://i-tec.pro/de/produkt/c31nanodockpropd-3/) Docking Station</li></ul> |
+| **Ethernet** | Intel I219-V |
+| **WiFi** | Intel AC-9560 <br>**Firmware**: [`iwm-9000-46`](https://www.intel.com/content/www/us/en/support/articles/000005511/wireless.html) ([Screenshot](Docs/Images/wifi-firmware.png)) |
+| **Bluetooth** | **Device**: Intel Wireless Bluetooth <br>**BT Version**: 5.1 <br>**VID**: `0x8087`, **PID**: `0x0aaa` <br>**Firmware**: `ibt-17-16-1.sfi`, `ibt17-16-1.ddc` <br>**USB Port**: `HS10` |
+| **Trackpad** | Synaptics <br>**Device-id**: `pci8086,9de8`. Controlled via SMBus. |
+| **SD Card Reader** | Realtek MicroSD Card Reader (RTS522A) |
+| **Dock** | [**ThinkPad Ultra Docking Station**](https://support.lenovo.com/us/en/solutions/pd500173-thinkpad-ultra-docking-station-overview-and-service-parts) |
 
 ---
 
 ## BIOS Settings
+
 After powering on the machine, spam <kbd>F1</kbd> until you hear a beep to enter the BIOS. Change the following settings:
 
-Category | Setting
-:-------:|------------
-**Config** | **Display** <ul> <li>Shared Display Priority: `HDMI` <li> Total Graphics Memory: irrelevant for macOS </ul> **CPU** <ul> <li> Intel Hyperthreading Technology: `ON` 
-**Security** | **Fingerprint** <ul><li>Predesktop Authentication: `OFF` </ul> **Security Chip** <ul><li>Security Chip`ON` or `OFF` (enable for Windows 11) </ul> **Memory Protection** <ul> <li> Execution Prevention: `ON`</ul></ul> **Virtualization** <ul><li> Kernel DMA Protection: `ON` (enables `VT-D` by design)</ul> **I/O Port Access** <ul> <li> Ethernet LAN: `ON` <li> Wireless LAN: `ON` <li> Bluetooth: `ON` <li> USB Port: `ON` <li> Memory Card Slot: `ON` <li> Smart Card Slot: `OFF` <li> Integrated Camera: `ON` <li> Integrated Audio: `ON` <li> Microphone: `ON` <li> Fingerprint Reader: `ON` (works in Windows only) or `OFF` <li> Thunderbolt 3: `ON` </ul> **Absolute Persistance Module** <ul><li> Absolute Persistance Module Activation: `Disabled`</ul> **Secure Boot Configuration** <ul><li> Secure Boot: `OFF` </ul> **Intel SGX** <ul><li> Intel SGX Control: `Disabled`
-**Startup** | <ul> <li> **UEFI/ Legacy Boot**: `UEFI Only` <li> **Boot Mode**: `Quick` (Skips Diagnostics)
+| Category | Setting |
+|:-------:|------------|
+| **Config** | **Display** <ul><li>Shared Display Priority: `HDMI`</li><li>Total Graphics Memory: irrelevant for macOS</li></ul> **CPU** <ul><li>Intel Hyperthreading Technology: `ON`</li></ul> |
+| **Security** | **Fingerprint** <ul><li>Predesktop Authentication: `OFF`</li></ul> **Security Chip** <ul><li>Security Chip: `ON` or `OFF` (enable for Windows 11)</li></ul> **Memory Protection** <ul><li>Execution Prevention: `ON`</li></ul> **Virtualization** <ul><li>Kernel DMA Protection: `ON` (enables `VT-D` by design)</li></ul> **I/O Port Access** <ul><li>Ethernet LAN: `ON`</li><li>Wireless LAN: `ON`</li><li>Bluetooth: `ON`</li><li>USB Port: `ON`</li><li>Memory Card Slot: `ON`</li><li>Smart Card Slot: `OFF`</li><li>Integrated Camera: `ON`</li><li>Integrated Audio: `ON`</li><li>Microphone: `ON`</li><li>Fingerprint Reader: `ON` (works in Windows only) or `OFF`</li><li>Thunderbolt 3: `ON`</li></ul> **Absolute Persistence Module** <ul><li>Absolute Persistence Module Activation: `Disabled`</li></ul> **Secure Boot Configuration** <ul><li>Secure Boot: `OFF`</li></ul> **Intel SGX** <ul><li>Intel SGX Control: `Disabled`</li></ul> |
+| **Startup** | <ul><li>**UEFI/Legacy Boot**: `UEFI Only`</li><li>**Boot Mode**: `Quick` (Skips Diagnostics)</li></ul> |
 
 ---
 
@@ -94,39 +101,40 @@ Category | Setting
 <details>
 <summary><strong>Click to reveal</strong></summary><br>
 
-```
+```text
 EFI
 ├── BOOT
 │   └── BOOTx64.efi
 └── OC
     ├── ACPI
-    │   ├── DMAR.aml  
+    │   ├── DMAR.aml
     │   ├── SSDT-ALS0.aml
     │   ├── SSDT-AWAC.aml
-    │   ├── SSDT-EXT1-FixShutdown.aml 
-    │   ├── SSDT-EXT3-LedReset-TP.aml 
-    │   ├── SSDT-EXT4-WakeScreen.aml 
-    │   ├── SSDT-GPRW.aml 
-    │   ├── SSDT-MCHC.aml  
-    │   ├── SSDT-NO-LAP.aml  
-    │   ├── SSDT-OSDW.aml  
-    │   ├── SSDT-PLUG.aml 
-    │   ├── SSDT-PNLF.aml 
-    │   ├── SSDT-PTSWAK.aml 
-    │   ├── SSDT-ThinkPad.aml 
-    │   └── SSDT-USBX.aml 
-    ├── config.plist 
+    │   ├── SSDT-EXT1-FixShutdown.aml
+    │   ├── SSDT-EXT3-LedReset-TP.aml
+    │   ├── SSDT-EXT4-WakeScreen.aml
+    │   ├── SSDT-GPRW.aml
+    │   ├── SSDT-MCHC.aml
+    │   ├── SSDT-NO-LAP.aml
+    │   ├── SSDT-OSDW.aml
+    │   ├── SSDT-PLUG.aml
+    │   ├── SSDT-PNLF.aml
+    │   ├── SSDT-PTSWAK.aml
+    │   ├── SSDT-ThinkPad-490.aml
+    │   ├── SSDT-USBX.aml
+    │   └── SSDT-XHUB.aml
+    ├── config.plist
     ├── Drivers
     │   ├── apfs_aligned.efi
     │   ├── AudioDxe.efi
     │   ├── btrfs_x64.efi
     │   ├── DisablePROCHOT.efi
-    │   ├── ext4_x64.efi 
-    │   ├── HfsPlus.efi 
-    │   ├── OpenCanopy.efi 
-    │   ├── OpenLinuxBoot.efi 
-    │   ├── OpenRuntime.efi 
-    │   └── ResetNvramEntry.efi 
+    │   ├── ext4_x64.efi
+    │   ├── HfsPlus.efi
+    │   ├── OpenCanopy.efi
+    │   ├── OpenLinuxBoot.efi
+    │   ├── OpenRuntime.efi
+    │   └── ResetNvramEntry.efi
     ├── Kexts
     │   ├── AdvancedMap.kext
     │   ├── AirportItlwm_Sequoia.kext
@@ -159,36 +167,37 @@ EFI
     │   ├── SMCSuperIO.kext
     │   ├── USBMap.kext
     │   ├── VirtualSMC.kext
-    │   ├── VoodooPS2Controller.kext
-    │   │   └── Contents
-    │   │       └── PlugIns
-    │   │           ├── VoodooInput.kext (disabled)
-    │   │           ├── VoodooPS2Keyboard.kext
-    │   │           ├── VoodooPS2Mouse.kext (disabled)
-    │   │           └── VoodooPS2Trackpad.kext
-    │   ├── VoodooRMI.kext
-    │   │       └── PlugIns
-    │   │           ├── RMII2C.kext (disabled)
-    │   │           ├── RMISMBus.kext
-    │   │           └── VoodooInput.kext
+    │   ├── VoodooPS2Controller.kext
+    │   │   └── Contents
+    │   │       └── PlugIns
+    │   │           ├── VoodooInput.kext (disabled)
+    │   │           ├── VoodooPS2Keyboard.kext
+    │   │           ├── VoodooPS2Mouse.kext (disabled)
+    │   │           └── VoodooPS2Trackpad.kext
+    │   ├── VoodooRMI.kext
+    │   │   └── PlugIns
+    │   │       ├── RMII2C.kext (disabled)
+    │   │       ├── RMISMBus.kext
+    │   │       └── VoodooInput.kext
     │   ├── VoodooSMBus.kext
+    │   ├── VPXFixUp.kext
     │   └── WhateverGreen.kext
-    ├── OpenCore.efi  (616 KB)
-    ├── Resources
-    │   ├── Audio
-    │   │   └── OCEFIAudio_VoiceOver_Boot.mp3
-    │   ├── Font
-    │   │   ├── Font_1x.bin
-    │   │   ├── Font_1x.png
-    │   │   ├── Font_2x.bin
-    │   │   └── Font_2x.png
-    │   ├── Image
-    │   │   ├── Acidanthera (removed icons from tree view)
-    │   │   │   └── GoldenGate 
-    │   │   └── Blackosx
-    │   │       └── BsxM1 (removed icons from tree view)
-    │   └── Label (removed files from tree view)
-    └── Config.plist
+    ├── OpenCore.efi (616 KB)
+    ├── Resources
+    │   ├── Audio
+    │   │   └── OCEFIAudio_VoiceOver_Boot.mp3
+    │   ├── Font
+    │   │   ├── Font_1x.bin
+    │   │   ├── Font_1x.png
+    │   │   ├── Font_2x.bin
+    │   │   └── Font_2x.png
+    │   ├── Image
+    │   │   ├── Acidanthera (removed icons from tree view)
+    │   │   │   └── GoldenGate
+    │   │   └── Blackosx
+    │   │       └── BsxM1 (removed icons from tree view)
+    │   └── Label (removed files from tree view)
+    └── Config.plist
 ```
 </details>
 
@@ -219,22 +228,23 @@ Navigate to:
 `DeviceProperties → Add → PciRoot(0x0)/Pci(0x2,0x0)`
 
 - **macOS ≤ 13.3:** Disable or remove `enable-backlight-registers-alternative-fix` and use `enable-backlight-registers-fix` instead. This prevents a black screen on affected versions.
-- If you experience display issues, try one of the alternative framebuffer patches provided in `Additional_Files/Framebuffer_Patches/UHD620_Framebuffer_Patches.plist`.
+- If you experience display issues, try one of the alternative framebuffer patches provided in [UHD620_Framebuffer_Patches.plist](Hardware_Support/Graphics/Framebuffer_Patches/UHD620_Framebuffer_Patches.plist).
 
-#### Kernel &rarr; Add
+#### Kernel → Add
 
 ##### Wi-Fi
 
-See [AirPortItlwm vs. Itlwm](AirportItlwm_vs_itlwm.md) for a detailed comparison.
+See [AirPortItlwm vs. Itlwm](Docs/AirportItlwm_vs_itlwm.md) for a detailed comparison.
 
 - **Default:** `AirportItlwm` kexts for **Sonoma, Sequoia, and Tahoe** are included and work without requiring Root Patches.
 - **Alternative:** `itlwm.kext`
-  - Disable `AirportItlwm` kexts.
-  - Enable `itlwm.kext`.
+    - Disable `AirportItlwm` kexts.
+    - Enable `itlwm.kext`.
 
 #### CPUFriend
-- Disable CPUFriend and CPUFriendDataProvider kexts if your system has a different CPU than my T490 model (Intel Core i5-8265U)
-- Generate your own CPUFriendDataProvider kext in Post-Install with [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend)
+
+- Disable CPUFriend and CPUFriendDataProvider kexts if your system has a different CPU than my T490 model (Intel Core i5-8265U).
+- Generate your own CPUFriendDataProvider kext in Post-Install with [CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend).
 
 #### Kernel → Quirks
 
@@ -276,64 +286,68 @@ Save your changes and **test the EFI from a USB drive before installing it to th
 ## Deployment
 
 ### If macOS is installed already
-- Put the EFI folder on a FAT32 formatted USB flash drive
-- Reboot from said USB flash drive for testing
-- If it works, mount your system's ESP (EFI System Partiton), replace the BOOT and OC folders in the EFI folder
-- Continue with Post-Install
+
+- Put the EFI folder on a FAT32 formatted USB flash drive.
+- Reboot from said USB flash drive for testing.
+- If it works, mount your system's ESP (EFI System Partition), replace the BOOT and OC folders in the EFI folder.
+- Continue with Post-Install.
 
 ### If macOS is not installed
-- Follow Dortania's [**OpenCore Install Guide**](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/#making-the-installer) to prepare a USB Installer
-- Next, mount the ESP (EFI System Partiton), of the USB Installer – you can use [**MountEFI**](https://github.com/corpnewt/MountEFI) for this
-- Place the EFI folder in the EFI partition
+
+- Follow Dortania's [**OpenCore Install Guide**](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/#making-the-installer) to prepare a USB Installer.
+- Next, mount the ESP (EFI System Partition) of the USB Installer – you can use [**MountEFI**](https://github.com/corpnewt/MountEFI) for this.
+- Place the EFI folder in the EFI partition.
 - Restart your system and boot from the USB installer.
 - Install macOS.
-- Once macOS is installed, copy the bootloader files from the USB Installer to the internal disk in order to boot without the USB flash drive (&rarr; [Instructions](https://dortania.github.io/OpenCore-Post-Install/universal/oc2hdd.html#grabbing-opencore-off-the-usb))
-- Disconnect the USB Installer and reboot into macOS
-- Continue with Post-Install
+- Once macOS is installed, copy the bootloader files from the USB Installer to the internal disk in order to boot without the USB flash drive (→ [Instructions](https://dortania.github.io/OpenCore-Post-Install/universal/oc2hdd.html#grabbing-opencore-off-the-usb)).
+- Disconnect the USB Installer and reboot into macOS.
+- Continue with Post-Install.
 
 > [!CAUTION]
-> 
-> Upgrading from to macOS 14.3.1 to 14.4 or newer via `System Update` causes a Kernel Panic during install! Disable `AiportItlwm` and enable `itlwm.kext` instead. Set `SecureBootModel` to `Disabled`, reset NVRAM and run the update again. If this does not work, use this [workaround](https://github.com/5T33Z0/OC-Little-Translated/blob/main/W_Workarounds/macOS14.4.md) to install macOS 14.4 on a new APFS volume. Use Migration Manager afterwards to get your data onto the new volume!
+>
+> Upgrading from macOS 14.3.1 to 14.4 or newer via `System Update` causes a Kernel Panic during install! Disable `AirportItlwm` and enable `itlwm.kext` instead. Set `SecureBootModel` to `Disabled`, reset NVRAM and run the update again. If this does not work, use this [workaround](https://github.com/5T33Z0/OC-Little-Translated/blob/main/W_Workarounds/macOS14.4.md) to install macOS 14.4 on a new APFS volume. Use Migration Manager afterwards to get your data onto the new volume!
 
 ---
 
 ## Post-Install
 
 ### Disable Gatekeeper
+
 Gatekeeper can be really annoying and wants to stop you from running python scripts or unsigned apps like Heliport, etc. Do the following to disable it:
 
 - Open Terminal and run: `sudo spctl --master-disable`
-- The process has slightly changed in macOS Sequoia 15.1.1. and newer [more info](https://github.com/5T33Z0/OC-Little-Translated/blob/main/14_OCLP_Wintel/Guides/Disable_Gatekeeper.md)
+- The process has slightly changed in macOS Sequoia 15.1.1 and newer [more info](https://github.com/5T33Z0/OC-Little-Translated/blob/main/14_OCLP_Wintel/Guides/Disable_Gatekeeper.md).
 
 ### Enable ReYogaSMC
 
-&rarr; See [Instructions](Enabling_ReYogaSMC.md)
+→ See [Instructions](Docs/Enabling_ReYogaSMC.md).
 
 ### WiFi
 
-#### Option 1: `AirportItwm` (Default)
+#### Option 1: `AirportItlwm` (Default)
 
-By default, my EFI uses Laobamacs new fork of `AirportItlwm.kext` in macOS Sonoma and newer which does not require any root patches required. Just connect to your WiFi Accesspoint of your choise – no root patches required. 
+By default, my EFI uses Laobamac's new fork of `AirportItlwm.kext` in macOS Sonoma and newer, which does not require any root patches. Just connect to your WiFi access point of your choice – no root patches required.
 
 > [!NOTE]
 >
-> My EFI contains `AirportItlwm.kext` builds for macOS Sonoma, Sequoia, and Tahoe. For older macOS versions, download this [7-Zip archive](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/raw/refs/heads/main/Additional_Files/Kexts/Slimmed_Kexts/Intel_AC-9650/itlwm/2.4.0/Release.7z) containing pre-compiled `AirportItlwm` builds for macOS High Sierra through Tahoe, with firmware specifically for the Intel AC-9650. Extract the archive and use the build matching your macOS version. Use [Keka](https://www.keka.io/de/) for extraction if the built-in unarchiver fails.
+> My EFI contains `AirportItlwm.kext` builds for macOS Sonoma, Sequoia, and Tahoe. For older macOS versions, download this [7-Zip archive](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/raw/refs/heads/main/Kexts/Intel_AC-9560/itlwm/2.4.0/Release.7z) containing pre-compiled `AirportItlwm` builds for macOS High Sierra through Tahoe, with firmware specifically for the Intel AC-9560. Extract the archive and use the build matching your macOS version. Use [Keka](https://www.keka.io/de/) for extraction if the built-in unarchiver fails.
 
-#### Option 2: `Itlwm.kext` (Optional)
+#### Option 2: `itlwm.kext` (Optional)
 
-If you want to use Itlwm.kext for Wifi instead, do the following:
+If you want to use `itlwm.kext` for Wi-Fi instead, do the following:
 
-- Download Josh Calvert's fork of [**Heliport**]([https://github.com/joshcalvert47](https://github.com/joshcalvert47/HeliPort/releases))
+- Download Josh Calvert's fork of [**HeliPort**](https://github.com/joshcalvert47/HeliPort/releases).
 - Mount the **HeliPort.dmg**, drag the app into the "Programs" folder and run it.
 - Adjust Config Settings:
-	- Disable `AirportItlwm` kexts
-	- Enable `Itlwm.kext`
-	- Save config and reboot
-- Run Heliport and connect to your WiFI hotspot.
-- Add HeliPort to "Login Items", so it stars with macOS and connects to your WiFi network automatically.
+    - Disable `AirportItlwm` kexts.
+    - Enable `itlwm.kext`.
+    - Save config and reboot.
+- Run HeliPort and connect to your Wi-Fi hotspot.
+- Add HeliPort to "Login Items", so it starts with macOS and connects to your Wi-Fi network automatically.
 
 ### Configure Hibernation
-Open Terminal and enter the following commands, to enable Hibernation (=`hibernatemode 25`). If you don't want to use Hibernation, use `hibernatemode 3` (= regukar S3 Sleep) instead:
+
+Open Terminal and enter the following commands to enable Hibernation (`hibernatemode 25`). If you don't want to use Hibernation, use `hibernatemode 3` (= regular S3 Sleep) instead:
 
 ```shell
 # Enable hibernatemode 25 (sleep to disk, power off RAM)
@@ -360,20 +374,20 @@ sudo pmset -a womp 0                  # Disable wake-on-LAN
 ```
 
 > [!TIP]
-> 
+>
 > For more details, have a look at my [Hibernation Configuration Guide](https://github.com/5T33Z0/OC-Little-Translated/tree/main/Content/04_Fixing_Sleep_and_Wake_Issues/Changing_Hibernation_Modes).
 
 ### Tips for Firefox users
 
-Firefox users should force H.264 video output to enable hardware decoding to reduce heat generated by software decoding ([Instructions](Enable_Firefox_Hardware-Acceleration.md))
+Firefox users should force H.264 video output to enable hardware decoding to reduce heat generated by software decoding ([Instructions](Docs/Enable_Firefox_Hardware-Acceleration.md)).
 
 ### Configure CPUFriend (optional)
 
 This EFI uses ReYogaSMC for CPU power management, so CPUFriend is disabled by default. If your T490 uses a different CPU than mine, generate your own `CPUFriendDataProvider.kext` using [**CPUFriendFriend**](https://github.com/corpnewt/CPUFriendFriend) to optimize CPU power management for your processor.
 
 > [!CAUTION]
-> 
-> **Do not use CPUFriend together with ReYogaSMC!** I tested both together on my T490 and lost approximately 800 points in the multicore benchmark score (&rarr; see [Benchmarks](Benchmarks.md)). Use only one of these power management solutions at a time. If you prefer to use CPUFriend instead, [disable ReYogaSMC](#disabling-reyogasmc) first.
+>
+> **Do not use CPUFriend together with ReYogaSMC!** I tested both together on my T490 and lost approximately 800 points in the multicore benchmark score (→ see [Benchmarks](Diagnostics/Benchmarks/README.md)). Use only one of these power management solutions at a time. If you prefer to use CPUFriend instead, [disable ReYogaSMC](#disabling-reyogasmc) first.
 
 ### Install MonitorControl (optional)
 
@@ -389,19 +403,19 @@ If you decide to disable ReYogaSMC, do the following:
 
 - Open **System Settings**.
 - Remove `ReYogaSMCNC` from **Login Items**.
-- Delete `ReYogaSMCNC` app.
+- Delete the `ReYogaSMCNC` app.
 
 **In `config.plist`:**
 
 - Under `ACPI/Add`, disable:
-  - `SSDT-THINK.aml`
-  - `SSDT-ECRW.aml`
+    - `SSDT-THINK.aml`
+    - `SSDT-ECRW.aml`
 - Under `Kernel/Add`, disable:
-  - `YogaSMC.kext`
-- Save your config.plist and reboot
+    - `YogaSMC.kext`
+- Save your config.plist and reboot.
 
 > [!NOTE]
-> 
+>
 > After disabling ReYogaSMC, no Fn-Hotkeys besides **Volume** and **Brightness** controls will work.
 
 ---
@@ -410,29 +424,32 @@ If you decide to disable ReYogaSMC, do the following:
 
 Chris1111 has created a helpful little app called [**Wifi-Intel-KextsBuilder**](https://github.com/chris1111/Wifi-Intel-KextsBuilder) which automates the process of compiling Intel Wi-Fi and Bluetooth Firmware kexts. It only requires you to have Xcode installed and will handle the rest on its own once you run it.
 
-Wifi-Intel-KextsBuilder downloads the source code of itlwm, IntelBluetoothFirmware, MacKernelSDK and Lilu and then compiles itlwm, AirportItlwm and Intel Bluetooth Firmware kexts. They will be located under "Users/YOUR_USERNAME/Developer/Wifi-Intel-KextsBuilder/ in the "build/Release" folder of each repo.
+Wifi-Intel-KextsBuilder downloads the source code of itlwm, IntelBluetoothFirmware, MacKernelSDK and Lilu and then compiles itlwm, AirportItlwm and Intel Bluetooth Firmware kexts. They will be located under `Users/YOUR_USERNAME/Developer/Wifi-Intel-KextsBuilder/` in the `build/Release` folder of each repo.
 
-The kexts generated by Wifi-Intel-KextsBuilder will not be compatible with macOS Sequoia and Tahoe since they are based on a different source. They also won't be slimmed like the ones present in my EFI folder but at least you now have a simple option to compile them on your own. For compiling slimmed kexts, [follow my guide](/Additional_Files/Kexts/Slimmed_Kexts/Intel_AC-9650) to do so.
+The kexts generated by Wifi-Intel-KextsBuilder will not be compatible with macOS Sequoia and Tahoe since they are based on a different source. They also won't be slimmed like the ones present in my EFI folder but at least you now have a simple option to compile them on your own. For compiling slimmed kexts, [follow my guide](Kexts/Intel_AC-9650/README.md) to do so.
 
 ## Links
+
 - [Lenovo Driver and Software Matrix](https://download.lenovo.com/cdrt/tools/drivermatrix/dm_2.html)
 - [T490 Thunderbolt EEPROM Fix](https://github.com/SkippyHub/Lenovo-thinkpad-T490-thunderbolt-eeprom-fix)
 
 ## Credits and Thank Yous
+
 - [**Acidanthera**](https://github.com/acidanthera) for OpenCore, Kexts and maciASL
 - Chris1111 for [**Wifi-Intel-KextsBuilder**](https://github.com/chris1111/Wifi-Intel-KextsBuilder)
 - [**CorpNewt**](https://github.com/corpnewt) for ProperTree, CPUFriendFriend and SSDTTime
-- Dreamwhite for guide on how to created slimmed versions of [**itlwm.kext**](https://github.com/dreamwhite/Chonky-itlwm-Build/releases)
+- Dreamwhite for guide on how to create slimmed versions of [**itlwm.kext**](https://github.com/dreamwhite/Chonky-itlwm-Build/releases)
 - [**ic005k**](https://github.com/ic005k/OCAuxiliaryTools) for OpenCore Auxiliary Tools
 - [**benbaker76**](https://github.com/benbaker76/Hackintool) for Hackintool
 - [**zxystd**](https://github.com/zxystd/BrcmPatchRAM) for Sonoma-compatible BrcmPatchRAM kext
-- [**laobamac**](https://github.com/laobamac) for Sequoia/Tahoe compatibile AirportItlwm kext
-- **Special Thx to**:
-	- [1Revenger1](https://github.com/1Revenger1/) for VoodooRMI and fixing issues with the TrackPad
-	-  deeveedee for advice when trying to optimize the framebuffer patch for connecting to my external display. 
-	- **T490 OpenCore Repos** used for referencing and ACPI hotfixes:
-	- [yusifsalam](https://github.com/yusifsalam/t490-macos)
-	- [Krissh-C ](https://github.com/Krissh-C/T490-macOS)
-	- [ganyuanzhen](https://github.com/ganyuanzhen/T490-Hackintosh-Opencore)
-	- [laserdyke](https://github.com/laserdyke/t490-opencore)
-	- [ZoR3oL](https://github.com/ZoR3oL/t490-hackintosh)
+- [**laobamac**](https://github.com/laobamac) for Sequoia/Tahoe-compatible AirportItlwm kext
+- **Special Thanks to**:
+    - [1Revenger1](https://github.com/1Revenger1/) for VoodooRMI and fixing issues with the TrackPad
+    - deeveedee for advice when trying to optimize the framebuffer patch for connecting to my external display
+    - **T490 OpenCore Repos** used for referencing and ACPI hotfixes:
+        - [yusifsalam](https://github.com/yusifsalam/t490-macos)
+        - [Krissh-C](https://github.com/Krissh-C/T490-macOS)
+        - [ganyuanzhen](https://github.com/ganyuanzhen/T490-Hackintosh-Opencore)
+        - [laserdyke](https://github.com/laserdyke/t490-opencore)
+        - [ZoR3oL](https://github.com/ZoR3oL/t490-hackintosh)
+ 

@@ -3,7 +3,7 @@
 ## Instructions
 
 - Download the latest version (at least 2.2.0 or newer!) of the [**ReYogaSMCApp**](https://github.com/hoaug-tran/ReYogaSMC/releases) 
-- Extact it
+- Extract it
 - Copy the `ReYogaSMC` app to Programs Folder
 - Run the app and enter your admin password when prompted to grant it access to system controls, including sensor data, fan control, battery stats, etc.
 - In **Overview**, select your preferred performance profile: `Quiet`, `Balanced`, or `Performance`.

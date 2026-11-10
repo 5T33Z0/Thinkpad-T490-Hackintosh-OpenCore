@@ -4,7 +4,6 @@
 [![macOS](https://img.shields.io/badge/macOS-14.x--26.x-000000?style=for-the-badge&logo=apple&logoColor=white)](https://www.apple.com/macos/)
 [![Release](https://img.shields.io/badge/Download-Latest-2EA44F?style=for-the-badge&logo=github&logoColor=white)](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/releases/latest)
 
-
 ![ThinkPad T490 Hackintosh](https://github.com/5T33Z0/Thinkpad-T490-Hackintosh-OpenCore/assets/76865553/ed932a1a-8205-4b81-a4e2-f68d7d8a7178) 
 
 ---
@@ -318,9 +317,17 @@ Gatekeeper can be really annoying and wants to stop you from running python scri
 - Open Terminal and run: `sudo spctl --master-disable`
 - The process has slightly changed in macOS Sequoia 15.1.1 and newer [more info](https://github.com/5T33Z0/OC-Little-Translated/blob/main/14_OCLP_Wintel/Guides/Disable_Gatekeeper.md).
 
-### Enable ReYogaSMC
+### Configure ReYogaSMC
 
 → See [Instructions](Docs/Enabling_ReYogaSMC.md).
+
+### Workaround for incremental OTA Updates
+
+I was wondering why OTA updates would always fail and that the full installer would be downloaded instead on the next try – even though the system snapshot seal was intact, since no root patches with OCLP were applied. 
+
+It turns out that this is caused by BlueToolFixup.kext as I ([learned only recently](https://github.com/acidanthera/bugtracker/issues/2433)).
+
+So when the macOS 15.8.3 update rolled around, I deactivated BlueToolFixup, rebooted and then checked for updates again, and voila: OTA updates worked as expected. 
 
 ### WiFi
 

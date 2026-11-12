@@ -7,7 +7,7 @@
 
 ## Codec Structure
 
-![](/Hardware_Support/Audio/CodecDump/Codec-Dump.png)
+![](/Diagnostics/SysReport/Audio/Codec-Dump.png)
 
 ## How to
 - Download and unzip the **Latest AppleALC-Release**

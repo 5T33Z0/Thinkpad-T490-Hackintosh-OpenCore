@@ -49,8 +49,8 @@ Leave **H264** *unblocked*. This forces YouTube to serve H264, which is the only
 | Codec | HW Decode | YouTube Default | Action |
 |-------|-----------|-----------------|--------|
 | H264 (avc1) | ✅ | With h264ify | Use this | –
-| VP8 |  (✅) (req. [VPX8MetalDecoder](https://github.com/medkintos/VP8MetalDecoder)) | ❌ No | Block via h264ify (or install VPX8MetalDecoder)
-| VP9 |  ✅ (via [VPXFixUp](https://github.com/medkintos/VPXFixUp)) | ✅ Yes | |
+| VP8 | (✅) (via VPX8MetalDecoder) | ❌ No | Block via h264ify (or install [VPX8MetalDecoder](https://github.com/medkintos/VP8MetalDecoder))
+| VP9 | ✅ (via [VPXFixUp](https://github.com/medkintos/VPXFixUp)) | ✅ Yes | |
 | AV1 | ❌ | Some videos | Block via h264ify |
 | HEVC | ✅ (via VPXFixUp) |✅ (via VPXFixUp) | N/A | –
 

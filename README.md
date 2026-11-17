@@ -20,21 +20,21 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 
 ## ✨ Notable Features
 
-- [x] 📶 **Native Intel Wi-Fi support** — Use Apple’s native Wi-Fi stack in macOS Sequoia and Tahoe without requiring root patches
-- [x] 🎬 Improved hardware-accelerated VP9 and HEVC video decoding in Firefox via [VPXFixUp.kext](https://github.com/medkintos/VPXFixUp?utm_source=chatgpt.com).
+- [x] 📶 **Native Intel Wi-Fi support** — Use Apple’s native Wi-Fi stack in macOS Sequoia and Tahoe without requiring root patches.
+- [x] 🔈 **Native audio support** — Working audio in macOS Tahoe out of the box, without root patches.
+- [x] 🔌 **Fully functional Thunderbolt 3** — Thunderbolt 3 over USB-C works as intended.
+- [x] 🖥️ **Optimized framebuffer patch** — Improves handshaking with external displays and enables working Clamshell mode.
+- [x] 🎬 **Improved hardware-accelerated VP9 and HEVC video decoding in Firefox** — Via [VPXFixUp.kext](https://github.com/medkintos/VPXFixUp).
+- [x] 🌡️ **Resolved CPU thermal throttling** — Addressed CQL (Lap Mode) and STP (Skin Temperature Protection) issues via ReYogaSMC.
+- [x] 🌀 **Improved CPU fan control** — Added custom fan curves via ReYogaSMC, utilizing the fan's full RPM range (up to ~7,000 RPM).
+- [x] 💤 **Proper hibernation support** — Supports hibernation modes `3` and `25`.
 - [x] Features enabled by ReYogaSMC:
-    - [x] ⌨️ All Fn hotkeys functional
-    - [x] 🧊 Power Profiles: Quiet, Balanced, and Performance
-    - [x] 🌬️ Working Fan Controls with different Modes: Auto, Manual, Custom Curve, Full
-- [x] 🔈 **Working audio in macOS Tahoe out of the box** — No root patches required
-- [x] 🔌 **Fully functional Thunderbolt 3** — Thunderbolt 3 over USB-C works as intended
-- [x] 🖥️ **Optimized framebuffer patch** — Improves handshaking with external displays and working Clamshell mode
-- [x] 💤 **Proper hibernation support** — Supports hibernation modes `3` and `25`
-- [x] ⚡ **Improved wake performance** — Disables BDPROCHOT to prevent performance issues after waking from S3/S4 sleep
-- [x] 🌡️ **Fixed thermal throttling** — Disables ThinkPad Lapmode and prevents artificial TDP limits under Windows and Linux
-- [x] 🐧 **Linux boot support** — Adds Linux filesystem drivers to boot Linux directly from the OpenCore GUI (enable if needed)
-- [x] 🌍 **Working 3D globe in Apple Maps** — Restores the 3D globe on macOS Monterey and later
-- [x] 🪶 **Lean EFI** — Reduced EFI size from 62 MB to 18 MB by removing unnecessary firmware and resources
+    - [x] ⌨️ **Full Fn hotkey support**
+    - [x] 🧊 **CPU power profiles** — Quiet, Balanced and Performance.
+    - [x] 🌬️ **Advanced fan control** — Auto, Manual, Custom Curve and Full Speed.
+- [x] 🐧 **Linux boot support** — Adds Linux filesystem drivers to boot Linux directly from the OpenCore GUI (optional).
+- [x] 🌍 **Working 3D globe in Apple Maps** — Restores the 3D globe on macOS Monterey and later.
+- [x] 🪶 **Lean EFI** — Reduced EFI size from 62 MB to 18 MB by removing unnecessary firmware and resources.
 
 ---
 

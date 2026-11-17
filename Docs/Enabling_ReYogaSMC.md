@@ -11,12 +11,6 @@
 - Enable `Restore Fan Mode on Startup`
 - Open the Options and enable Autostart
 
-> [!IMPORTANT]
->
-> **Avoid `BIOS Auto` mode under Fan Control!** 
->
-> Due to a firmware bug on the ThinkPad T490, fan speed is capped at approximately 3,500 RPM, regardless of CPU load, while it can reach up to 6,700 RPM at max. This limitation can therefore lead to increased temperatures, thermal throttling, and reduced performance under sustained workloads.
-
 ## Implemented Fn-Hotkey Combos
 
 Key Combo | Funtion
@@ -39,6 +33,11 @@ I've adjusted the temps and Levels as follows:
 
 <img width="680" height="588" alt="Fan_Curve" src="https://github.com/user-attachments/assets/09a36203-c8db-484c-88d1-3b8fe6eb4e94" />
 
+> [!IMPORTANT]
+>
+> **Avoid `BIOS Auto` mode under Fan Control!**
+>
+> Due to a firmware bug on the ThinkPad T490, fan speed is capped at approximately 3,500 RPM, regardless of CPU load, while it can reach up to 6,700 RPM at max. This limitation can therefore lead to increased temperatures, thermal throttling, and reduced performance under sustained workloads.
 
 ## Credits
 - Hoaug-Tran for [**ReYogaSMC**](https://github.com/hoaug-tran/ReYogaSMC)

@@ -17,22 +17,28 @@
 >
 > Due to a firmware bug on the ThinkPad T490, fan speed is capped at approximately 3,500 RPM, regardless of CPU load, while it can reach up to 6,700 RPM at max. This limitation can therefore lead to increased temperatures, thermal throttling, and reduced performance under sustained workloads.
 
-## Working Fn-Hotkey Combos
+## Implemented Fn-Hotkey Combos
 
 Key Combo | Funtion
 --- | ---
-<kbd>Fn</kbd>+<kbd>F1</kbd>| Speaker Mute/Unmute
-<kbd>Fn</kbd>+<kbd>F2</kbd>| Volume down
-<kbd>Fn</kbd>+<kbd>F3</kbd>| Volume Up
-<kbd>Fn</kbd>+<kbd>F4</kbd>| Mic Mute/Unmute 
-<kbd>Fn</kbd>+<kbd>F5</kbd>| Backlight down
-<kbd>Fn</kbd>+<kbd>F6</kbd>| Backlight up
-<kbd>Fn</kbd>+<kbd>F7</kbd>| Opens Display Options
-<kbd>Fn</kbd>+<kbd>F8</kbd>| Wifi Enable/Disable
-<kbd>Fn</kbd>+<kbd>F9</kbd>| Opens System Settings
+<kbd>Fn</kbd>+<kbd>F1</kbd> | Speaker Mute/Unmute
+<kbd>Fn</kbd>+<kbd>F2</kbd> | Volume down
+<kbd>Fn</kbd>+<kbd>F3</kbd> | Volume Up
+<kbd>Fn</kbd>+<kbd>F4</kbd> | Mic Mute/Unmute 
+<kbd>Fn</kbd>+<kbd>F5</kbd> | Backlight down
+<kbd>Fn</kbd>+<kbd>F6</kbd> | Backlight up
+<kbd>Fn</kbd>+<kbd>F7</kbd> | Opens Display Options
+<kbd>Fn</kbd>+<kbd>F8</kbd> | Wifi Enable/Disable
+<kbd>Fn</kbd>+<kbd>F9</kbd> | Opens System Settings
 <kbd>Fn</kbd>+<kbd>F10</kbd>| Bluetooth Enable/Disable
 <kbd>Fn</kbd>+<kbd>F11</kbd>| Keyboard Disable/Enable
 <kbd>Fn</kbd>+<kbd>F12</kbd>| Opens ReYogaSMCNC's Settings
+
+## My CPU Fan Curve
+I've adjusted the temps and Levels as follows:
+
+<img width="680" height="588" alt="Fan_Curve" src="https://github.com/user-attachments/assets/09a36203-c8db-484c-88d1-3b8fe6eb4e94" />
+
 
 ## Credits
 - Hoaug-Tran for [**ReYogaSMC**](https://github.com/hoaug-tran/ReYogaSMC)

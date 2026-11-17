@@ -25,7 +25,7 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 - [x] 🔌 **Fully functional Thunderbolt 3** — Thunderbolt 3 over USB-C works as intended.
 - [x] 🖥️ **Optimized framebuffer patch** — Improves handshaking with external displays and enables working Clamshell mode.
 - [x] 🎬 **Improved hardware-accelerated VP9 and HEVC video decoding in Firefox** — Via [VPXFixUp.kext](https://github.com/medkintos/VPXFixUp).
-- [x] 🌡️ **Resolved CPU thermal throttling** — Addressed CQL (Lap Mode) and STP (Skin Temperature Protection) issues via ReYogaSMC.
+- [x] 🌡️ **Resolved CPU thermal throttling** — Addressed CQL (Lap Mode) and STP (Skin Temperature Protection) issues via ReYogaSMC ([Explanation](/Docs/How_ReYogaSMC_Fixes_T490.md))
 - [x] 🌀 **Improved CPU fan control** — Added custom fan curves via ReYogaSMC, utilizing the fan's full RPM range (up to ~6,700 RPM).
 - [x] 💤 **Proper hibernation support** — Supports hibernation modes `3` and `25`.
 - [x] Features enabled by ReYogaSMC:

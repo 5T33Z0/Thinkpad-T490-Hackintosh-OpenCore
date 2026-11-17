@@ -2,9 +2,9 @@
 
 ## Test Evironment
 
-**CPU**: Intel Core i5 8265U (Quad Core)
-**iGPU**: Intel UHD 620 (spoofed as UHD 630)
-**Tool**: Geekbench 5.5.1
+**CPU**: Intel Core i5 8265U (Quad Core)<br>
+**iGPU**: Intel UHD 620 (spoofed as UHD 630)<br>
+**Tool**: Geekbench 5.5.1<br>
 **Thermal Paste**: Arctic Cooling MX7
 
 ## CPU Results

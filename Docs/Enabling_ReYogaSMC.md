@@ -35,7 +35,7 @@ I've adjusted the temps and Levels as follows:
 
 > [!IMPORTANT]
 >
-> **Avoid `BIOS Auto` mode under Fan Control!**
+> **Avoid `BIOS Auto` cooling mode**
 >
 > Due to a firmware bug on the ThinkPad T490, fan speed is capped at approximately 3,500 RPM, regardless of CPU load, while it can reach up to 6,700 RPM at max. This limitation can therefore lead to increased temperatures, thermal throttling, and reduced performance under sustained workloads.
 

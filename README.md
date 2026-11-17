@@ -23,6 +23,7 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 - [x] 📶 **Native Intel Wi-Fi support** — Use Apple’s native Wi-Fi stack in macOS Sequoia and Tahoe without requiring root patches.
 - [x] 🔈 **Native audio support** — Working audio in macOS Tahoe out of the box, without root patches.
 - [x] 🔌 **Fully functional Thunderbolt 3** — Thunderbolt 3 over USB-C works as intended.
+- [x] 🔌 **OS-agnostic, ACPI-based USB port mapping** — Uses a custom SSDT to define USB port mappings at the ACPI level, eliminating the need for OS-specific USB mapping kexts.
 - [x] 🖥️ **Optimized framebuffer patch** — Improves handshaking with external displays and enables working Clamshell mode.
 - [x] 🎬 **Improved hardware-accelerated VP9 and HEVC video decoding in Firefox** — Via [VPXFixUp.kext](https://github.com/medkintos/VPXFixUp).
 - [x] 🌡️ **Resolved CPU thermal throttling** — Addressed CQL (Lap Mode) and STP (Skin Temperature Protection) issues via ReYogaSMC ([Explanation](/Docs/How_ReYogaSMC_Fixes_T490.md))
@@ -51,8 +52,6 @@ OpenCore EFI folder and config for running macOS Sonoma and newer on the Lenovo 
 
 ## Future Developments
 
-- [x] Adjusted Framebuffer Patch so HDMI/DP Ports on docking stations can be utilized
-- [x] Adding USB ports of docking station to the USB port kext
 - [ ] Creating an AppleALC Layout-ID for audio output on Docking Station
 
 ---

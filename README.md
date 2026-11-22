@@ -399,6 +399,12 @@ This EFI uses ReYogaSMC for CPU power management, so CPUFriend is disabled by de
 
 [**MonitorControl**](https://github.com/MonitorControl/MonitorControl) is a helpful little tool that lets you control the brightness and contrast of external displays from the menubar.
 
+### Thunderbolt
+
+If you need Thunderbolt functionality, check out the SSDTs in the [Hardware_Support/Thunderbolt](/Hardware_Support/Thunderbolt) section, kindly provided by [**vjeeva**](https://github.com/vjeeva).
+
+Unfortunately, I don't have any Thunderbolt devices to test these SSDTs myself.
+
 ---
 
 ### Disabling ReYogaSMC

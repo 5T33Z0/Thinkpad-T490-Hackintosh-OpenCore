@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ACPI</key>
+	<dict>
+		<key>Add</key>
+		<array>
+			<dict>
+				<key>Comment</key>
+				<string>Optional T490 Alpine Ridge: OEM-granted first-child removability</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Path</key>
+				<string>SSDT-RP05HP.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Optional T490 Alpine Ridge: native classification and onboard USB exclusion</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Path</key>
+				<string>SSDT-TBCLASS.aml</string>
+			</dict>
+		</array>
+	</dict>
+</dict>
+</plist>
